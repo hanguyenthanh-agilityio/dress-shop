@@ -14,15 +14,6 @@
     "test": "jest --watch",
     "test-coverage": "jest --coverage"
   },
-  "jest": {
-    "projects": [
-      "src/jest.config.js"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ]
-  },
   "dependencies": {
     "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
@@ -35,6 +26,7 @@
   "devDependencies": {
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
+    "@chakra-ui/storybook-addon": "^5.0.1",
     "@storybook/addon-essentials": "7.5.2",
     "@storybook/addon-interactions": "7.5.2",
     "@storybook/addon-links": "7.5.2",

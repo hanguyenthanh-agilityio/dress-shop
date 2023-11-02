@@ -3,7 +3,6 @@ export default {
   collectCoverage: true,
   coverageDirectory: "coverage",
   moduleDirectories: ["node_modules", "src"],
-  setupFilesAfterEnv: ["./setupTests.js"],
   moduleNameMapper: {
     "/^(.*)$/": "<rootDir>/src/$1",
     "@/assets/(.*)": "<rootDir>/src/assets/$1",
