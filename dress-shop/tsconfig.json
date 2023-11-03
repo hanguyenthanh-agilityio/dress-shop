@@ -23,10 +23,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
 
-    "types": ["vitest/globals", "node", "jest", "@testing-library/jest-dom"]
+    "types": ["vitest/globals", "node", "jest"]
   },
-  "include": ["src"],
+  "include": ["src", "./setupTests.ts"],
   "exclude": ["node_modules", "src/themes"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
