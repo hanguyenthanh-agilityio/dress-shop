@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 coverage
+src/components/**/__snapshots__
 dist-ssr
 *.local
 
@@ -23,3 +24,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.eslintcache

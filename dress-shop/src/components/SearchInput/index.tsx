@@ -1,5 +1,5 @@
 import { Icon, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
-import {Search2Icon} from "@chakra-ui/icons"
+import {SearchIcon} from "@chakra-ui/icons"
 
 interface SearchInputProps {
   placeholder?: string;
@@ -12,20 +12,24 @@ const SearchInput = ({
 }: SearchInputProps) => {
 
   return (
-    <InputGroup>
+    <InputGroup maxW="300px">
       <Input
+        background="background.light"
         placeholder={placeholder}
         onChange={onChange}
         name="search-input"
         data-testid="search-input-field"
       />
       <InputRightElement
+        right="16px"
+        bottom="0px"
+        top="0px"
         children={
           <Icon
-            as={Search2Icon}
+            as={SearchIcon}
             color="text.helper"
-            w="30px"
-            h="30px"
+            w="22px"
+            h="22px"
           />
         }
       />

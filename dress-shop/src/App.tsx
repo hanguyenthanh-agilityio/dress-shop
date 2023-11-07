@@ -22,12 +22,10 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
-      <ChakraProvider theme={CHAKRA_THEME_DEFAULT}>
-        <RouterProvider router={router} />
-        <SearchInput onChange={()=>{}}/>
-      </ChakraProvider>
-    </>
+    <ChakraProvider theme={CHAKRA_THEME_DEFAULT}>
+      <RouterProvider router={router} />
+      <SearchInput onChange={()=>{}}/>
+    </ChakraProvider>
   )
 }
 

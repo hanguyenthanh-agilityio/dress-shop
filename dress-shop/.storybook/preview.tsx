@@ -17,11 +17,11 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <BrowserRouter>
+      // <BrowserRouter>
         <ChakraProvider theme={CHAKRA_THEME_DEFAULT}>
           <Story />
         </ChakraProvider>
-      </BrowserRouter>
+      // </BrowserRouter>
     ),
   ],
 };
