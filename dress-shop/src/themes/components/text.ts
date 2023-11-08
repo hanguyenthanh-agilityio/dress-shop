@@ -8,6 +8,16 @@ export const Text = {
     default: {
       fontSize: "17px",
     },
+    medium: {
+      fontSize: "18px",
+    }
+  },
+
+  variants: {
+    primary: {
+      color: "text.primary",
+      fontWeight: "600",
+    }
   },
 
   defaultProps: {
