@@ -1,5 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 import colors from "./color";
+import { breakpoints } from './breakpoints';
 
 // Components
 import * as components from "./components";
@@ -10,7 +11,8 @@ const overrides = {
     body: `'Poppins', sans-serif`,
   },
   components: { ...components },
-  colors
+  colors,
+  breakpoints
 };
 
 const CHAKRA_THEME_DEFAULT = extendTheme(overrides);

@@ -1,30 +1,23 @@
-import { Box, Container, Stack, Text } from '@chakra-ui/react';
+import { Box, Container, Flex, Stack, Text } from '@chakra-ui/react';
+import { FaFacebook, FaInstagram, FaGithub } from 'react-icons/fa'
+import { IconContext } from "react-icons";
 
 const Footer = () => {
   return (
     <Box
-      bg="black"
-      color="mintcream">
-      <Container
-        as={Stack}
-        maxW={'6xl'}
-        py={4}
-        direction={{ base: 'column', md: 'row' }}
-        spacing={4}
-        justify={{ base: 'center', md: 'space-between' }}
-        align="center">
-        <Text color="white">© 2020 Dress Shop. All rights reserved.</Text>
-        <Stack direction="row" spacing={6}>
-          {/* <SocialButton label={'Twitter'} href={'#'}>
-            <FaTwitter />
-          </SocialButton>
-          <SocialButton label={'YouTube'} href={'#'}>
-            <FaYoutube />
-          </SocialButton>
-          <SocialButton label={'Instagram'} href={'#'}>
-            <FaInstagram />
-          </SocialButton> */}
-        </Stack>
+      bg="background.dark"
+      color="text.default">
+      <Container>
+        <Flex justifyContent="space-between" alignItems="center" py="15px">
+          <Text color="white" my="15px">© 2020 Dress Shop. All rights reserved.</Text>
+          <Stack direction="row" spacing={6}>
+            <IconContext.Provider value={{ size:"22px"}}>
+              <FaFacebook />
+              <FaInstagram />
+              <FaGithub />
+            </IconContext.Provider>
+          </Stack>
+        </Flex>
       </Container>
     </Box>
   );
