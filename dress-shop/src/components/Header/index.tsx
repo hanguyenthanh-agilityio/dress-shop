@@ -1,5 +1,7 @@
-import { Button, Flex, Heading } from "@chakra-ui/react"
+import { Flex, Heading, Image, Text } from "@chakra-ui/react";
 import SearchInput from "../SearchInput";
+import cart  from "../../assets/Images/cart.svg";
+
 
 const Header = () => {
   return (
@@ -7,7 +9,12 @@ const Header = () => {
       <Heading>Dress</Heading>
       <Flex alignItems="center">
         <SearchInput onChange={()=>{}} />
-        <Button>Cart</Button>
+        <Flex alignItems="center" pl="30px" pr="10px" cursor="pointer">
+          <Image
+            src={cart}
+          />
+          <Text pl="5px">Cart</Text>
+        </Flex>
       </Flex>
     </Flex>
   )

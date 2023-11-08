@@ -4,6 +4,7 @@ module.exports = {
   preset: "ts-jest",
   moduleNameMapper: {
     "@components/(.*)$": "<rootDir>/src/components/$1",
+    "@/assets/(.*)": "<rootDir>/src/assets/$1",
   },
   testPathIgnorePatterns: [
     "<rootDir>/build/",
@@ -16,7 +17,7 @@ module.exports = {
   testEnvironment: "jsdom",
   collectCoverage: true,
   collectCoverageFrom: [
-    "**/src/components/**/*.{js,ts,tsx}",
+    "**/src/**/*.{js,ts,tsx}",
     "!**/*.test.{js,ts,tsx}",
     "!**/*.stories.{js,ts,tsx}",
     "!src/themes/**/*.{js,ts,tsx}",
