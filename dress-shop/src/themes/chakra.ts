@@ -16,4 +16,3 @@ const overrides = {
 const CHAKRA_THEME_DEFAULT = extendTheme(overrides);
 
 export default CHAKRA_THEME_DEFAULT;
-
