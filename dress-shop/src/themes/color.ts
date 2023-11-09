@@ -5,8 +5,13 @@ const colors = {
     700: "#2a69ac",
   },
 
+  text: {
+    default: "#fff",
+  },
+
   background: {
-    light: "#f1f3f5"
+    light: "#f1f3f5",
+    dark: "#1a1a1a",
   },
 
   inactive: {
