@@ -1,7 +1,8 @@
 import { StoryObj, Meta } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
 import ListProduct from '.';
-import { PRODUCT } from '../../constants/common';
+import { PRODUCTS } from '../../Mock/common';
+
 
 export default {
   title: 'Components/ListProduct',
@@ -19,6 +20,6 @@ type Story = StoryObj<typeof ListProduct>;
 
 export const Default: Story = {
   args: {
-    product: PRODUCT
+    product: PRODUCTS
   }
 };

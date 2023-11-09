@@ -1,4 +1,4 @@
-import { PRODUCTS } from "../../constants/common";
+import { PRODUCTS } from "../../Mock/common";
 import ListProducts from "../../components/ListProduct";
 import { Container } from "@chakra-ui/react";
 
