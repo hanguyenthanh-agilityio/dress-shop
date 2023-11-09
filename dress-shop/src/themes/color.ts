@@ -7,6 +7,7 @@ const colors = {
 
   text: {
     default: "#fff",
+    primary: "#d82c23",
   },
 
   background: {
