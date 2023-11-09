@@ -1,11 +1,11 @@
-import { PRODUCT } from "../../constants/common";
+import { PRODUCTS } from "../../constants/common";
 import ListProducts from "../../components/ListProduct";
 import { Container } from "@chakra-ui/react";
 
 const ProductList = () => {
   return (
     <Container>
-      <ListProducts product={PRODUCT} />
+      <ListProducts product={PRODUCTS} />
     </Container>
   )
 }
