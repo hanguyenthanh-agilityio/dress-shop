@@ -9,7 +9,7 @@ interface CardProps {
   src: string;
   altText?: string;
   name: string;
-  price: string;
+  price: number;
 }
 
 const Card = ({
@@ -47,7 +47,7 @@ const Card = ({
           {name}
         </Text>
         <Text size="medium" variant="primary">
-          {price}
+          P{price}
         </Text>
       </Flex>
     </Flex>
