@@ -2,5 +2,5 @@ export type Product = {
   src: string;
   altText?: string;
   name: string;
-  price: string;
+  price: number;
 };

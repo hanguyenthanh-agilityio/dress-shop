@@ -11,8 +11,6 @@ import SearchInput from './components/SearchInput'
 import Header from './components/Header'
 import GlobalStyles from './globalStyles'
 import Footer from './components/Footer'
-import Card from './components/Card'
-import { CARD } from './constants/common'
 
 const router = createBrowserRouter([
   {
@@ -33,12 +31,6 @@ function App() {
       <Header />
       <Footer />
       <GlobalStyles />
-      <Card
-        src={CARD.imageURL}
-        altText={CARD.name}
-        name={CARD.name}
-        price={CARD.price}
-      />
     </ChakraProvider>
   );
 }
