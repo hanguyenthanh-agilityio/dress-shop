@@ -1,26 +1,10 @@
 import './App.css'
-import {
-  createBrowserRouter,
-  RouterProvider
-} from 'react-router-dom'
-import ProductList from './pages/ProductList/productList'
-import ProductDetail from './pages/ProductDetail/productDetail'
+import { RouterProvider } from 'react-router-dom'
 import { ChakraProvider, CSSReset } from '@chakra-ui/react'
 import CHAKRA_THEME_DEFAULT from './themes/chakra'
 import GlobalStyles from './globalStyles'
-import ErrorPage from './components/ErrorPage'
+import { router } from './routes'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <ProductList />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/product-detail",
-    element: <ProductDetail />,
-  },
-]);
 
 function App() {
   return (
