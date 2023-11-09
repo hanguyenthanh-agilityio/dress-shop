@@ -5,6 +5,10 @@ import colors from "./color";
 import * as components from "./components";
 
 const overrides = {
+  fonts: {
+    heading: `'Poppins', sans-serif`,
+    body: `'Poppins', sans-serif`,
+  },
   components: { ...components },
   colors
 };

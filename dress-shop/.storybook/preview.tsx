@@ -1,8 +1,6 @@
 import React from 'react'
 import type { Preview } from '@storybook/react';
 import { ChakraProvider, theme } from '@chakra-ui/react';
-import { BrowserRouter } from 'react-router-dom';
-
 import CHAKRA_THEME_DEFAULT from '../src/themes/chakra';
 
 const preview: Preview = {
@@ -17,11 +15,9 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <BrowserRouter>
         <ChakraProvider theme={CHAKRA_THEME_DEFAULT}>
           <Story />
         </ChakraProvider>
-      </BrowserRouter>
     ),
   ],
 };
