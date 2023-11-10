@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from 'react-router-dom'
-import ProductList from './pages/ProductList/productList'
+import Home from './pages/Home'
 import ProductDetail from './pages/ProductDetail/productDetail'
 import { ChakraProvider, CSSReset } from '@chakra-ui/react'
 import CHAKRA_THEME_DEFAULT from './themes/chakra'
@@ -13,7 +13,7 @@ import ErrorPage from './components/ErrorPage'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ProductList />,
+    element: <Home />,
     errorElement: <ErrorPage />,
   },
   {
