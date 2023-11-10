@@ -64,3 +64,15 @@ export const CARD = {
   name: 'Long Sleeves Polka Dots',
   price: 800,
 }
+
+export const slides = [
+  {
+    img: "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1582518206%2Fbanner-3_mczlxb.jpg&w=3840&q=75",
+  },
+  {
+    img: "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1582518195%2Fbanner-2_htripb.jpg&w=3840&q=75",
+  },
+  {
+    img: "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1582518190%2Fbanner-1_sysmlz.jpg&w=3840&q=75",
+  },
+];
