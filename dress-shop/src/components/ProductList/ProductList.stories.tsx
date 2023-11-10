@@ -1,12 +1,12 @@
 import { StoryObj, Meta } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
-import ListProduct from '.';
+import ProductList from '.';
 import { PRODUCTS } from '../../Mock/common';
 
 
 export default {
-  title: 'Components/ListProduct',
-  component: ListProduct,
+  title: 'Components/ProductList',
+  component: ProductList,
   decorators: [
     (Story) => (
       <MemoryRouter>
@@ -16,10 +16,10 @@ export default {
   ]
 } as Meta;
 
-type Story = StoryObj<typeof ListProduct>;
+type Story = StoryObj<typeof ProductList>;
 
 export const Default: Story = {
   args: {
-    product: PRODUCTS
+    products: PRODUCTS
   }
 };
