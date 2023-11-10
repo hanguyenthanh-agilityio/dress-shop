@@ -1,8 +1,14 @@
-import Carousel from "../../layouts/Carousel";
-import { PRODUCTS } from "../../Mock/common";
-import ProductList from "../../components/ProductList";
 import { Container } from "@chakra-ui/react";
+
+// Components
+import ProductList from "../../components/ProductList";
+
+// Layouts
+import Carousel from "../../layouts/Carousel";
 import Categories from "../../layouts/Categories";
+
+// Mocks
+import { PRODUCTS } from "../../Mock/common";
 
 const Home = () => {
   return (
