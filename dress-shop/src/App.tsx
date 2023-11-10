@@ -5,17 +5,16 @@ import {
 } from 'react-router-dom'
 import ProductList from './pages/ProductList/productList'
 import ProductDetail from './pages/ProductDetail/productDetail'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, CSSReset } from '@chakra-ui/react'
 import CHAKRA_THEME_DEFAULT from './themes/chakra'
-import SearchInput from './components/SearchInput'
-import Header from './components/Header'
 import GlobalStyles from './globalStyles'
-import Footer from './components/Footer'
+import ErrorPage from './components/ErrorPage'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <ProductList />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/product-detail",
@@ -26,10 +25,8 @@ const router = createBrowserRouter([
 function App() {
   return (
     <ChakraProvider theme={CHAKRA_THEME_DEFAULT}>
+      <CSSReset />
       <RouterProvider router={router} />
-      <SearchInput onChange={() => {}} />
-      <Header />
-      <Footer />
       <GlobalStyles />
     </ChakraProvider>
   );
