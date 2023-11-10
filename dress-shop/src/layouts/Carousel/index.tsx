@@ -1,10 +1,11 @@
-import { slides } from "../../Mock/common";
-import { Box, Flex, Image, HStack } from "@chakra-ui/react";
 import { SetStateAction, useState } from "react";
+import { Box, Flex, Image, HStack } from "@chakra-ui/react";
+
+// Mocks
+import { slides } from "../../Mock/common";
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slidesCount = slides.length;
   const setSlide = (slide: SetStateAction<number>) => {
     setCurrentSlide(slide);
   };
@@ -34,7 +35,7 @@ const Carousel = () => {
         </Flex>
         <HStack justify="center" pos="absolute" bottom="30px" w="full">
           {Array.from({
-            length: slidesCount,
+            length: slides.length,
           }).map((_, slide) => (
             <Box
               key={`dots-${slide}`}
