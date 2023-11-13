@@ -18,6 +18,18 @@ export const Button = {
       bg: "brand.80",
       color: "button.reversal",
     },
+
+    quantity: {
+      border: "1px solid",
+      bg: "background.light",
+      w: "42px",
+      h: "40px",
+      borderRadius: "none",
+      borderColor: "#f1f3f5",
+      _hover: {
+        backgroundColor: "#e2e8f0"
+      }
+    }
   },
 
   defaultProps: {
