@@ -10,6 +10,7 @@ import MainLayout from '../layouts/MainLayout';
 // Pages
 import Home from '../pages/Home';
 import ProductDetail from '../pages/ProductDetail';
+import ProductCart from '../pages/ProductCart';
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         element: <ProductDetail />,
         path: '/product-detail/:productId',
+      },
+      {
+        element: <ProductCart />,
+        path: '/product-cart',
       },
     ],
   },
