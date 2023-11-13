@@ -14,7 +14,7 @@ interface CardProps {
 
 const Card = ({
   src,
-  altText,
+  altText,  // Set default value
   name,
   price
 }: CardProps) => {
