@@ -23,11 +23,11 @@ export const router = createBrowserRouter([
       },
       {
         element: <ProductDetail />,
-        path: '/product-detail/:productId',
+        path: '/product/:productId',
       },
       {
         element: <ProductCart />,
-        path: '/product-cart',
+        path: '/cart',
       },
     ],
   },
