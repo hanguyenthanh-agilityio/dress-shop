@@ -9,15 +9,15 @@ const Quantity = () => {
       max: 10,
     })
 
-  const inc = getIncrementButtonProps()
-  const dec = getDecrementButtonProps()
+  const decrementButton = getDecrementButtonProps()
+  const incrementButton = getIncrementButtonProps()
   const input = getInputProps()
 
   return (
     <HStack maxW="142px" gap="none">
-      <Button variant="quantity" {...dec}>-</Button>
+      <Button variant="quantity" {...decrementButton}>-</Button>
       <Input variant="quantity" size="primary" {...input} />
-      <Button variant="quantity" {...inc}>+</Button>
+      <Button variant="quantity" {...incrementButton}>+</Button>
     </HStack>
   )
 }
