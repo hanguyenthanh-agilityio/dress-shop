@@ -1,18 +1,41 @@
-import { Button, Flex, Select, Text } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
+import Select from "../Select";
+import SelectType from "../../types/select";
 
-const SortBar = () => {
+interface SortBarProps {
+  options: SelectType[];
+  onClickMenCategories: () => void;
+  onClickWomenCategories: () => void;
+}
 
+const SortBar = ({
+  options,
+  onClickMenCategories,
+  onClickWomenCategories
+}: SortBarProps) => {
   return (
-    <Flex>
+    <Flex justifyContent="space-between" bg="#e5e5e5">
       <Flex>
-        <Button>Men</Button>
-        <Button>Women</Button>
+        <Button
+          variant="primary"
+          size="medium"
+          onClick={onClickMenCategories}
+          data-testid="men-categories"
+        >
+          Men
+        </Button>
+        <Button
+          variant="primary"
+          size="medium"
+          onClick={onClickWomenCategories}
+          data-testid="women-categories"
+        >
+          Women
+        </Button>
       </Flex>
-      <Flex>
-        <Text>Sort by</Text>
-        <Select placeholder="Price">
-          123
-        </Select>
+      <Flex alignItems="center" textAlign="center" w="300px">
+        <Text pr="10px">Sort by</Text>
+        <Select options={options} />
       </Flex>
     </Flex>
   )
