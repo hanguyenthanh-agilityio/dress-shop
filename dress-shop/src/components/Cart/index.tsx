@@ -1,4 +1,4 @@
-import { Table, TableContainer } from "@chakra-ui/react";
+import { Table } from "@chakra-ui/react";
 
 // Components
 import CartHeader from "./CartHeader";
@@ -11,11 +11,9 @@ interface CartProp {
 }
 
 const Cart = ({ headerList }: CartProp) => (
-  <TableContainer minH="630px">
     <Table>
       <CartHeader headerList={headerList} />
     </Table>
-  </TableContainer>
 );
 
 export default Cart;
