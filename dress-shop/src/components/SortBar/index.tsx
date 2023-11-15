@@ -1,39 +1,33 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
 import Select from "../Select";
 import SelectType from "../../types/select";
+import { Categories } from "../../types/common";
 
 interface SortBarProps {
+  categories: Categories[];
   options: SelectType[];
-  onClickMenCategories: () => void;
-  onClickWomenCategories: () => void;
   onChangeSelect: () => void;
 }
 
 const SortBar = ({
   options,
-  onClickMenCategories,
-  onClickWomenCategories,
+  categories,
   onChangeSelect
 }: SortBarProps) => {
+
   return (
     <Flex justifyContent="space-between" bg="#e5e5e5">
       <Flex>
+      {categories.map(({ id, action, label }) => (
         <Button
           variant="primary"
           size="medium"
-          onClick={onClickMenCategories}
-          data-testid="men-categories"
+          onClick={action}
+          data-testid={id}
         >
-          Men
+          {label}
         </Button>
-        <Button
-          variant="primary"
-          size="medium"
-          onClick={onClickWomenCategories}
-          data-testid="women-categories"
-        >
-          Women
-        </Button>
+      ))}
       </Flex>
       <Flex alignItems="center" textAlign="center" w="300px">
         <Text pr="10px">Sort by</Text>

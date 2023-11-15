@@ -11,12 +11,16 @@ const ProductSearch = () => {
   const handleClickWomenCategories = () => {};
   const handleChangeSelect = () => {};
 
+  const categories = [
+    {id: "men-categories", label: "Men", action: handleClickMenCategories},
+    {id: "women-categories", label: "Women", action: handleClickWomenCategories},
+  ]
+
   return (
     <Container>
       <SortBar
+        categories={categories}
         options={OPTION_SORT}
-        onClickMenCategories={handleClickMenCategories}
-        onClickWomenCategories={handleClickWomenCategories}
         onChangeSelect={handleChangeSelect}
       />
     </Container>

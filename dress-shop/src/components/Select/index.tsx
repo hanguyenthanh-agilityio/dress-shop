@@ -15,8 +15,8 @@ interface SelectProps {
 
 const Select = memo<SelectProps>(({
   options,
-  placeholder = "Hight to low",
-  onBlur = () => null,
+  placeholder = "Select",
+  onBlur = () => {},
   onChange
 }: SelectProps) => {
   return (

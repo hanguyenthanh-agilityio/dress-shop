@@ -5,3 +5,9 @@ export type Product = {
   name: string;
   price: number;
 };
+
+export type Categories = {
+  id: string;
+  label: string;
+  action: () => void;
+}
