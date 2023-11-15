@@ -9,4 +9,6 @@ describe('Quantity component', () => {
 
     expect(quantity).toMatchSnapshot();
   });
+
+  // TODO: testing inc/dec actions on button
 });

@@ -18,7 +18,7 @@ const Home = () => {
       <Container>
         <Quantity />
         <Categories />
-        <ProductList products={PRODUCTS} />\
+        <ProductList products={PRODUCTS} />
       </Container>
     </>
 
