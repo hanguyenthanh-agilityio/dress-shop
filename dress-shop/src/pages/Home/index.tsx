@@ -2,6 +2,7 @@ import { Container } from "@chakra-ui/react";
 
 // Components
 import ProductList from "../../components/ProductList";
+import Quantity from "../../components/Quantity";
 
 // Layouts
 import Carousel from "../../layouts/Carousel";
@@ -15,6 +16,7 @@ const Home = () => {
     <>
       <Carousel />
       <Container>
+        <Quantity />
         <Categories />
         <ProductList products={PRODUCTS} />
       </Container>

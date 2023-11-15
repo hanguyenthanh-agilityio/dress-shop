@@ -18,6 +18,13 @@ export const Input = {
         w: "300px",
       },
     },
+
+    primary: {
+      field: {
+        w: "60px",
+        h: "40px",
+      }
+    }
   },
 
   variants: {
@@ -32,6 +39,19 @@ export const Input = {
         },
       },
     },
+
+    quantity: {
+      field: {
+        border: "none",
+        bg: "#fff",
+        pl: "0",
+        textAlign: "center",
+        _hover: {
+          border: "2px",
+          borderRadius: "4px",
+        },
+      }
+    }
   },
 
   defaultProps: {
