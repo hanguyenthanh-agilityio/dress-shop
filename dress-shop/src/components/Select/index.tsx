@@ -10,10 +10,15 @@ interface SelectProps {
   options: SelectType[];
   placeholder?: string;
   onBlur?: () => void;
-  onChange?: () => void;
+  onChange: () => void;
 }
 
-const Select = memo<SelectProps>(({ options, placeholder, onBlur, onChange }: SelectProps) => {
+const Select = memo<SelectProps>(({
+  options,
+  placeholder = "Hight to low",
+  onBlur = () => null,
+  onChange
+}: SelectProps) => {
   return (
     <SelectChakra
       maxW="210px"
