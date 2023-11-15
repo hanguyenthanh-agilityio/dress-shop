@@ -10,7 +10,7 @@ interface SelectProps {
   options: SelectType[];
   placeholder?: string;
   onBlur?: () => void;
-  onChange: () => void;
+  onChange?: () => void;
 }
 
 const Select = memo<SelectProps>(({
