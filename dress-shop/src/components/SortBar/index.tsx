@@ -6,12 +6,14 @@ interface SortBarProps {
   options: SelectType[];
   onClickMenCategories: () => void;
   onClickWomenCategories: () => void;
+  onChangeSelect: () => void;
 }
 
 const SortBar = ({
   options,
   onClickMenCategories,
-  onClickWomenCategories
+  onClickWomenCategories,
+  onChangeSelect
 }: SortBarProps) => {
   return (
     <Flex justifyContent="space-between" bg="#e5e5e5">
@@ -35,7 +37,7 @@ const SortBar = ({
       </Flex>
       <Flex alignItems="center" textAlign="center" w="300px">
         <Text pr="10px">Sort by</Text>
-        <Select options={options} />
+        <Select options={options} onChange={onChangeSelect} />
       </Flex>
     </Flex>
   )

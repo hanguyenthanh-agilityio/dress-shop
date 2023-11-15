@@ -13,25 +13,28 @@ interface SelectProps {
   onChange?: () => void;
 }
 
-const Select =({ options, placeholder, onBlur, onChange }: SelectProps) => {
-    return (
-      <SelectChakra
-        maxW="210px"
-        placeholder={placeholder}
-        name="select-base"
-        cursor="pointer"
-        bg="background.light"
-        border="none"
-        data-testid="select-base"
-        onBlur={onBlur}
-        onChange={onChange}
-      >
-        {options.map(({ label }, index) => (
-          <option key={`label-${index}`}>{label}</option>
-        ))}
-      </SelectChakra>
-    );
-  }
+const Select = memo<SelectProps>(({
+  options,
+  placeholder = "Hight to low",
+  onBlur = () => null,
+  onChange
+}: SelectProps) => {
+  return (
+    <SelectChakra
+      maxW="210px"
+      placeholder={placeholder}
+      name="select-base"
+      cursor="pointer"
+      iconColor="text.helper"
+      data-testid="select-base"
+      onBlur={onBlur}
+      onChange={onChange}
+    >
+      {options.map(({ label }, index) => (
+        <option key={`label-${index}`}>{label}</option>
+      ))}
+    </SelectChakra>
+  )
+})
 
-
-export default memo(Select);
+export default Select;

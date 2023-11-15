@@ -6,6 +6,7 @@ const props = {
   options:OPTION_SORT,
   onClickMenCategories: jest.fn(),
   onClickWomenCategories: jest.fn(),
+  onChangeSelect: jest.fn(),
 }
 
 const sortBar = () => {

@@ -7,12 +7,17 @@ import { OPTION_SORT } from "../../constants/common";
 import SortBar from "../../components/SortBar";
 
 const ProductSearch = () => {
+  const handleClickMenCategories = () => {};
+  const handleClickWomenCategories = () => {};
+  const handleChangeSelect = () => {};
+
   return (
     <Container>
       <SortBar
         options={OPTION_SORT}
-        onClickMenCategories={()=>{}}
-        onClickWomenCategories={()=>{}}
+        onClickMenCategories={handleClickMenCategories}
+        onClickWomenCategories={handleClickWomenCategories}
+        onChangeSelect={handleChangeSelect}
       />
     </Container>
   )
