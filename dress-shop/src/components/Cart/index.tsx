@@ -13,7 +13,7 @@ interface CartProp {
   products: Product[];
 }
 
-const Cart = ({ headerList, products }: CartProp) => (
+const Cart = ({ headerList, products = [] }: CartProp) => (
     <Table>
       <CartHeader headerList={headerList} />
       <CartBody products={products} total={400}/>

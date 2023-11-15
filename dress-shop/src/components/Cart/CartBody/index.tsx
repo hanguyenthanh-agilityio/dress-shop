@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Tbody, Tr } from "@chakra-ui/react";
+import { Tbody } from "@chakra-ui/react";
 
 // Types
 import { Product } from "../../../types/common";
@@ -11,16 +11,14 @@ interface CartBodyProps {
 
 }
 
-const CartBody = ({ products, total }: CartBodyProps) => {
+const CartBody = memo<CartBodyProps>(({ products, total }: CartBodyProps) => {
   return (
     <Tbody>
       {products.map((product) => (
-          <Tr key={product.id}>
-            <CartRow product={product} total={total}/>
-          </Tr>
-        ))};
+        <CartRow key={product.id} product={product} total={total}/>
+      ))}
     </Tbody>
   )
-};
+})
 
-export default memo(CartBody);
+export default CartBody;

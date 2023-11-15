@@ -6,6 +6,9 @@ import Cart from "../../components/Cart";
 // Constants
 import { HEADER_LIST } from "../../constants/cart";
 
+// Mocks
+import { PRODUCT_CART } from "../../Mock/common";
+
 const ProductCart = () => {
   return (
     <Container>
@@ -16,7 +19,7 @@ const ProductCart = () => {
       >
         Your Cart
       </Heading>
-      <Cart headerList={HEADER_LIST} />
+      <Cart headerList={HEADER_LIST} products={PRODUCT_CART} />
     </Container>
   )
 }

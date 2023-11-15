@@ -9,7 +9,7 @@ interface CartHeaderProps {
 
 const CartHeader = ({ headerList }: CartHeaderProps) => (
   <Thead>
-    <Tr display="Flex" justifyContent="space-between">
+    <Tr>
       {headerList.map(({ title }, index) => (
         <Th key={`title-${index}`}>{title}</Th>
       ))}

@@ -1,5 +1,4 @@
-import { memo } from "react";
-import { Button, Flex, Image, Td , Text} from "@chakra-ui/react";
+import { Button, Flex, Image, Td , Text, Tr} from "@chakra-ui/react";
 
 // Types
 import { Product } from "../../../types/common";
@@ -15,16 +14,16 @@ interface CartRowProps {
 const CartRow = ({product, total}: CartRowProps) => {
   const { src, name, price } = product;
   return (
-    <>
+    <Tr>
       <Td>
-        <Flex>
+        <Flex maxW="280px">
           <Image
             src={src}
-            width="120px"
-            height="120px"
+            boxSize="120px"
             objectFit="cover"
+            pr="10px"
           />
-          <Text>{name}</Text>
+          <Text fontWeight="600">{name}</Text>
         </Flex>
       </Td>
       <Td>{price}</Td>
@@ -32,13 +31,13 @@ const CartRow = ({product, total}: CartRowProps) => {
         <Quantity />
       </Td>
       <Td>
-        <Text>P{total}</Text>
+        <Text size="large" color="text.primary">P{total}</Text>
       </Td>
       <Td>
-        <Button>Delete</Button>
+        <Button color="text.primary">Delete</Button>
       </Td>
-    </>
+    </Tr>
   )
 }
 
-export default memo(CartRow);
+export default CartRow;

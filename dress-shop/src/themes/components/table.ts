@@ -6,9 +6,12 @@ export const Table = {
       mb: "30px"
     },
     th: {
-
       textTransform: "none",
+      minW: "170px",
     },
+    td: {
+      p: "16px 20px 16px 0px !important"
+    }
   },
   variants: {
     default: {
@@ -17,7 +20,7 @@ export const Table = {
         fontWeight: "normal",
         py: "20px",
         px: "0"
-      }
+      },
     },
   },
 

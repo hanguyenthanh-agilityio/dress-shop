@@ -10,6 +10,9 @@ export const Text = {
     },
     medium: {
       fontSize: "18px",
+    },
+    large: {
+      fontSize: "20px",
     }
   },
 
