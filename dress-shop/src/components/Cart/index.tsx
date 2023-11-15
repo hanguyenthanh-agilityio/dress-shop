@@ -11,12 +11,13 @@ import { Product } from "../../types/common";
 interface CartProp {
   headerList: HeaderList[];
   products: Product[];
+  total: number;
 }
 
-const Cart = ({ headerList, products = [] }: CartProp) => (
+const Cart = ({ headerList, products = [], total }: CartProp) => (
     <Table>
       <CartHeader headerList={headerList} />
-      <CartBody products={products} total={400}/>
+      <CartBody products={products} total={total}/>
     </Table>
 );
 
