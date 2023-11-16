@@ -12,7 +12,7 @@ const Header = () => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Heading>Dress</Heading>
+          <Heading size={{xs: "medium", lg: "default"}}>Dress</Heading>
           <Flex alignItems="center">
             <SearchInput onChange={()=>{}} />
             <Flex

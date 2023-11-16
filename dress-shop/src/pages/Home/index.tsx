@@ -21,7 +21,7 @@ const Home = () => {
         <Categories />
         <ProductList products={PRODUCTS} />
         <Flex justifyContent="center" my="50px">
-          <Button variant="secondary" onClick={handleOnClick}>Load More</Button>
+          <Button size={{xs: "small", md: "default"}} variant="secondary" onClick={handleOnClick}>Load More</Button>
         </Flex>
         </Flex>
 

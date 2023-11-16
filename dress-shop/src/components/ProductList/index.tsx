@@ -10,7 +10,7 @@ interface ProductListProps {
 const ProductList = ({products}: ProductListProps) => {
   return (
     <>
-      <Heading>Product Overview</Heading>
+      <Heading size={{xs: "medium", md: "default"}}>Product Overview</Heading>
       <Flex
         direction="column"
         justifyContent="start"

@@ -13,6 +13,10 @@ export const Button = {
       fontSize: "17px"
     },
 
+    small: {
+      fontSize: "13px"
+    },
+
     medium: {
       fontSize: "20px"
     }

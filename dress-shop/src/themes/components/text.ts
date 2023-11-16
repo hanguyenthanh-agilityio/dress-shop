@@ -8,6 +8,9 @@ export const Text = {
     default: {
       fontSize: "17px",
     },
+    small: {
+      fontSize: "14px"
+    },
     medium: {
       fontSize: "18px",
     },
