@@ -4,13 +4,25 @@ import { Container } from "@chakra-ui/react";
 import { OPTION_SORT } from "../../constants/common";
 
 // Components
-import Select from "../../components/Select";
-
+import SortBar from "../../components/SortBar";
 
 const ProductSearch = () => {
+  const handleClickMenCategories = () => {};
+  const handleClickWomenCategories = () => {};
+  const handleChangeSelect = () => {};
+
+  const categories = [
+    {id: "men-categories", label: "Men", action: handleClickMenCategories},
+    {id: "women-categories", label: "Women", action: handleClickWomenCategories},
+  ]
+
   return (
     <Container>
-      <Select options={OPTION_SORT} />
+      <SortBar
+        categories={categories}
+        options={OPTION_SORT}
+        onChangeSelect={handleChangeSelect}
+      />
     </Container>
   )
 };

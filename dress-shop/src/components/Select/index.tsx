@@ -22,6 +22,8 @@ const Select = memo<SelectProps>(({
   return (
     <SelectChakra
       maxW="210px"
+      bg="background.light"
+      border="none"
       placeholder={placeholder}
       name="select-base"
       cursor="pointer"

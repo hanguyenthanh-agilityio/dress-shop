@@ -86,4 +86,9 @@ export const CATEGORIES = [
     img: "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1582274252%2Fcateg-02_pqpnm7.jpg&w=3840&q=75",
     name: "Men",
   }
-]
+];
+
+export const CATEGORIES_BUTTON = [
+  {id: "men-categories", label: "Men", action: () => {}},
+  {id: "women-categories", label: "Women", action: () => {}},
+];

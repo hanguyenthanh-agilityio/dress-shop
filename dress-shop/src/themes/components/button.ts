@@ -2,6 +2,7 @@ export const Button = {
   baseStyle: {
     fontWeight: "400",
     h: "44px",
+    border: "1px solid #f1f3f5",
     _hover: {
       bg: "brand.40",
     },
@@ -11,6 +12,10 @@ export const Button = {
     default: {
       fontSize: "17px"
     },
+
+    medium: {
+      fontSize: "20px"
+    }
   },
 
   variants: {
@@ -20,15 +25,22 @@ export const Button = {
     },
 
     quantity: {
-      border: "1px solid",
       bg: "background.light",
       w: "42px",
       h: "40px",
       borderRadius: "none",
-      borderColor: "#f1f3f5",
       _hover: {
         backgroundColor: "#e2e8f0"
       }
+    },
+
+    primary: {
+      bg: "background.light",
+      m: "10px",
+      p: "10px 50px",
+      _hover: {
+        bg: "#aeaeae",
+      },
     }
   },
 
