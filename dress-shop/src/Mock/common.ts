@@ -103,4 +103,9 @@ export const PRODUCT_CART = [
     price: 400,
     total: 400
   }
-]
+];
+
+export const CATEGORIES_BUTTON = [
+  {id: "men-categories", label: "Men", action: () => {}},
+  {id: "women-categories", label: "Women", action: () => {}},
+];
