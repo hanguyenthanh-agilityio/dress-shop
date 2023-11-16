@@ -14,7 +14,7 @@ describe('Card component', () => {
   it('Should render Card snapshot correctly', () => {
     const card = render(
       <Table>
-        <Card products={PRODUCT_CART} headerList={HEADER_LIST} />
+        <Card products={PRODUCT_CART} headerList={HEADER_LIST} total={0} />
       </Table>
     );
 
