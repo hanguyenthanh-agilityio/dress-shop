@@ -22,7 +22,6 @@ const Card = ({
   return (
     <Flex
       flexDir="column"
-      maxW="288px"
       _hover={{
         borderWidth:"1px",
         rounded:"lg",
@@ -33,7 +32,7 @@ const Card = ({
         <Image
           src={src}
           alt={altText}
-          boxSize="288px"
+          boxSize={{xs: "194", md: "240px", lg:"331px", xl: "288px"}}
           objectFit="cover"
         />
       </Box>

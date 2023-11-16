@@ -41,6 +41,20 @@ export const Button = {
       _hover: {
         bg: "#aeaeae",
       },
+    },
+
+    secondary: {
+      borderRadius: "50px",
+      border: "1px solid",
+      borderColor: "text.primary",
+      bg: "text.default",
+      h: "50px",
+      w: "200px",
+      color: "text.primary",
+      _hover: {
+        bg: "text.primary",
+        color: "text.default"
+      }
     }
   },
 

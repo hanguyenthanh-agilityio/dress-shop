@@ -13,16 +13,22 @@ const Categories = () => (
     >
       Categories
     </Heading>
-    <Flex justifyContent="space-between" pt="10x" pb="30px" >
+    <Flex
+      flexDir={{xs: "column", md: "row"}}
+      justifyContent="space-between"
+      pt="10x"
+      pb="30px"
+    >
       {CATEGORIES.map((categories, index) => (
-        <Flex position="relative">
+        <Flex position="relative" paddingTop={{xs: "20px"}}>
           <Image
             key={index}
             src={categories.img}
-            w="570px"
-            h="354px"
+            w={{xs: "400px", md: "362px", lg:"485px", xl:"570px"}}
+            h={{xs: "240px", md:"218px", lg:"286px", xl:"354px"}}
             objectFit="cover"
             border="1px solid #efefef"
+
           />
           <Heading
             position="absolute"

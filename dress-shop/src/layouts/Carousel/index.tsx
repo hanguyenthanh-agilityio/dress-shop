@@ -20,7 +20,7 @@ const Carousel = () => {
       justifyContent="center"
     >
       <Flex w="full" overflow="hidden" pos="relative">
-        <Flex h="550px" w="full" {...carouselStyle}>
+        <Flex h={{xs: "240px", md: "280px", lg:"550px"}} w="full" {...carouselStyle}>
           {slides.map((slide, sid) => (
             <Box key={`slide-${sid}`} boxSize="full" shadow="md" flex="none">
               <Image
