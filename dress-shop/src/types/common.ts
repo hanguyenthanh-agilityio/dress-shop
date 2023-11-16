@@ -6,7 +6,7 @@ export type Product = {
   price: number;
 };
 
-export type Categories = {
+export type Category = {
   id: string;
   label: string;
   action: () => void;
