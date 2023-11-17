@@ -34,7 +34,7 @@ const CartRow = ({product, total}: CartRowProps) => {
         <Text size="large" color="text.primary">P{total}</Text>
       </Td>
       <Td>
-        <Button color="text.primary">Delete</Button>
+        <Button color="text.primary" variant="close">Delete</Button>
       </Td>
     </Tr>
   )

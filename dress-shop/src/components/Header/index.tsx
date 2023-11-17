@@ -1,7 +1,31 @@
-import { Container, Flex, Heading, Text } from "@chakra-ui/react";
+import {
+  Container,
+  Flex,
+  Heading,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Text
+} from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
+
+// React icons
+import { IconContext } from "react-icons";
+import { FaCartArrowDown } from "react-icons/fa";
+
+// Components
 import SearchInput from "../SearchInput";
 
+// Hooks
+import { useBreakPoints } from "../../hooks/useBreakPoints";
+
+
 const Header = () => {
+  const { isLargeThanTablet } = useBreakPoints();
+  const handleSearch = () => {};
+
   return (
     <Flex
       boxShadow="0 10px 15px 0 rgba(0,0,0,.06)"
@@ -12,9 +36,10 @@ const Header = () => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Heading>Dress</Heading>
-          <Flex alignItems="center">
-            <SearchInput onChange={()=>{}} />
+          <Heading size={{xs: "medium", lg: "default"}}>Dress</Heading>
+          {isLargeThanTablet ? (
+            <Flex alignItems="center">
+            <SearchInput onChange={handleSearch} />
             <Flex
               alignItems="center"
               pl="30px" pr="10px"
@@ -26,6 +51,38 @@ const Header = () => {
               <Text pl="5px">Cart</Text>
             </Flex>
           </Flex>
+
+          ) : (
+            <Flex>
+              <Menu>
+                <MenuButton
+                  as={IconButton}
+                  aria-label="Option"
+                  icon={<HamburgerIcon w="25px" height="25px" />}
+                  variant="outline"
+                  border="none"
+                  px="10px"
+                />
+                <MenuList>
+                  <Flex mx="10px">
+                    <SearchInput onChange={handleSearch} />
+                  </Flex>
+                  <MenuItem
+                    my="10px"
+                    icon={
+                      <IconContext.Provider
+                        value={{size:"25px"}}
+                      >
+                        <FaCartArrowDown />
+                          </IconContext.Provider>
+                    }
+                  >
+                    Cart
+                  </MenuItem>
+                </MenuList>
+              </Menu>
+            </Flex>
+          )}
         </Flex>
       </Container>
     </Flex>
