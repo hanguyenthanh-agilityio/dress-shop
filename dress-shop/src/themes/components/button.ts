@@ -31,8 +31,6 @@ export const Button = {
 
     quantity: {
       bg: "background.light",
-      w: "42px",
-      h: "40px",
       borderRadius: "none",
       _hover: {
         backgroundColor: "#e2e8f0"
@@ -56,6 +54,13 @@ export const Button = {
       bg: "background.dark",
       color: "text.default",
       borderRadius: "6px",
+    },
+
+    add: {
+      bg: "text.primary",
+      color: "text.default",
+      borderRadius: "50px",
+
     }
   },
 

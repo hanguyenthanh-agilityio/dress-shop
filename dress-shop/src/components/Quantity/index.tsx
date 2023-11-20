@@ -15,9 +15,23 @@ const Quantity = () => {
 
   return (
     <HStack maxW="142px" gap="none">
-      <Button variant="quantity" {...decrementButtonProps}>-</Button>
+      <Button
+        variant="quantity"
+        w={{xs: "32px", lg: "42px"}}
+        h={{xs: "30px", lg: "40px"}}
+        {...decrementButtonProps}
+      >
+        -
+      </Button>
       <Input variant="quantity" size="primary" {...inputProps} />
-      <Button variant="quantity" {...incrementButtonProps}>+</Button>
+      <Button
+        variant="quantity"
+        w={{xs: "32px", lg: "42px"}}
+        h={{xs: "30px", lg: "40px"}}
+        {...incrementButtonProps}
+      >
+        +
+      </Button>
     </HStack>
   )
 }

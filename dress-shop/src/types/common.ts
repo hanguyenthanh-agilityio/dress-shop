@@ -4,6 +4,7 @@ export type Product = {
   altText?: string;
   name: string;
   price: number;
+  description?: string;
 };
 
 export type Category = {
