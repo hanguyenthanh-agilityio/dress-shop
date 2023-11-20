@@ -1,4 +1,4 @@
-import { Button, HStack, Input, useNumberInput } from "@chakra-ui/react"
+import { Button, HStack, Input, useNumberInput } from "@chakra-ui/react";
 
 const Quantity = () => {
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
@@ -7,18 +7,18 @@ const Quantity = () => {
       defaultValue: 1,
       min: 1,
       max: 10,
-    })
+    });
 
-  const decrementButtonProps = getDecrementButtonProps()
-  const incrementButtonProps = getIncrementButtonProps()
-  const inputProps = getInputProps()
+  const decrementButtonProps = getDecrementButtonProps();
+  const incrementButtonProps = getIncrementButtonProps();
+  const inputProps = getInputProps();
 
   return (
     <HStack maxW="142px" gap="none">
       <Button
         variant="quantity"
-        w={{xs: "32px", lg: "42px"}}
-        h={{xs: "30px", lg: "40px"}}
+        w={{ xs: "32px", lg: "42px" }}
+        h={{ xs: "30px", lg: "40px" }}
         {...decrementButtonProps}
       >
         -
@@ -26,14 +26,14 @@ const Quantity = () => {
       <Input variant="quantity" size="primary" {...inputProps} />
       <Button
         variant="quantity"
-        w={{xs: "32px", lg: "42px"}}
-        h={{xs: "30px", lg: "40px"}}
+        w={{ xs: "32px", lg: "42px" }}
+        h={{ xs: "30px", lg: "40px" }}
         {...incrementButtonProps}
       >
         +
       </Button>
     </HStack>
-  )
-}
+  );
+};
 
 export default Quantity;

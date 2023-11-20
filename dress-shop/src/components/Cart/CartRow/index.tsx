@@ -1,4 +1,4 @@
-import { Button, Flex, Image, Td , Text, Tr} from "@chakra-ui/react";
+import { Button, Flex, Image, Td, Text, Tr } from "@chakra-ui/react";
 
 // Types
 import { Product } from "../../../types/common";
@@ -11,18 +11,13 @@ interface CartRowProps {
   total: number;
 }
 
-const CartRow = ({product, total}: CartRowProps) => {
+const CartRow = ({ product, total }: CartRowProps) => {
   const { src, name, price } = product;
   return (
     <Tr>
       <Td>
         <Flex maxW="280px">
-          <Image
-            src={src}
-            boxSize="120px"
-            objectFit="cover"
-            pr="10px"
-          />
+          <Image src={src} boxSize="120px" objectFit="cover" pr="10px" />
           <Text fontWeight="600">{name}</Text>
         </Flex>
       </Td>
@@ -31,13 +26,17 @@ const CartRow = ({product, total}: CartRowProps) => {
         <Quantity />
       </Td>
       <Td>
-        <Text size="large" color="text.primary">P{total}</Text>
+        <Text size="large" color="text.primary">
+          P{total}
+        </Text>
       </Td>
       <Td>
-        <Button color="text.primary" variant="close">Delete</Button>
+        <Button color="text.primary" variant="close">
+          Delete
+        </Button>
       </Td>
     </Tr>
-  )
-}
+  );
+};
 
 export default CartRow;
