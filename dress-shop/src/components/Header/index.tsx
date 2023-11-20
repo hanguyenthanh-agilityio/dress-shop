@@ -33,10 +33,7 @@ const Header = () => {
   return (
     <Flex boxShadow="0 10px 15px 0 rgba(0,0,0,.06)" py="20px">
       <Container>
-<Flex
-          justifyContent="space-between"
-          alignItems="center"
-        >
+        <Flex justifyContent="space-between" alignItems="center">
           <Heading size={{ xs: "medium", lg: "default" }}>Dress</Heading>
           {isLargeThanTablet ? (
             <Flex alignItems="center">

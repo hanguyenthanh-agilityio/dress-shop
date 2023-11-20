@@ -56,8 +56,8 @@ export const Button = {
       color: "text.primary",
       _hover: {
         bg: "text.primary",
-        color: "text.default"
-      }
+        color: "text.default",
+      },
     },
 
     close: {

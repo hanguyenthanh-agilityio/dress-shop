@@ -29,22 +29,22 @@ export const Input = {
       field: {
         w: "60px",
         h: "40px",
-      }
+      },
     },
 
     secondary: {
       field: {
         w: "200px",
-        h: "30px"
-      }
+        h: "30px",
+      },
     },
 
     small: {
       field: {
         w: "100px",
-        h: "20px"
-      }
-    }
+        h: "20px",
+      },
+    },
   },
 
   variants: {
