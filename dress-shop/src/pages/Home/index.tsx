@@ -1,4 +1,4 @@
-import { Button, Container, Flex } from "@chakra-ui/react";
+import { Button, Container, Flex, Heading } from "@chakra-ui/react";
 
 // Components
 import ProductList from "../../components/ProductList";
@@ -19,16 +19,22 @@ const Home = () => {
       <Container pb="100px">
         <Flex flexDir="column">
         <Categories />
+        <Heading>Product Overview</Heading>
         <ProductList products={PRODUCTS} />
         <Flex justifyContent="center" my="50px">
-          <Button size={{xs: "small", md: "default"}} variant="secondary" onClick={handleOnClick}>Load More</Button>
+          <Button
+            size={{xs: "small", md: "default"}}
+            variant="secondary"
+            onClick={handleOnClick}
+          >
+            Load More
+          </Button>
         </Flex>
         </Flex>
 
       </Container>
     </>
-
-  )
-}
+  );
+};
 
 export default Home;

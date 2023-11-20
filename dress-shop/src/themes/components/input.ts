@@ -3,7 +3,7 @@ export const Input = {
     field: {
       borderRadius: "80px",
       pl: "32px",
-      color:"#1b262c",
+      color: "#1b262c",
       background: "#f1f3f5",
       _placeholder: {
         color: "inactive.primary",
@@ -16,6 +16,12 @@ export const Input = {
       field: {
         h: "50px",
         w: "300px",
+      },
+    },
+
+    full: {
+      field: {
+        w: "100%",
       },
     },
 
@@ -64,8 +70,8 @@ export const Input = {
           border: "2px",
           borderRadius: "4px",
         },
-      }
-    }
+      },
+    },
   },
 
   defaultProps: {

@@ -1,9 +1,4 @@
-import {
-  Flex,
-  Box,
-  Image,
-  Text,
-} from '@chakra-ui/react'
+import { Flex, Box, Image, Text } from "@chakra-ui/react";
 
 interface CardProps {
   src: string;
@@ -14,25 +9,24 @@ interface CardProps {
 
 const Card = ({
   src,
-  altText,  // Set default value
+  altText = "Product photo",
   name,
-  price
+  price,
 }: CardProps) => {
-
   return (
-    <Flex
+    <Flex className="123"
       flexDir="column"
       _hover={{
-        borderWidth:"1px",
-        rounded:"lg",
-        shadow:"lg"
+        borderWidth: "1px",
+        rounded: "lg",
+        shadow: "lg",
       }}
     >
       <Box position="relative">
         <Image
           src={src}
           alt={altText}
-          boxSize={{xs: "194", md: "240px", lg:"331px", xl: "288px"}}
+          boxSize={{ xs: "142px", sm: "194px", md: "240px", lg: "288px" }}
           objectFit="cover"
         />
       </Box>
@@ -50,7 +44,7 @@ const Card = ({
         </Text>
       </Flex>
     </Flex>
-  )
-}
+  );
+};
 
 export default Card;
