@@ -29,20 +29,20 @@ const Cart = ({ headerList, products = [], total }: CartProp) => {
         </Table>
       ) : (
         <>
-          {products.map((product) => (
-            <Flex key={product.id} mt="20px">
+          {products.map((products) => (
+            <Flex key={products.id} mt="20px">
               <Image
-                src={product.src}
+                src={products.src}
                 boxSize={{ xs: "72px", sm: "96px", lg: "120px" }}
                 objectFit="cover"
                 pr="10px"
               />
               <Flex flexDir="column" pl="10px">
                 <Text fontWeight="600" size={{ xs: "tiny", lg: "default" }}>
-                  {product.name}
+                  {products.name}
                 </Text>
                 <Text pb="10px" size={{ xs: "small", lg: "default" }}>
-                  P{product.price}
+                  P{products.price}
                 </Text>
                 <Quantity />
                 <Text

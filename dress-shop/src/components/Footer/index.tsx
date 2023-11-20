@@ -16,20 +16,23 @@ import {
 } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
+// Constants
+import { ROUTES } from "@/constants/routes";
+
 const Footer = () => {
   const navigate = useNavigate();
   const { isLargeThanTablet } = useBreakPoints();
 
   const handleClickHome = useCallback(() => {
-    navigate("/");
+    navigate(ROUTES.HOME);
   }, [navigate]);
 
   const handleClickSearch = useCallback(() => {
-    navigate("/search");
+    navigate(ROUTES.PRODUCT_SEARCH);
   }, [navigate]);
 
   const handleClickCart = useCallback(() => {
-    navigate("/cart");
+    navigate(ROUTES.PRODUCT_CART);
   }, [navigate]);
 
   const actionButton = [
