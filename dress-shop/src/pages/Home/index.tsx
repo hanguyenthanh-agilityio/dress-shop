@@ -21,8 +21,7 @@ const Home = () => {
         <ProductList products={PRODUCTS} />
       </Container>
     </>
-
-  )
-}
+  );
+};
 
 export default Home;

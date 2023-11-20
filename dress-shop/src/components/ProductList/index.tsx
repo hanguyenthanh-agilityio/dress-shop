@@ -7,14 +7,18 @@ interface ProductListProps {
   products: Product[];
 }
 
-const ProductList = ({products}: ProductListProps) => {
+const ProductList = ({ products }: ProductListProps) => {
   return (
     <>
       <Heading>Product Overview</Heading>
       <Grid
         w="full"
         gridGap="5"
-        gridTemplateColumns="repeat( auto-fit, minmax(250px, 1fr) )"
+        gridTemplateColumns={{
+          sm: "repeat( auto-fit, minmax(180px, 1fr))",
+          md: "repeat( auto-fit, minmax(220px, 1fr))",
+          lg: "repeat( auto-fit, minmax(250px, 1fr))",
+        }}
         py="15px"
       >
         {/* Set default value */}
@@ -29,7 +33,6 @@ const ProductList = ({products}: ProductListProps) => {
         ))}
       </Grid>
     </>
-
   );
 };
 

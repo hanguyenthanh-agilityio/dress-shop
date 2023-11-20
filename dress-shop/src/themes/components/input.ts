@@ -4,7 +4,7 @@ export const Input = {
       borderRadius: "80px",
       h: "50px",
       pl: "32px",
-      color:"#1b262c",
+      color: "#1b262c",
       background: "#f1f3f5",
       _placeholder: {
         color: "inactive.primary",
@@ -19,12 +19,18 @@ export const Input = {
       },
     },
 
+    full: {
+      field: {
+        w: "100%",
+      },
+    },
+
     primary: {
       field: {
         w: "60px",
         h: "40px",
-      }
-    }
+      },
+    },
   },
 
   variants: {
@@ -50,8 +56,8 @@ export const Input = {
           border: "2px",
           borderRadius: "4px",
         },
-      }
-    }
+      },
+    },
   },
 
   defaultProps: {
