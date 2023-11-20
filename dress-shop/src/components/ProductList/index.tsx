@@ -1,7 +1,10 @@
 import { Grid } from "@chakra-ui/react";
+
+// Components
 import Card from "../Card";
-// Config Alias
-import { Product } from "../../types/common";
+
+// Types
+import { Product } from "@/types/common";
 
 interface ProductListProps {
   products: Product[];

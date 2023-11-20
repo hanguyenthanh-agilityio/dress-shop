@@ -9,14 +9,14 @@ import {
 } from "@chakra-ui/react";
 
 // Components
-import ProductList from "../../components/ProductList";
-import Quantity from "../../components/Quantity";
+import ProductList from "@/components/ProductList";
+import Quantity from "@/components/Quantity";
 
 // Types
-import { Product } from "../../types/common";
+import { Product } from "@/types/common";
 
 // Mocks
-import { PRODUCTS } from "../../Mock/common";
+import { PRODUCTS } from "@/Mock/common";
 
 interface ProductDetailProps {
   product: Product;

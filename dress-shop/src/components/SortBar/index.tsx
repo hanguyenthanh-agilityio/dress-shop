@@ -1,7 +1,11 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
+
+// Components
 import Select from "../Select";
-import SelectType from "../../types/select";
-import { Category } from "../../types/common";
+
+// Types
+import SelectType from "@/types/select";
+import { Category } from "@/types/common";
 
 interface SortBarProps {
   categories: Category[];
