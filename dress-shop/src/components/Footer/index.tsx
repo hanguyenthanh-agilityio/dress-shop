@@ -2,9 +2,6 @@ import { useCallback } from "react";
 import { Box, Container, Flex, Stack, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-// Hooks
-import { useBreakPoints } from "@/hooks/useBreakPoints";
-
 // React icons
 import {
   FaFacebook,
@@ -15,6 +12,9 @@ import {
   FaCartArrowDown,
 } from "react-icons/fa";
 import { IconContext } from "react-icons";
+
+// Hooks
+import { useBreakPoints } from "@/hooks/useBreakPoints";
 
 // Constants
 import { ROUTES } from "@/constants/routes";

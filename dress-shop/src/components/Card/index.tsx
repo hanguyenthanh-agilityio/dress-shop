@@ -7,14 +7,10 @@ interface CardProps {
   price: number;
 }
 
-const Card = ({
-  src,
-  altText = "Product photo",
-  name,
-  price,
-}: CardProps) => {
+const Card = ({ src, altText = "Product image", name, price }: CardProps) => {
   return (
-    <Flex className="123"
+    <Flex
+      className="123"
       flexDir="column"
       _hover={{
         borderWidth: "1px",
@@ -23,12 +19,7 @@ const Card = ({
       }}
     >
       <Box position="relative">
-        <Image
-          src={src}
-          alt={altText}
-          boxSize={{ xs: "142px", sm: "194px", md: "240px", lg: "288px" }}
-          objectFit="cover"
-        />
+        <Image src={src} alt={altText} boxSize="288px" objectFit="cover" />
       </Box>
       <Flex
         flexDir="column"
