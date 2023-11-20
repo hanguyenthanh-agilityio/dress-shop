@@ -21,10 +21,10 @@ const SortBar = ({ options, categories, onChangeSelect }: SortBarProps) => {
         {categories.map(({ id, action, label }) => (
           <Button
             variant="primary"
-            size="medium"
+            size={{xs: "default", lg:"medium"}}
             onClick={action}
             data-testid={id}
-            p={{ xs: "10px 40px", md: "10px 50px" }}
+            p={{ xs: "8px 40px", md: "10px 50px" }}
           >
             {label}
           </Button>

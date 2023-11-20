@@ -1,4 +1,4 @@
-import { Container } from "@chakra-ui/react";
+import { Container, Heading } from "@chakra-ui/react";
 
 // Components
 import ProductList from "../../components/ProductList";
@@ -18,6 +18,7 @@ const Home = () => {
       <Container>
         <Quantity />
         <Categories />
+        <Heading>Product Overview</Heading>
         <ProductList products={PRODUCTS} />
       </Container>
     </>

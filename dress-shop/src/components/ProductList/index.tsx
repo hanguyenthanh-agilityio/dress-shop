@@ -1,4 +1,4 @@
-import { Grid, Heading } from "@chakra-ui/react";
+import { Grid } from "@chakra-ui/react";
 import Card from "../Card";
 // Config Alias
 import { Product } from "../../types/common";
@@ -9,13 +9,12 @@ interface ProductListProps {
 
 const ProductList = ({ products }: ProductListProps) => {
   return (
-    <>
-      <Heading>Product Overview</Heading>
       <Grid
         w="full"
         gridGap="5"
         gridTemplateColumns={{
-          sm: "repeat( auto-fit, minmax(180px, 1fr))",
+          xs: "repeat( auto-fit, minmax(120px, 1fr))",
+          sm: "repeat( auto-fit, minmax(160px, 1fr))",
           md: "repeat( auto-fit, minmax(220px, 1fr))",
           lg: "repeat( auto-fit, minmax(250px, 1fr))",
         }}
@@ -32,7 +31,6 @@ const ProductList = ({ products }: ProductListProps) => {
           />
         ))}
       </Grid>
-    </>
   );
 };
 

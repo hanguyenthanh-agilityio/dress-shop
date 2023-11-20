@@ -9,14 +9,13 @@ interface CardProps {
 
 const Card = ({
   src,
-  altText, // Set default value
+  altText = "Product photo",
   name,
   price,
 }: CardProps) => {
   return (
-    <Flex
+    <Flex className="123"
       flexDir="column"
-      // maxW="288px"
       _hover={{
         borderWidth: "1px",
         rounded: "lg",
@@ -27,7 +26,7 @@ const Card = ({
         <Image
           src={src}
           alt={altText}
-          boxSize={{ sm: "194px", md: "240px", lg: "288px" }}
+          boxSize={{ xs: "142px", sm: "194px", md: "240px", lg: "288px" }}
           objectFit="cover"
         />
       </Box>
