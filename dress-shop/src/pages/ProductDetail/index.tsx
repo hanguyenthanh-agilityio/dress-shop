@@ -1,7 +1,13 @@
+import { Box, Button, Container, Flex, Heading, Image, Text } from "@chakra-ui/react";
+
+// Components
 import ProductList from "../../components/ProductList";
 import Quantity from "../../components/Quantity";
+
+// Types
 import { Product } from "../../types/common";
-import { Box, Button, Container, Flex, Heading, Image, Text } from "@chakra-ui/react";
+
+// Mocks
 import { PRODUCTS } from "../../Mock/common";
 
 interface ProductDetailProps {
