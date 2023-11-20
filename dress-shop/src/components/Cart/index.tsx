@@ -6,11 +6,11 @@ import CartBody from "./CartBody";
 import Quantity from "../Quantity";
 
 // Hooks
-import { useBreakPoints } from "../../hooks/useBreakPoints";
+import { useBreakPoints } from "@/hooks/useBreakPoints";
 
 // Types
-import { HeaderList } from "../../types/cart";
-import { Product } from "../../types/common";
+import { HeaderList } from "@/types/cart";
+import { Product } from "@/types/common";
 
 interface CartProp {
   headerList: HeaderList[];
