@@ -32,7 +32,7 @@ const Cart = ({ headerList, products = [], total }: CartProp) => {
           {products.map((products) => (
             <Flex key={products.id} mt="20px">
               <Image
-                src={products.src}
+                src={products.imageURL}
                 boxSize={{ xs: "72px", sm: "96px", lg: "120px" }}
                 objectFit="cover"
                 pr="10px"

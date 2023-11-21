@@ -12,12 +12,12 @@ interface CartRowProps {
 }
 
 const CartRow = ({ product, total }: CartRowProps) => {
-  const { src, name, price } = product;
+  const { imageURL, name, price } = product;
   return (
     <Tr>
       <Td>
         <Flex maxW="280px">
-          <Image src={src} boxSize="120px" objectFit="cover" pr="10px" />
+          <Image src={imageURL} boxSize="120px" objectFit="cover" pr="10px" />
           <Text fontWeight="600">{name}</Text>
         </Flex>
       </Td>

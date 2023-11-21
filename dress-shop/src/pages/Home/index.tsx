@@ -1,4 +1,4 @@
-import { Button, Container, Flex, Heading } from "@chakra-ui/react";
+import { Button, Container, Flex, Heading, useToast } from "@chakra-ui/react";
 
 // Components
 import ProductList from "@/components/ProductList";
@@ -8,10 +8,25 @@ import Carousel from "@/layouts/Carousel";
 import Categories from "@/layouts/Categories";
 
 // Mocks
-import { PRODUCTS } from "@/Mock/common";
+// import { PRODUCTS } from "@/Mock/common";
+import { useProductList } from "@/apis/app";
+import { useCallback } from "react";
 
 const Home = () => {
+  const toast = useToast();
+
+  const handleError = useCallback((error: string) => {
+    toast({
+      title: error,
+      status: "error",
+      isClosable: true,
+    });
+  }, []);
+
+  const {data: products} = useProductList(handleError)
   const handleOnClick = () => {};
+
+
 
   return (
     <>
@@ -20,7 +35,7 @@ const Home = () => {
         <Flex flexDir="column">
           <Categories />
           <Heading>Product Overview</Heading>
-          <ProductList products={PRODUCTS} />
+          <ProductList products={products} />
           <Flex justifyContent="center" my="50px">
             <Button
               size={{ xs: "small", md: "default" }}

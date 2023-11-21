@@ -12,23 +12,18 @@ import {
 import ProductList from "@/components/ProductList";
 import Quantity from "@/components/Quantity";
 
-// Types
-import { Product } from "@/types/common";
-
 // Mocks
 import { PRODUCTS } from "@/Mock/common";
 
-interface ProductDetailProps {
-  product: Product;
-}
+const ProductDetail = () => {
+  const product = PRODUCTS[0];
 
-const ProductDetail = ({ product }: ProductDetailProps) => {
   return (
     <Container minH="90vh" mb="80px">
       <Flex flexDir={{ xs: "column", lg: "row" }}>
         <Box>
           <Image
-            src={product.src}
+            src={product.imageURL}
             w={{ xs: "100%", lg: "580px" }}
             h={{ xs: "236px", sm: "321px", md: "595px", lg: "580px" }}
             objectFit="cover"
