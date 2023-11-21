@@ -27,7 +27,7 @@ const ProductSearch = () => {
   ];
 
   return (
-    <Container minH="90vh" mb={{xs:"50px", lg: "0px"}}>
+    <Container minH="90vh" mb={{ xs: "50px", lg: "0px" }}>
       {!isLargeThanTablet && (
         <Flex p="16px">
           <SearchInput onChange={() => {}} />
