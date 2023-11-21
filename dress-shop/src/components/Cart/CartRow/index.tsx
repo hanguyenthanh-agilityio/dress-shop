@@ -1,10 +1,10 @@
 import { Button, Flex, Image, Td, Text, Tr } from "@chakra-ui/react";
 
 // Types
-import { Product } from "../../../types/common";
+import { Product } from "@/types/common";
 
 // Components
-import Quantity from "../../../components/Quantity";
+import Quantity from "@/components/Quantity";
 
 interface CartRowProps {
   product: Product;
