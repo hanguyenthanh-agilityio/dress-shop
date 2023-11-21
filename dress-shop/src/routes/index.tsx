@@ -2,19 +2,16 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 // Components
-import ErrorPage from '@/components/ErrorPage';
+import ErrorPage from '../components/ErrorPage';
 
 // Layouts
-import MainLayout from '@/layouts/MainLayout';
+import MainLayout from '../layouts/MainLayout';
 
 // Pages
-import Home from '@/pages/Home';
-import ProductDetail from '@/pages/ProductDetail';
-import ProductCart from '@/pages/ProductCart';
-import ProductSearch from '@/pages/ProductSearch';
-
-// Constants
-import { ROUTES } from '@/constants/routes';
+import Home from '../pages/Home';
+import ProductDetail from '../pages/ProductDetail';
+import ProductCart from '../pages/ProductCart';
+import ProductSearch from '../pages/ProductSearch';
 
 export const router = createBrowserRouter([
   {
@@ -23,19 +20,19 @@ export const router = createBrowserRouter([
     children: [
       {
         element: <Home />,
-        path: ROUTES.HOME,
+        path: "/",
       },
       {
         element: <ProductDetail />,
-        path: ROUTES.PRODUCT_DETAIL,
+        path: '/products/:productId',
       },
       {
         element: <ProductCart />,
-        path: ROUTES.PRODUCT_CART,
+        path: '/cart',
       },
       {
         element: <ProductSearch />,
-        path: ROUTES.PRODUCT_SEARCH,
+        path: '/search',
       },
     ],
   },

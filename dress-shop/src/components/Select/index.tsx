@@ -1,8 +1,10 @@
 import { memo } from "react";
-import { Select as SelectChakra } from "@chakra-ui/react";
 
 // Types
-import SelectType from "@/types/select";
+import SelectType from "../../types/select";
+
+// Components
+import { Select as SelectChakra } from "@chakra-ui/react";
 
 interface SelectProps {
   options: SelectType[];

@@ -22,14 +22,14 @@ export const Text = {
     },
     wide: {
       fontSize: "25px",
-    },
+    }
   },
 
   variants: {
     primary: {
       color: "text.primary",
       fontWeight: "600",
-    },
+    }
   },
 
   defaultProps: {

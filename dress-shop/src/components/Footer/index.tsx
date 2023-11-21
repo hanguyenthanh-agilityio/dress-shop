@@ -2,6 +2,9 @@ import { useCallback } from "react";
 import { Box, Container, Flex, Stack, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
+// Hooks
+import { useBreakPoints } from "../../hooks/useBreakPoints";
+
 // React icons
 import {
   FaFacebook,
@@ -13,26 +16,20 @@ import {
 } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
-// Hooks
-import { useBreakPoints } from "@/hooks/useBreakPoints";
-
-// Constants
-import { ROUTES } from "@/constants/routes";
-
 const Footer = () => {
   const navigate = useNavigate();
   const { isLargeThanTablet } = useBreakPoints();
 
   const handleClickHome = useCallback(() => {
-    navigate(ROUTES.HOME);
+    navigate("/");
   }, [navigate]);
 
   const handleClickSearch = useCallback(() => {
-    navigate(ROUTES.PRODUCT_SEARCH);
+    navigate("/search");
   }, [navigate]);
 
   const handleClickCart = useCallback(() => {
-    navigate(ROUTES.PRODUCT_CART);
+    navigate("/cart");
   }, [navigate]);
 
   const actionButton = [

@@ -15,10 +15,10 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 // Components
-import SearchInput from "@/components/SearchInput";
+import SearchInput from "../SearchInput";
 
 // Hooks
-import { useBreakPoints } from "@/hooks/useBreakPoints";
+import { useBreakPoints } from "../../hooks/useBreakPoints";
 
 const Header = () => {
   const navigate = useNavigate();

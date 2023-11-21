@@ -1,11 +1,11 @@
-import { useMediaQuery, useTheme } from "@chakra-ui/react";
+import { useMediaQuery, useTheme } from "@chakra-ui/react"
 
 export const useBreakPoints = () => {
   const theme = useTheme();
 
   const [isLargeThanTablet] = useMediaQuery(
-    `(min-width: ${theme["breakpoints"].lg})`,
+    `(min-width: ${theme['breakpoints'].lg})`
   );
 
-  return { isLargeThanTablet };
+  return { isLargeThanTablet }
 };

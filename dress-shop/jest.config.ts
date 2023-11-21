@@ -3,11 +3,8 @@ export {};
 module.exports = {
   preset: "ts-jest",
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1",
     "@components/(.*)$": "<rootDir>/src/components/$1",
     "@/assets/(.*)": "<rootDir>/src/assets/$1",
-    "@/constants/(.*)": "<rootDir>/src/constants/$1",
-    "@/mocks/(.*)": "<rootDir>/src/mocks/$1",
   },
   testPathIgnorePatterns: [
     "<rootDir>/build/",

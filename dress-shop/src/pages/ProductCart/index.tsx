@@ -1,13 +1,13 @@
 import { Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
 
 // Components
-import Cart from "@/components/Cart";
+import Cart from "../../components/Cart";
 
 // Constants
-import { HEADER_LIST } from "@/constants/cart";
+import { HEADER_LIST } from "../../constants/cart";
 
 // Mocks
-import { PRODUCT_CART } from "@/Mock/common";
+import { PRODUCT_CART } from "../../Mock/common";
 
 const ProductCart = () => {
   const subTotal = 400;

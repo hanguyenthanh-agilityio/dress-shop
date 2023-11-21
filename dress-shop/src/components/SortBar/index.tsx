@@ -1,11 +1,7 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
-
-// Components
 import Select from "../Select";
-
-// Types
-import SelectType from "@/types/select";
-import { Category } from "@/types/common";
+import SelectType from "../../types/select";
+import { Category } from "../../types/common";
 
 interface SortBarProps {
   categories: Category[];
@@ -24,8 +20,9 @@ const SortBar = ({ options, categories, onChangeSelect }: SortBarProps) => {
       <Flex justifyContent={{ xs: "center" }}>
         {categories.map(({ id, action, label }) => (
           <Button
+            key={id}
             variant="primary"
-            size={{ xs: "default", lg: "medium" }}
+            size={{xs: "default", lg:"medium"}}
             onClick={action}
             data-testid={id}
             p={{ xs: "8px 40px", md: "10px 50px" }}

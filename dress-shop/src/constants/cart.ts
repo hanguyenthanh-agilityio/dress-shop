@@ -6,4 +6,4 @@ export const HEADER_LIST: HeaderList[] = [
   { title: "Quantity" },
   { title: "Total" },
   { title: "Action" },
-];
+]
