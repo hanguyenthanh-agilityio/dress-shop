@@ -25,18 +25,7 @@ export const router = createBrowserRouter([
         path: ROUTES.HOME,
       },
       {
-        element: (
-          <ProductDetail
-            product={{
-              id: 0,
-              src: "",
-              altText: undefined,
-              name: "",
-              price: 0,
-              description: undefined,
-            }}
-          />
-        ),
+        element: <ProductDetail />,
         path: ROUTES.PRODUCT_DETAIL,
       },
       {

@@ -12,17 +12,12 @@ import {
 import ProductList from "@/components/ProductList";
 import Quantity from "@/components/Quantity";
 
-// Types
-import { Product } from "@/types/common";
-
 // Mocks
 import { PRODUCTS } from "@/Mock/common";
 
-interface ProductDetailProps {
-  product: Product;
-}
+const ProductDetail = () => {
+  const product = PRODUCTS[0];
 
-const ProductDetail = ({ product }: ProductDetailProps) => {
   return (
     <Container minH="90vh" mb="80px">
       <Flex flexDir={{ xs: "column", lg: "row" }}>
