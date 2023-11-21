@@ -1,7 +1,7 @@
 import { Grid } from "@chakra-ui/react";
 
 // Components
-import Card from "../Card";
+import Card from "@/components/Card";
 
 // Types
 import { Product } from "@/types/common";
@@ -23,8 +23,7 @@ const ProductList = ({ products }: ProductListProps) => {
       }}
       py="15px"
     >
-      {/* Set default value */}
-      {products.map(({ id, src, altText, name, price }) => (
+      {products.map(({ id, src, altText = "Product image", name, price }) => (
         <Card key={id} src={src} altText={altText} name={name} price={price} />
       ))}
     </Grid>
