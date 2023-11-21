@@ -7,6 +7,9 @@ export const Heading = {
     default: {
       fontSize: "30px",
     },
+    medium: {
+      fontSize: "24px",
+    },
   },
   defaultProps: {
     size: "default",
