@@ -20,6 +20,7 @@ const SortBar = ({ options, categories, onChangeSelect }: SortBarProps) => {
       <Flex justifyContent={{ xs: "center" }}>
         {categories.map(({ id, action, label }) => (
           <Button
+            key={id}
             variant="primary"
             size={{xs: "default", lg:"medium"}}
             onClick={action}

@@ -7,14 +7,9 @@ interface CardProps {
   price: number;
 }
 
-const Card = ({
-  src,
-  altText = "Product photo",
-  name,
-  price,
-}: CardProps) => {
+const Card = ({ src, altText = "Product photo", name, price }: CardProps) => {
   return (
-    <Flex className="123"
+    <Flex
       flexDir="column"
       _hover={{
         borderWidth: "1px",
