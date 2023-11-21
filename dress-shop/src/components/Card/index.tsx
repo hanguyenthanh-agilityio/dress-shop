@@ -31,8 +31,10 @@ const Card = ({ src, altText = "Product photo", name, price }: CardProps) => {
         justifyContent="space-between"
         alignContent="center"
       >
-        <Text isTruncated>{name}</Text>
-        <Text size="medium" variant="primary">
+        <Text size={{ xs: "small", md: "default" }} isTruncated>
+          {name}
+        </Text>
+        <Text size={{ xs: "small", md: "medium" }} variant="primary">
           P{price}
         </Text>
       </Flex>
