@@ -3,7 +3,7 @@ import { Box, Container, Flex, Stack, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 // Hooks
-import { useBreakPoints } from "../../hooks/useBreakPoints";
+import { useBreakPoints } from "@/hooks/useBreakPoints";
 
 // React icons
 import {

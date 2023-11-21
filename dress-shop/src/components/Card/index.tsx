@@ -7,7 +7,7 @@ interface CardProps {
   price: number;
 }
 
-const Card = ({ src, altText = "Product photo", name, price }: CardProps) => {
+const Card = ({ src, altText = "Product image", name, price }: CardProps) => {
   return (
     <Flex
       flexDir="column"

@@ -2,6 +2,7 @@ export const Input = {
   baseStyle: {
     field: {
       borderRadius: "80px",
+      h: "50px",
       pl: "32px",
       color: "#1b262c",
       background: "#f1f3f5",
@@ -14,7 +15,6 @@ export const Input = {
   sizes: {
     default: {
       field: {
-        h: "50px",
         w: "300px",
       },
     },

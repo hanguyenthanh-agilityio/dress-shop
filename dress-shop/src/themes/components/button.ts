@@ -10,25 +10,25 @@ export const Button = {
 
   sizes: {
     default: {
-      fontSize: "17px"
+      fontSize: "17px",
     },
     tiny: {
-      fontSize: "12px"
+      fontSize: "12px",
     },
     small: {
-      fontSize: "14px"
+      fontSize: "14px",
     },
     medium: {
-      fontSize: "20px"
+      fontSize: "20px",
     },
     primary: {
       w: "32px",
-      h: "30px"
+      h: "30px",
     },
     secondary: {
       w: "42px",
-      h: "40px"
-    }
+      h: "40px",
+    },
   },
 
   variants: {
@@ -41,8 +41,8 @@ export const Button = {
       bg: "background.light",
       borderRadius: "none",
       _hover: {
-        backgroundColor: "#e2e8f0"
-      }
+        backgroundColor: "#e2e8f0",
+      },
     },
 
     primary: {
@@ -69,7 +69,7 @@ export const Button = {
     },
 
     close: {
-      border: "none"
+      border: "none",
     },
 
     check: {

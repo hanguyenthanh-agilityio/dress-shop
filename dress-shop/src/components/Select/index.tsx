@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 // Types
-import SelectType from "../../types/select";
+import SelectType from "@/types/select";
 
 // Components
 import { Select as SelectChakra } from "@chakra-ui/react";
