@@ -17,8 +17,7 @@ const Quantity = () => {
     <HStack maxW="142px" gap="none">
       <Button
         variant="quantity"
-        w={{ xs: "32px", lg: "42px" }}
-        h={{ xs: "30px", lg: "40px" }}
+        size={{ xs: "primary", lg: "secondary" }}
         {...decrementButtonProps}
       >
         -
@@ -26,8 +25,7 @@ const Quantity = () => {
       <Input variant="quantity" size="primary" {...inputProps} />
       <Button
         variant="quantity"
-        w={{ xs: "32px", lg: "42px" }}
-        h={{ xs: "30px", lg: "40px" }}
+        size={{ xs: "primary", lg: "secondary" }}
         {...incrementButtonProps}
       >
         +

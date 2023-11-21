@@ -20,6 +20,14 @@ export const Button = {
     },
     medium: {
       fontSize: "20px"
+    },
+    primary: {
+      w: "32px",
+      h: "30px"
+    },
+    secondary: {
+      w: "42px",
+      h: "40px"
     }
   },
 
