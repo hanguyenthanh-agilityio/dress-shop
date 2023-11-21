@@ -60,8 +60,7 @@ export const Button = {
       bg: "text.primary",
       color: "text.default",
       borderRadius: "50px",
-
-    }
+    },
   },
 
   defaultProps: {
