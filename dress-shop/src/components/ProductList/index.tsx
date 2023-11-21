@@ -1,16 +1,29 @@
-import { Grid } from "@chakra-ui/react";
+import { Grid, useToast } from "@chakra-ui/react";
 
 // Components
 import Card from "@/components/Card";
 
-// Types
-import { Product } from "@/types/common";
+import { useCallback } from "react";
+import { useProductList } from "@/apis/app";
 
-interface ProductListProps {
-  products: Product[];
-}
+const ProductList = () => {
+  const toast = useToast();
+  const initial = {
+    page: 1,
+    limit: 8,
+  }
 
-const ProductList = ({ products }: ProductListProps) => {
+  const handleError = useCallback((error: string) => {
+    toast({
+      title: error,
+      status: "error",
+      isClosable: true,
+    });
+  }, []);
+
+  const { data: products} = useProductList(initial , handleError)
+  console.log(products);
+
   return (
     <Grid
       w="full"

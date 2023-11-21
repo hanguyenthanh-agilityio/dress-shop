@@ -1,4 +1,4 @@
-import { Button, Container, Flex, Heading, useToast } from "@chakra-ui/react";
+import { Button, Container, Flex, Heading } from "@chakra-ui/react";
 
 // Components
 import ProductList from "@/components/ProductList";
@@ -9,24 +9,35 @@ import Categories from "@/layouts/Categories";
 
 // Mocks
 // import { PRODUCTS } from "@/Mock/common";
-import { useProductList } from "@/apis/app";
-import { useCallback } from "react";
+// import { useProductList } from "@/apis/app";
+// import { useCallback, useState } from "react";
+// import LoadingIndicator from "@/components/LoadingIndicator";
+// import { Params } from "@/types/common";
 
 const Home = () => {
-  const toast = useToast();
+  // const toast = useToast();
+  // const initial = {
+  //   page: 1,
+  //   limit: 8,
+  // }
 
-  const handleError = useCallback((error: string) => {
-    toast({
-      title: error,
-      status: "error",
-      isClosable: true,
-    });
-  }, []);
-
-  const {data: products} = useProductList(handleError)
-  const handleOnClick = () => {};
+  // const [filter, setFilter] = useState<Params>(initial);
 
 
+  // const handleError = useCallback((error: string) => {
+  //   toast({
+  //     title: error,
+  //     status: "error",
+  //     isClosable: true,
+  //   });
+  // }, []);
+
+  // const {isLoading, data: products} = useProductList(filter , handleError)
+  // console.log(products);
+
+  const handleOnClick = () => {
+    // setFilter({ ...filter, page: Number(filter.page) + 1 });
+  };
 
   return (
     <>
@@ -35,7 +46,11 @@ const Home = () => {
         <Flex flexDir="column">
           <Categories />
           <Heading>Product Overview</Heading>
-          <ProductList products={products} />
+          {/* {isLoading ? ( */}
+            {/* <LoadingIndicator /> */}
+            {/* ) : ( */}
+            <ProductList />
+          {/* )} */}
           <Flex justifyContent="center" my="50px">
             <Button
               size={{ xs: "small", md: "default" }}

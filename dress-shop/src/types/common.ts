@@ -12,3 +12,9 @@ export type Category = {
   label: string;
   action: () => void;
 };
+
+
+export interface Params {
+  page: number;
+  limit: number;
+}
