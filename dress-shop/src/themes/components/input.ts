@@ -34,15 +34,8 @@ export const Input = {
 
     secondary: {
       field: {
-        w: "200px",
-        h: "30px",
-      },
-    },
-
-    small: {
-      field: {
-        w: "100px",
-        h: "20px",
+        w: "100%",
+        h: "40px",
       },
     },
   },

@@ -13,7 +13,7 @@ const SearchInput = ({
   return (
     <InputGroup maxW={{ xs: "100%", lg: "300px" }}>
       <Input
-        size={{ xs: "small", md: "secondary", lg: "default" }}
+        size={{ xs: "secondary", lg: "default" }}
         fontSize={{ xs: "7px", md: "17px" }}
         pl="10px"
         background="background.light"
