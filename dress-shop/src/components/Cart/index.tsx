@@ -1,9 +1,9 @@
 import { Button, Flex, Image, Table, Text } from "@chakra-ui/react";
 
 // Components
-import CartHeader from "./CartHeader";
-import CartBody from "./CartBody";
-import Quantity from "../Quantity";
+import CartHeader from "@/components/Cart/CartHeader";
+import CartBody from "@/components/Cart/CartBody";
+import Quantity from "@/components/Quantity";
 
 // Hooks
 import { useBreakPoints } from "@/hooks/useBreakPoints";
