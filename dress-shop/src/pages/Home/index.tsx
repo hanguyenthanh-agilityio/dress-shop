@@ -1,7 +1,7 @@
 import { Button, Container, Flex, Heading } from "@chakra-ui/react";
 
 // Components
-import ProductList from "@/components/ProductList";
+import ProductListContainer from "@/components/ProductListContainer";
 
 // Layouts
 import Carousel from "@/layouts/Carousel";
@@ -22,7 +22,6 @@ const Home = () => {
   // }
 
   // const [filter, setFilter] = useState<Params>(initial);
-
 
   // const handleError = useCallback((error: string) => {
   //   toast({
@@ -47,9 +46,9 @@ const Home = () => {
           <Categories />
           <Heading>Product Overview</Heading>
           {/* {isLoading ? ( */}
-            {/* <LoadingIndicator /> */}
-            {/* ) : ( */}
-            <ProductList />
+          {/* <LoadingIndicator /> */}
+          {/* ) : ( */}
+          <ProductListContainer />
           {/* )} */}
           <Flex justifyContent="center" my="50px">
             <Button
