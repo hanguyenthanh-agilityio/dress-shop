@@ -1,7 +1,7 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
 
 // Components
-import Select from "../Select";
+import Select from "@/components/Select";
 
 // Types
 import SelectType from "@/types/select";

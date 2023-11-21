@@ -31,6 +31,13 @@ export const Input = {
         h: "40px",
       },
     },
+
+    secondary: {
+      field: {
+        w: "100%",
+        h: "40px",
+      },
+    },
   },
 
   variants: {
