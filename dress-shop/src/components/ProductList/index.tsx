@@ -23,7 +23,7 @@ const ProductList = ({ products }: ProductListProps) => {
       }}
       py="15px"
     >
-      {products.map(({ id, src, altText = "Product image", name, price }) => (
+      {products.map(({ id, src, altText = "Product image", name, price }: Product) => (
         <Card key={id} src={src} altText={altText} name={name} price={price} />
       ))}
     </Grid>
