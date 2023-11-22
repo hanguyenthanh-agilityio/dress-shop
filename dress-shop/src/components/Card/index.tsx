@@ -18,7 +18,12 @@ const Card = ({ src, altText = "Product image", name, price }: CardProps) => {
       }}
     >
       <Box position="relative">
-        <Image src={src} alt={altText} boxSize="288px" objectFit="cover" />
+        <Image
+          src={src}
+          alt={altText}
+          boxSize={{ xs: "142px", sm: "194px", md: "240px", lg: "288px" }}
+          objectFit="cover"
+        />
       </Box>
       <Flex
         flexDir="column"
@@ -26,8 +31,10 @@ const Card = ({ src, altText = "Product image", name, price }: CardProps) => {
         justifyContent="space-between"
         alignContent="center"
       >
-        <Text isTruncated>{name}</Text>
-        <Text size="medium" variant="primary">
+        <Text size={{ xs: "small", md: "default" }} isTruncated>
+          {name}
+        </Text>
+        <Text size={{ xs: "small", md: "medium" }} variant="primary">
           P{price}
         </Text>
       </Flex>

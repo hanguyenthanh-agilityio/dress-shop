@@ -2,7 +2,7 @@ import { SetStateAction, useState } from "react";
 import { Box, Flex, Image, HStack } from "@chakra-ui/react";
 
 // Mocks
-import { slides } from "../../Mock/common";
+import { slides } from "@/Mock/common";
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -15,12 +15,13 @@ const Carousel = () => {
   };
 
   return (
-    <Flex
-      alignItems="center"
-      justifyContent="center"
-    >
+    <Flex alignItems="center" justifyContent="center">
       <Flex w="full" overflow="hidden" pos="relative">
-        <Flex h="550px" w="full" {...carouselStyle}>
+        <Flex
+          h={{ xs: "240px", md: "280px", lg: "550px" }}
+          w="full"
+          {...carouselStyle}
+        >
           {slides.map((slide, sid) => (
             <Box key={`slide-${sid}`} boxSize="full" shadow="md" flex="none">
               <Image
@@ -55,7 +56,7 @@ const Carousel = () => {
         </HStack>
       </Flex>
     </Flex>
-  )
-}
+  );
+};
 
 export default Carousel;

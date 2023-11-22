@@ -21,6 +21,14 @@ export const Button = {
     medium: {
       fontSize: "20px",
     },
+    primary: {
+      w: "32px",
+      h: "30px",
+    },
+    secondary: {
+      w: "42px",
+      h: "40px",
+    },
   },
 
   variants: {
@@ -31,8 +39,6 @@ export const Button = {
 
     quantity: {
       bg: "background.light",
-      w: "42px",
-      h: "40px",
       borderRadius: "none",
       _hover: {
         backgroundColor: "#e2e8f0",
@@ -48,6 +54,20 @@ export const Button = {
       },
     },
 
+    secondary: {
+      borderRadius: "50px",
+      border: "1px solid",
+      borderColor: "text.primary",
+      bg: "text.default",
+      h: "50px",
+      w: "200px",
+      color: "text.primary",
+      _hover: {
+        bg: "text.primary",
+        color: "text.default",
+      },
+    },
+
     close: {
       border: "none",
     },
@@ -56,6 +76,12 @@ export const Button = {
       bg: "background.dark",
       color: "text.default",
       borderRadius: "6px",
+    },
+
+    add: {
+      bg: "text.primary",
+      color: "text.default",
+      borderRadius: "50px",
     },
   },
 
