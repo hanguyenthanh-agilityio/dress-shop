@@ -1,7 +1,9 @@
 import axiosClient from "@/services/axiosClients";
-import { Params, Product } from "@/types/common";
 import { useQuery } from "react-query";
 import { AxiosError } from "axios";
+
+// Types
+import { Params, Product } from "@/types/common";
 
 // Get product list
 export const useProductList = (
