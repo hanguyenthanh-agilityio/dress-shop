@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 import {
   Container,
@@ -20,6 +20,9 @@ import SearchInput from "@/components/SearchInput";
 // Hooks
 import { useBreakPoints } from "@/hooks/useBreakPoints";
 
+// Constants
+import { ROUTES } from "@/constants/routes";
+
 const Header = () => {
   const navigate = useNavigate();
   const { isLargeThanTablet } = useBreakPoints();
@@ -27,14 +30,16 @@ const Header = () => {
   const handleSearch = () => {};
 
   const handleClickCart = useCallback(() => {
-    navigate("/cart");
+    navigate(ROUTES.PRODUCT_CART);
   }, [navigate]);
 
   return (
     <Flex boxShadow="0 10px 15px 0 rgba(0,0,0,.06)" py="20px">
       <Container>
         <Flex justifyContent="space-between" alignItems="center">
+          <Link to={ROUTES.HOME}>
           <Heading size={{ xs: "medium", lg: "default" }}>Dress</Heading>
+          </Link>
           {isLargeThanTablet ? (
             <Flex alignItems="center">
               <SearchInput onChange={handleSearch} />

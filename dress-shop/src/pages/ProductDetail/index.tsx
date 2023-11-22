@@ -1,3 +1,5 @@
+import { useParams } from "react-router-dom";
+
 import {
   Box,
   Button,
@@ -12,11 +14,16 @@ import {
 import ProductList from "@/components/ProductList";
 import Quantity from "@/components/Quantity";
 
+// APIs
+import { useProductById } from "@/apis/app";
+
 // Mocks
 import { PRODUCTS } from "@/Mock/common";
 
 const ProductDetail = () => {
-  const product = PRODUCTS[0];
+  const {productId}  = useParams();
+
+  const { data: product } = useProductById(productId);
 
   return (
     <Container minH="90vh" mb="80px">

@@ -1,4 +1,5 @@
 import { Grid } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 // Components
 import Card from "@/components/Card";
@@ -24,7 +25,11 @@ const ProductList = ({ products }: ProductListProps) => {
       py="15px"
     >
       {products.map(({ id, imageURL, altText = "Product image", name, price }: Product) => (
-        <Card key={id} src={imageURL} altText={altText} name={name} price={price} />
+        <>
+        <Link key={id} to={`/products/${id}`}>
+          <Card src={imageURL} altText={altText} name={name} price={price} />
+        </Link>
+        </>
       ))}
     </Grid>
   );

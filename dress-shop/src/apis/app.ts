@@ -3,6 +3,7 @@ import { Params, Product } from "@/types/common";
 import { useQuery } from "react-query";
 import { AxiosError } from "axios";
 
+// Get product list
 export const useProductList = (
   params: Params,
   onError: (error: string) => void
@@ -20,4 +21,17 @@ export const useProductList = (
     ...rest,
     data: data?.data || [],
   };
+}
+
+// Get product list by id
+export const useProductById = (productId: string | undefined) => {
+  const {data} = useQuery({
+    queryKey: ['products', productId],
+    queryFn: () =>
+      axiosClient.get(`products/${productId}`)
+  })
+
+  return {
+    data: data?.data || []
+  }
 }
