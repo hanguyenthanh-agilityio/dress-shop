@@ -22,7 +22,7 @@ const SortBar = ({ options, categories, onChangeSelect }: SortBarProps) => {
       bg="#e5e5e5"
     >
       <Flex justifyContent={{ xs: "center" }}>
-        {categories.map(({ id, action, label }) => (
+        {categories.map(({ id, action, label }: Category) => (
           <Button
             key={id}
             variant="primary"
