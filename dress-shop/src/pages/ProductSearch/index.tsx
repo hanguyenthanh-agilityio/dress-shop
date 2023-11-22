@@ -1,12 +1,22 @@
-import { Container } from "@chakra-ui/react";
+import { Container, Flex } from "@chakra-ui/react";
 
 // Constants
 import { OPTION_SORT } from "@/constants/common";
 
 // Components
 import SortBar from "@/components/SortBar";
+import SearchInput from "@/components/SearchInput";
+import ProductList from "@/components/ProductList";
+
+// Hooks
+import { useBreakPoints } from "@/hooks/useBreakPoints";
+
+// Mocks
+import { PRODUCTS } from "@/Mock/common";
 
 const ProductSearch = () => {
+  const { isLargeThanTablet } = useBreakPoints();
+
   const handleClickMenCategories = () => {};
   const handleClickWomenCategories = () => {};
   const handleChangeSelect = () => {};
@@ -21,12 +31,18 @@ const ProductSearch = () => {
   ];
 
   return (
-    <Container>
+    <Container minH="90vh" mb={{ xs: "50px", lg: "0px" }}>
+      {!isLargeThanTablet && (
+        <Flex p="16px">
+          <SearchInput onChange={() => {}} />
+        </Flex>
+      )}
       <SortBar
         categories={categories}
         options={OPTION_SORT}
         onChangeSelect={handleChangeSelect}
       />
+      <ProductList products={PRODUCTS} />
     </Container>
   );
 };
