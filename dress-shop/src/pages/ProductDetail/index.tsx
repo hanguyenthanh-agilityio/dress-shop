@@ -21,7 +21,7 @@ import { useProductById } from "@/apis/app";
 import { PRODUCTS } from "@/Mock/common";
 
 const ProductDetail = () => {
-  const {productId}  = useParams();
+  const { productId } = useParams();
 
   const { data: product } = useProductById(productId);
 
