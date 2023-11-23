@@ -24,37 +24,38 @@ const ProductDetail = () => {
   const { productId } = useParams();
   const { data: product } = useProductById(productId);
 
-  if (!product) return (
-    <Flex
-      flexDir="column"
-      alignItems="center"
-      minH="80vh"
-      mb="80px"
-      mt="30px"
-    >
-      <Text
-        border="1px solid #f5c6cb"
-        borderRadius="6px"
-        bg="#f8d7da"
-        p="12px 8px"
-        mb="20px"
+  if (!product)
+    return (
+      <Flex
+        flexDir="column"
+        alignItems="center"
+        minH="80vh"
+        mb="80px"
+        mt="30px"
       >
-        Unexpected error occured. Please try again later.
-      </Text>
-      <Link to="/">
-        <Button
-          colorScheme="teal"
-          bgGradient="linear(to-r, teal.400, teal.500, teal.600)"
-          color="white"
-          variant="solid"
-          fontWeight={600}
-          width="120px"
+        <Text
+          border="1px solid #f5c6cb"
+          borderRadius="6px"
+          bg="#f8d7da"
+          p="12px 8px"
+          mb="20px"
         >
-          Go to Home
-        </Button>
-      </Link>
-    </Flex>
-  )
+          Unexpected error occured. Please try again later.
+        </Text>
+        <Link to="/">
+          <Button
+            colorScheme="teal"
+            bgGradient="linear(to-r, teal.400, teal.500, teal.600)"
+            color="white"
+            variant="solid"
+            fontWeight={600}
+            width="120px"
+          >
+            Go to Home
+          </Button>
+        </Link>
+      </Flex>
+    );
 
   return (
     <Container minH="90vh" mb="80px">
@@ -104,7 +105,5 @@ const ProductDetail = () => {
     </Container>
   );
 };
-
-
 
 export default ProductDetail;

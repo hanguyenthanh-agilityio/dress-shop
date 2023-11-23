@@ -27,7 +27,7 @@ export const useProductList = (
 
 // Get product list by id
 export const useProductById = (productId: string | undefined) => {
-  const { data }= useQuery({
+  const { data } = useQuery({
     queryKey: ["products", productId],
     queryFn: () => axiosClient.get<Product>(`products/${productId}`),
   });
