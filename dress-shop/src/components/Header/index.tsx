@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useCallback } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { ChangeEvent, useCallback } from "react";
 import {
   Container,
   Flex,
@@ -27,7 +27,17 @@ const Header = () => {
   const navigate = useNavigate();
   const { isLargeThanTablet } = useBreakPoints();
 
-  const handleSearch = () => {};
+  const [searchParams] = useSearchParams({});
+
+
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const search = searchParams.get('name')
+    // setSearchParams({: e.target.value})
+    console.log(search);
+    navigate(`/?search=${e.target.value}`)
+
+  };
 
   const handleClickCart = useCallback(() => {
     navigate(ROUTES.PRODUCT_CART);
