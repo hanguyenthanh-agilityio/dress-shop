@@ -1,6 +1,6 @@
 export type Product = {
   id: number;
-  src: string;
+  imageURL: string;
   altText?: string;
   name: string;
   price: number;
@@ -12,3 +12,9 @@ export type Category = {
   label: string;
   action: () => void;
 };
+
+
+export interface Params {
+  page: number;
+  limit: number;
+}

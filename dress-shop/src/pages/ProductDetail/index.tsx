@@ -23,7 +23,7 @@ const ProductDetail = () => {
       <Flex flexDir={{ xs: "column", lg: "row" }}>
         <Box>
           <Image
-            src={product.src}
+            src={product.imageURL}
             w={{ xs: "100%", lg: "580px" }}
             h={{ xs: "236px", sm: "321px", md: "595px", lg: "580px" }}
             objectFit="cover"
