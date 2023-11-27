@@ -4,13 +4,15 @@ import { ChangeEvent } from "react";
 
 interface SearchInputProps {
   placeholder?: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: any) => void;
   // value?: string ;
 }
 
 const SearchInput = ({
   placeholder = "Search Product...",
   onChange,
+  onSubmit,
   // value
 }: SearchInputProps) => {
   return (
@@ -36,6 +38,7 @@ const SearchInput = ({
             color="text.helper"
             w={{ xs: "10px", md: "22px" }}
             h={{ xs: "10px", md: "22px" }}
+            onClick={onSubmit}
           />
         }
       />

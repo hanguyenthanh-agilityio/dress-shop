@@ -1,4 +1,4 @@
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ChangeEvent, useCallback } from "react";
 import {
   Container,
@@ -23,21 +23,14 @@ import { useBreakPoints } from "@/hooks/useBreakPoints";
 // Constants
 import { ROUTES } from "@/constants/routes";
 
-const Header = () => {
+interface HeaderProps {
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: any) => void
+}
+
+const Header = ({ onChange, onSubmit }: HeaderProps) => {
   const navigate = useNavigate();
   const { isLargeThanTablet } = useBreakPoints();
-
-  const [searchParams] = useSearchParams({});
-
-
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    const search = searchParams.get('name')
-    // setSearchParams({: e.target.value})
-    console.log(search);
-    navigate(`/?search=${e.target.value}`)
-
-  };
 
   const handleClickCart = useCallback(() => {
     navigate(ROUTES.PRODUCT_CART);
@@ -52,7 +45,7 @@ const Header = () => {
           </Link>
           {isLargeThanTablet ? (
             <Flex alignItems="center">
-              <SearchInput onChange={handleSearch} />
+                <SearchInput onChange={onChange} onSubmit={onSubmit} />
               <Flex
                 alignItems="center"
                 pl="30px"
