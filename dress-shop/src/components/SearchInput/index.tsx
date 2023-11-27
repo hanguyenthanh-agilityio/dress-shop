@@ -5,15 +5,15 @@ import { ChangeEvent } from "react";
 interface SearchInputProps {
   placeholder?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onSubmit: (e: any) => void;
-  // value?: string ;
+  onSubmit: (e: React.MouseEvent<Element, MouseEvent>) => void;
+  value?: string;
 }
 
 const SearchInput = ({
   placeholder = "Search Product...",
   onChange,
   onSubmit,
-  // value
+  value
 }: SearchInputProps) => {
   return (
     <InputGroup maxW={{ xs: "100%", lg: "300px" }}>
@@ -26,7 +26,7 @@ const SearchInput = ({
         onChange={onChange}
         name="search-input"
         data-testid="search-input-field"
-        // value={value}
+        value={value}
       />
       <InputRightElement
         right={{ xs: "10px", md: "16px" }}

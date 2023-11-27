@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { ChangeEvent, memo } from "react";
 
 // Types
 import SelectType from "@/types/select";
@@ -10,7 +10,7 @@ interface SelectProps {
   options: SelectType[];
   placeholder?: string;
   onBlur?: () => void;
-  onChange?: () => void;
+  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const Select = memo<SelectProps>(
@@ -33,8 +33,8 @@ const Select = memo<SelectProps>(
         onBlur={onBlur}
         onChange={onChange}
       >
-        {options.map(({ label }, index) => (
-          <option key={`label-${index}`}>{label}</option>
+        {options.map(({ label, value }, index) => (
+          <option key={`label-${index}`} value={value}>{label}</option>
         ))}
       </SelectChakra>
     );

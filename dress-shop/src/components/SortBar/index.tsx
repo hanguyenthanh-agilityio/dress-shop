@@ -6,11 +6,12 @@ import Select from "@/components/Select";
 // Types
 import SelectType from "@/types/select";
 import { Category } from "@/types/common";
+import { ChangeEvent } from "react";
 
 interface SortBarProps {
   categories: Category[];
   options: SelectType[];
-  onChangeSelect: () => void;
+  onChangeSelect: (e: ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const SortBar = ({ options, categories, onChangeSelect }: SortBarProps) => {

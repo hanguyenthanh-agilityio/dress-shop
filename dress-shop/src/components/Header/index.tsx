@@ -24,11 +24,12 @@ import { useBreakPoints } from "@/hooks/useBreakPoints";
 import { ROUTES } from "@/constants/routes";
 
 interface HeaderProps {
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onSubmit: (e: any) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSubmit?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  value?: string;
 }
 
-const Header = ({ onChange, onSubmit }: HeaderProps) => {
+const Header = ({ onChange, onSubmit, value }: HeaderProps) => {
   const navigate = useNavigate();
   const { isLargeThanTablet } = useBreakPoints();
 
@@ -45,7 +46,7 @@ const Header = ({ onChange, onSubmit }: HeaderProps) => {
           </Link>
           {isLargeThanTablet ? (
             <Flex alignItems="center">
-                <SearchInput onChange={onChange} onSubmit={onSubmit} />
+                <SearchInput value={value} onChange={onChange} onSubmit={onSubmit} />
               <Flex
                 alignItems="center"
                 pl="30px"

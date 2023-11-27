@@ -17,4 +17,9 @@ export type Category = {
 export interface Params {
   page: number;
   limit: number;
+  search?: string;
+  category?: string;
+  sortby?: string;
+  order?: string;
 }
+
