@@ -13,6 +13,7 @@ interface SortBarProps {
   options: SelectType[];
   onChangeSelect: (e: ChangeEvent<HTMLSelectElement>) => void;
   filterCategory?: string;
+  order?: string;
 }
 
 const SortBar = ({
@@ -20,6 +21,7 @@ const SortBar = ({
   categories,
   onChangeSelect,
   filterCategory,
+  order,
 }: SortBarProps) => {
   return (
     <Flex
@@ -53,7 +55,7 @@ const SortBar = ({
         <Text pr={{ xs: "5px", md: "10px" }} w={{ xs: "60px", md: "100px" }}>
           Sort by
         </Text>
-        <Select options={options} onChange={onChangeSelect} />
+        <Select options={options} onChange={onChangeSelect} value={order} />
       </Flex>
     </Flex>
   );
