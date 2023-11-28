@@ -1,4 +1,4 @@
-import { ChangeEvent, memo } from "react";
+import { memo } from "react";
 
 // Types
 import SelectType from "@/types/select";

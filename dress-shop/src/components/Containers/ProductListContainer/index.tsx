@@ -21,7 +21,7 @@ const ProductListContainer = () => {
   let params: Params = {
     limit: 10,
     page: 1,
-    sortby: "price",
+    // sortby: "price",
   };
 
   if (search) {
