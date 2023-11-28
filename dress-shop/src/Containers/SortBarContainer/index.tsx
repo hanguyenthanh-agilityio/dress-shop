@@ -29,7 +29,7 @@ const SortBarContainer = () => {
     (e: ChangeEvent<HTMLSelectElement>) => {
       const value = e.target.value;
 
-      searchParams.set("sortby", "");
+      searchParams.set("sortby", "price");
       searchParams.set("order", value);
       setSearchParams(searchParams);
     },
