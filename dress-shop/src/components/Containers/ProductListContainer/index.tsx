@@ -15,13 +15,13 @@ const ProductListContainer = () => {
   const [searchParams] = useSearchParams();
 
   const search = searchParams.get("search") || "";
-  // const category = searchParams.get("category") || "";
-  // const order = searchParams.get("order") || "";
+  const category = searchParams.get("category") || "";
+  const order = searchParams.get("order") || "";
 
   let params: Params = {
     limit: 10,
     page: 1,
-    // sortby: "price",
+    sortby: "price",
   };
 
   if (search) {
@@ -31,19 +31,19 @@ const ProductListContainer = () => {
     };
   }
 
-  // if (category) {
-  //   params = {
-  //     ...params,
-  //     category,
-  //   };
-  // }
+  if (category) {
+    params = {
+      ...params,
+      category,
+    };
+  }
 
-  // if (order) {
-  //   params = {
-  //     ...params,
-  //     order,
-  //   };
-  // }
+  if (order) {
+    params = {
+      ...params,
+      order,
+    };
+  }
 
   const handleError = useCallback(
     (error: string) => {
