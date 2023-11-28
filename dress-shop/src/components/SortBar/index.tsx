@@ -6,23 +6,23 @@ import Select from "@/components/Select";
 // Types
 import SelectType from "@/types/select";
 import { Category } from "@/types/common";
-import { ChangeEvent } from "react";
+// import { ChangeEvent } from "react";
 
 interface SortBarProps {
   categories: Category[];
   options: SelectType[];
-  onChangeSelect: (e: ChangeEvent<HTMLSelectElement>) => void;
-  filterCategory?: string;
-  order?: string;
+  // onChangeSelect: (e: ChangeEvent<HTMLSelectElement>) => void;
+  // filterCategory?: string;
+  // order?: string;
+  onChangeSelect: () => void;
 }
 
 const SortBar = ({
   options,
   categories,
-  onChangeSelect,
-  filterCategory,
-  order,
-}: SortBarProps) => {
+  onChangeSelect, // filterCategory,
+} // order,
+: SortBarProps) => {
   return (
     <Flex
       p="10px"
@@ -31,20 +31,24 @@ const SortBar = ({
       bg="#e5e5e5"
     >
       <Flex justifyContent={{ xs: "center" }}>
-        {categories.map(({ id, action, label, value }: Category) => (
-          <Button
-            key={id}
-            variant="primary"
-            size={{ xs: "default", lg: "medium" }}
-            onClick={action}
-            data-testid={id}
-            p={{ xs: "8px 40px", md: "10px 50px" }}
-            bg={filterCategory !== value ? "#f1f3f5" : "#d82c23"}
-            color={filterCategory !== value ? "#000" : "#fff"}
-          >
-            {label}
-          </Button>
-        ))}
+        {categories.map(
+          (
+            { id, action, label }: Category, //value
+          ) => (
+            <Button
+              key={id}
+              variant="primary"
+              size={{ xs: "default", lg: "medium" }}
+              onClick={action}
+              data-testid={id}
+              p={{ xs: "8px 40px", md: "10px 50px" }}
+              // bg={filterCategory !== value ? "#f1f3f5" : "#d82c23"}
+              // color={filterCategory !== value ? "#000" : "#fff"}
+            >
+              {label}
+            </Button>
+          ),
+        )}
       </Flex>
       <Flex
         alignItems="center"
@@ -55,7 +59,8 @@ const SortBar = ({
         <Text pr={{ xs: "5px", md: "10px" }} w={{ xs: "60px", md: "100px" }}>
           Sort by
         </Text>
-        <Select options={options} onChange={onChangeSelect} value={order} />
+        <Select options={options} onChange={onChangeSelect} />
+        {/* value={order} */}
       </Flex>
     </Flex>
   );

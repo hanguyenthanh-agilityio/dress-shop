@@ -10,8 +10,9 @@ interface SelectProps {
   options: SelectType[];
   placeholder?: string;
   onBlur?: () => void;
-  onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
-  value?: string;
+  // onChange?: (e: ChangeEvent<HTMLSelectElement>) => void;
+  // value?: string;
+  onChange?: () => void;
 }
 
 const Select = memo<SelectProps>(
@@ -19,8 +20,7 @@ const Select = memo<SelectProps>(
     options,
     placeholder = "Select",
     onBlur = () => {},
-    onChange,
-    value,
+    onChange, // value,
   }: SelectProps) => {
     return (
       <SelectChakra
@@ -34,13 +34,16 @@ const Select = memo<SelectProps>(
         data-testid="select-base"
         onBlur={onBlur}
         onChange={onChange}
-        value={value}
+        // value={value}
       >
-        {options.map(({ label, value }, index) => (
-          <option key={`label-${index}`} value={value}>
-            {label}
-          </option>
-        ))}
+        {options.map(
+          (
+            { label },
+            index, //value
+          ) => (
+            <option key={`label-${index}`}>{label}</option> //value={value}
+          ),
+        )}
       </SelectChakra>
     );
   },

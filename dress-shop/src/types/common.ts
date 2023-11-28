@@ -11,14 +11,14 @@ export type Category = {
   id: string;
   label: string;
   action: () => void;
-  value: string;
+  // value: string;
 };
 
 export interface Params {
   page: number;
   limit: number;
   search?: string;
-  category?: string;
-  sortby?: string;
-  order?: string;
+  // category?: string;
+  // sortby?: string;
+  // order?: string;
 }
