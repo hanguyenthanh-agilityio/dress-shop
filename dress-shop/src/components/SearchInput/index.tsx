@@ -13,7 +13,7 @@ const SearchInput = ({
   placeholder = "Search Product...",
   onChange,
   onSubmit,
-  value
+  value,
 }: SearchInputProps) => {
   return (
     <InputGroup maxW={{ xs: "100%", lg: "300px" }}>

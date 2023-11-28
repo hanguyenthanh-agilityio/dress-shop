@@ -11,8 +11,8 @@ export type Category = {
   id: string;
   label: string;
   action: () => void;
+  value: string;
 };
-
 
 export interface Params {
   page: number;
@@ -22,4 +22,3 @@ export interface Params {
   sortby?: string;
   order?: string;
 }
-

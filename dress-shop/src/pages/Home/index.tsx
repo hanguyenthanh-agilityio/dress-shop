@@ -2,7 +2,7 @@ import { Button, Container, Flex, Heading } from "@chakra-ui/react";
 
 // Components
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import HeaderContainer from "@/components/Containers/HeaderContainer";
 import ProductListContainer from "@/components/Containers/ProductListContainer";
 
 // Layouts
@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <>
-      <Header />
+      <HeaderContainer />
       <Carousel />
       <Container pb="100px">
         <Flex flexDir="column">

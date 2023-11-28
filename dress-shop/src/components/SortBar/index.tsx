@@ -29,7 +29,7 @@ const SortBar = ({
       bg="#e5e5e5"
     >
       <Flex justifyContent={{ xs: "center" }}>
-        {categories.map(({ id, action, label }: Category) => (
+        {categories.map(({ id, action, label, value }: Category) => (
           <Button
             key={id}
             variant="primary"
@@ -37,8 +37,8 @@ const SortBar = ({
             onClick={action}
             data-testid={id}
             p={{ xs: "8px 40px", md: "10px 50px" }}
-            bg={filterCategory ? "#f1f3f5" : "#d82c23"}
-            color={filterCategory ? "#000" : "#fff"}
+            bg={filterCategory !== value ? "#f1f3f5" : "#d82c23"}
+            color={filterCategory !== value ? "#000" : "#fff"}
           >
             {label}
           </Button>

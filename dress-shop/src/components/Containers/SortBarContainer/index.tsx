@@ -10,6 +10,7 @@ import { OPTION_SORT } from "@/constants/common";
 const SortBarContainer = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const filterCategory = searchParams.get("category") || "";
+  const order = searchParams.get("order") || "";
 
   // Handle filter by men category
   const handleClickMenCategories = useCallback(() => {
@@ -36,11 +37,17 @@ const SortBarContainer = () => {
   );
 
   const categories = [
-    { id: "men-categories", label: "Men", action: handleClickMenCategories },
+    {
+      id: "men-categories",
+      label: "Men",
+      action: handleClickMenCategories,
+      value: "m",
+    },
     {
       id: "women-categories",
       label: "Women",
       action: handleClickWomenCategories,
+      value: "f",
     },
   ];
 
@@ -50,6 +57,7 @@ const SortBarContainer = () => {
       options={OPTION_SORT}
       onChangeSelect={handleChangeSelect}
       filterCategory={filterCategory}
+      order={order}
     />
   );
 };
