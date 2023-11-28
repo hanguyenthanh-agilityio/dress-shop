@@ -49,9 +49,6 @@ export const Button = {
       bg: "background.light",
       m: "10px",
       p: "10px 50px",
-      _hover: {
-        bg: "#aeaeae",
-      },
     },
 
     secondary: {

@@ -9,6 +9,7 @@ import { OPTION_SORT } from "@/constants/common";
 
 const SortBarContainer = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const filterCategory = searchParams.get("category") || "";
 
   // Handle filter by men category
   const handleClickMenCategories = useCallback(() => {
@@ -48,6 +49,7 @@ const SortBarContainer = () => {
       categories={categories}
       options={OPTION_SORT}
       onChangeSelect={handleChangeSelect}
+      filterCategory={filterCategory}
     />
   );
 };

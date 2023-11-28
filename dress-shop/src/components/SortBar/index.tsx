@@ -12,9 +12,15 @@ interface SortBarProps {
   categories: Category[];
   options: SelectType[];
   onChangeSelect: (e: ChangeEvent<HTMLSelectElement>) => void;
+  filterCategory?: string;
 }
 
-const SortBar = ({ options, categories, onChangeSelect }: SortBarProps) => {
+const SortBar = ({
+  options,
+  categories,
+  onChangeSelect,
+  filterCategory,
+}: SortBarProps) => {
   return (
     <Flex
       p="10px"
@@ -31,6 +37,8 @@ const SortBar = ({ options, categories, onChangeSelect }: SortBarProps) => {
             onClick={action}
             data-testid={id}
             p={{ xs: "8px 40px", md: "10px 50px" }}
+            bg={filterCategory ? "#f1f3f5" : "#d82c23"}
+            color={filterCategory ? "#000" : "#fff"}
           >
             {label}
           </Button>
