@@ -36,7 +36,7 @@ const Select = memo<SelectProps>(
         onChange={onChange}
         value={value}
       >
-        {options.map(({ label }, index, value) => (
+        {options.map(({ label, value }, index) => (
           <option key={`label-${index}`} value={value}>
             {label}
           </option>

@@ -2,8 +2,8 @@ import { Button, Container, Flex, Heading } from "@chakra-ui/react";
 
 // Components
 import Footer from "@/components/Footer";
-import HeaderContainer from "@/components/Containers/HeaderContainer";
-import ProductListContainer from "@/components/Containers/ProductListContainer";
+import HeaderContainer from "@/Containers/HeaderContainer";
+import ProductListContainer from "@/Containers/ProductListContainer";
 
 // Layouts
 import Carousel from "@/layouts/Carousel";
