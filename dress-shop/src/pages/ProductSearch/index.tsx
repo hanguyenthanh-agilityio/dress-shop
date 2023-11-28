@@ -20,15 +20,36 @@ import { Params } from "@/types/common";
 const ProductSearch = () => {
   const [searchParams] = useSearchParams();
 
-  const params: Params = {
+  const search = searchParams.get("search") || "";
+  const category = searchParams.get("category") || "";
+  const order = searchParams.get("order") || "";
+
+  let params: Params = {
     limit: 10,
     page: 1,
-    search: searchParams.get("search") || "",
-    category: searchParams.get("category") || "",
     sortby: "price",
-    order: searchParams.get("order") || "",
   };
-  console.log("searchParam", params);
+
+  if (search) {
+    params = {
+      ...params,
+      search,
+    };
+  }
+
+  if (category) {
+    params = {
+      ...params,
+      category,
+    };
+  }
+
+  if (order) {
+    params = {
+      ...params,
+      order,
+    };
+  }
 
   const { data: products } = useProductList(params, () => {});
 

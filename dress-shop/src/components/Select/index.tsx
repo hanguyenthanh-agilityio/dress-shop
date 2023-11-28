@@ -34,7 +34,9 @@ const Select = memo<SelectProps>(
         onChange={onChange}
       >
         {options.map(({ label, value }, index) => (
-          <option key={`label-${index}`} value={value}>{label}</option>
+          <option key={`label-${index}`} value={value}>
+            {label}
+          </option>
         ))}
       </SelectChakra>
     );
