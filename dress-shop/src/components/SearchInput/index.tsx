@@ -1,14 +1,19 @@
 import { Icon, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
+import { ChangeEvent } from "react";
 
 interface SearchInputProps {
   placeholder?: string;
-  onChange: () => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: React.MouseEvent<Element, MouseEvent>) => void;
+  value?: string;
 }
 
 const SearchInput = ({
   placeholder = "Search Product...",
   onChange,
+  onSubmit,
+  value,
 }: SearchInputProps) => {
   return (
     <InputGroup maxW={{ xs: "100%", lg: "300px" }}>
@@ -21,6 +26,7 @@ const SearchInput = ({
         onChange={onChange}
         name="search-input"
         data-testid="search-input-field"
+        value={value}
       />
       <InputRightElement
         right={{ xs: "10px", md: "16px" }}
@@ -32,6 +38,7 @@ const SearchInput = ({
             color="text.helper"
             w={{ xs: "10px", md: "22px" }}
             h={{ xs: "10px", md: "22px" }}
+            onClick={onSubmit}
           />
         }
       />

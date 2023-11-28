@@ -1,3 +1,4 @@
+import { ChangeEvent } from "react";
 import { Button, Flex, Text } from "@chakra-ui/react";
 
 // Components
@@ -10,10 +11,18 @@ import { Category } from "@/types/common";
 interface SortBarProps {
   categories: Category[];
   options: SelectType[];
-  onChangeSelect: () => void;
+  onChangeSelect: (e: ChangeEvent<HTMLSelectElement>) => void;
+  filterCategory?: string;
+  order?: string;
 }
 
-const SortBar = ({ options, categories, onChangeSelect }: SortBarProps) => {
+const SortBar = ({
+  options,
+  categories,
+  onChangeSelect,
+  filterCategory,
+  order,
+}: SortBarProps) => {
   return (
     <Flex
       p="10px"
@@ -22,7 +31,7 @@ const SortBar = ({ options, categories, onChangeSelect }: SortBarProps) => {
       bg="#e5e5e5"
     >
       <Flex justifyContent={{ xs: "center" }}>
-        {categories.map(({ id, action, label }: Category) => (
+        {categories.map(({ id, action, label, value }: Category) => (
           <Button
             key={id}
             variant="primary"
@@ -30,6 +39,8 @@ const SortBar = ({ options, categories, onChangeSelect }: SortBarProps) => {
             onClick={action}
             data-testid={id}
             p={{ xs: "8px 40px", md: "10px 50px" }}
+            bg={filterCategory !== value ? "#f1f3f5" : "#d82c23"}
+            color={filterCategory !== value ? "#000" : "#fff"}
           >
             {label}
           </Button>
@@ -44,7 +55,7 @@ const SortBar = ({ options, categories, onChangeSelect }: SortBarProps) => {
         <Text pr={{ xs: "5px", md: "10px" }} w={{ xs: "60px", md: "100px" }}>
           Sort by
         </Text>
-        <Select options={options} onChange={onChangeSelect} />
+        <Select options={options} onChange={onChangeSelect} value={order} />
       </Flex>
     </Flex>
   );

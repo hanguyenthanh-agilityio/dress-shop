@@ -11,7 +11,7 @@ export const useProductList = (
   onError: (error: string) => void,
 ) => {
   const { data, ...rest } = useQuery({
-    queryKey: ["products"],
+    queryKey: ["products", params],
     queryFn: () =>
       axiosClient.get<Product[]>("products", {
         params,
