@@ -16,9 +16,15 @@ interface CartProp {
   headerList: HeaderList[];
   products: Product[];
   total: number;
+  onClickDelete?: () => void;
 }
 
-const Cart = ({ headerList, products = [], total }: CartProp) => {
+const Cart = ({
+  headerList,
+  products = [],
+  total,
+  onClickDelete = () => {},
+}: CartProp) => {
   const { isLargeThanTablet } = useBreakPoints();
   return (
     <>
@@ -57,6 +63,7 @@ const Cart = ({ headerList, products = [], total }: CartProp) => {
                   variant="close"
                   justifyContent="start"
                   size={{ xs: "tiny", lg: "default" }}
+                  onClick={onClickDelete}
                 >
                   Delete
                 </Button>

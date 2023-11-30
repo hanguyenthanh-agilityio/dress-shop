@@ -7,10 +7,21 @@ import Cart from "@/components/Cart";
 import { HEADER_LIST } from "@/constants/cart";
 
 // Mocks
-import { PRODUCT_CART } from "@/Mock/common";
+import { CartState } from "@/context/Context";
+import { REDUCER_ACTION_TYPE } from "@/context/Reducer";
 
 const ProductCart = () => {
   const subTotal = 400;
+
+  const {
+    state: { cart },
+    dispatch,
+  } = CartState();
+
+  const handleOnClickDelete = () =>
+    dispatch({
+      type: REDUCER_ACTION_TYPE.REMOVE,
+    });
 
   return (
     <Container minH="90vh">
@@ -22,7 +33,12 @@ const ProductCart = () => {
       >
         Your Cart
       </Heading>
-      <Cart headerList={HEADER_LIST} products={PRODUCT_CART} total={0} />
+      <Cart
+        headerList={HEADER_LIST}
+        products={cart}
+        total={0}
+        onClickDelete={handleOnClickDelete}
+      />
       <Flex flexDir="column" alignItems="end">
         <Flex my="30px" alignItems="center">
           <Text
