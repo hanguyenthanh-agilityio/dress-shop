@@ -7,8 +7,8 @@ import Cart from "@/components/Cart";
 import { HEADER_LIST } from "@/constants/cart";
 
 // Mocks
-import { CartState } from "@/context/Context";
-import { REDUCER_ACTION_TYPE } from "@/context/Reducer";
+import { CartState } from "@/stores/Context";
+import { REDUCER_ACTION_TYPE } from "@/stores/Reducer";
 
 const ProductCart = () => {
   const subTotal = 400;
@@ -17,10 +17,12 @@ const ProductCart = () => {
     state: { cart },
     dispatch,
   } = CartState();
+  console.log("cart", cart);
 
-  const handleOnClickDelete = () =>
+  const handleOnClickDelete = (product) =>
     dispatch({
       type: REDUCER_ACTION_TYPE.REMOVE,
+      payload: product,
     });
 
   return (

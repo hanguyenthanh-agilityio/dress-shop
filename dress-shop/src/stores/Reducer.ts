@@ -9,19 +9,19 @@ export const initialState: CartStateType = {
 };
 
 export type CartItemPayload = {
-  type: string;
-  payload?: Product;
+  type: REDUCER_ACTION_TYPE;
+  payload: Product;
 };
 
-export const REDUCER_ACTION_TYPE = {
-  ADD_TO_CART: "ADD_TO_CART",
-  REMOVE: "REMOVE",
-};
+export enum REDUCER_ACTION_TYPE {
+  ADD_TO_CART = "ADD_TO_CART",
+  REMOVE = "REMOVE",
+}
 
 export const cartReducer = (state: CartStateType, action: CartItemPayload) => {
   switch (action.type) {
     case REDUCER_ACTION_TYPE.ADD_TO_CART:
-      return { ...state, cart: [...state.cart, { ...action.payload }] };
+      return { ...state, cart: [...state.cart, action.payload] };
     case REDUCER_ACTION_TYPE.REMOVE:
       return {
         ...state,

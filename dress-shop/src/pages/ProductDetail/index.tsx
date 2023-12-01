@@ -22,12 +22,14 @@ import { PRODUCTS } from "@/Mock/common";
 import LoadingIndicator from "@/components/LoadingIndicator";
 import HeaderContainer from "@/Containers/HeaderContainer";
 import Footer from "@/components/Footer";
-import { REDUCER_ACTION_TYPE } from "@/context/Reducer";
-import { CartState } from "@/context/Context";
+import { REDUCER_ACTION_TYPE } from "@/stores/Reducer";
+import { CartState } from "@/stores/Context";
+import { Product } from "@/types/common";
 
 const ProductDetail = () => {
   const { productId } = useParams();
   const { data: product, isLoading } = useProductById(productId);
+
   const { dispatch } = CartState();
 
   if (isLoading) return <LoadingIndicator />;
@@ -65,11 +67,12 @@ const ProductDetail = () => {
       </Flex>
     );
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (product: Product) => {
     dispatch({
       type: REDUCER_ACTION_TYPE.ADD_TO_CART,
       payload: product,
     });
+    console.log();
   };
 
   return (
@@ -111,7 +114,7 @@ const ProductDetail = () => {
                 size={{ xs: "small", lg: "default" }}
                 p={{ xs: "10px 30px", sm: "20px 40px", lg: "25px 60px" }}
                 ml={{ xs: "15px", lg: "40px" }}
-                onClick={handleAddToCart}
+                onClick={() => handleAddToCart(product)}
               >
                 Add to Cart
               </Button>
