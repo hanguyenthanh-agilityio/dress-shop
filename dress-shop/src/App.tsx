@@ -12,15 +12,20 @@ import GlobalStyles from "./globalStyles";
 // Routes
 import { router } from "./routes";
 
+// Stores
+import Context from "./stores/Context";
+
 function App() {
   const queryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider theme={CHAKRA_THEME_DEFAULT}>
-        <CSSReset />
-        <RouterProvider router={router} />
-        <GlobalStyles />
+        <Context>
+          <CSSReset />
+          <RouterProvider router={router} />
+          <GlobalStyles />
+        </Context>
       </ChakraProvider>
     </QueryClientProvider>
   );

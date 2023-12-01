@@ -9,9 +9,10 @@ import Quantity from "@/components/Quantity";
 interface CartRowProps {
   product: Product;
   total: number;
+  onClickDelete?: () => void;
 }
 
-const CartRow = ({ product, total }: CartRowProps) => {
+const CartRow = ({ product, total, onClickDelete }: CartRowProps) => {
   const { imageURL, name, price } = product;
   return (
     <Tr>
@@ -31,7 +32,7 @@ const CartRow = ({ product, total }: CartRowProps) => {
         </Text>
       </Td>
       <Td>
-        <Button color="text.primary" variant="close">
+        <Button color="text.primary" variant="close" onClick={onClickDelete}>
           Delete
         </Button>
       </Td>

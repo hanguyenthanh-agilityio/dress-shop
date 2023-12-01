@@ -8,66 +8,58 @@ import { HEADER_LIST } from "@/constants/cart";
 
 // Mocks
 import { CartState } from "@/stores/Context";
-import { REDUCER_ACTION_TYPE } from "@/stores/Reducer";
+import HeaderContainer from "@/Containers/HeaderContainer";
+import Footer from "@/components/Footer";
 
 const ProductCart = () => {
   const subTotal = 400;
 
   const {
     state: { cart },
-    dispatch,
   } = CartState();
-  console.log("cart", cart);
-
-  const handleOnClickDelete = (product) =>
-    dispatch({
-      type: REDUCER_ACTION_TYPE.REMOVE,
-      payload: product,
-    });
 
   return (
-    <Container minH="90vh">
-      <Heading
-        textTransform="uppercase"
-        pt="35px"
-        fontWeight="700"
-        size={{ xs: "medium", lg: "default" }}
-      >
-        Your Cart
-      </Heading>
-      <Cart
-        headerList={HEADER_LIST}
-        products={cart}
-        total={0}
-        onClickDelete={handleOnClickDelete}
-      />
-      <Flex flexDir="column" alignItems="end">
-        <Flex my="30px" alignItems="center">
-          <Text
-            size={{ xs: "small", lg: "large" }}
-            pr={{ xs: "30px", lg: "50px" }}
-          >
-            Sub Total
-          </Text>
-          <Text
-            size={{ xs: "large", lg: "wide" }}
-            color="text.primary"
-            fontWeight="600"
-          >
-            P{subTotal}
-          </Text>
+    <>
+      <HeaderContainer />
+      <Container minH="90vh">
+        <Heading
+          textTransform="uppercase"
+          pt="35px"
+          fontWeight="700"
+          size={{ xs: "medium", lg: "default" }}
+        >
+          Your Cart
+        </Heading>
+        <Cart headerList={HEADER_LIST} products={cart} total={0} />
+        <Flex flexDir="column" alignItems="end">
+          <Flex my="30px" alignItems="center">
+            <Text
+              size={{ xs: "small", lg: "large" }}
+              pr={{ xs: "30px", lg: "50px" }}
+            >
+              Sub Total
+            </Text>
+            <Text
+              size={{ xs: "large", lg: "wide" }}
+              color="text.primary"
+              fontWeight="600"
+            >
+              P{subTotal}
+            </Text>
+          </Flex>
+          <Flex>
+            <Button
+              variant="check"
+              p={{ xs: "20px", lg: "25px" }}
+              size={{ xs: "small", lg: "default" }}
+            >
+              Check out
+            </Button>
+          </Flex>
         </Flex>
-        <Flex>
-          <Button
-            variant="check"
-            p={{ xs: "20px", lg: "25px" }}
-            size={{ xs: "small", lg: "default" }}
-          >
-            Check out
-          </Button>
-        </Flex>
-      </Flex>
-    </Container>
+      </Container>
+      <Footer />
+    </>
   );
 };
 
