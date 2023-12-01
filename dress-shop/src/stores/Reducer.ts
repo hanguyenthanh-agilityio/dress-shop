@@ -8,6 +8,18 @@ export const initialState: CartStateType = {
   cart: [],
 };
 
+export const initializer = (initialValue = initialState) => {
+  let currentValue;
+  try {
+    currentValue =
+      JSON.parse(localStorage.getItem("localCart") || "{}") || initialValue;
+  } catch (error) {
+    currentValue = initialValue;
+  }
+
+  return currentValue;
+};
+
 export type CartItemPayload = {
   type: REDUCER_ACTION_TYPE;
   payload: Product;
