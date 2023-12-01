@@ -12,7 +12,8 @@ export const initializer = (initialValue = initialState) => {
   let currentValue;
   try {
     currentValue =
-      JSON.parse(localStorage.getItem("localCart") || "{}") || initialValue;
+      JSON.parse(localStorage.getItem("localCart") || "{cart: []}") ||
+      initialValue;
   } catch (error) {
     currentValue = initialValue;
   }

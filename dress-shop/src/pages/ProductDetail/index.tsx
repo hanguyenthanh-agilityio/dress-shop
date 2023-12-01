@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import {
@@ -8,6 +9,7 @@ import {
   Heading,
   Image,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 
 // Components
@@ -31,6 +33,24 @@ const ProductDetail = () => {
   const { data: product, isLoading } = useProductById(productId);
 
   const { dispatch } = CartState();
+
+  const toast = useToast();
+
+  const handleAddToCart = useCallback(
+    (product: Product) => {
+      dispatch({
+        type: REDUCER_ACTION_TYPE.ADD_TO_CART,
+        payload: product,
+      });
+      toast({
+        title: "Successfully add to cart",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+    },
+    [dispatch, toast],
+  );
 
   if (isLoading) return <LoadingIndicator />;
 
@@ -66,14 +86,6 @@ const ProductDetail = () => {
         </Link>
       </Flex>
     );
-
-  const handleAddToCart = (product: Product) => {
-    dispatch({
-      type: REDUCER_ACTION_TYPE.ADD_TO_CART,
-      payload: product,
-    });
-    console.log();
-  };
 
   return (
     <>
@@ -114,6 +126,7 @@ const ProductDetail = () => {
                 size={{ xs: "small", lg: "default" }}
                 p={{ xs: "10px 30px", sm: "20px 40px", lg: "25px 60px" }}
                 ml={{ xs: "15px", lg: "40px" }}
+                isLoading={isLoading}
                 onClick={() => handleAddToCart(product)}
               >
                 Add to Cart
