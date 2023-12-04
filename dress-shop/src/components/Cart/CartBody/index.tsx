@@ -19,7 +19,7 @@ interface CartBodyProps {
 const CartBody = memo<CartBodyProps>(({ products, total }: CartBodyProps) => {
   const { dispatch } = CartState();
 
-  const handleOnClickDelete = (product: Product) =>
+  const handleOnDelete = (product: Product) =>
     dispatch({
       type: REDUCER_ACTION_TYPE.REMOVE,
       payload: product,
@@ -32,7 +32,7 @@ const CartBody = memo<CartBodyProps>(({ products, total }: CartBodyProps) => {
           key={product.id}
           product={product}
           total={total}
-          onClickDelete={() => handleOnClickDelete(product)}
+          onDelete={() => handleOnDelete(product)}
         />
       ))}
     </Tbody>

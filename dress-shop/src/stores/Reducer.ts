@@ -28,7 +28,7 @@ export type CartItemPayload = {
 
 export enum REDUCER_ACTION_TYPE {
   ADD_TO_CART = "ADD_TO_CART",
-  REMOVE = "REMOVE",
+  REMOVE = "REMOVE_CART_ITEM",
 }
 
 export const cartReducer = (state: CartStateType, action: CartItemPayload) => {
