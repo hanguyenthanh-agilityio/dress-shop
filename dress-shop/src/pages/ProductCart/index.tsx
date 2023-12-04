@@ -13,8 +13,6 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 
 const ProductCart = () => {
-  // const subTotal = 400;
-
   const {
     state: { cart },
   } = CartState();
