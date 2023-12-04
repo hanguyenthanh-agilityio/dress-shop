@@ -13,11 +13,16 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 
 const ProductCart = () => {
-  const subTotal = 400;
+  // const subTotal = 400;
 
   const {
     state: { cart },
   } = CartState();
+
+  const totalPrice = cart.reduce(
+    (total, priceItem): number => total + priceItem.price,
+    0,
+  );
 
   return (
     <>
@@ -47,7 +52,7 @@ const ProductCart = () => {
                   color="text.primary"
                   fontWeight="600"
                 >
-                  P{subTotal}
+                  P{totalPrice}
                 </Text>
               </Flex>
               <Flex>
