@@ -12,14 +12,28 @@ import { useBreakPoints } from "@/hooks/useBreakPoints";
 import { HeaderList } from "@/types/cart";
 import { Product } from "@/types/common";
 
+// Stores
+import { REDUCER_ACTION_TYPE } from "@/stores/Reducer";
+import { CartState } from "@/stores/Context";
+
 interface CartProp {
   headerList: HeaderList[];
   products: Product[];
   total: number;
+  onClickDelete?: () => void;
 }
 
 const Cart = ({ headerList, products = [], total }: CartProp) => {
   const { isLargeThanTablet } = useBreakPoints();
+
+  const { dispatch } = CartState();
+
+  const handleOnClickDelete = (product: Product) =>
+    dispatch({
+      type: REDUCER_ACTION_TYPE.REMOVE,
+      payload: product,
+    });
+
   return (
     <>
       {isLargeThanTablet ? (
@@ -57,6 +71,7 @@ const Cart = ({ headerList, products = [], total }: CartProp) => {
                   variant="close"
                   justifyContent="start"
                   size={{ xs: "tiny", lg: "default" }}
+                  onClick={() => handleOnClickDelete(product)}
                 >
                   Delete
                 </Button>
