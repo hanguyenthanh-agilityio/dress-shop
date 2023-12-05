@@ -29,7 +29,7 @@ interface MainHeaderProps {
 
 interface HeaderProps {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onSubmit?: (e: React.MouseEvent<Element, MouseEvent>) => void;
+  onSubmit: (e: React.MouseEvent<Element, MouseEvent>) => void;
   value?: string;
 }
 
