@@ -89,8 +89,8 @@ const Footer = () => {
           w="100%"
           p="10px"
         >
-          {actionButton.map((item) => (
-            <Stack direction="row" spacing={6}>
+          {actionButton.map((item, index) => (
+            <Stack key={index} direction="row" spacing={6}>
               <Flex
                 flexDirection="column"
                 justifyContent="center"

@@ -21,7 +21,7 @@ const Categories = () => (
       pb="30px"
     >
       {CATEGORIES.map((categories, index) => (
-        <Flex position="relative" paddingTop={{ xs: "20px" }}>
+        <Flex key = {index} position="relative" paddingTop={{ xs: "20px" }}>
           <Image
             key={index}
             src={categories.img}
