@@ -6,9 +6,6 @@ import "./App.css";
 // Themes
 import CHAKRA_THEME_DEFAULT from "./themes/chakra";
 
-// Global style
-import GlobalStyles from "./globalStyles";
-
 // Routes
 import { router } from "./routes";
 
@@ -24,7 +21,6 @@ function App() {
         <Context>
           <CSSReset />
           <RouterProvider router={router} />
-          <GlobalStyles />
         </Context>
       </ChakraProvider>
     </QueryClientProvider>

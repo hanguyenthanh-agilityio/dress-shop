@@ -6,12 +6,13 @@ import Card from "@/components/Card";
 
 // Types
 import { Product } from "@/types/common";
+import { memo } from "react";
 
 interface ProductListProps {
   products: Product[];
 }
 
-const ProductList = ({ products }: ProductListProps) => {
+const ProductList = memo<ProductListProps>(({ products }: ProductListProps) => {
   return (
     <Grid
       w="full"
@@ -24,13 +25,15 @@ const ProductList = ({ products }: ProductListProps) => {
       }}
       py="15px"
     >
-      {products.map(({ id, imageURL, altText = "Product image", name, price }: Product) => (
-        <Link key={id} to={`/products/${id}`}>
-          <Card src={imageURL} altText={altText} name={name} price={price} />
-        </Link>
-      ))}
+      {products.map(
+        ({ id, imageURL, altText = "Product image", name, price }: Product) => (
+          <Link key={id} to={`/products/${id}`}>
+            <Card src={imageURL} altText={altText} name={name} price={price} />
+          </Link>
+        ),
+      )}
     </Grid>
   );
-};
+});
 
 export default ProductList;

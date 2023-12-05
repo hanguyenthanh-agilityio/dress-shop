@@ -15,18 +15,24 @@ import {
 // Components
 import ProductList from "@/components/ProductList";
 import Quantity from "@/components/Quantity";
+import LoadingIndicator from "@/components/LoadingIndicator";
+import Footer from "@/components/Footer";
+
+// Containers
+import HeaderContainer from "@/containers/HeaderContainer";
 
 // APIs
 import { useProductById } from "@/apis/app";
 
-// Mocks
-import { PRODUCTS } from "@/Mock/common";
-import LoadingIndicator from "@/components/LoadingIndicator";
-import HeaderContainer from "@/Containers/HeaderContainer";
-import Footer from "@/components/Footer";
+// Stores
 import { REDUCER_ACTION_TYPE } from "@/stores/Reducer";
 import { CartState } from "@/stores/Context";
+
+// Types
 import { Product } from "@/types/common";
+
+// Mocks
+import { PRODUCTS } from "@/mocks/common";
 
 const ProductDetail = () => {
   const { productId } = useParams();

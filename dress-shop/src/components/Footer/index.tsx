@@ -1,6 +1,5 @@
-import { useCallback } from "react";
 import { Box, Container, Flex, Stack, Text } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // React icons
 import {
@@ -20,39 +19,26 @@ import { useBreakPoints } from "@/hooks/useBreakPoints";
 import { ROUTES } from "@/constants/routes";
 
 const Footer = () => {
-  const navigate = useNavigate();
   const { isLargeThanTablet } = useBreakPoints();
-
-  const handleClickHome = useCallback(() => {
-    navigate(ROUTES.HOME);
-  }, [navigate]);
-
-  const handleClickSearch = useCallback(() => {
-    navigate(ROUTES.PRODUCT_SEARCH);
-  }, [navigate]);
-
-  const handleClickCart = useCallback(() => {
-    navigate(ROUTES.PRODUCT_CART);
-  }, [navigate]);
 
   const actionButton = [
     {
       id: "men-categories",
       icon: <FaHome />,
       text: "Home",
-      action: handleClickHome,
+      action: ROUTES.HOME,
     },
     {
       id: "women-categories",
       icon: <FaSearch />,
       text: "Search",
-      action: handleClickSearch,
+      action: ROUTES.PRODUCT_SEARCH,
     },
     {
       id: "men-categories",
       icon: <FaCartArrowDown />,
       text: "Cart",
-      action: handleClickCart,
+      action: ROUTES.PRODUCT_CART,
     },
   ];
   return (
@@ -91,17 +77,18 @@ const Footer = () => {
         >
           {actionButton.map((item, index) => (
             <Stack key={index} direction="row" spacing={6}>
-              <Flex
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-                onClick={item.action}
-              >
-                <IconContext.Provider value={{ size: "20px" }}>
-                  {item.icon}
-                </IconContext.Provider>
-                <Text>{item.text}</Text>
-              </Flex>
+              <Link to={item.action}>
+                <Flex
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <IconContext.Provider value={{ size: "20px" }}>
+                    {item.icon}
+                  </IconContext.Provider>
+                  <Text>{item.text}</Text>
+                </Flex>
+              </Link>
             </Stack>
           ))}
         </Flex>

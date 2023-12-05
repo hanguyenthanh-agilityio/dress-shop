@@ -2,7 +2,7 @@ import { SetStateAction, useState } from "react";
 import { Box, Flex, Image, HStack } from "@chakra-ui/react";
 
 // Mocks
-import { slides } from "@/Mock/common";
+import { slides } from "@/mocks/common";
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

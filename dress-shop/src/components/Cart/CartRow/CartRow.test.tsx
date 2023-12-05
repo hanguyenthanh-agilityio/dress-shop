@@ -1,18 +1,18 @@
-import { render } from '@testing-library/react';
-import { Table } from '@chakra-ui/react';
+import { render } from "@testing-library/react";
+import { Table } from "@chakra-ui/react";
 
 // Components
-import CardRow from '.';
+import CardRow from ".";
 
 // Mocks
-import { ITEM_CART } from '../../../Mock/common';
+import { ITEM_CART } from "../../../mocks/common";
 
-describe('CardRow component', () => {
-  it('Should render CardRow snapshot correctly', () => {
+describe("CardRow component", () => {
+  it("Should render CardRow snapshot correctly", () => {
     const cardRow = render(
       <Table>
         <CardRow product={ITEM_CART} total={400} />
-      </Table>
+      </Table>,
     );
 
     expect(cardRow).toMatchSnapshot();

@@ -2,9 +2,11 @@ import { Container } from "@chakra-ui/react";
 
 // Components
 import Footer from "@/components/Footer";
-import HeaderContainer from "@/Containers/HeaderContainer";
-import SortBarContainer from "@/Containers/SortBarContainer";
-import ProductListContainer from "@/Containers/ProductListContainer";
+
+// Containers
+import HeaderContainer from "@/containers/HeaderContainer";
+import SortBarContainer from "@/containers/SortBarContainer";
+import ProductListContainer from "@/containers/ProductListContainer";
 
 const ProductSearch = () => {
   return (
