@@ -106,6 +106,6 @@ export const PRODUCT_CART = [
 ];
 
 export const CATEGORIES_BUTTON = [
-  {id: "men-categories", label: "Men", action: () => {}},
-  {id: "women-categories", label: "Women", action: () => {}},
+  {id: "men-categories", label: "Men", value: "m", action: () => {}},
+  {id: "women-categories", label: "Women", value: "f", action: () => {}},
 ];
