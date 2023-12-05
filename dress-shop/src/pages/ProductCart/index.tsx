@@ -6,7 +6,7 @@ import Cart from "@/components/Cart";
 import Footer from "@/components/Footer";
 
 // Containers
-import HeaderContainer from "@/containers/HeaderContainer";
+import HeaderContainer from "@/Containers/HeaderContainer";
 
 // Constants
 import { HEADER_LIST } from "@/constants/cart";

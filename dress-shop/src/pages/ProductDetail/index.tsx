@@ -19,7 +19,7 @@ import LoadingIndicator from "@/components/LoadingIndicator";
 import Footer from "@/components/Footer";
 
 // Containers
-import HeaderContainer from "@/containers/HeaderContainer";
+import HeaderContainer from "@/Containers/HeaderContainer";
 
 // APIs
 import { useProductById } from "@/apis/app";
