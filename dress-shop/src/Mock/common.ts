@@ -81,10 +81,12 @@ export const CATEGORIES = [
   {
     img: "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1582274091%2Fezgif.com-webp-to-jpg_l9flc0.jpg&w=1920&q=75",
     name: "Women",
+    alt: "women-categories"
   },
   {
     img: "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1582274252%2Fcateg-02_pqpnm7.jpg&w=3840&q=75",
     name: "Men",
+    alt: "men-categories"
   }
 ];
 export const ITEM_CART =

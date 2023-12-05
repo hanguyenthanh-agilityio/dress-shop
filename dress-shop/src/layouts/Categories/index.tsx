@@ -23,6 +23,7 @@ const Categories = () => (
       {CATEGORIES.map((categories, index) => (
         <Flex key = {index} position="relative" paddingTop={{ xs: "20px" }}>
           <Image
+            alt={categories.alt}
             key={index}
             src={categories.img}
             w={{
