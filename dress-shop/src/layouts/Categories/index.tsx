@@ -1,7 +1,7 @@
 import { Flex, Heading, Image } from "@chakra-ui/react";
 
 // Mocks
-import { CATEGORIES } from "@/Mock/common";
+import { CATEGORIES } from "@/mock/common";
 
 const Categories = () => (
   <>

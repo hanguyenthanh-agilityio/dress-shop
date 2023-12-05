@@ -1,16 +1,18 @@
 import { Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 // Components
 import Cart from "@/components/Cart";
+import Footer from "@/components/Footer";
+
+// Containers
+import HeaderContainer from "@/containers/HeaderContainer";
 
 // Constants
 import { HEADER_LIST } from "@/constants/cart";
 
 // Mocks
 import { CartState } from "@/stores/Context";
-import HeaderContainer from "@/Containers/HeaderContainer";
-import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
 
 const ProductCart = () => {
   const {

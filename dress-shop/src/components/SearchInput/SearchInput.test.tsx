@@ -7,6 +7,7 @@ describe("SearchInput component", () => {
   const props = {
     placeholder: "Search",
     onChange: jest.fn(),
+    onSubmit: jest.fn(),
   };
 
   const search = () => {

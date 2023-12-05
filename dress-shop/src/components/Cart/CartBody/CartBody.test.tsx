@@ -5,7 +5,7 @@ import { Table } from '@chakra-ui/react';
 import CardBody from '.';
 
 // Mocks
-import { PRODUCT_CART } from '../../../Mock/common';
+import { PRODUCT_CART } from '../../../mock/common';
 
 describe('CardBody component', () => {
   it('Should render CardBody snapshot correctly', () => {

@@ -6,7 +6,7 @@ import { Container, Table } from '@chakra-ui/react';
 import CartBody from '.';
 
 // Constants
-import { PRODUCT_CART } from '../../../Mock/common';
+import { PRODUCT_CART } from '../../../mock/common';
 
 
 export default {

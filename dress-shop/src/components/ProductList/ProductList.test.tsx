@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import ProductList from '.';
-import { PRODUCTS } from '../../Mock/common';
+import { PRODUCTS } from '../../mock/common';
 
 describe('ProductList component', () => {
   it('Should render ProductList snapshot correctly', () => {

@@ -1,7 +1,7 @@
 import { StoryObj, Meta } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
 import ProductList from '.';
-import { PRODUCTS } from '../../Mock/common';
+import { PRODUCTS } from '../../mock/common';
 
 
 export default {

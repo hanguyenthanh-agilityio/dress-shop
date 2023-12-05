@@ -9,7 +9,7 @@ import SortBar from '.';
 import { OPTION_SORT } from '../../constants/common';
 
 // Mocks
-import { CATEGORIES_BUTTON } from '../../Mock/common';
+import { CATEGORIES_BUTTON } from '../../mock/common';
 
 
 export default {
