@@ -1,21 +1,21 @@
-import { render } from '@testing-library/react';
-import { Table } from '@chakra-ui/react';
+import { render } from "@testing-library/react";
+import { Table } from "@chakra-ui/react";
 
 // Components
-import Card from '.';
+import Card from ".";
 
 // Mocks
-import { PRODUCT_CART } from '../../mock/common';
+import { PRODUCT_CART } from "../../mocks/common";
 
 // Constants
-import { HEADER_LIST } from '../../constants/cart';
+import { HEADER_LIST } from "../../constants/cart";
 
-describe('Card component', () => {
-  it('Should render Card snapshot correctly', () => {
+describe("Card component", () => {
+  it("Should render Card snapshot correctly", () => {
     const card = render(
       <Table>
         <Card products={PRODUCT_CART} headerList={HEADER_LIST} total={0} />
-      </Table>
+      </Table>,
     );
 
     expect(card).toMatchSnapshot();

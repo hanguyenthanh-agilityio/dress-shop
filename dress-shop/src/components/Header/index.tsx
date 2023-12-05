@@ -65,12 +65,7 @@ const Header = memo<HeaderProps>(
                 onSubmit={onSubmit}
               />
               <Link to={ROUTES.PRODUCT_CART}>
-                <Flex
-                  alignItems="center"
-                  pl="30px"
-                  pr="10px"
-                  cursor="pointer"
-                >
+                <Flex alignItems="center" pl="30px" pr="10px" cursor="pointer">
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -124,6 +119,6 @@ const Header = memo<HeaderProps>(
       </>
     );
   },
-)
+);
 
 export default Header;

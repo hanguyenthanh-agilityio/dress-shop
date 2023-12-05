@@ -32,7 +32,7 @@ import { CartState } from "@/stores/Context";
 import { Product } from "@/types/common";
 
 // Mocks
-import { PRODUCTS } from "@/mock/common";
+import { PRODUCTS } from "@/mocks/common";
 
 const ProductDetail = () => {
   const { productId } = useParams();

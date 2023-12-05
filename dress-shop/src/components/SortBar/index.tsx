@@ -63,5 +63,4 @@ const SortBar = memo<SortBarProps>(
   },
 );
 
-
 export default SortBar;

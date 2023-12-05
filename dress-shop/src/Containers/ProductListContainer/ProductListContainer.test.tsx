@@ -1,14 +1,14 @@
-import { render } from '@testing-library/react';
-import ProductListContainer from '.';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { render } from "@testing-library/react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import ProductListContainer from ".";
 
-describe('ProductListContainer component', () => {
+describe("ProductListContainer component", () => {
   const queryClient = new QueryClient();
-  it('Should render ProductList snapshot correctly', () => {
+  it("Should render ProductList snapshot correctly", () => {
     const productListContainer = render(
       <QueryClientProvider client={queryClient}>
         <ProductListContainer />
-        </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     expect(productListContainer).toMatchSnapshot();

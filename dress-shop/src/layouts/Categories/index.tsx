@@ -1,7 +1,7 @@
 import { Flex, Heading, Image } from "@chakra-ui/react";
 
 // Mocks
-import { CATEGORIES } from "@/mock/common";
+import { CATEGORIES } from "@/mocks/common";
 
 const Categories = () => (
   <>
@@ -21,7 +21,7 @@ const Categories = () => (
       pb="30px"
     >
       {CATEGORIES.map((categories, index) => (
-        <Flex key = {index} position="relative" paddingTop={{ xs: "20px" }}>
+        <Flex key={index} position="relative" paddingTop={{ xs: "20px" }}>
           <Image
             alt={categories.alt}
             key={index}

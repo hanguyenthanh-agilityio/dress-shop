@@ -1,19 +1,18 @@
-import { StoryObj, Meta } from '@storybook/react';
-import { MemoryRouter } from 'react-router-dom';
-import { Container } from '@chakra-ui/react';
+import { StoryObj, Meta } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
+import { Container } from "@chakra-ui/react";
 
 // Components
-import SortBar from '.';
+import SortBar from ".";
 
 // Constants
-import { OPTION_SORT } from '../../constants/common';
+import { OPTION_SORT } from "../../constants/common";
 
 // Mocks
-import { CATEGORIES_BUTTON } from '../../mock/common';
-
+import { CATEGORIES_BUTTON } from "../../mocks/common";
 
 export default {
-  title: 'Components/SortBar',
+  title: "Components/SortBar",
   component: SortBar,
   decorators: [
     (Story) => (
@@ -22,8 +21,8 @@ export default {
           <Story />
         </Container>
       </MemoryRouter>
-    )
-  ]
+    ),
+  ],
 } as Meta;
 
 type Story = StoryObj<typeof SortBar>;
@@ -31,6 +30,6 @@ type Story = StoryObj<typeof SortBar>;
 export const Default: Story = {
   args: {
     options: OPTION_SORT,
-    categories: CATEGORIES_BUTTON
-  }
+    categories: CATEGORIES_BUTTON,
+  },
 };

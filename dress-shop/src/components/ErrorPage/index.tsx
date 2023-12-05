@@ -1,11 +1,10 @@
 import { Button, Flex, Heading, Text } from "@chakra-ui/react";
-import {  Link  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Constants
 import { ROUTES } from "@/constants/routes";
 
 export default function ErrorPage() {
-
   return (
     <Flex
       flexDir="column"
@@ -24,7 +23,9 @@ export default function ErrorPage() {
       <Text mt="12px" mb="8px">
         Page Not Found
       </Text>
-      <Text mt="12px" mb="15px">Sorry, an unexpected error has occurred.</Text>
+      <Text mt="12px" mb="15px">
+        Sorry, an unexpected error has occurred.
+      </Text>
       <Link to={ROUTES.HOME}>
         <Button
           colorScheme="teal"
@@ -37,7 +38,6 @@ export default function ErrorPage() {
           Go to Home
         </Button>
       </Link>
-
     </Flex>
   );
 }

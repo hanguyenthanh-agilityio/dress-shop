@@ -1,16 +1,15 @@
-import { StoryObj, Meta } from '@storybook/react';
-import { MemoryRouter } from 'react-router-dom';
-import { Container, Table } from '@chakra-ui/react';
+import { StoryObj, Meta } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
+import { Container, Table } from "@chakra-ui/react";
 
 // Components
-import CartBody from '.';
+import CartBody from ".";
 
 // Constants
-import { PRODUCT_CART } from '../../../mock/common';
-
+import { PRODUCT_CART } from "../../../mocks/common";
 
 export default {
-  title: 'Components/CartBody',
+  title: "Components/CartBody",
   component: CartBody,
   decorators: [
     (Story) => (
@@ -21,8 +20,8 @@ export default {
           </Table>
         </Container>
       </MemoryRouter>
-    )
-  ]
+    ),
+  ],
 } as Meta;
 
 type Story = StoryObj<typeof CartBody>;
@@ -30,6 +29,6 @@ type Story = StoryObj<typeof CartBody>;
 export const Default: Story = {
   args: {
     products: PRODUCT_CART,
-    total: 400
-  }
-}
+    total: 400,
+  },
+};
