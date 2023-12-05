@@ -1,5 +1,6 @@
 import { useToast } from "@chakra-ui/react";
 import { useCallback } from "react";
+import { useSearchParams } from "react-router-dom";
 
 // Components
 import ProductList from "@/components/ProductList";
@@ -7,7 +8,8 @@ import LoadingIndicator from "@/components/LoadingIndicator";
 
 // APIs
 import { useProductList } from "@/apis/app";
-import { useSearchParams } from "react-router-dom";
+
+// Types
 import { Params } from "@/types/common";
 
 const ProductListContainer = () => {
