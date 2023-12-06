@@ -36,7 +36,7 @@ const ProductCart = () => {
         >
           Your Cart
         </Heading>
-        {cart ? (
+        {totalPrice ? (
           <>
             <Cart headerList={HEADER_LIST} products={cart} total={0} />
             <Flex flexDir="column" alignItems="end">

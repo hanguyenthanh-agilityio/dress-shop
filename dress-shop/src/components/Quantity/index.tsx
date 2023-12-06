@@ -1,5 +1,10 @@
 import { Button, HStack, Input, useNumberInput } from "@chakra-ui/react";
 
+// interface QuantityProps {
+//   onIncrease: () => void;
+//   onDecrease: () => void;
+// }
+
 const Quantity = () => {
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
     useNumberInput({
@@ -18,6 +23,7 @@ const Quantity = () => {
       <Button
         variant="quantity"
         size={{ xs: "primary", lg: "secondary" }}
+        // onClick={onIncrease}
         {...decrementButtonProps}
       >
         -
@@ -26,6 +32,7 @@ const Quantity = () => {
       <Button
         variant="quantity"
         size={{ xs: "primary", lg: "secondary" }}
+        // onClick={onDecrease}
         {...incrementButtonProps}
       >
         +

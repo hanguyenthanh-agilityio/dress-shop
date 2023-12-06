@@ -52,7 +52,7 @@ const Footer = () => {
                 my="15px"
                 size={{ xs: "tiny", lg: "default" }}
               >
-                © 2020 Dress Shop. All rights reserved.
+                © 2023 Dress Shop. All rights reserved.
               </Text>
               <Stack direction="row" spacing={6}>
                 <IconContext.Provider value={{ size: "22px" }}>

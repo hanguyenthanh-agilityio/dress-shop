@@ -21,10 +21,12 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     "**/src/**/*.{js,ts,tsx}",
+    "!src/*.{js,ts,tsx}",
     "!**/*.test.{js,ts,tsx}",
     "!**/*.stories.{js,ts,tsx}",
     "!src/themes/**/*.{js,ts,tsx}",
     "!src/components/**/__snapshots__/*.test.{js,ts,tsx}.snap",
+    "!src/routes/*.{js,ts,tsx}",
   ],
   coverageThreshold: {
     global: {

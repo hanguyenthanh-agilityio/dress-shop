@@ -58,7 +58,17 @@ const ProductDetail = () => {
     [dispatch, toast],
   );
 
-  if (isLoading) return <LoadingIndicator />;
+  if (isLoading)
+    return (
+      <Container
+        minH="100vh"
+        display="flex"
+        flexDir="column"
+        justifyContent="center"
+      >
+        <LoadingIndicator />
+      </Container>
+    );
 
   if (!product)
     return (

@@ -9,6 +9,8 @@ import Quantity from "@/components/Quantity";
 interface CartRowProps {
   product: Product;
   total: number;
+  // onIncrease: () => void;
+  // onDecrease: () => void;
   onDelete?: () => void;
 }
 
