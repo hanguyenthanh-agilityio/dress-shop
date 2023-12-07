@@ -9,6 +9,8 @@ export type Product = {
 
 export type Category = {
   id: string;
+  img?: string;
+  alt?: string;
   label: string;
   action: () => void;
   value: string;
