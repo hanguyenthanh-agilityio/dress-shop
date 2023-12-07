@@ -1,13 +1,18 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Header from ".";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Header component", () => {
   const header = () => {
-    return render(<Header onSubmit={() => {}} />);
+    return render(
+      <MemoryRouter>
+        <Header onSubmit={() => {}} />
+      </MemoryRouter>
+    );
   };
 
-  it.skip("Should render Header snapshot correctly", () => {
+  it("Should render Header snapshot correctly", () => {
     expect(header()).toMatchSnapshot();
   });
 });
