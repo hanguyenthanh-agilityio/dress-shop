@@ -49,7 +49,7 @@ const Categories = () => {
   <>
     <Heading
       pt={{ xs: "15px", md: "20px" }}
-      pb={{ xs: "0px", md: "10px" }}
+      pb={{ xs: "20px", md: "10px" }}
       textTransform="uppercase"
       fontWeight="bold"
       size={{ xs: "medium", md: "default" }}
@@ -61,26 +61,21 @@ const Categories = () => {
       justifyContent="space-between"
       pt="10x"
       pb="30px"
+      gap="4"
     >
       {categories.map(({id, img, label, alt, action}: Category) => (
-        <Flex key={id} position="relative" paddingTop={{ xs: "20px" }} onClick={action}>
+        <Flex
+            key={id}
+            position="relative"
+            onClick={action}
+            minW = {{xs: "294px", md: "273px"}}
+            minH= {{xs: "177px", md: "251px"}}
+          >
           <Image
             alt={alt}
             src={img}
-            w={{
-              xs: "350px",
-              sm: "400px",
-              md: "362px",
-              lg: "485px",
-              xl: "570px",
-            }}
-            h={{
-              xs: "210px",
-              sm: "240px",
-              md: "218px",
-              lg: "286px",
-              xl: "354px",
-            }}
+            w="100%"
+            h="100%"
             objectFit="cover"
             border="1px solid #efefef"
           />
