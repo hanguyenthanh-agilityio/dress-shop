@@ -13,8 +13,8 @@ import { HeaderList } from "@/types/cart";
 import { Product } from "@/types/common";
 
 // Stores
-import { REDUCER_ACTION_TYPE } from "@/stores/Reducer";
-import { CartState } from "@/stores/Context";
+// import { REDUCER_ACTION_TYPE } from "@/stores/Reducer";
+import { UseCartContext } from "@/stores/Context";
 
 interface CartProp {
   headerList: HeaderList[];
@@ -26,13 +26,13 @@ interface CartProp {
 const Cart = ({ headerList, products = [], total }: CartProp) => {
   const { isLargeThanTablet } = useBreakPoints();
 
-  const { dispatch } = CartState();
+  const { handleDelete } = UseCartContext();
 
-  const handleOnClickDelete = (product: Product) =>
-    dispatch({
-      type: REDUCER_ACTION_TYPE.REMOVE,
-      payload: product,
-    });
+  // const handleOnClickDelete = (product: Product) =>
+  //   dispatch({
+  //     type: REDUCER_ACTION_TYPE.REMOVE,
+  //     payload: product,
+  //   });
 
   return (
     <>
@@ -71,7 +71,7 @@ const Cart = ({ headerList, products = [], total }: CartProp) => {
                   variant="close"
                   justifyContent="start"
                   size={{ xs: "tiny", lg: "default" }}
-                  onClick={() => handleOnClickDelete(product)}
+                  onClick={() => handleDelete(product)}
                 >
                   Delete
                 </Button>
