@@ -25,11 +25,7 @@ import HeaderContainer from "@/Containers/HeaderContainer";
 import { useProductById } from "@/apis/app";
 
 // Stores
-// import { REDUCER_ACTION_TYPE } from "@/stores/Reducer";
 import { UseCartContext } from "@/stores/Context";
-
-// Types
-// import { Product } from "@/types/common";
 
 // Mocks
 import { PRODUCTS } from "@/mocks/common";
@@ -39,24 +35,6 @@ const ProductDetail = () => {
   const { data: product, isLoading } = useProductById(productId);
 
   const { handleAddToCart } = UseCartContext();
-
-  // const toast = useToast();
-
-  // const handleAddToCart = useCallback(
-  //   (product: Product) => {
-  //     dispatch({
-  //       type: REDUCER_ACTION_TYPE.ADD_TO_CART,
-  //       payload: product,
-  //     });
-  //     toast({
-  //       title: "Successfully add to cart",
-  //       status: "success",
-  //       duration: 3000,
-  //       isClosable: true,
-  //     });
-  //   },
-  //   [dispatch, toast],
-  // );
 
   if (isLoading)
     return (

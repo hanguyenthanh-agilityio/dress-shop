@@ -1,5 +1,4 @@
 import {
-  Dispatch,
   ReactElement,
   createContext,
   useCallback,
@@ -8,7 +7,6 @@ import {
   useReducer,
 } from "react";
 import {
-  CartItemPayload,
   UseCartContextType,
   REDUCER_ACTION_TYPE,
   cartReducer,
@@ -16,14 +14,18 @@ import {
   initializer,
 } from "./Reducer";
 import { useToast } from "@chakra-ui/react";
+
+// Types
 import { Product } from "@/types/common";
 
 const Cart = createContext<{
   state: UseCartContextType;
-  dispatch: Dispatch<CartItemPayload>;
+  handleAddToCart: (product: Product)=>void;
+  handleDelete: (product: Product) => void;
 }>({
   state: initialState,
-  dispatch: () => null,
+  handleAddToCart: () => null,
+  handleDelete: () => null,
 });
 
 type ChildrenType = { children?: ReactElement | ReactElement[] };

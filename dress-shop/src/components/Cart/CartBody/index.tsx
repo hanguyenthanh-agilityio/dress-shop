@@ -9,7 +9,6 @@ import CartRow from "@/components/Cart/CartRow";
 
 // Stores
 import { UseCartContext } from "@/stores/Context";
-// import { REDUCER_ACTION_TYPE } from "@/stores/Reducer";
 
 interface CartBodyProps {
   products: Product[];
@@ -18,12 +17,6 @@ interface CartBodyProps {
 
 const CartBody = memo<CartBodyProps>(({ products, total }: CartBodyProps) => {
   const { handleDelete } = UseCartContext();
-
-  // const handleOnDelete = (product: Product) =>
-  //   dispatch({
-  //     type: REDUCER_ACTION_TYPE.REMOVE,
-  //     payload: product,
-  //   });
 
   return (
     <Tbody>
