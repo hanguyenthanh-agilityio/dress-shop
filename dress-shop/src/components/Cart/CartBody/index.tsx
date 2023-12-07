@@ -8,8 +8,7 @@ import { Product } from "@/types/common";
 import CartRow from "@/components/Cart/CartRow";
 
 // Stores
-import { CartState } from "@/stores/Context";
-import { REDUCER_ACTION_TYPE } from "@/stores/Reducer";
+import { UseCartContext } from "@/stores/Context";
 
 interface CartBodyProps {
   products: Product[];
@@ -17,13 +16,7 @@ interface CartBodyProps {
 }
 
 const CartBody = memo<CartBodyProps>(({ products, total }: CartBodyProps) => {
-  const { dispatch } = CartState();
-
-  const handleOnDelete = (product: Product) =>
-    dispatch({
-      type: REDUCER_ACTION_TYPE.REMOVE,
-      payload: product,
-    });
+  const { handleDelete } = UseCartContext();
 
   return (
     <Tbody>
@@ -34,7 +27,7 @@ const CartBody = memo<CartBodyProps>(({ products, total }: CartBodyProps) => {
           total={total}
           // onIncrease={() => dispatch({type:REDUCER_ACTION_TYPE.INCREASE, payload: product})}
           // onDecrease={() => dispatch({type:REDUCER_ACTION_TYPE.DECREASE, payload: product})}
-          onDelete={() => handleOnDelete(product)}
+          onDelete={() => handleDelete(product)}
         />
       ))}
     </Tbody>

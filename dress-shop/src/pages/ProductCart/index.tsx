@@ -12,12 +12,12 @@ import HeaderContainer from "@/Containers/HeaderContainer";
 import { HEADER_LIST } from "@/constants/cart";
 
 // Mocks
-import { CartState } from "@/stores/Context";
+import { UseCartContext } from "@/stores/Context";
 
 const ProductCart = () => {
   const {
     state: { cart },
-  } = CartState();
+  } = UseCartContext();
 
   const totalPrice = cart.reduce(
     (total, priceItem): number => total + priceItem.price,

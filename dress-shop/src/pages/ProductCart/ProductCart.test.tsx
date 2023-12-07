@@ -2,22 +2,21 @@ import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
 // Components
-import ProductSearch from ".";
+import ProductCart from ".";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-
-describe("ProductSearch component", () => {
-  it("Should render ProductSearch snapshot correctly", () => {
+describe("ProductCart component", () => {
+  it("Should render ProductCart snapshot correctly", () => {
     const queryClient = new QueryClient();
-
-    const productSearch = render(
+    const productCart = render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <ProductSearch />
+          <ProductCart />
         </MemoryRouter>
       </QueryClientProvider>
     );
 
-    expect(productSearch).toMatchSnapshot();
+    expect(productCart).toMatchSnapshot();
   });
 });
+

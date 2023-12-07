@@ -2,11 +2,11 @@
 // import { Cart } from "@/types/cart";
 import { Product } from "@/types/common";
 
-export type CartStateType = {
+export type UseCartContextType = {
   cart: Product[];
 };
 
-export const initialState: CartStateType = {
+export const initialState: UseCartContextType = {
   cart: [],
 };
 
@@ -46,7 +46,7 @@ export enum REDUCER_ACTION_TYPE {
 // return { itemCounter, total };
 // };
 
-export const cartReducer = (state: CartStateType, action: CartItemPayload) => {
+export const cartReducer = (state: UseCartContextType, action: CartItemPayload) => {
   switch (action.type) {
     case REDUCER_ACTION_TYPE.ADD_TO_CART:
       return {

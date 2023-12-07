@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+// import { useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import {
@@ -9,7 +9,7 @@ import {
   Heading,
   Image,
   Text,
-  useToast,
+  // useToast,
 } from "@chakra-ui/react";
 
 // Components
@@ -25,11 +25,7 @@ import HeaderContainer from "@/Containers/HeaderContainer";
 import { useProductById } from "@/apis/app";
 
 // Stores
-import { REDUCER_ACTION_TYPE } from "@/stores/Reducer";
-import { CartState } from "@/stores/Context";
-
-// Types
-import { Product } from "@/types/common";
+import { UseCartContext } from "@/stores/Context";
 
 // Mocks
 import { PRODUCTS } from "@/mocks/common";
@@ -38,25 +34,7 @@ const ProductDetail = () => {
   const { productId } = useParams();
   const { data: product, isLoading } = useProductById(productId);
 
-  const { dispatch } = CartState();
-
-  const toast = useToast();
-
-  const handleAddToCart = useCallback(
-    (product: Product) => {
-      dispatch({
-        type: REDUCER_ACTION_TYPE.ADD_TO_CART,
-        payload: product,
-      });
-      toast({
-        title: "Successfully add to cart",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
-    },
-    [dispatch, toast],
-  );
+  const { handleAddToCart } = UseCartContext();
 
   if (isLoading)
     return (

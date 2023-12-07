@@ -13,7 +13,11 @@ import { router } from "./routes";
 import Context from "./stores/Context";
 
 function App() {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {staleTime: 5000}
+    }
+  });
 
   return (
     <QueryClientProvider client={queryClient}>

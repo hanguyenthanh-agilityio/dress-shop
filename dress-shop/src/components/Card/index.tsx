@@ -10,6 +10,7 @@ interface CardProps {
 const Card = ({ src, altText = "Product image", name, price }: CardProps) => {
   return (
     <Flex
+      minH={{xs: "280px", md: "320px", lg: "400px"}}
       flexDir="column"
       _hover={{
         borderWidth: "1px",
