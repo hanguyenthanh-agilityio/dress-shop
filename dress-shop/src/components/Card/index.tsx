@@ -1,4 +1,4 @@
-import { Flex, Box, Image, Text } from "@chakra-ui/react";
+import { Flex, Image, Text } from "@chakra-ui/react";
 
 interface CardProps {
   src: string;
@@ -9,35 +9,19 @@ interface CardProps {
 
 const Card = ({ src, altText = "Product image", name, price }: CardProps) => {
   return (
-    <Flex
-      minH={{xs: "280px", md: "320px", lg: "400px"}}
-      flexDir="column"
-      _hover={{
-        borderWidth: "1px",
-        rounded: "lg",
-        shadow: "lg",
-      }}
-    >
-      <Box position="relative">
-        <Image
-          src={src}
-          alt={altText}
-          boxSize={{ xs: "142px", sm: "194px", md: "240px", lg: "288px" }}
-          objectFit="cover"
-        />
-      </Box>
-      <Flex
-        flexDir="column"
-        p="10px"
-        justifyContent="space-between"
-        alignContent="center"
-      >
-        <Text size={{ xs: "small", md: "default" }} isTruncated>
-          {name}
-        </Text>
-        <Text size={{ xs: "small", md: "medium" }} variant="primary">
-          P{price}
-        </Text>
+    <Flex flexDir="column" overflow="hidden">
+      <Flex h={{xs: "140px", sm: "195px", md: "240px", lg: "331px", xl: "288px"}}>
+        <Image w="100%" h="100%" src={src} alt={altText}  objectFit="cover"/>
+      </Flex>
+      <Flex>
+        <Flex alignItems="baseline" m="10px" flexDir="column">
+          <Text size={{ xs: "small", md: "default" }} isTruncated>
+            {name}
+          </Text>
+          <Text size={{ xs: "small", md: "medium" }} variant="primary">
+            P{price}
+          </Text>
+        </Flex>
       </Flex>
     </Flex>
   );
