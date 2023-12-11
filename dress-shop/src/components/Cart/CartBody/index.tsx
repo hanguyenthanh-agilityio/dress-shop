@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Tbody } from "@chakra-ui/react";
 
 // Types
-import { Product } from "@/types/common";
+import { Product } from "@/types";
 
 // Components
 import { CartRow } from "@/components";

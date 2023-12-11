@@ -1,7 +1,7 @@
 import { Th, Thead, Tr } from "@chakra-ui/react";
 
 // types
-import { HeaderList } from "@/types/cart";
+import { HeaderList } from "@/types";
 
 interface CartHeaderProps {
   headerList: HeaderList[];

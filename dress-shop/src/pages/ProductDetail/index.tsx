@@ -16,7 +16,7 @@ import {
 import { ProductList, Quantity, LoadingIndicator, Footer } from "@/components";
 
 // Containers
-import HeaderContainer from "@/Containers/HeaderContainer";
+import { HeaderContainer } from "@/Containers";
 
 // APIs
 import { useProductById } from "@/apis/app";

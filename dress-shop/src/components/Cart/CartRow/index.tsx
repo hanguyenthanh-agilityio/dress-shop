@@ -1,7 +1,7 @@
 import { Button, Flex, Image, Td, Text, Tr } from "@chakra-ui/react";
 
 // Types
-import { Product } from "@/types/common";
+import { Product } from "@/types";
 
 // Components
 import { Quantity } from "@/components";

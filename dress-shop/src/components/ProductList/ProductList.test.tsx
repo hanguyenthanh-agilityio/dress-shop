@@ -8,7 +8,7 @@ describe("ProductList component", () => {
     const productList = render(
       <MemoryRouter>
         <ProductList products={PRODUCTS} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(productList).toMatchSnapshot();

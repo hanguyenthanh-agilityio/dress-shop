@@ -16,11 +16,11 @@ import {
 import { useToast } from "@chakra-ui/react";
 
 // Types
-import { Product } from "@/types/common";
+import { Product } from "@/types";
 
 const Cart = createContext<{
   state: UseCartContextType;
-  handleAddToCart: (product: Product)=>void;
+  handleAddToCart: (product: Product) => void;
   handleDelete: (product: Product) => void;
 }>({
   state: initialState,
@@ -55,21 +55,22 @@ const Context = ({ children }: ChildrenType) => {
   );
 
   const handleDelete = (product: Product) =>
-  dispatch({
-    type: REDUCER_ACTION_TYPE.REMOVE,
-    payload: product,
-  });
+    dispatch({
+      type: REDUCER_ACTION_TYPE.REMOVE,
+      payload: product,
+    });
 
-
-  return <Cart.Provider
-    value={{
-      state,
-      handleAddToCart,
-      handleDelete
-    }}
+  return (
+    <Cart.Provider
+      value={{
+        state,
+        handleAddToCart,
+        handleDelete,
+      }}
     >
       {children}
-    </Cart.Provider>;
+    </Cart.Provider>
+  );
 };
 
 export default Context;

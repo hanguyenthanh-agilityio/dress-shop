@@ -7,8 +7,7 @@ import { CartHeader, CartBody, Quantity } from "@/components";
 import { useBreakPoints } from "@/hooks/useBreakPoints";
 
 // Types
-import { HeaderList } from "@/types/cart";
-import { Product } from "@/types/common";
+import { HeaderList, Product } from "@/types";
 
 // Stores
 import { UseCartContext } from "@/stores/Context";

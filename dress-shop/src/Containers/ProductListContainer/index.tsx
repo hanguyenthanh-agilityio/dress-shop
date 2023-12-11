@@ -9,7 +9,7 @@ import { ProductList, LoadingIndicator } from "@/components";
 import { useProductList } from "@/apis/app";
 
 // Types
-import { Params } from "@/types/common";
+import { Params } from "@/types";
 
 const ProductListContainer = () => {
   const toast = useToast();
