@@ -13,10 +13,7 @@ import {
 } from "@chakra-ui/react";
 
 // Components
-import ProductList from "@/components/ProductList";
-import Quantity from "@/components/Quantity";
-import LoadingIndicator from "@/components/LoadingIndicator";
-import Footer from "@/components/Footer";
+import { ProductList, Quantity, LoadingIndicator, Footer } from "@/components";
 
 // Containers
 import HeaderContainer from "@/Containers/HeaderContainer";

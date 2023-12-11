@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 // Components
-import ErrorPage from "@/components/ErrorPage";
+import { ErrorPage } from "@/components";
 
 
 // Pages

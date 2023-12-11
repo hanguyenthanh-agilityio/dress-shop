@@ -2,7 +2,7 @@ import { SimpleGrid } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 // Components
-import Card from "@/components/Card";
+import { Card } from "@/components";
 
 // Types
 import { Product } from "@/types/common";

@@ -2,7 +2,7 @@ import { ChangeEvent, memo } from "react";
 import { Button, Flex, Text } from "@chakra-ui/react";
 
 // Components
-import Select from "@/components/Select";
+import { Select } from "@/components";
 
 // Types
 import SelectType from "@/types/select";

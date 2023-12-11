@@ -2,7 +2,7 @@ import { ChangeEvent, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 
 // Components
-import SortBar from "@/components/SortBar";
+import { SortBar } from "@/components";
 
 // Constants
 import { OPTION_SORT } from "@/constants/common";

@@ -2,8 +2,7 @@ import { Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 // Components
-import Cart from "@/components/Cart";
-import Footer from "@/components/Footer";
+import { Cart, Footer } from "@/components";
 
 // Containers
 import HeaderContainer from "@/Containers/HeaderContainer";

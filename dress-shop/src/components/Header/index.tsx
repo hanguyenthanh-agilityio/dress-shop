@@ -15,7 +15,7 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 // Components
-import SearchInput from "@/components/SearchInput";
+import { SearchInput } from "@/components";
 
 // Hooks
 import { useBreakPoints } from "@/hooks/useBreakPoints";

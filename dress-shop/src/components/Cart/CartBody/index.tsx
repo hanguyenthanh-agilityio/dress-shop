@@ -5,7 +5,7 @@ import { Tbody } from "@chakra-ui/react";
 import { Product } from "@/types/common";
 
 // Components
-import CartRow from "@/components/Cart/CartRow";
+import { CartRow } from "@/components";
 
 // Stores
 import { UseCartContext } from "@/stores/Context";
