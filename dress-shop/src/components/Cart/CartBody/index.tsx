@@ -25,8 +25,6 @@ const CartBody = memo<CartBodyProps>(({ products, total }: CartBodyProps) => {
           key={product.id}
           product={product}
           total={total}
-          // onIncrease={() => dispatch({type:REDUCER_ACTION_TYPE.INCREASE, payload: product})}
-          // onDecrease={() => dispatch({type:REDUCER_ACTION_TYPE.DECREASE, payload: product})}
           onDelete={() => handleDelete(product)}
         />
       ))}
