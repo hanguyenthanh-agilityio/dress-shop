@@ -1,5 +1,8 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
 
+// Constants
+import { FALLBACK_SRC } from "@/constants/common";
+
 interface CardProps {
   src: string;
   altText?: string;
@@ -27,6 +30,7 @@ const Card = ({ src, altText = "Product image", name, price }: CardProps) => {
           src={src}
           alt={altText}
           objectFit="cover"
+          fallbackSrc={FALLBACK_SRC}
         />
       </Flex>
       <Flex>

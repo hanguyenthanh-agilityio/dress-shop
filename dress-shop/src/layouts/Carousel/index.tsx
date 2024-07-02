@@ -4,6 +4,9 @@ import { Box, Flex, Image, HStack } from "@chakra-ui/react";
 // Mocks
 import { slides } from "@/mocks/common";
 
+// Constants
+import { FALLBACK_SRC } from "@/constants/common";
+
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const setSlide = (slide: SetStateAction<number>) => {
@@ -30,6 +33,7 @@ const Carousel = () => {
                 boxSize="full"
                 backgroundSize="cover"
                 objectFit="cover"
+                fallbackSrc={FALLBACK_SRC}
               />
             </Box>
           ))}

@@ -1,4 +1,3 @@
-// import { useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import {
@@ -26,6 +25,9 @@ import { UseCartContext } from "@/stores/Context";
 
 // Mocks
 import { PRODUCTS } from "@/mocks/common";
+
+// Constants
+import { FALLBACK_SRC } from "@/constants/common";
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -90,6 +92,7 @@ const ProductDetail = () => {
               h={{ xs: "236px", sm: "321px", md: "595px", lg: "580px" }}
               objectFit="cover"
               p={{ xs: "0", lg: "20px 20px 20px 0" }}
+              fallbackSrc={FALLBACK_SRC}
             />
           </Box>
           <Flex

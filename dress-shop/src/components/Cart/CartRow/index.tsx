@@ -6,6 +6,9 @@ import { Product } from "@/types";
 // Components
 import { Quantity } from "@/components";
 
+// Constants
+import { FALLBACK_SRC } from "@/constants/common";
+
 interface CartRowProps {
   product: Product;
   total: number;
@@ -18,7 +21,13 @@ const CartRow = ({ product, total, onDelete }: CartRowProps) => {
     <Tr>
       <Td>
         <Flex maxW="280px">
-          <Image src={imageURL} boxSize="120px" objectFit="cover" pr="10px" />
+          <Image
+            src={imageURL}
+            boxSize="120px"
+            objectFit="cover"
+            pr="10px"
+            fallbackSrc={FALLBACK_SRC}
+          />
           <Text fontWeight="600">{name}</Text>
         </Flex>
       </Td>
