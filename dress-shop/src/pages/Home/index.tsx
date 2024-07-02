@@ -20,7 +20,7 @@ const Home = () => {
       <Container pb="100px">
         <Flex flexDir="column">
           <Categories />
-          <Heading>Product Overview</Heading>
+          <Heading pb="10px">Product Overview</Heading>
           <ProductListContainer />
           <Flex justifyContent="center" my="50px">
             <Button

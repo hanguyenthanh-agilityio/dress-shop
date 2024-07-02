@@ -26,6 +26,7 @@ const SortBar = memo<SortBarProps>(
     return (
       <Flex
         p="10px"
+        mb="20pt"
         flexDir={{ xs: "column", md: "row" }}
         justifyContent={{ xs: "center", lg: "space-between" }}
         bg="#e5e5e5"
