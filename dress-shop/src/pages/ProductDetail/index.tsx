@@ -125,7 +125,7 @@ const ProductDetail = () => {
             </Flex>
           </Flex>
         </Flex>
-        <Heading>Related Product</Heading>
+        <Heading pb="10px">Related Product</Heading>
         <ProductList products={PRODUCTS} />
       </Container>
       <Footer />
