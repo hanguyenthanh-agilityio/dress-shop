@@ -18,7 +18,6 @@ const Card = ({ src, altText = "Product image", name, price }: CardProps) => {
       }}
     >
       <Flex
-        className="123"
         h={{ xs: "140px", sm: "195px", md: "240px", lg: "331px", xl: "288px" }}
       >
         <Image
