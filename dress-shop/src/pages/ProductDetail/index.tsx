@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import {
   Box,
@@ -12,7 +12,13 @@ import {
 } from "@chakra-ui/react";
 
 // Components
-import { ProductList, Quantity, LoadingIndicator, Footer } from "@/components";
+import {
+  ProductList,
+  Quantity,
+  LoadingIndicator,
+  Footer,
+  ErrorPage,
+} from "@/components";
 
 // Containers
 import { HeaderContainer } from "@/Containers";
@@ -47,38 +53,7 @@ const ProductDetail = () => {
       </Container>
     );
 
-  if (!product)
-    return (
-      <Flex
-        flexDir="column"
-        alignItems="center"
-        minH="80vh"
-        mb="80px"
-        mt="30px"
-      >
-        <Text
-          border="border.small solid border.primary"
-          borderRadius="borderRadius.large"
-          bg="background.error"
-          p="12px 8px"
-          mb="20px"
-        >
-          Unexpected error occured. Please try again later.
-        </Text>
-        <Link to="/">
-          <Button
-            colorScheme="teal"
-            bgGradient="linear(to-r, teal.400, teal.500, teal.600)"
-            color="white"
-            variant="solid"
-            fontWeight={600}
-            width="120px"
-          >
-            Go to Home
-          </Button>
-        </Link>
-      </Flex>
-    );
+  if (!product) return <ErrorPage />;
 
   return (
     <>
