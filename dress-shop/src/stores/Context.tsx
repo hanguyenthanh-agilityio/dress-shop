@@ -13,7 +13,6 @@ import {
   initialState,
   initializer,
 } from "./Reducer";
-import { useToast } from "@chakra-ui/react";
 
 // Types
 import { Product } from "@/types";
@@ -31,28 +30,18 @@ const Cart = createContext<{
 type ChildrenType = { children?: ReactElement | ReactElement[] };
 
 const Context = ({ children }: ChildrenType) => {
-  const toast = useToast();
   const [state, dispatch] = useReducer(cartReducer, initialState, initializer);
 
   useEffect(() => {
     localStorage.setItem("localCart", JSON.stringify(state));
   }, [state]);
 
-  const handleAddToCart = useCallback(
-    (product: Product) => {
-      dispatch({
-        type: REDUCER_ACTION_TYPE.ADD_TO_CART,
-        payload: product,
-      });
-      toast({
-        title: "Successfully add to cart",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
-    },
-    [toast],
-  );
+  const handleAddToCart = useCallback((product: Product) => {
+    dispatch({
+      type: REDUCER_ACTION_TYPE.ADD_TO_CART,
+      payload: product,
+    });
+  }, []);
 
   const handleDelete = (product: Product) =>
     dispatch({
