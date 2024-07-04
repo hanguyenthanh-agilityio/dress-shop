@@ -18,9 +18,9 @@ const Home = () => {
       <HeaderContainer />
       <Carousel />
       <Container pb="100px">
-        <Flex flexDir="column" p="0 15pt">
+        <Flex flexDir="column">
           <Categories />
-          <Heading pb="15px">Product Overview</Heading>
+          <Heading pb="10px">Product Overview</Heading>
           <ProductListContainer />
           <Flex justifyContent="center" my="50px">
             <Button
