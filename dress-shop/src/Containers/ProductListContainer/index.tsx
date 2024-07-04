@@ -3,14 +3,13 @@ import { useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 
 // Components
-import ProductList from "@/components/ProductList";
-import LoadingIndicator from "@/components/LoadingIndicator";
+import { ProductList, LoadingIndicator } from "@/components";
 
 // APIs
 import { useProductList } from "@/apis/app";
 
 // Types
-import { Params } from "@/types/common";
+import { Params } from "@/types";
 
 const ProductListContainer = () => {
   const toast = useToast();

@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { AxiosError } from "axios";
 
 // Types
-import { Params, Product } from "@/types/common";
+import { Params, Product } from "@/types";
 
 // Constants
 import { QUERY_KEY } from "@/constants/query";

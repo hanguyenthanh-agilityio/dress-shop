@@ -1,14 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 
 // Components
-import ErrorPage from "@/components/ErrorPage";
-
+import { ErrorPage } from "@/components";
 
 // Pages
-import Home from "@/pages/Home";
-import ProductDetail from "@/pages/ProductDetail";
-import ProductCart from "@/pages/ProductCart";
-import ProductSearch from "@/pages/ProductSearch";
+import { Home, ProductDetail, ProductCart, ProductSearch } from "@/pages";
 
 // Constants
 import { ROUTES } from "@/constants/routes";

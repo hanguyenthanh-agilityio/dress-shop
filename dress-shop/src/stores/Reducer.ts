@@ -35,42 +35,13 @@ export enum REDUCER_ACTION_TYPE {
   DECREASE = "DECREASE",
 }
 
-// const sumItems = (items) => {
-//   const itemCounter = items.reduce(
-//     (total: number, priceItem: Cart) => total + priceItem.price,
-//     0,
-//   );
-//   const total = items
-//   .reduce((total: number, product: Cart) => total + product.price * product.qty, 0)
-//   .toFixed(2);
-// return { itemCounter, total };
-// };
-
 export const cartReducer = (state: UseCartContextType, action: CartItemPayload) => {
   switch (action.type) {
     case REDUCER_ACTION_TYPE.ADD_TO_CART:
       return {
         ...state,
         cart: [...state.cart, action.payload],
-        // ...sumItems(state.cart),
       };
-
-    // case REDUCER_ACTION_TYPE.INCREASE:
-    //   state.cart.map(
-    //     (item) => (item.id === action.payload.id ? item : {...item, qty: item.qty + 1})
-    //   )
-    //   return {
-    //     ...state,
-    //     ...sumItems(state.cart),
-    //   }
-    //   case REDUCER_ACTION_TYPE.DECREASE:
-    //     state.cart.map(
-    //       (item) => (item.id === action.payload.id ? item : {...item, qty: item.qty - 1})
-    //     )
-    //     return {
-    //       ...state,
-    //       ...sumItems(state.cart),
-    //     }
     case REDUCER_ACTION_TYPE.REMOVE:
       return {
         ...state,

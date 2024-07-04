@@ -1,16 +1,14 @@
 import { Button, Flex, Image, Td, Text, Tr } from "@chakra-ui/react";
 
 // Types
-import { Product } from "@/types/common";
+import { Product } from "@/types";
 
 // Components
-import Quantity from "@/components/Quantity";
+import { Quantity } from "@/components";
 
 interface CartRowProps {
   product: Product;
   total: number;
-  // onIncrease: () => void;
-  // onDecrease: () => void;
   onDelete?: () => void;
 }
 

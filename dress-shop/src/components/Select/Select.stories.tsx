@@ -2,10 +2,10 @@ import { StoryObj, Meta } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
 
 // Components
-import Select from '.';
+import { Select } from '@/components';
 
 // Constants
-import { OPTION_SORT } from '../../constants/common';
+import { OPTION_SORT } from '@/constants/common';
 
 
 export default {

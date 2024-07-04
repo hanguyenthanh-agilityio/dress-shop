@@ -13,13 +13,10 @@ import {
 } from "@chakra-ui/react";
 
 // Components
-import ProductList from "@/components/ProductList";
-import Quantity from "@/components/Quantity";
-import LoadingIndicator from "@/components/LoadingIndicator";
-import Footer from "@/components/Footer";
+import { ProductList, Quantity, LoadingIndicator, Footer } from "@/components";
 
 // Containers
-import HeaderContainer from "@/Containers/HeaderContainer";
+import { HeaderContainer } from "@/Containers";
 
 // APIs
 import { useProductById } from "@/apis/app";
@@ -128,7 +125,7 @@ const ProductDetail = () => {
             </Flex>
           </Flex>
         </Flex>
-        <Heading>Related Product</Heading>
+        <Heading pb="10px">Related Product</Heading>
         <ProductList products={PRODUCTS} />
       </Container>
       <Footer />

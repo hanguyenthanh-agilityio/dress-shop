@@ -2,10 +2,10 @@ import { memo } from "react";
 import { Tbody } from "@chakra-ui/react";
 
 // Types
-import { Product } from "@/types/common";
+import { Product } from "@/types";
 
 // Components
-import CartRow from "@/components/Cart/CartRow";
+import { CartRow } from "@/components";
 
 // Stores
 import { UseCartContext } from "@/stores/Context";
@@ -25,8 +25,6 @@ const CartBody = memo<CartBodyProps>(({ products, total }: CartBodyProps) => {
           key={product.id}
           product={product}
           total={total}
-          // onIncrease={() => dispatch({type:REDUCER_ACTION_TYPE.INCREASE, payload: product})}
-          // onDecrease={() => dispatch({type:REDUCER_ACTION_TYPE.DECREASE, payload: product})}
           onDelete={() => handleDelete(product)}
         />
       ))}

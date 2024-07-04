@@ -2,11 +2,10 @@ import { ChangeEvent, memo } from "react";
 import { Button, Flex, Text } from "@chakra-ui/react";
 
 // Components
-import Select from "@/components/Select";
+import { Select } from "@/components";
 
 // Types
-import SelectType from "@/types/select";
-import { Category } from "@/types/common";
+import { SelectType, Category } from "@/types";
 
 interface SortBarProps {
   categories: Category[];
@@ -27,6 +26,7 @@ const SortBar = memo<SortBarProps>(
     return (
       <Flex
         p="10px"
+        mb="20pt"
         flexDir={{ xs: "column", md: "row" }}
         justifyContent={{ xs: "center", lg: "space-between" }}
         bg="#e5e5e5"

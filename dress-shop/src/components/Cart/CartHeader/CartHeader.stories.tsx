@@ -3,10 +3,10 @@ import { MemoryRouter } from 'react-router-dom';
 import { Container, Table } from '@chakra-ui/react';
 
 // Components
-import CartHeader from '.';
+import { CartHeader } from '@/components';
 
 // Constants
-import { HEADER_LIST } from '../../../constants/cart';
+import { HEADER_LIST } from '@/constants/cart';
 
 
 export default {

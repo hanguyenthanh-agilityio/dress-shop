@@ -1,8 +1,10 @@
-import { ChangeEvent, useCallback, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 // Components
-import Header from "@/components/Header";
+import { Header } from "@/components";
+
+// Routes
 import { ROUTES } from "@/constants/routes";
 
 const HeaderContainer = () => {
@@ -17,11 +19,9 @@ const HeaderContainer = () => {
     setSearchValue(e.target.value);
   };
 
-  // Handle search product
-  const handleSearch = useCallback(
-    (e: React.MouseEvent) => {
+  const handleKeyDown = (e: { key: string }) => {
+    if (e.key == "Enter") {
       navigate(ROUTES.PRODUCT_SEARCH);
-      e.preventDefault();
 
       if (searchValue.length === 0) {
         searchParams.delete("search");
@@ -34,14 +34,13 @@ const HeaderContainer = () => {
           replace: true,
         });
       }
-    },
-    [navigate, searchParams, searchValue, setSearchParams],
-  );
+    }
+  };
 
   return (
     <Header
       onChange={handleChange}
-      onSubmit={handleSearch}
+      onKeyDown={handleKeyDown}
       value={searchValue}
     />
   );

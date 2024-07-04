@@ -1,11 +1,10 @@
 import { Button, Container, Flex, Heading } from "@chakra-ui/react";
 
 // Components
-import Footer from "@/components/Footer";
+import { Footer } from "@/components";
 
 // Containers
-import HeaderContainer from "@/Containers/HeaderContainer";
-import ProductListContainer from "@/Containers/ProductListContainer";
+import { HeaderContainer, ProductListContainer } from "@/Containers";
 
 // Layouts
 import Carousel from "@/layouts/Carousel";
@@ -21,7 +20,7 @@ const Home = () => {
       <Container pb="100px">
         <Flex flexDir="column">
           <Categories />
-          <Heading>Product Overview</Heading>
+          <Heading pb="10px">Product Overview</Heading>
           <ProductListContainer />
           <Flex justifyContent="center" my="50px">
             <Button
