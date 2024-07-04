@@ -1,7 +1,11 @@
 import { StoryObj, Meta } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
+
+// Components
 import ProductList from ".";
-import { PRODUCTS } from "../../mocks/common";
+
+// Mocks
+import { PRODUCTS } from "@/mocks/common";
 
 export default {
   title: "Components/ProductList",

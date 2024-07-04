@@ -6,10 +6,10 @@ import { Container, Table } from "@chakra-ui/react";
 import Cart from ".";
 
 // Mocks
-import { PRODUCT_CART } from "../../mocks/common";
+import { PRODUCT_CART } from "@/mocks/common";
 
 // Constants
-import { HEADER_LIST } from "../../constants/cart";
+import { HEADER_LIST } from "@/constants/cart";
 
 export default {
   title: "Components/Cart",

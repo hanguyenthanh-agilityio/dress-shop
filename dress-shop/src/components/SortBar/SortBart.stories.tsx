@@ -6,10 +6,10 @@ import { Container } from "@chakra-ui/react";
 import SortBar from ".";
 
 // Constants
-import { OPTION_SORT } from "../../constants/common";
+import { OPTION_SORT } from "@/constants/common";
 
 // Mocks
-import { CATEGORIES_BUTTON } from "../../mocks/common";
+import { CATEGORIES_BUTTON } from "@/mocks/common";
 
 export default {
   title: "Components/SortBar",

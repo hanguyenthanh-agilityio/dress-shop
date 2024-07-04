@@ -6,7 +6,7 @@ import { Container, Table } from "@chakra-ui/react";
 import CartRow from ".";
 
 // Constants
-import { ITEM_CART } from "../../../mocks/common";
+import { ITEM_CART } from "@/mocks/common";
 
 export default {
   title: "Components/CartRow",
