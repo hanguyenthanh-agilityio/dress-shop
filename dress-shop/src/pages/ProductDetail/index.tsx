@@ -81,7 +81,7 @@ const ProductDetail = () => {
   return (
     <>
       <HeaderContainer />
-      <Container minH="90vh" mb="80px" p="0 15pt">
+      <Container minH="90vh" mb="80px">
         <Flex flexDir={{ xs: "column", lg: "row" }}>
           <Box>
             <Image
@@ -125,7 +125,7 @@ const ProductDetail = () => {
             </Flex>
           </Flex>
         </Flex>
-        <Heading pb="15px">Related Product</Heading>
+        <Heading pb="10px">Related Product</Heading>
         <ProductList products={PRODUCTS} />
       </Container>
       <Footer />
