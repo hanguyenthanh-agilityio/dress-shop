@@ -29,7 +29,7 @@ const SortBar = memo<SortBarProps>(
         mb="20pt"
         flexDir={{ xs: "column", md: "row" }}
         justifyContent={{ xs: "center", lg: "space-between" }}
-        bg="#e5e5e5"
+        bg="background.sortBar"
       >
         <Flex justifyContent={{ xs: "center" }}>
           {categories.map(({ id, action, label, value }: Category) => (
@@ -40,8 +40,10 @@ const SortBar = memo<SortBarProps>(
               onClick={action}
               data-testid={id}
               p={{ xs: "8px 40px", md: "10px 50px" }}
-              bg={filterCategory !== value ? "#f1f3f5" : "#d82c23"}
-              color={filterCategory !== value ? "#000" : "#fff"}
+              bg={
+                filterCategory !== value ? "background.light" : "background.red"
+              }
+              color={filterCategory !== value ? "text.dark" : "text.default"}
             >
               {label}
             </Button>

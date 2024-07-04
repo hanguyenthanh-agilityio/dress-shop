@@ -57,9 +57,9 @@ const ProductDetail = () => {
         mt="30px"
       >
         <Text
-          border="1px solid #f5c6cb"
-          borderRadius="6px"
-          bg="#f8d7da"
+          border="border.small solid border.primary"
+          borderRadius="borderRadius.large"
+          bg="background.error"
           p="12px 8px"
           mb="20px"
         >
