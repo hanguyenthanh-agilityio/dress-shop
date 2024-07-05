@@ -3,7 +3,12 @@ import { useParams } from "react-router-dom";
 import { Container, Heading } from "@chakra-ui/react";
 
 // Components
-import { ProductList, LoadingIndicator, Footer } from "@/components";
+import {
+  ProductList,
+  ProductDetailItem,
+  LoadingIndicator,
+  Footer,
+} from "@/components";
 
 // Containers
 import { HeaderContainer } from "@/Containers";
@@ -13,10 +18,6 @@ import { useProductById } from "@/apis/app";
 
 // Mocks
 import { PRODUCTS } from "@/mocks/common";
-
-// Constants
-
-import ProductDetailItem from "./ProductDetailItem";
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -39,15 +40,9 @@ const ProductDetail = () => {
       <HeaderContainer />
       <Container minH="90vh" mb="80px">
         {!product ? (
-          <div>Error</div>
+          <Heading>Something wrong </Heading>
         ) : (
-          <ProductDetailItem
-            product={product}
-            imageURL={product.imageURL}
-            name={product.name}
-            price={0}
-            isLoading={false}
-          />
+          <ProductDetailItem product={product} isLoading={isLoading} />
         )}
 
         <Heading pb="10px">Related Product</Heading>

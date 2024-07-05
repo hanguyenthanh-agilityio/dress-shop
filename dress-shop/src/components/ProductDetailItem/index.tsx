@@ -17,25 +17,16 @@ import { UseCartContext } from "@/stores/Context";
 
 // Constants
 import { FALLBACK_SRC } from "@/constants/common";
+
+// Types
 import { Product } from "@/types";
 
 interface ProductDetailItemPros {
   product: Product;
-  imageURL: string;
-  name: string;
-  price: number;
-  description?: string;
   isLoading: boolean;
 }
 
-const ProductDetailItem = ({
-  product,
-  imageURL,
-  name,
-  price,
-  description,
-  isLoading,
-}: ProductDetailItemPros) => {
+const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
   const { handleAddToCart } = UseCartContext();
 
   const toast = useToast();
@@ -54,7 +45,7 @@ const ProductDetailItem = ({
     <Flex flexDir={{ xs: "column", lg: "row" }}>
       <Box>
         <Image
-          src={imageURL}
+          src={product.imageURL}
           w={{ xs: "100%", lg: "580px" }}
           h={{ xs: "236px", sm: "321px", md: "595px", lg: "580px" }}
           objectFit="cover"
@@ -67,16 +58,16 @@ const ProductDetailItem = ({
         p={{ xs: "16px", lg: "20px 20px 20px 0" }}
         w={{ xs: "100%", lg: "580px" }}
       >
-        <Heading size={{ xs: "medium", lg: "default" }}>{name}</Heading>
+        <Heading size={{ xs: "medium", lg: "default" }}>{product.name}</Heading>
         <Text
           size={{ xs: "default", md: "large" }}
           variant="primary"
           py={{ xs: "16px", lg: "20px" }}
         >
-          P{price}
+          P{product.price}
         </Text>
         <Text color="#666" size={{ xs: "tiny", lg: "medium" }}>
-          {description}
+          {product.description}
         </Text>
         <Flex my="10px">
           <Quantity />
