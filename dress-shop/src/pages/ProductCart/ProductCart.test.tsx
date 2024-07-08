@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 // Components
 import ProductCart from ".";
-import { QueryClient, QueryClientProvider } from "react-query";
 
 describe("ProductCart component", () => {
   it("Should render ProductCart snapshot correctly", () => {
@@ -13,10 +13,9 @@ describe("ProductCart component", () => {
         <MemoryRouter>
           <ProductCart />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     expect(productCart).toMatchSnapshot();
   });
 });
-

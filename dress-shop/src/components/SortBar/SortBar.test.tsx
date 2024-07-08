@@ -4,10 +4,10 @@ import { render } from "@testing-library/react";
 import SortBar from ".";
 
 // Constants
-import { OPTION_SORT } from "../../constants/common";
+import { OPTION_SORT } from "@/constants/common";
 
 // Mocks
-import { CATEGORIES_BUTTON } from "../../mocks/common";
+import { CATEGORIES_BUTTON } from "@/mocks/common";
 
 const props = {
   options: OPTION_SORT,
