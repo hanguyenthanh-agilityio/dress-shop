@@ -8,6 +8,9 @@ import { Category } from "@/types";
 // Routes
 import { ROUTES } from "@/constants/routes";
 
+// Constants
+import { FALLBACK_SRC } from "@/constants/common";
+
 const Categories = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -78,6 +81,7 @@ const Categories = () => {
               h="100%"
               objectFit="cover"
               border="1px solid #efefef"
+              fallbackSrc={FALLBACK_SRC}
             />
             <Heading
               position="absolute"

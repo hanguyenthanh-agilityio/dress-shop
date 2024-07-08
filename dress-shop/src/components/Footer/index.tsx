@@ -67,7 +67,7 @@ const Footer = () => {
       ) : (
         <Flex
           justifyContent="space-around"
-          bg="#fff"
+          bg="background.default"
           borderTop="1px solid #ccc"
           overflow="hidden"
           pos="fixed"
