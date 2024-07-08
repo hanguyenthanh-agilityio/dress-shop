@@ -1,26 +1,54 @@
-import { useToast } from "@chakra-ui/react";
-import { useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import React from "react";
 
-// Components
-import { ProductList, LoadingIndicator } from "@/components";
-
-// APIs
-import { useProductList } from "@/apis/app";
+// Services
+import axiosClient from "@/services/axiosClients";
 
 // Types
-import { Params } from "@/types";
+import { Params, Product } from "@/types";
+
+// Components
+import { ProductList } from "@/components";
+import { Button, Flex } from "@chakra-ui/react";
 
 const ProductListContainer = () => {
-  const toast = useToast();
   const [searchParams] = useSearchParams();
 
   const search = searchParams.get("search") || "";
   const category = searchParams.get("category") || "";
   const order = searchParams.get("order") || "";
 
+  const fetchProduct = ({ pageParam = 1 }) => {
+    return axiosClient.get<Product[]>("products", {
+      params: { limit: 8, page: pageParam, search, category, order },
+    });
+  };
+
+  const {
+    data,
+    error,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+    status,
+  } = useInfiniteQuery({
+    queryKey: ["products", search, category, order],
+    queryFn: fetchProduct,
+    initialPageParam: 1,
+    getNextPageParam: (_lastPage, pages, lastPageParam) => {
+      console.log("_lastPage", _lastPage);
+      console.log("lastPageParam", lastPageParam);
+      if (pages.length < 2) {
+        return pages.length + 1;
+      }
+      return undefined;
+    },
+  });
+  // console.log("data", data?.pages[0].headers);
+
   let params: Params = {
-    limit: 10,
+    limit: 5,
     page: 1,
     sortby: "price",
   };
@@ -40,28 +68,39 @@ const ProductListContainer = () => {
   }
 
   if (order) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     params = {
       ...params,
       order,
     };
   }
-  //  Check
-  const handleError = useCallback(
-    (error: string) => {
-      toast({
-        title: error,
-        status: "error",
-        isClosable: true,
-      });
-    },
-    [toast],
-  );
 
-  const { data: products, isLoading } = useProductList(params, handleError);
-
-  return (
+  return status === "pending" ? (
+    <p>Loading...</p>
+  ) : status === "error" ? (
+    <p>Error: {error.message}</p>
+  ) : (
     <>
-      {isLoading ? <LoadingIndicator /> : <ProductList products={products} />}
+      {data?.pages.map((pageData, i) => (
+        <React.Fragment key={i}>
+          <ProductList products={pageData.data} />
+        </React.Fragment>
+      ))}
+
+      <Flex justifyContent="center" my="50px">
+        <Button
+          size={{ xs: "small", md: "default" }}
+          variant="secondary"
+          onClick={() => fetchNextPage()}
+          disabled={!hasNextPage || isFetchingNextPage}
+        >
+          {isFetchingNextPage
+            ? "Loading more..."
+            : hasNextPage
+              ? "Load More"
+              : "Nothing more to load"}
+        </Button>
+      </Flex>
     </>
   );
 };
