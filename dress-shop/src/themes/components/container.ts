@@ -1,10 +1,12 @@
 export const Container = {
-  baseStyle: {},
+  baseStyle: {
+    p: "0px"
+  },
 
   sizes: {
     default: {
       maxW: {
-        xl: '1200px'
+        lg: '1200px'
       }
     }
   },

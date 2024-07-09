@@ -1,29 +1,28 @@
-import { StoryObj, Meta } from '@storybook/react';
-import { MemoryRouter } from 'react-router-dom';
+import { StoryObj, Meta } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
 
 // Components
-import Select from '.';
+import { Select } from "@/components";
 
 // Constants
-import { OPTION_SORT } from '../../constants/common';
-
+import { OPTION_SORT } from "@/constants/common";
 
 export default {
-  title: 'Components/Select',
+  title: "Components/Select",
   component: Select,
   decorators: [
     (Story) => (
       <MemoryRouter>
         <Story />
       </MemoryRouter>
-    )
-  ]
+    ),
+  ],
 } as Meta;
 
 type Story = StoryObj<typeof Select>;
 
 export const Default: Story = {
   args: {
-    options: OPTION_SORT
-  }
+    options: OPTION_SORT,
+  },
 };

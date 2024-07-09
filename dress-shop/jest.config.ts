@@ -27,6 +27,7 @@ module.exports = {
     "!src/themes/**/*.{js,ts,tsx}",
     "!src/components/**/__snapshots__/*.test.{js,ts,tsx}.snap",
     "!src/routes/*.{js,ts,tsx}",
+    "!src/stories/*.{js,ts,tsx,css}",
   ],
   coverageThreshold: {
     global: {

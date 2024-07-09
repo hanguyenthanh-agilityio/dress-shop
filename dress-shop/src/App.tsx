@@ -1,6 +1,5 @@
 import { RouterProvider } from "react-router-dom";
 import { ChakraProvider, CSSReset } from "@chakra-ui/react";
-import { QueryClient, QueryClientProvider } from "react-query";
 import "./App.css";
 
 // Themes
@@ -11,12 +10,13 @@ import { router } from "./routes";
 
 // Stores
 import Context from "./stores/Context";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
-      queries: {staleTime: 5000}
-    }
+      queries: { staleTime: 5000 },
+    },
   });
 
   return (

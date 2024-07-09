@@ -2,10 +2,10 @@ import { ChangeEvent, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 
 // Components
-import SortBar from "@/components/SortBar";
+import { SortBar } from "@/components";
 
 // Constants
-import { OPTION_SORT } from "@/constants/common";
+import { MEN_CATEGORY, OPTION_SORT, WOMEN_CATEGORY } from "@/constants/common";
 
 const SortBarContainer = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,22 +13,23 @@ const SortBarContainer = () => {
   const order = searchParams.get("order") || "";
 
   // Handle filter by men category
-  const handleClickMenCategories = useCallback(() => {
+  const handleClickMenCategories = () => {
     searchParams.set("category", "m");
+    searchParams.delete("search");
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
+  };
 
   // Handle filter by women category
-  const handleClickWomenCategories = useCallback(() => {
+  const handleClickWomenCategories = () => {
     searchParams.set("category", "f");
+    searchParams.delete("search");
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
+  };
 
   // Handle sort product
   const handleChangeSelect = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
       const value = e.target.value;
-
       searchParams.set("sortby", "price");
       searchParams.set("order", value);
       setSearchParams(searchParams);
@@ -38,16 +39,16 @@ const SortBarContainer = () => {
 
   const categories = [
     {
-      id: "men-categories",
-      label: "Men",
+      id: MEN_CATEGORY.id,
+      label: MEN_CATEGORY.label,
       action: handleClickMenCategories,
-      value: "m",
+      value: MEN_CATEGORY.value,
     },
     {
-      id: "women-categories",
-      label: "Women",
+      id: WOMEN_CATEGORY.id,
+      label: WOMEN_CATEGORY.label,
       action: handleClickWomenCategories,
-      value: "f",
+      value: WOMEN_CATEGORY.value,
     },
   ];
 

@@ -7,8 +7,8 @@ describe("Header component", () => {
   const header = () => {
     return render(
       <MemoryRouter>
-        <Header onSubmit={() => {}} />
-      </MemoryRouter>
+        <Header onKeyDown={() => {}} />
+      </MemoryRouter>,
     );
   };
 

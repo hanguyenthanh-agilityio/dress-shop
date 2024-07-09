@@ -1,13 +1,12 @@
-import {fireEvent, render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import SearchInput from ".";
-
 
 describe("SearchInput component", () => {
   const props = {
     placeholder: "Search",
     onChange: jest.fn(),
-    onSubmit: jest.fn(),
+    onKeyDown: jest.fn(),
   };
 
   const search = () => {

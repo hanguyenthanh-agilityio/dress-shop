@@ -1,20 +1,20 @@
-import { render } from '@testing-library/react';
+import { render } from "@testing-library/react";
+import { Table } from "@chakra-ui/react";
 
 // Components
-import CardHeader from '.';
+import { CartHeader } from "@/components";
 
 // Constants
-import { HEADER_LIST } from '../../../constants/cart';
-import { Table } from '@chakra-ui/react';
+import { HEADER_LIST } from "@/constants/cart";
 
-describe('CardHeader component', () => {
-  it('Should render CardHeader snapshot correctly', () => {
-    const cardHeader = render(
+describe("CardHeader component", () => {
+  it("Should render CardHeader snapshot correctly", () => {
+    const cartHeader = render(
       <Table>
-        <CardHeader headerList={HEADER_LIST} />
-      </Table>
+        <CartHeader headerList={HEADER_LIST} />
+      </Table>,
     );
 
-    expect(cardHeader).toMatchSnapshot();
+    expect(cartHeader).toMatchSnapshot();
   });
 });

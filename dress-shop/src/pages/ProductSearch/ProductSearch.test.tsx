@@ -1,10 +1,9 @@
 import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // Components
 import ProductSearch from ".";
-import { QueryClient, QueryClientProvider } from "react-query";
-
 
 describe("ProductSearch component", () => {
   it("Should render ProductSearch snapshot correctly", () => {
@@ -15,7 +14,7 @@ describe("ProductSearch component", () => {
         <MemoryRouter>
           <ProductSearch />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     expect(productSearch).toMatchSnapshot();

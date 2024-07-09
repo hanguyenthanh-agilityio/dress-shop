@@ -1,25 +1,20 @@
 import axiosClient from "@/services/axiosClients";
-import { useQuery } from "react-query";
-import { AxiosError } from "axios";
 
 // Types
-import { Params, Product } from "@/types/common";
+import { Params, Product } from "@/types";
 
 // Constants
 import { QUERY_KEY } from "@/constants/query";
+import { useQuery } from "@tanstack/react-query";
 
 // Get product list
-export const useProductList = (
-  params: Params,
-  onError: (error: string) => void,
-) => {
+export const useProductList = (params: Params) => {
   const { data, ...rest } = useQuery({
     queryKey: QUERY_KEY.PRODUCT_LIST(params),
     queryFn: () =>
       axiosClient.get<Product[]>("products", {
         params,
       }),
-    onError: (error) => onError((error as AxiosError).message),
   });
 
   return {

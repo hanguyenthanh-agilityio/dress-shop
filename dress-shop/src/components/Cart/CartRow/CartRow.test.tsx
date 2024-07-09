@@ -5,7 +5,7 @@ import { Table } from "@chakra-ui/react";
 import CardRow from ".";
 
 // Mocks
-import { ITEM_CART } from "../../../mocks/common";
+import { ITEM_CART } from "@/mocks/common";
 
 describe("CardRow component", () => {
   it("Should render CardRow snapshot correctly", () => {

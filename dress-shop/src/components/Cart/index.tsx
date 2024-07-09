@@ -1,19 +1,19 @@
 import { Button, Flex, Image, Table, Text } from "@chakra-ui/react";
 
 // Components
-import CartHeader from "@/components/Cart/CartHeader";
-import CartBody from "@/components/Cart/CartBody";
-import Quantity from "@/components/Quantity";
+import { CartHeader, CartBody, Quantity } from "@/components";
 
 // Hooks
 import { useBreakPoints } from "@/hooks/useBreakPoints";
 
 // Types
-import { HeaderList } from "@/types/cart";
-import { Product } from "@/types/common";
+import { HeaderList, Product } from "@/types";
 
 // Stores
 import { UseCartContext } from "@/stores/Context";
+
+// Constants
+import { FALLBACK_SRC } from "@/constants/common";
 
 interface CartProp {
   headerList: HeaderList[];
@@ -43,6 +43,7 @@ const Cart = ({ headerList, products = [], total }: CartProp) => {
                 boxSize={{ xs: "72px", sm: "96px", lg: "120px" }}
                 objectFit="cover"
                 pr="10px"
+                fallbackSrc={FALLBACK_SRC}
               />
               <Flex flexDir="column" pl="10px">
                 <Text fontWeight="600" size={{ xs: "tiny", lg: "default" }}>

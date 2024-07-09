@@ -5,10 +5,10 @@ import { Table } from "@chakra-ui/react";
 import Card from ".";
 
 // Mocks
-import { PRODUCT_CART } from "../../mocks/common";
+import { PRODUCT_CART } from "@/mocks/common";
 
 // Constants
-import { HEADER_LIST } from "../../constants/cart";
+import { HEADER_LIST } from "@/constants/cart";
 
 describe("Card component", () => {
   it("Should render Card snapshot correctly", () => {

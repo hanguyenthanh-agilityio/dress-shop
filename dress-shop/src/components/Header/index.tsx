@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ChangeEvent, memo } from "react";
+import { ChangeEvent, memo, KeyboardEvent } from "react";
 import {
   Container,
   Flex,
@@ -15,7 +15,7 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 // Components
-import SearchInput from "@/components/SearchInput";
+import { SearchInput } from "@/components";
 
 // Hooks
 import { useBreakPoints } from "@/hooks/useBreakPoints";
@@ -29,7 +29,7 @@ interface MainHeaderProps {
 
 interface HeaderProps {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onSubmit: (e: React.MouseEvent<Element, MouseEvent>) => void;
+  onKeyDown: (e: KeyboardEvent) => void;
   value?: string;
 }
 
@@ -51,7 +51,7 @@ export const MainHeader = ({ children }: MainHeaderProps) => (
 );
 
 const Header = memo<HeaderProps>(
-  ({ onChange, onSubmit, value }: HeaderProps) => {
+  ({ onChange, onKeyDown, value }: HeaderProps) => {
     const { isLargeThanTablet } = useBreakPoints();
 
     return (
@@ -62,7 +62,7 @@ const Header = memo<HeaderProps>(
               <SearchInput
                 value={value}
                 onChange={onChange}
-                onSubmit={onSubmit}
+                onKeyDown={onKeyDown}
               />
               <Link to={ROUTES.PRODUCT_CART}>
                 <Flex alignItems="center" pl="30px" pr="10px" cursor="pointer">
@@ -110,7 +110,7 @@ const Header = memo<HeaderProps>(
                 <SearchInput
                   value={value}
                   onChange={onChange}
-                  onSubmit={onSubmit}
+                  onKeyDown={onKeyDown}
                 />
               </Flex>
             </Container>

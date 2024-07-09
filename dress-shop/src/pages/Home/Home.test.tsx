@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // Components
 import Home from ".";
-import { QueryClient, QueryClientProvider } from "react-query";
 
 describe("Home component", () => {
   it("Should render Home snapshot correctly", () => {
@@ -13,10 +13,9 @@ describe("Home component", () => {
         <MemoryRouter>
           <Home />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     expect(home).toMatchSnapshot();
   });
 });
-
