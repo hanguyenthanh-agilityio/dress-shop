@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { SortBar } from "@/components";
 
 // Constants
-import { OPTION_SORT } from "@/constants/common";
+import { MEN_CATEGORY, OPTION_SORT, WOMEN_CATEGORY } from "@/constants/common";
 
 const SortBarContainer = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -38,16 +38,16 @@ const SortBarContainer = () => {
 
   const categories = [
     {
-      id: "men-categories",
-      label: "Men",
+      id: MEN_CATEGORY.id,
+      label: MEN_CATEGORY.label,
       action: handleClickMenCategories,
-      value: "m",
+      value: MEN_CATEGORY.value,
     },
     {
-      id: "women-categories",
-      label: "Women",
+      id: WOMEN_CATEGORY.id,
+      label: WOMEN_CATEGORY.label,
       action: handleClickWomenCategories,
-      value: "f",
+      value: WOMEN_CATEGORY.value,
     },
   ];
 

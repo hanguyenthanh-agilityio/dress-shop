@@ -9,7 +9,7 @@ import { Category } from "@/types";
 import { ROUTES } from "@/constants/routes";
 
 // Constants
-import { FALLBACK_SRC } from "@/constants/common";
+import { FALLBACK_SRC, MEN_CATEGORY, WOMEN_CATEGORY } from "@/constants/common";
 
 const Categories = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -31,20 +31,20 @@ const Categories = () => {
 
   const categories = [
     {
-      id: "women-categories",
-      img: "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1582274091%2Fezgif.com-webp-to-jpg_l9flc0.jpg&w=1920&q=75",
-      alt: "women-categories",
-      label: "Women",
+      id: WOMEN_CATEGORY.id,
+      img: WOMEN_CATEGORY.img,
+      alt: WOMEN_CATEGORY.alt,
+      label: WOMEN_CATEGORY.label,
       action: handleClickWomenCategories,
-      value: "f",
+      value: WOMEN_CATEGORY.value,
     },
     {
-      id: "men-categories",
-      img: "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1582274252%2Fcateg-02_pqpnm7.jpg&w=3840&q=75",
-      alt: "men-categories",
-      label: "Men",
+      id: MEN_CATEGORY.id,
+      img: MEN_CATEGORY.img,
+      alt: MEN_CATEGORY.label,
+      label: MEN_CATEGORY.label,
       action: handleClickMenCategories,
-      value: "m",
+      value: MEN_CATEGORY.value,
     },
   ];
 
