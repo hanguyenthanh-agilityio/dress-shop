@@ -24,6 +24,7 @@ const ProductListContainer = () => {
       params: {
         limit: 8,
         page: pageParam,
+        sortBy: "price",
         ...(search && { search }),
         ...(category && { category }),
         ...(order && { order }),
