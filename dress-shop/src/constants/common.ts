@@ -5,6 +5,8 @@ export const OPTION_SORT = [
 
 export const FALLBACK_SRC = "https://via.placeholder.com/150";
 
+export const ERROR_MESSAGE = "Something went wrong";
+
 export const MEN_CATEGORY = {
   id: "men-categories",
   img: "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1582274252%2Fcateg-02_pqpnm7.jpg&w=3840&q=75",
