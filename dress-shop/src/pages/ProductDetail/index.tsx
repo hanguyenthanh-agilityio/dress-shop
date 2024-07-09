@@ -19,6 +19,9 @@ import { useProductById } from "@/apis/app";
 // Mocks
 import { PRODUCTS } from "@/mocks/common";
 
+// Constants
+import { ERROR_MESSAGE } from "@/constants/common";
+
 const ProductDetail = () => {
   const { productId } = useParams();
   const { data: product, isLoading } = useProductById(productId);
@@ -40,7 +43,7 @@ const ProductDetail = () => {
       <HeaderContainer />
       <Container minH="90vh" mb="80px">
         {!product ? (
-          <Heading>Something wrong </Heading>
+          <Heading>{ERROR_MESSAGE}</Heading>
         ) : (
           <ProductDetailItem product={product} isLoading={isLoading} />
         )}
