@@ -25,15 +25,15 @@ const HeaderContainer = () => {
 
       if (searchValue.length === 0) {
         searchParams.delete("search");
-        setSearchParams(searchParams, {
-          replace: true,
-        });
       } else {
         searchParams.set("search", searchValue);
-        setSearchParams(searchParams, {
-          replace: true,
-        });
       }
+
+      searchParams.delete("category");
+
+      setSearchParams(searchParams, {
+        replace: true,
+      });
     }
   };
 

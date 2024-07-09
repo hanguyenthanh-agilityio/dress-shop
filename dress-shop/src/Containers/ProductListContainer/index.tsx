@@ -6,7 +6,7 @@ import React from "react";
 import axiosClient from "@/services/axiosClients";
 
 // Types
-import { Params, Product } from "@/types";
+import { Product } from "@/types";
 
 // Components
 import { ProductList } from "@/components";
@@ -21,7 +21,13 @@ const ProductListContainer = () => {
 
   const fetchProduct = ({ pageParam = 1 }) => {
     return axiosClient.get<Product[]>("products", {
-      params: { limit: 8, page: pageParam, search, category, order },
+      params: {
+        limit: 8,
+        page: pageParam,
+        ...(search && { search }),
+        ...(category && { category }),
+        ...(order && { order }),
+      },
     });
   };
 
@@ -45,35 +51,6 @@ const ProductListContainer = () => {
       return undefined;
     },
   });
-  // console.log("data", data?.pages[0].headers);
-
-  let params: Params = {
-    limit: 5,
-    page: 1,
-    sortby: "price",
-  };
-
-  if (search) {
-    params = {
-      ...params,
-      search,
-    };
-  }
-
-  if (category) {
-    params = {
-      ...params,
-      category,
-    };
-  }
-
-  if (order) {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    params = {
-      ...params,
-      order,
-    };
-  }
 
   return status === "pending" ? (
     <p>Loading...</p>
@@ -92,7 +69,7 @@ const ProductListContainer = () => {
           size={{ xs: "small", md: "default" }}
           variant="secondary"
           onClick={() => fetchNextPage()}
-          disabled={!hasNextPage || isFetchingNextPage}
+          isDisabled={!hasNextPage || isFetchingNextPage}
         >
           {isFetchingNextPage
             ? "Loading more..."

@@ -13,16 +13,18 @@ const SortBarContainer = () => {
   const order = searchParams.get("order") || "";
 
   // Handle filter by men category
-  const handleClickMenCategories = useCallback(() => {
+  const handleClickMenCategories = () => {
     searchParams.set("category", "m");
+    searchParams.delete("search");
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
+  };
 
   // Handle filter by women category
-  const handleClickWomenCategories = useCallback(() => {
+  const handleClickWomenCategories = () => {
     searchParams.set("category", "f");
+    searchParams.delete("search");
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
+  };
 
   // Handle sort product
   const handleChangeSelect = useCallback(
