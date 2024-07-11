@@ -20,7 +20,7 @@ const CartRow = ({ product, total, onDelete }: CartRowProps) => {
   return (
     <Tr>
       <Td>
-        <Flex maxW="280px">
+        <Flex maxW="280px" alignItems="center">
           <Image
             src={imageURL}
             boxSize="120px"
