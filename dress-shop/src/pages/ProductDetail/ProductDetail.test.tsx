@@ -3,7 +3,7 @@ import { MemoryRouter } from "react-router-dom";
 
 // Components
 import ProductDetail from ".";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 describe("ProductDetail component", () => {
   it("Should render ProductDetail snapshot correctly", () => {
@@ -13,10 +13,9 @@ describe("ProductDetail component", () => {
         <MemoryRouter>
           <ProductDetail />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     expect(productDetail).toMatchSnapshot();
   });
 });
-
