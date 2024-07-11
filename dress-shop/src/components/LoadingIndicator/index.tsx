@@ -1,4 +1,4 @@
-import { Box, Spinner } from '@chakra-ui/react';
+import { Box, Spinner } from "@chakra-ui/react";
 
 const LoadingIndicator = () => (
   <Box
@@ -10,7 +10,8 @@ const LoadingIndicator = () => (
   >
     <Spinner
       thickness="4px"
-      size="xl"
+      width="30px"
+      height="30px"
       speed="0.65s"
       emptyColor="inactive.secondary"
       color="brand.80"

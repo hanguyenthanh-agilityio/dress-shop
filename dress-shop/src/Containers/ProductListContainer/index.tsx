@@ -9,7 +9,7 @@ import axiosClient from "@/services/axiosClients";
 import { Product } from "@/types";
 
 // Components
-import { ProductList } from "@/components";
+import { LoadingIndicator, ProductList } from "@/components";
 import { Button, Flex } from "@chakra-ui/react";
 
 const ProductListContainer = () => {
@@ -43,9 +43,7 @@ const ProductListContainer = () => {
     queryKey: ["products", search, category, order],
     queryFn: fetchProduct,
     initialPageParam: 1,
-    getNextPageParam: (_lastPage, pages, lastPageParam) => {
-      console.log("_lastPage", _lastPage);
-      console.log("lastPageParam", lastPageParam);
+    getNextPageParam: (_lastPage, pages) => {
       if (pages.length < 2) {
         return pages.length + 1;
       }
@@ -53,8 +51,12 @@ const ProductListContainer = () => {
     },
   });
 
+  const handleLoadMore = () => {
+    fetchNextPage();
+  };
+
   return status === "pending" ? (
-    <p>Loading...</p>
+    <LoadingIndicator />
   ) : status === "error" ? (
     <p>Error: {error.message}</p>
   ) : (
@@ -69,14 +71,20 @@ const ProductListContainer = () => {
         <Button
           size={{ xs: "small", md: "default" }}
           variant="secondary"
-          onClick={() => fetchNextPage()}
+          onClick={handleLoadMore}
           isDisabled={!hasNextPage || isFetchingNextPage}
+          _hover={{
+            color: hasNextPage ? "text.default" : "text.primary",
+            bg: hasNextPage ? "text.primary" : "text.default",
+          }}
         >
-          {isFetchingNextPage
-            ? "Loading more..."
-            : hasNextPage
-              ? "Load More"
-              : "Nothing more to load"}
+          {isFetchingNextPage ? (
+            <LoadingIndicator />
+          ) : hasNextPage ? (
+            "Load More"
+          ) : (
+            "Nothing more to load"
+          )}
         </Button>
       </Flex>
     </>
