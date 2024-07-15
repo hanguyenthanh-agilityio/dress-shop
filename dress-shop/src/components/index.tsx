@@ -13,3 +13,4 @@ export { default as SearchInput } from "./SearchInput";
 export { default as Select } from "./Select";
 export { default as SortBar } from "./SortBar";
 export { default as ProductDetailItem } from "./ProductDetailItem";
+export { default as ErrorBoundary } from "./ErrorBoundary";
