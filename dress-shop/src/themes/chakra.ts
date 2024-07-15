@@ -1,7 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 import colors from "./color";
 import metrics from "./metrics";
-import { breakpoints } from "./breakpoints";
 import "@fontsource/poppins";
 
 // Components
@@ -15,7 +14,14 @@ const overrides = {
   components: { ...components },
   colors,
   metrics,
-  breakpoints,
+  breakpoints: {
+    xs: "0",
+    sm: "375px",
+    md: "768px",
+    lg: "1024px",
+    xl: "1440px",
+    xxl: "1920px",
+  },
 };
 
 const CHAKRA_THEME_DEFAULT = extendTheme(overrides);
