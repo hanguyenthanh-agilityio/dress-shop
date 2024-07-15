@@ -41,7 +41,7 @@ const ProductDetail = () => {
   return (
     <>
       <HeaderContainer />
-      <Container minH="90vh" mb="80px">
+      <Container minH="90vh" mb="80px" p={{ xs: "0 15pt", md: "0 20pt" }}>
         {!product ? (
           <Heading>{ERROR_MESSAGE}</Heading>
         ) : (
