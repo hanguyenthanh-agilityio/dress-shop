@@ -1,6 +1,5 @@
 import { RouterProvider } from "react-router-dom";
 import { ChakraProvider, CSSReset } from "@chakra-ui/react";
-import "./App.css";
 
 // Themes
 import CHAKRA_THEME_DEFAULT from "./themes/chakra";
