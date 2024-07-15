@@ -34,12 +34,8 @@ interface HeaderProps {
 }
 
 export const MainHeader = ({ children }: MainHeaderProps) => (
-  <Flex
-    boxShadow="0 10px 15px 0 rgba(0,0,0,.06)"
-    py="20px"
-    mb={{ xs: "0", lg: "20px" }}
-  >
-    <Container>
+  <Flex boxShadow="0 10px 15px 0 rgba(0,0,0,.06)" py="20px">
+    <Container p={{ lg: "0 20px" }}>
       <Flex justifyContent="space-between" alignItems="center">
         <Link to={ROUTES.HOME}>
           <Heading size={{ xs: "medium", lg: "default" }}>Dress</Heading>
@@ -65,7 +61,7 @@ const Header = memo<HeaderProps>(
                 onKeyDown={onKeyDown}
               />
               <Link to={ROUTES.PRODUCT_CART}>
-                <Flex alignItems="center" pl="30px" pr="10px" cursor="pointer">
+                <Flex alignItems="center" pl="30px" cursor="pointer">
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -106,7 +102,7 @@ const Header = memo<HeaderProps>(
               </Flex>
             </MainHeader>
             <Container>
-              <Flex p="16px">
+              <Flex p="16px 20px">
                 <SearchInput
                   value={value}
                   onChange={onChange}
