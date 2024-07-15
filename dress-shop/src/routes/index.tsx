@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 // Components
-import { ErrorPage } from "@/components";
+import { ErrorBoundary } from "@/components";
 
 // Pages
 import { Home, ProductDetail, ProductCart, ProductSearch } from "@/pages";
@@ -11,22 +11,37 @@ import { ROUTES } from "@/constants/routes";
 
 export const router = createBrowserRouter([
   {
-    errorElement: <ErrorPage />,
     children: [
       {
-        element: <Home />,
+        element: (
+          <ErrorBoundary>
+            <Home />
+          </ErrorBoundary>
+        ),
         path: ROUTES.HOME,
       },
       {
-        element: <ProductDetail />,
+        element: (
+          <ErrorBoundary>
+            <ProductDetail />
+          </ErrorBoundary>
+        ),
         path: ROUTES.PRODUCT_DETAIL,
       },
       {
-        element: <ProductCart />,
+        element: (
+          <ErrorBoundary>
+            <ProductCart />
+          </ErrorBoundary>
+        ),
         path: ROUTES.PRODUCT_CART,
       },
       {
-        element: <ProductSearch />,
+        element: (
+          <ErrorBoundary>
+            <ProductSearch />
+          </ErrorBoundary>
+        ),
         path: ROUTES.PRODUCT_SEARCH,
       },
     ],
