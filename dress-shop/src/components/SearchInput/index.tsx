@@ -19,7 +19,7 @@ const SearchInput = ({
     <InputGroup maxW={{ xs: "100%", lg: "300px" }}>
       <Input
         size={{ xs: "secondary", lg: "default" }}
-        fontSize={{ xs: "7px", md: "17px" }}
+        fontSize={{ xs: "12px", md: "17px" }}
         pl="10px"
         background="background.light"
         placeholder={placeholder}
@@ -37,8 +37,8 @@ const SearchInput = ({
           <Icon
             as={SearchIcon}
             color="text.helper"
-            w={{ xs: "10px", md: "22px" }}
-            h={{ xs: "10px", md: "22px" }}
+            w={{ xs: "15px", md: "22px" }}
+            h={{ xs: "15px", md: "22px" }}
           />
         }
       />
