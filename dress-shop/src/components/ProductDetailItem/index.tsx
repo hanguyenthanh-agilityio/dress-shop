@@ -46,8 +46,8 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
       <Box>
         <Image
           src={product.imageURL}
-          w={{ xs: "100%", lg: "580px" }}
-          h={{ xs: "236px", sm: "321px", md: "595px", lg: "580px" }}
+          w="100%"
+          h="100%"
           objectFit="cover"
           p={{ xs: "0", lg: "20px 20px 20px 0" }}
           fallbackSrc={FALLBACK_SRC}
@@ -55,7 +55,7 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
       </Box>
       <Flex
         flexDir="column"
-        p={{ xs: "16px", lg: "20px 20px 20px 0" }}
+        p={{ xs: "16px 0", lg: "20px 20px 20px 0" }}
         w={{ xs: "100%", lg: "580px" }}
       >
         <Heading size={{ xs: "medium", lg: "default" }}>{product.name}</Heading>
