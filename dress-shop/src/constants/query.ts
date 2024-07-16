@@ -1,6 +1,6 @@
-import { Params } from "@/types/common";
+import { Params } from "@/types";
 
 export const QUERY_KEY = {
-  PRODUCT_LIST: (param: Params) => ['products', param],
-  PRODUCT_DETAIL: (productId: string | undefined) => ['products', productId]
-}
+  PRODUCT_LIST: (param: Params) => ["products", param],
+  PRODUCT_DETAIL: (productId: string | undefined) => ["products", productId],
+};
