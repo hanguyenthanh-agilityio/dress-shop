@@ -8,13 +8,13 @@ import { Cart, Footer } from "@/components";
 import { HeaderContainer } from "@/Containers";
 
 // Constants
-import { HEADER_LIST } from "@/constants/cart";
+import { HEADER_LIST } from "@/constants";
 
 // Mocks
-import { UseCartContext } from "@/stores/Context";
+import { UseCartContext } from "@/stores";
 
 // Hooks
-import { useBreakPoints } from "@/hooks/useBreakPoints";
+import { useBreakPoints } from "@/hooks";
 
 const ProductCart = () => {
   const { isLargeThanTablet } = useBreakPoints();

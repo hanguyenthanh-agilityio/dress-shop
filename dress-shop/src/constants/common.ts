@@ -22,3 +22,8 @@ export const WOMEN_CATEGORY = {
   label: "Women",
   value: "f",
 };
+
+export const LOADING_STATUS = {
+  PENDING: "pending",
+  ERROR: "error",
+};

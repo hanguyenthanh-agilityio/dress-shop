@@ -5,7 +5,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { Header } from "@/components";
 
 // Routes
-import { ROUTES } from "@/constants/routes";
+import { ROUTES } from "@/constants";
 
 const HeaderContainer = () => {
   const navigate = useNavigate();

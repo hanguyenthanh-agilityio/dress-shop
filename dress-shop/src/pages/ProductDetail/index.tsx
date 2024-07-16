@@ -20,7 +20,7 @@ import { useProductById } from "@/apis/app";
 import { PRODUCTS } from "@/mocks/common";
 
 // Constants
-import { ERROR_MESSAGE } from "@/constants/common";
+import { ERROR_MESSAGE } from "@/constants";
 
 const ProductDetail = () => {
   const { productId } = useParams();

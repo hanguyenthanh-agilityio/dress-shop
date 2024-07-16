@@ -5,7 +5,7 @@ import { Table } from "@chakra-ui/react";
 import { CartHeader } from "@/components";
 
 // Constants
-import { HEADER_LIST } from "@/constants/cart";
+import { HEADER_LIST } from "@/constants";
 
 describe("CardHeader component", () => {
   it("Should render CardHeader snapshot correctly", () => {

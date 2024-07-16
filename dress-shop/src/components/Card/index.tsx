@@ -1,7 +1,7 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
 
 // Constants
-import { FALLBACK_SRC } from "@/constants/common";
+import { FALLBACK_SRC } from "@/constants";
 
 interface CardProps {
   src: string;

@@ -13,10 +13,10 @@ import {
 import { IconContext } from "react-icons";
 
 // Hooks
-import { useBreakPoints } from "@/hooks/useBreakPoints";
+import { useBreakPoints } from "@/hooks";
 
 // Constants
-import { ROUTES } from "@/constants/routes";
+import { ROUTES } from "@/constants";
 
 const Footer = () => {
   const { isLargeThanTablet } = useBreakPoints();

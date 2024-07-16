@@ -18,10 +18,10 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { SearchInput } from "@/components";
 
 // Hooks
-import { useBreakPoints } from "@/hooks/useBreakPoints";
+import { useBreakPoints } from "@/hooks";
 
 // Constants
-import { ROUTES } from "@/constants/routes";
+import { ROUTES } from "@/constants";
 
 interface MainHeaderProps {
   children: React.ReactNode;

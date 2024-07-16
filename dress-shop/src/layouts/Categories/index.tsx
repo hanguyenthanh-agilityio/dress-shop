@@ -5,11 +5,13 @@ import { useCallback } from "react";
 // Types
 import { Category } from "@/types";
 
-// Routes
-import { ROUTES } from "@/constants/routes";
-
 // Constants
-import { FALLBACK_SRC, MEN_CATEGORY, WOMEN_CATEGORY } from "@/constants/common";
+import {
+  ROUTES,
+  FALLBACK_SRC,
+  MEN_CATEGORY,
+  WOMEN_CATEGORY,
+} from "@/constants";
 
 const Categories = () => {
   const [searchParams, setSearchParams] = useSearchParams();

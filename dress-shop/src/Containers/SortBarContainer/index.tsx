@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { SortBar } from "@/components";
 
 // Constants
-import { MEN_CATEGORY, OPTION_SORT, WOMEN_CATEGORY } from "@/constants/common";
+import { MEN_CATEGORY, OPTION_SORT, WOMEN_CATEGORY } from "@/constants";
 
 const SortBarContainer = () => {
   const [searchParams, setSearchParams] = useSearchParams();
