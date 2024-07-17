@@ -9,7 +9,7 @@ import Cart from ".";
 import { PRODUCT_CART } from "@/mocks/common";
 
 // Constants
-import { HEADER_LIST } from "@/constants/cart";
+import { HEADER_LIST } from "@/constants";
 
 export default {
   title: "Components/Cart",

@@ -1,11 +1,11 @@
 import axiosClient from "@/services/axiosClients";
+import { useQuery } from "@tanstack/react-query";
 
 // Types
 import { Params, Product } from "@/types";
 
 // Constants
-import { QUERY_KEY } from "@/constants/query";
-import { useQuery } from "@tanstack/react-query";
+import { QUERY_KEY } from "@/constants";
 
 // Get product list
 export const useProductList = (params: Params) => {

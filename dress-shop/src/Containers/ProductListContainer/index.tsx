@@ -10,7 +10,10 @@ import { Product } from "@/types";
 
 // Components
 import { LoadingIndicator, ProductList } from "@/components";
-import { Button, Flex } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
+
+// Constants
+import { LOADING_STATUS } from "@/constants";
 
 const ProductListContainer = () => {
   const [searchParams] = useSearchParams();
@@ -55,10 +58,10 @@ const ProductListContainer = () => {
     fetchNextPage();
   };
 
-  return status === "pending" ? (
+  return status === LOADING_STATUS.PENDING ? (
     <LoadingIndicator />
-  ) : status === "error" ? (
-    <p>Error: {error.message}</p>
+  ) : status === LOADING_STATUS.ERROR ? (
+    <Text>Error: {error?.message}</Text>
   ) : (
     <>
       {data?.pages.map((pageData, i) => (

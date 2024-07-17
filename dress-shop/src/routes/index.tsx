@@ -7,7 +7,7 @@ import { ErrorBoundary } from "@/components";
 import { Home, ProductDetail, ProductCart, ProductSearch } from "@/pages";
 
 // Constants
-import { ROUTES } from "@/constants/routes";
+import { ROUTES } from "@/constants";
 
 export const router = createBrowserRouter([
   {

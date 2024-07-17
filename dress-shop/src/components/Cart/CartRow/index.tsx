@@ -7,7 +7,7 @@ import { Product } from "@/types";
 import { Quantity } from "@/components";
 
 // Constants
-import { FALLBACK_SRC } from "@/constants/common";
+import { FALLBACK_SRC } from "@/constants";
 
 interface CartRowProps {
   product: Product;

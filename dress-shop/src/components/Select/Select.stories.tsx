@@ -5,7 +5,7 @@ import { MemoryRouter } from "react-router-dom";
 import { Select } from "@/components";
 
 // Constants
-import { OPTION_SORT } from "@/constants/common";
+import { OPTION_SORT } from "@/constants";
 
 export default {
   title: "Components/Select",
