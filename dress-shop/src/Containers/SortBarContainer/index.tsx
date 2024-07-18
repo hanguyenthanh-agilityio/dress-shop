@@ -30,7 +30,6 @@ const SortBarContainer = () => {
   const handleChangeSelect = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
       const value = e.target.value;
-      searchParams.set("sortby", "price");
       searchParams.set("order", value);
       setSearchParams(searchParams);
     },
