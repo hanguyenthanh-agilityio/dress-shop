@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { SortBar } from "@/components";
 
 // Constants
-import { MEN_CATEGORY, OPTION_SORT, WOMEN_CATEGORY } from "@/constants/common";
+import { MEN_CATEGORY, OPTION_SORT, WOMEN_CATEGORY } from "@/constants";
 
 const SortBarContainer = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -30,7 +30,6 @@ const SortBarContainer = () => {
   const handleChangeSelect = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
       const value = e.target.value;
-      searchParams.set("sortby", "price");
       searchParams.set("order", value);
       setSearchParams(searchParams);
     },

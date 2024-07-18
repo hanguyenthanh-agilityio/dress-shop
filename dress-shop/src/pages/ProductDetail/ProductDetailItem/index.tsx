@@ -13,10 +13,10 @@ import {
 import { Quantity } from "@/components";
 
 // Stores
-import { UseCartContext } from "@/stores/Context";
+import { UseCartContext } from "@/stores";
 
 // Constants
-import { FALLBACK_SRC } from "@/constants/common";
+import { FALLBACK_SRC } from "@/constants";
 
 // Types
 import { Product } from "@/types";
@@ -41,13 +41,15 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
     });
   };
 
+  const { imageURL, name, price, description } = product;
+
   return (
     <Flex flexDir={{ xs: "column", lg: "row" }}>
       <Box>
         <Image
-          src={product.imageURL}
-          w={{ xs: "100%", lg: "580px" }}
-          h={{ xs: "236px", sm: "321px", md: "595px", lg: "580px" }}
+          src={imageURL}
+          w="100%"
+          h="100%"
           objectFit="cover"
           p={{ xs: "0", lg: "20px 20px 20px 0" }}
           fallbackSrc={FALLBACK_SRC}
@@ -55,19 +57,19 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
       </Box>
       <Flex
         flexDir="column"
-        p={{ xs: "16px", lg: "20px 20px 20px 0" }}
+        p={{ xs: "16px 0", lg: "20px 20px 20px 0" }}
         w={{ xs: "100%", lg: "580px" }}
       >
-        <Heading size={{ xs: "medium", lg: "default" }}>{product.name}</Heading>
+        <Heading size={{ xs: "medium", lg: "default" }}>{name}</Heading>
         <Text
           size={{ xs: "default", md: "large" }}
           variant="primary"
           py={{ xs: "16px", lg: "20px" }}
         >
-          P{product.price}
+          P{price}
         </Text>
         <Text color="#666" size={{ xs: "tiny", lg: "medium" }}>
-          {product.description}
+          {description}
         </Text>
         <Flex my="10px">
           <Quantity />

@@ -8,12 +8,17 @@ import { Cart, Footer } from "@/components";
 import { HeaderContainer } from "@/Containers";
 
 // Constants
-import { HEADER_LIST } from "@/constants/cart";
+import { HEADER_LIST } from "@/constants";
 
 // Mocks
-import { UseCartContext } from "@/stores/Context";
+import { UseCartContext } from "@/stores";
+
+// Hooks
+import { useBreakPoints } from "@/hooks";
 
 const ProductCart = () => {
+  const { isLargeThanTablet } = useBreakPoints();
+
   const {
     state: { cart },
   } = UseCartContext();
@@ -38,7 +43,11 @@ const ProductCart = () => {
         {totalPrice ? (
           <>
             <Cart headerList={HEADER_LIST} products={cart} total={0} />
-            <Flex flexDir="column" alignItems="end">
+            <Flex
+              flexDir="column"
+              alignItems="end"
+              mb={isLargeThanTablet ? "0" : "70px"}
+            >
               <Flex my="30px" alignItems="center">
                 <Text
                   size={{ xs: "small", lg: "large" }}
@@ -54,15 +63,14 @@ const ProductCart = () => {
                   P{totalPrice}
                 </Text>
               </Flex>
-              <Flex>
-                <Button
-                  variant="check"
-                  p={{ xs: "20px", lg: "25px" }}
-                  size={{ xs: "small", lg: "default" }}
-                >
-                  Check out
-                </Button>
-              </Flex>
+              <Button
+                variant="check"
+                p={{ xs: "20px", lg: "25px" }}
+                size={{ xs: "small", lg: "default" }}
+                mb="20pt"
+              >
+                Check out
+              </Button>
             </Flex>
           </>
         ) : (

@@ -2,7 +2,7 @@ import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 // Constants
-import { ROUTES } from "@/constants/routes";
+import { ROUTES } from "@/constants";
 
 export default function ErrorPage() {
   return (

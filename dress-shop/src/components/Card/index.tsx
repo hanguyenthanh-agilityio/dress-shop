@@ -1,7 +1,7 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
 
 // Constants
-import { FALLBACK_SRC } from "@/constants/common";
+import { FALLBACK_SRC } from "@/constants";
 
 interface CardProps {
   src: string;
@@ -10,7 +10,7 @@ interface CardProps {
   price: number;
 }
 
-const Card = ({ src, altText = "Product image", name, price }: CardProps) => {
+const Card = ({ src, altText, name, price }: CardProps) => {
   return (
     <Flex
       flexDir="column"

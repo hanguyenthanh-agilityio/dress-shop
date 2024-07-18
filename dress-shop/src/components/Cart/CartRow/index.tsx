@@ -7,7 +7,7 @@ import { Product } from "@/types";
 import { Quantity } from "@/components";
 
 // Constants
-import { FALLBACK_SRC } from "@/constants/common";
+import { FALLBACK_SRC } from "@/constants";
 
 interface CartRowProps {
   product: Product;
@@ -20,7 +20,7 @@ const CartRow = ({ product, total, onDelete }: CartRowProps) => {
   return (
     <Tr>
       <Td>
-        <Flex maxW="280px">
+        <Flex maxW="280px" alignItems="center">
           <Image
             src={imageURL}
             boxSize="120px"

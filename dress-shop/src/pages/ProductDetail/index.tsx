@@ -3,28 +3,27 @@ import { useParams } from "react-router-dom";
 import { Container, Heading } from "@chakra-ui/react";
 
 // Components
-import {
-  ProductList,
-  ProductDetailItem,
-  LoadingIndicator,
-  Footer,
-} from "@/components";
+import { ProductList, LoadingIndicator, Footer } from "@/components";
+
+// Pages
+import { ProductDetailItem } from "@/pages";
 
 // Containers
 import { HeaderContainer } from "@/Containers";
-
-// APIs
-import { useProductById } from "@/apis/app";
 
 // Mocks
 import { PRODUCTS } from "@/mocks/common";
 
 // Constants
-import { ERROR_MESSAGE } from "@/constants/common";
+import { ERROR_MESSAGE } from "@/constants";
+
+// Hooks
+import { useProductId } from "@/hooks/useProduct";
 
 const ProductDetail = () => {
   const { productId } = useParams();
-  const { data: product, isLoading } = useProductById(productId);
+  const { data: product, isLoading } = useProductId(productId);
+  console.log("Data", product);
 
   if (isLoading)
     return (
@@ -41,7 +40,7 @@ const ProductDetail = () => {
   return (
     <>
       <HeaderContainer />
-      <Container minH="90vh" mb="80px">
+      <Container minH="90vh" mb="80px" p={{ xs: "0 15pt", md: "0 20pt" }}>
         {!product ? (
           <Heading>{ERROR_MESSAGE}</Heading>
         ) : (

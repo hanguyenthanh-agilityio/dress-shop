@@ -5,7 +5,7 @@ import { Box, Flex, Image, HStack } from "@chakra-ui/react";
 import { slides } from "@/mocks/common";
 
 // Constants
-import { FALLBACK_SRC } from "@/constants/common";
+import { FALLBACK_SRC } from "@/constants";
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

@@ -1,6 +1,5 @@
 /* eslint-disable no-case-declarations */
-// import { Cart } from "@/types/cart";
-import { Product } from "@/types/common";
+import { Product } from "@/types";
 
 export type UseCartContextType = {
   cart: Product[];
@@ -35,7 +34,10 @@ export enum REDUCER_ACTION_TYPE {
   DECREASE = "DECREASE",
 }
 
-export const cartReducer = (state: UseCartContextType, action: CartItemPayload) => {
+export const cartReducer = (
+  state: UseCartContextType,
+  action: CartItemPayload,
+) => {
   switch (action.type) {
     case REDUCER_ACTION_TYPE.ADD_TO_CART:
       return {

@@ -3,7 +3,7 @@ import { fireEvent, render } from "@testing-library/react";
 // import { expect } from "@jest/globals";
 
 // Constants
-import { OPTION_SORT } from "@/constants/common";
+import { OPTION_SORT } from "@/constants";
 
 // Components
 import Select from ".";

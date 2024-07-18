@@ -19,13 +19,11 @@ const ProductList = memo<ProductListProps>(({ products }: ProductListProps) => {
       spacing="20px"
       mt={{ xs: "20px", lg: "0px" }}
     >
-      {products.map(
-        ({ id, imageURL, altText = "Product image", name, price }: Product) => (
-          <Link key={id} to={`/products/${id}`}>
-            <Card src={imageURL} altText={altText} name={name} price={price} />
-          </Link>
-        ),
-      )}
+      {products.map(({ id, imageURL, altText, name, price }: Product) => (
+        <Link key={id} to={`/products/${id}`}>
+          <Card src={imageURL} altText={altText} name={name} price={price} />
+        </Link>
+      ))}
     </SimpleGrid>
   );
 });

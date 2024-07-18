@@ -2,15 +2,15 @@ import { useSearchParams } from "react-router-dom";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import React from "react";
 
-// Services
-import axiosClient from "@/services/axiosClients";
-
-// Types
-import { Product } from "@/types";
-
 // Components
-import { ProductList } from "@/components";
-import { Button, Flex } from "@chakra-ui/react";
+import { LoadingIndicator, ProductList } from "@/components";
+import { Button, Flex, Text } from "@chakra-ui/react";
+
+// Constants
+import { LOADING_STATUS } from "@/constants";
+
+// Apis
+import { getProducts } from "@/apis";
 
 const ProductListContainer = () => {
   const [searchParams] = useSearchParams();
@@ -18,18 +18,11 @@ const ProductListContainer = () => {
   const search = searchParams.get("search") || "";
   const category = searchParams.get("category") || "";
   const order = searchParams.get("order") || "";
-
-  const fetchProduct = ({ pageParam = 1 }) => {
-    return axiosClient.get<Product[]>("products", {
-      params: {
-        limit: 8,
-        page: pageParam,
-        sortBy: "price",
-        ...(search && { search }),
-        ...(category && { category }),
-        ...(order && { order }),
-      },
-    });
+  const params = {
+    limit: 8,
+    ...(search && { search }),
+    ...(category && { category }),
+    ...(order && { order, sortBy: "price" }),
   };
 
   const {
@@ -41,11 +34,9 @@ const ProductListContainer = () => {
     status,
   } = useInfiniteQuery({
     queryKey: ["products", search, category, order],
-    queryFn: fetchProduct,
+    queryFn: ({ pageParam = 1 }) => getProducts({ ...params, page: pageParam }),
     initialPageParam: 1,
-    getNextPageParam: (_lastPage, pages, lastPageParam) => {
-      console.log("_lastPage", _lastPage);
-      console.log("lastPageParam", lastPageParam);
+    getNextPageParam: (_lastPage, pages) => {
       if (pages.length < 2) {
         return pages.length + 1;
       }
@@ -53,10 +44,14 @@ const ProductListContainer = () => {
     },
   });
 
-  return status === "pending" ? (
-    <p>Loading...</p>
-  ) : status === "error" ? (
-    <p>Error: {error.message}</p>
+  const handleLoadMore = () => {
+    fetchNextPage();
+  };
+
+  return status === LOADING_STATUS.PENDING ? (
+    <LoadingIndicator />
+  ) : status === LOADING_STATUS.ERROR ? (
+    <Text>Error: {error?.message}</Text>
   ) : (
     <>
       {data?.pages.map((pageData, i) => (
@@ -65,18 +60,24 @@ const ProductListContainer = () => {
         </React.Fragment>
       ))}
 
-      <Flex justifyContent="center" my="50px">
+      <Flex justifyContent="center" mt="50px" mb="90px">
         <Button
           size={{ xs: "small", md: "default" }}
           variant="secondary"
-          onClick={() => fetchNextPage()}
+          onClick={handleLoadMore}
           isDisabled={!hasNextPage || isFetchingNextPage}
+          _hover={{
+            color: hasNextPage ? "text.default" : "text.primary",
+            bg: hasNextPage ? "text.primary" : "text.default",
+          }}
         >
-          {isFetchingNextPage
-            ? "Loading more..."
-            : hasNextPage
-              ? "Load More"
-              : "Nothing more to load"}
+          {isFetchingNextPage ? (
+            <LoadingIndicator />
+          ) : hasNextPage ? (
+            "Load More"
+          ) : (
+            "Nothing more to load"
+          )}
         </Button>
       </Flex>
     </>
