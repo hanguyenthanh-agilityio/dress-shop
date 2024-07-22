@@ -10,6 +10,7 @@ import { router } from "./routes";
 // Stores
 import Context from "./stores/Context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ErrorBoundary } from "./components";
 
 function App() {
   const queryClient = new QueryClient({
@@ -23,7 +24,9 @@ function App() {
       <ChakraProvider theme={CHAKRA_THEME_DEFAULT}>
         <Context>
           <CSSReset />
-          <RouterProvider router={router} />
+          <ErrorBoundary>
+            <RouterProvider router={router} />
+          </ErrorBoundary>
         </Context>
       </ChakraProvider>
     </QueryClientProvider>

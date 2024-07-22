@@ -5,26 +5,13 @@ import { useSearchParams } from "react-router-dom";
 import { SortBar } from "@/components";
 
 // Constants
-import { MEN_CATEGORY, OPTION_SORT, WOMEN_CATEGORY } from "@/constants";
+import { OPTION_SORT } from "@/constants";
+import { MainCategories } from "@/utils";
 
 const SortBarContainer = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const filterCategory = searchParams.get("category") || "";
   const order = searchParams.get("order") || "";
-
-  // Handle filter by men category
-  const handleClickMenCategories = useCallback(() => {
-    searchParams.set("category", "m");
-    searchParams.delete("search");
-    setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
-
-  // Handle filter by women category
-  const handleClickWomenCategories = useCallback(() => {
-    searchParams.set("category", "f");
-    searchParams.delete("search");
-    setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
 
   // Handle sort product
   const handleChangeSelect = useCallback(
@@ -36,24 +23,9 @@ const SortBarContainer = () => {
     [searchParams, setSearchParams],
   );
 
-  const categories = [
-    {
-      id: MEN_CATEGORY.id,
-      label: MEN_CATEGORY.label,
-      action: handleClickMenCategories,
-      value: MEN_CATEGORY.value,
-    },
-    {
-      id: WOMEN_CATEGORY.id,
-      label: WOMEN_CATEGORY.label,
-      action: handleClickWomenCategories,
-      value: WOMEN_CATEGORY.value,
-    },
-  ];
-
   return (
     <SortBar
-      categories={categories}
+      categories={MainCategories()}
       options={OPTION_SORT}
       onChangeSelect={handleChangeSelect}
       filterCategory={filterCategory}
