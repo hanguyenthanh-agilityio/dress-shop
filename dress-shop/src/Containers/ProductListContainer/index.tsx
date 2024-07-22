@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useCallback } from "react";
 
 // Components
 import { LoadingIndicator, ProductList } from "@/components";
@@ -44,9 +44,9 @@ const ProductListContainer = () => {
     },
   });
 
-  const handleLoadMore = () => {
+  const handleLoadMore = useCallback(() => {
     fetchNextPage();
-  };
+  }, [fetchNextPage]);
 
   return status === LOADING_STATUS.PENDING ? (
     <LoadingIndicator />
