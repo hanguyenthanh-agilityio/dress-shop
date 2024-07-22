@@ -1,10 +1,8 @@
 import axios from "axios";
 
-const axiosClient = axios.create({
+export const axiosClient = axios.create({
   baseURL: process.env.API_URL,
   headers: {
     "Content-Type": "application/json",
   },
 });
-
-export default axiosClient;

@@ -43,11 +43,14 @@ const Context = ({ children }: ChildrenType) => {
     });
   }, []);
 
-  const handleDelete = (product: Product) =>
-    dispatch({
-      type: REDUCER_ACTION_TYPE.REMOVE,
-      payload: product,
-    });
+  const handleDelete = useCallback(
+    (product: Product) =>
+      dispatch({
+        type: REDUCER_ACTION_TYPE.REMOVE,
+        payload: product,
+      }),
+    [],
+  );
 
   return (
     <Cart.Provider

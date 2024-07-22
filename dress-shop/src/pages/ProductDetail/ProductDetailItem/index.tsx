@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+
 import {
   Box,
   Button,
@@ -31,7 +33,7 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
 
   const toast = useToast();
 
-  const handleAddProduct = () => {
+  const handleAddProduct = useCallback(() => {
     handleAddToCart(product);
     toast({
       title: "Successfully add to cart",
@@ -39,7 +41,7 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
       duration: 3000,
       isClosable: true,
     });
-  };
+  }, [handleAddToCart, product, toast]);
 
   const { imageURL, name, price, description } = product;
 
