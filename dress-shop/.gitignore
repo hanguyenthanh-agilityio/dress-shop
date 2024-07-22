@@ -33,3 +33,5 @@ coverage
 #storybook
 src/components/**/__test__/__snapshots__
 
+#storybook-static
+/storybook-static
