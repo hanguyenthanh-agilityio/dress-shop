@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, memo, useCallback, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 // Components
@@ -7,7 +7,7 @@ import { Header } from "@/components";
 // Routes
 import { ROUTES } from "@/constants";
 
-const HeaderContainer = () => {
+const HeaderContainer = memo(() => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchValue, setSearchValue] = useState(
@@ -15,27 +15,30 @@ const HeaderContainer = () => {
   );
 
   // Handle change
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
-  };
+  }, []);
 
-  const handleKeyDown = (e: { key: string }) => {
-    if (e.key == "Enter") {
-      navigate(ROUTES.PRODUCT_SEARCH);
+  const handleKeyDown = useCallback(
+    (e: { key: string }) => {
+      if (e.key == "Enter") {
+        navigate(ROUTES.PRODUCT_SEARCH);
 
-      if (searchValue.length === 0) {
-        searchParams.delete("search");
-      } else {
-        searchParams.set("search", searchValue);
+        if (searchValue.length === 0) {
+          searchParams.delete("search");
+        } else {
+          searchParams.set("search", searchValue);
+        }
+
+        searchParams.delete("category");
+
+        setSearchParams(searchParams, {
+          replace: true,
+        });
       }
-
-      searchParams.delete("category");
-
-      setSearchParams(searchParams, {
-        replace: true,
-      });
-    }
-  };
+    },
+    [navigate, searchParams, searchValue, setSearchParams],
+  );
 
   return (
     <Header
@@ -44,6 +47,6 @@ const HeaderContainer = () => {
       value={searchValue}
     />
   );
-};
+});
 
 export default HeaderContainer;

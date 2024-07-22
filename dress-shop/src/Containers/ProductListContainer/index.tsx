@@ -1,12 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import React from "react";
-
-// Services
-import axiosClient from "@/services/axiosClients";
-
-// Types
-import { Product } from "@/types";
+import React, { useCallback } from "react";
 
 // Components
 import { LoadingIndicator, ProductList } from "@/components";
@@ -15,24 +9,20 @@ import { Button, Flex, Text } from "@chakra-ui/react";
 // Constants
 import { LOADING_STATUS } from "@/constants";
 
+// Apis
+import { getProducts } from "@/apis";
+
 const ProductListContainer = () => {
   const [searchParams] = useSearchParams();
 
   const search = searchParams.get("search") || "";
   const category = searchParams.get("category") || "";
   const order = searchParams.get("order") || "";
-
-  const fetchProduct = ({ pageParam = 1 }) => {
-    return axiosClient.get<Product[]>("products", {
-      params: {
-        limit: 8,
-        page: pageParam,
-        sortBy: "price",
-        ...(search && { search }),
-        ...(category && { category }),
-        ...(order && { order }),
-      },
-    });
+  const params = {
+    limit: 8,
+    ...(search && { search }),
+    ...(category && { category }),
+    ...(order && { order, sortBy: "price" }),
   };
 
   const {
@@ -44,7 +34,7 @@ const ProductListContainer = () => {
     status,
   } = useInfiniteQuery({
     queryKey: ["products", search, category, order],
-    queryFn: fetchProduct,
+    queryFn: ({ pageParam = 1 }) => getProducts({ ...params, page: pageParam }),
     initialPageParam: 1,
     getNextPageParam: (_lastPage, pages) => {
       if (pages.length < 2) {
@@ -54,9 +44,9 @@ const ProductListContainer = () => {
     },
   });
 
-  const handleLoadMore = () => {
+  const handleLoadMore = useCallback(() => {
     fetchNextPage();
-  };
+  }, [fetchNextPage]);
 
   return status === LOADING_STATUS.PENDING ? (
     <LoadingIndicator />
