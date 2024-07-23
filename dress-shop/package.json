@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "prepare": "cd .. && husky install dress-shop/.husky",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "sb build",
+     "serve-storybook": "serve storybook-static",
     "test": "jest --passWithNoTests",
     "test-coverage": "jest --coverage"
   },
