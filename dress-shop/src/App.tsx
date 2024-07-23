@@ -10,6 +10,8 @@ import { router } from "./routes";
 // Stores
 import Context from "./stores/Context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+// Components
 import { ErrorBoundary } from "./components";
 
 function App() {
