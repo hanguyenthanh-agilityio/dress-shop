@@ -14,9 +14,6 @@ import Context from "./stores/Context";
 // Components
 import { ErrorBoundary } from "./components";
 
-// Components
-import { ErrorBoundary } from "./components";
-
 function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
