@@ -2,8 +2,7 @@ import { Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 // Components
-import { Cart, Footer } from "@/components";
-import HeaderContainer from "@/components/HeaderContainer";
+import { Cart } from "@/components";
 
 // Constants
 import { HEADER_LIST } from "@/constants";
@@ -28,7 +27,6 @@ const ProductCart = () => {
 
   return (
     <>
-      <HeaderContainer />
       <Container minH="90vh">
         <Heading
           textTransform="uppercase"
@@ -77,7 +75,6 @@ const ProductCart = () => {
           </Heading>
         )}
       </Container>
-      <Footer />
     </>
   );
 };
