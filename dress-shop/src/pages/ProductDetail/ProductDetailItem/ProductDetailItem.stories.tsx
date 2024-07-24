@@ -7,7 +7,7 @@ import ProductDetailItem from ".";
 import { ITEM_CART } from "@/mocks/common";
 
 export default {
-  title: "Components/Card",
+  title: "Components/CardItem",
   component: ProductDetailItem,
   decorators: [(Story) => <Story />],
 } as Meta;

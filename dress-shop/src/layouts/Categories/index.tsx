@@ -1,55 +1,15 @@
 import { Flex, Heading, Image } from "@chakra-ui/react";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { useCallback } from "react";
 
 // Types
 import { Category } from "@/types";
 
 // Constants
-import {
-  ROUTES,
-  FALLBACK_SRC,
-  MEN_CATEGORY,
-  WOMEN_CATEGORY,
-} from "@/constants";
+import { FALLBACK_SRC } from "@/constants";
+
+// Utils
+import { MainCategories } from "@/utils";
 
 const Categories = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
-
-  // Handle filter by men category
-  const handleClickMenCategories = useCallback(() => {
-    navigate(ROUTES.PRODUCT_SEARCH);
-    searchParams.set("category", "m");
-    setSearchParams(searchParams);
-  }, [navigate, searchParams, setSearchParams]);
-
-  // Handle filter by women category
-  const handleClickWomenCategories = useCallback(() => {
-    navigate(ROUTES.PRODUCT_SEARCH);
-    searchParams.set("category", "f");
-    setSearchParams(searchParams);
-  }, [navigate, searchParams, setSearchParams]);
-
-  const categories = [
-    {
-      id: WOMEN_CATEGORY.id,
-      img: WOMEN_CATEGORY.img,
-      alt: WOMEN_CATEGORY.alt,
-      label: WOMEN_CATEGORY.label,
-      action: handleClickWomenCategories,
-      value: WOMEN_CATEGORY.value,
-    },
-    {
-      id: MEN_CATEGORY.id,
-      img: MEN_CATEGORY.img,
-      alt: MEN_CATEGORY.label,
-      label: MEN_CATEGORY.label,
-      action: handleClickMenCategories,
-      value: MEN_CATEGORY.value,
-    },
-  ];
-
   return (
     <>
       <Heading
@@ -68,7 +28,7 @@ const Categories = () => {
         pb="30px"
         gap="4"
       >
-        {categories.map(({ id, img, label, alt, action }: Category) => (
+        {MainCategories().map(({ id, img, label, alt, action }: Category) => (
           <Flex
             key={id}
             position="relative"
