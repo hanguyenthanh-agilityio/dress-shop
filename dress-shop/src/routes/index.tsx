@@ -28,10 +28,10 @@ export const router = createBrowserRouter([
         path: ROUTES.PRODUCT_CART,
       },
       {
-        // async lazy() {
-        //   const ProductSearch = await import("../pages/ProductSearch");
-        //   return { Component: ProductSearch.default };
-        // },
+        async lazy() {
+          const ProductSearch = await import("../pages/ProductSearch");
+          return { Component: ProductSearch.default };
+        },
         path: ROUTES.PRODUCT_SEARCH,
       },
     ],
