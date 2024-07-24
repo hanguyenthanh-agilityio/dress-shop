@@ -1,5 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 
+// Pages
+import { Home, ProductDetail, ProductCart, ProductSearch } from "@/pages";
+
 // Constants
 import { ROUTES } from "@/constants";
 
@@ -7,31 +10,19 @@ export const router = createBrowserRouter([
   {
     children: [
       {
+        element: <Home />,
         path: ROUTES.HOME,
-        async lazy() {
-          const Home = await import("../pages/Home");
-          return { Component: Home.default };
-        },
       },
       {
-        async lazy() {
-          const ProductDetail = await import("../pages/ProductDetail");
-          return { Component: ProductDetail.default };
-        },
+        element: <ProductDetail />,
         path: ROUTES.PRODUCT_DETAIL,
       },
       {
-        async lazy() {
-          const ProductCart = await import("../pages/ProductCart");
-          return { Component: ProductCart.default };
-        },
+        element: <ProductCart />,
         path: ROUTES.PRODUCT_CART,
       },
       {
-        async lazy() {
-          const ProductSearch = await import("../pages/ProductSearch");
-          return { Component: ProductSearch.default };
-        },
+        element: <ProductSearch />,
         path: ROUTES.PRODUCT_SEARCH,
       },
     ],
