@@ -1,8 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 
-// Components
-import { ErrorBoundary } from "@/components";
-
 // Pages
 import { Home, ProductDetail, ProductCart, ProductSearch } from "@/pages";
 
@@ -13,35 +10,19 @@ export const router = createBrowserRouter([
   {
     children: [
       {
-        element: (
-          <ErrorBoundary>
-            <Home />
-          </ErrorBoundary>
-        ),
+        element: <Home />,
         path: ROUTES.HOME,
       },
       {
-        element: (
-          <ErrorBoundary>
-            <ProductDetail />
-          </ErrorBoundary>
-        ),
+        element: <ProductDetail />,
         path: ROUTES.PRODUCT_DETAIL,
       },
       {
-        element: (
-          <ErrorBoundary>
-            <ProductCart />
-          </ErrorBoundary>
-        ),
+        element: <ProductCart />,
         path: ROUTES.PRODUCT_CART,
       },
       {
-        element: (
-          <ErrorBoundary>
-            <ProductSearch />
-          </ErrorBoundary>
-        ),
+        element: <ProductSearch />,
         path: ROUTES.PRODUCT_SEARCH,
       },
     ],
