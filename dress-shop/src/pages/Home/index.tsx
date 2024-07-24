@@ -1,4 +1,5 @@
 import { Container, Flex, Heading } from "@chakra-ui/react";
+import { lazy, Suspense } from "react";
 
 // Components
 import { Footer, LoadingIndicator } from "@/components";
@@ -10,10 +11,8 @@ const ProductListContainer = lazy(
 );
 
 // Layouts
-// import Carousel from "@/layouts/Carousel";
-import Categories from "@/layouts/Categories";
-import { lazy, Suspense } from "react";
 
+const Categories = lazy(() => import("../../layouts/Categories"));
 const Carousel = lazy(() => import("../../layouts/Carousel"));
 
 const Home = () => {
@@ -26,7 +25,9 @@ const Home = () => {
 
       <Container pb="100px">
         <Flex flexDir="column" padding="0 20px">
-          <Categories />
+          <Suspense fallback={<LoadingIndicator />}>
+            <Categories />
+          </Suspense>
           <Heading pb="20px">Product Overview</Heading>
           <Suspense fallback={<LoadingIndicator />}>
             <ProductListContainer />
