@@ -4,12 +4,10 @@ import { Container, Heading } from "@chakra-ui/react";
 
 // Components
 import { ProductList, LoadingIndicator, Footer } from "@/components";
+import HeaderContainer from "@/components/HeaderContainer";
 
 // Pages
 import { ProductDetailItem } from "@/pages";
-
-// Containers
-import { HeaderContainer } from "@/Containers";
 
 // Mocks
 import { PRODUCTS } from "@/mocks/common";
@@ -23,7 +21,6 @@ import { useProductId } from "@/hooks/useProduct";
 const ProductDetail = () => {
   const { productId } = useParams();
   const { data: product, isLoading } = useProductId(productId);
-  console.log("Data", product);
 
   if (isLoading)
     return (

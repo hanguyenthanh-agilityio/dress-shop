@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 
 // Components
 import { Cart, Footer } from "@/components";
-
-// Containers
-import { HeaderContainer } from "@/Containers";
+import HeaderContainer from "@/components/HeaderContainer";
 
 // Constants
 import { HEADER_LIST } from "@/constants";

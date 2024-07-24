@@ -3,17 +3,15 @@ import { lazy, Suspense } from "react";
 
 // Components
 import { Footer, LoadingIndicator } from "@/components";
+import HeaderContainer from "@/components/HeaderContainer";
+import ProductListContainer from "@/components/ProductListContainer";
 
 // Containers
-import { HeaderContainer } from "@/Containers";
-const ProductListContainer = lazy(
-  () => import("../../Containers/ProductListContainer"),
-);
 
 // Layouts
 
-const Categories = lazy(() => import("../../layouts/Categories"));
-const Carousel = lazy(() => import("../../layouts/Carousel"));
+const Categories = lazy(() => import("@/layouts/Categories"));
+const Carousel = lazy(() => import("@/layouts/Carousel"));
 
 const Home = () => {
   return (
