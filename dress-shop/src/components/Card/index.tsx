@@ -11,7 +11,7 @@ interface CardProps {
   price: number;
 }
 
-const Card = memo<CardProps>(({ src, altText, name, price }: CardProps) => {
+const Card = memo<CardProps>(({ src, name, price }: CardProps) => {
   return (
     <Flex
       flexDir="column"
@@ -22,14 +22,20 @@ const Card = memo<CardProps>(({ src, altText, name, price }: CardProps) => {
       }}
     >
       <Flex
-        h={{ xs: "140px", sm: "195px", md: "240px", lg: "331px", xl: "288px" }}
+        h={{
+          xs: "140px",
+          sm: "195px",
+          md: "240px",
+          lg: "331px",
+          xl: "288px",
+        }}
       >
         <Image
           w="100%"
           h="100%"
           maxH={"300px"}
           src={src}
-          alt={altText}
+          alt={`product ${name}`}
           objectFit="cover"
           fallbackSrc={FALLBACK_SRC}
         />
