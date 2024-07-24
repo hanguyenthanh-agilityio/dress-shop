@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "prepare": "cd .. && husky install dress-shop/.husky",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "sb build",
+    "serve-storybook": "serve storybook-static",
     "test": "jest --passWithNoTests",
     "test-coverage": "jest --coverage"
   },
@@ -20,6 +21,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/poppins": "^5.0.14",
+    "@nrwl/storybook": "^19.5.2",
     "@tanstack/react-query": "^5.50.1",
     "axios": "^1.6.2",
     "dotenv": "^16.4.5",
