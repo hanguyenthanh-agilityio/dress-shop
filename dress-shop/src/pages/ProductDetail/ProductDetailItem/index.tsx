@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 
 // Components
-import { Quantity } from "@/components";
+import { IconHeart, Quantity } from "@/components";
 
 // Stores
 import { UseCartContext } from "@/stores";
@@ -59,10 +59,16 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
       </Box>
       <Flex
         flexDir="column"
-        p={{ xs: "16px 0", lg: "20px 20px 20px 0" }}
+        p={{ xs: "16px 0", lg: "20px 0 20px 0" }}
         w={{ xs: "100%", lg: "580px" }}
       >
-        <Heading size={{ xs: "medium", lg: "default" }}>{name}</Heading>
+        <Flex justifyContent="space-between" alignItems="center">
+          <Heading color="text.default" size={{ xs: "medium", lg: "default" }}>
+            {name}
+          </Heading>
+          <IconHeart />
+        </Flex>
+
         <Text
           size={{ xs: "default", md: "large" }}
           variant="primary"
@@ -80,6 +86,7 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
             size={{ xs: "small", lg: "default" }}
             p={{ xs: "10px 30px", sm: "20px 40px", lg: "25px 60px" }}
             ml={{ xs: "15px", lg: "40px" }}
+            border="none"
             isLoading={isLoading}
             onClick={handleAddProduct}
           >

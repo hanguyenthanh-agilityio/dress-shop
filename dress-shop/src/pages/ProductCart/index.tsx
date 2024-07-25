@@ -28,12 +28,14 @@ const ProductCart = () => {
 
   return (
     <>
-      <Container minH="90vh">
+      <Container minH="90vh" px="20px" mb={{ lg: "-48px" }}>
         <Heading
           textTransform="uppercase"
-          pt="35px"
+          pt={{ xs: "10px", lg: "35px" }}
           fontWeight="700"
+          color="text.default"
           size={{ xs: "medium", lg: "default" }}
+          mt={{ lg: "80px" }}
         >
           Your Cart
         </Heading>
@@ -49,6 +51,7 @@ const ProductCart = () => {
                 <Text
                   size={{ xs: "small", lg: "large" }}
                   pr={{ xs: "30px", lg: "50px" }}
+                  color="text.default"
                 >
                   Sub Total
                 </Text>
@@ -71,7 +74,7 @@ const ProductCart = () => {
             </Flex>
           </>
         ) : (
-          <Heading>
+          <Heading color="text.default">
             No item in Cart. Add <Link to="/">Products</Link> to proceed.
           </Heading>
         )}

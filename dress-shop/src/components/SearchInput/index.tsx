@@ -22,7 +22,8 @@ const SearchInput = memo<SearchInputProps>(
           size={{ xs: "secondary", lg: "default" }}
           fontSize={{ xs: "12px", md: "17px" }}
           pl="10px"
-          background="background.light"
+          background="#3a3b3c"
+          borderColor="none"
           placeholder={placeholder}
           onChange={onChange}
           onKeyDown={onKeyDown}
@@ -37,7 +38,7 @@ const SearchInput = memo<SearchInputProps>(
           children={
             <Icon
               as={SearchIcon}
-              color="text.helper"
+              color="text.default"
               w={{ xs: "15px", md: "22px" }}
               h={{ xs: "15px", md: "22px" }}
             />

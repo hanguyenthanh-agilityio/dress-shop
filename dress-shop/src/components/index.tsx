@@ -12,6 +12,6 @@ export { default as SearchInput } from "./SearchInput";
 export { default as Select } from "./Select";
 export { default as SortBar } from "./SortBar";
 export { default as ErrorBoundary } from "./ErrorBoundary";
-export { default as CartLogo } from "./CartLogo";
+export { IconCart, IconHeart } from "./CustomIcon";
 export { default as SearchProduct } from "./SearchProduct";
 export { default as Header } from "./Header";

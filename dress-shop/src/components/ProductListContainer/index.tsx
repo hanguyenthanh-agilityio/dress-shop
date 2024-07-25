@@ -60,9 +60,10 @@ const ProductListContainer = () => {
         </React.Fragment>
       ))}
 
-      <Flex justifyContent="center" mt="50px" mb="90px">
+      <Flex justifyContent="center" mt="50px" mb="66px">
         <Button
           size={{ xs: "small", md: "default" }}
+          mb="20px"
           variant="secondary"
           onClick={handleLoadMore}
           isDisabled={!hasNextPage || isFetchingNextPage}

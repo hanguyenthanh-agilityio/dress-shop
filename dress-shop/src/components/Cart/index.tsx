@@ -51,10 +51,18 @@ const Cart = memo<CartProp>(
                     fallbackSrc={FALLBACK_SRC}
                   />
                   <Flex flexDir="column" pl="10px">
-                    <Text fontWeight="600" size={{ xs: "tiny", lg: "default" }}>
+                    <Text
+                      color="text.default"
+                      fontWeight="600"
+                      size={{ xs: "tiny", lg: "default" }}
+                    >
                       {name}
                     </Text>
-                    <Text pb="10px" size={{ xs: "small", lg: "default" }}>
+                    <Text
+                      pb="10px"
+                      color="text.default"
+                      size={{ xs: "small", lg: "default" }}
+                    >
                       P{price}
                     </Text>
                     <Quantity />

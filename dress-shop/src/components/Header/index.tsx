@@ -11,11 +11,15 @@ import {
   MenuList,
   Text,
   Heading,
+  Button,
+  Wrap,
+  WrapItem,
+  Avatar,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 // Components
-import { CartLogo, SearchProduct } from "@/components";
+import { IconCart, SearchProduct } from "@/components";
 
 // Constants
 import { ROUTES } from "@/constants";
@@ -29,11 +33,24 @@ interface MainHeaderProps {
 
 export const MainHeader = memo<MainHeaderProps>(
   ({ children }: MainHeaderProps) => (
-    <Flex boxShadow="0 10px 15px 0 rgba(0,0,0,.06)" py="20px">
+    <Flex
+      pos="fixed"
+      top="0"
+      zIndex="2"
+      width="100%"
+      boxShadow="0 10px 15px 0 rgba(0,0,0,.06)"
+      py="15px"
+      bg="brand.900"
+    >
       <Container p={{ lg: "0 20px" }}>
         <Flex justifyContent="space-between" alignItems="center">
           <Link to={ROUTES.HOME}>
-            <Heading size={{ xs: "medium", lg: "default" }}>Dress</Heading>
+            <Heading
+              size={{ xs: "medium", lg: "default" }}
+              color="text.default"
+            >
+              Dress
+            </Heading>
           </Link>
           {children}
         </Flex>
@@ -53,10 +70,20 @@ const HeaderContainer = memo(() => {
             <SearchProduct />
             <Link to={ROUTES.PRODUCT_CART}>
               <Flex alignItems="center" pl="30px" cursor="pointer">
-                <CartLogo />
-                <Text pl="5px">Cart</Text>
+                <IconCart />
+                <Text color="#fff">Cart</Text>
               </Flex>
             </Link>
+            <Wrap ml="15px">
+              <WrapItem>
+                <Avatar
+                  width="10"
+                  height="10"
+                  name="Kent Dodds"
+                  src="https://bit.ly/dan-abramov"
+                />
+              </WrapItem>
+            </Wrap>
           </Flex>
         </MainHeader>
       ) : (
@@ -67,23 +94,56 @@ const HeaderContainer = memo(() => {
                 <MenuButton
                   as={IconButton}
                   aria-label="Option"
-                  icon={<HamburgerIcon w="25px" height="25px" />}
+                  icon={<HamburgerIcon w="25px" height="25px" color="#fff" />}
                   variant="outline"
                   border="none"
                   px="10px"
+                  _active={{ bg: "#d82c23" }}
                 />
-                <MenuList>
-                  <MenuItem my="10px">Home</MenuItem>
-                  <MenuGroup title="Categories">
-                    <MenuItem>Men</MenuItem>
-                    <MenuItem>Women</MenuItem>
+                <MenuList bg="#1b262c">
+                  <MenuItem
+                    mb="10px"
+                    color="#fff"
+                    bg="#1b262c"
+                    borderBottom="1px solid #fff"
+                  >
+                    Home
+                  </MenuItem>
+                  <MenuGroup title="Categories" ml="12px" color="#fff">
+                    <MenuItem
+                      color="#fff"
+                      bg="#1b262c"
+                      borderBottom="1px solid #fff"
+                    >
+                      Men
+                    </MenuItem>
+                    <MenuItem
+                      color="#fff"
+                      bg="#1b262c"
+                      borderBottom="1px solid #fff"
+                    >
+                      Women
+                    </MenuItem>
+                    <Flex display="flex" justifyContent="center">
+                      <Button
+                        m="10px 10px 0"
+                        px="60px"
+                        h="30px"
+                        color="#fff"
+                        fontSize="13px"
+                        bg="#222222"
+                        border="none"
+                      >
+                        Log Out
+                      </Button>
+                    </Flex>
                   </MenuGroup>
                 </MenuList>
               </Menu>
             </Flex>
           </MainHeader>
           <Container>
-            <Flex p="16px 20px">
+            <Flex p="16px 20px" mt="70px">
               <SearchProduct />
             </Flex>
           </Container>
