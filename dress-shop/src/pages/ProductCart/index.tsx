@@ -1,11 +1,9 @@
 import { Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { lazy } from "react";
 
 // Components
-import { Cart, Footer } from "@/components";
-
-// Containers
-import { HeaderContainer } from "@/Containers";
+const Cart = lazy(() => import("@/components/Cart"));
 
 // Constants
 import { HEADER_LIST } from "@/constants";
@@ -30,7 +28,6 @@ const ProductCart = () => {
 
   return (
     <>
-      <HeaderContainer />
       <Container minH="90vh">
         <Heading
           textTransform="uppercase"
@@ -79,7 +76,6 @@ const ProductCart = () => {
           </Heading>
         )}
       </Container>
-      <Footer />
     </>
   );
 };

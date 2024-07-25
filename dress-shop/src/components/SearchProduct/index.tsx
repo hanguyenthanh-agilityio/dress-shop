@@ -2,7 +2,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { ChangeEvent, useCallback, useState } from "react";
 
 // Components
-import SearchInput from "../SearchInput";
+import { SearchInput } from "@/components";
 
 // Constants
 import { ROUTES } from "@/constants";

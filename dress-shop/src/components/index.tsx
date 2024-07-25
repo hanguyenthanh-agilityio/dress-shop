@@ -14,3 +14,4 @@ export { default as SortBar } from "./SortBar";
 export { default as ErrorBoundary } from "./ErrorBoundary";
 export { default as CartLogo } from "./CartLogo";
 export { default as SearchProduct } from "./SearchProduct";
+export { default as Header } from "./Header";

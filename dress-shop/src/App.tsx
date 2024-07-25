@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { RouterProvider } from "react-router-dom";
 import { ChakraProvider, CSSReset } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -12,7 +13,7 @@ import { router } from "./routes";
 import Context from "./stores/Context";
 
 // Components
-import { ErrorBoundary } from "./components";
+import { ErrorBoundary, LoadingIndicator } from "./components";
 
 function App() {
   const queryClient = new QueryClient({
@@ -26,9 +27,11 @@ function App() {
       <ChakraProvider theme={CHAKRA_THEME_DEFAULT}>
         <Context>
           <CSSReset />
-          <ErrorBoundary>
-            <RouterProvider router={router} />
-          </ErrorBoundary>
+          <Suspense fallback={<LoadingIndicator />}>
+            <ErrorBoundary>
+              <RouterProvider router={router} />
+            </ErrorBoundary>
+          </Suspense>
         </Context>
       </ChakraProvider>
     </QueryClientProvider>
