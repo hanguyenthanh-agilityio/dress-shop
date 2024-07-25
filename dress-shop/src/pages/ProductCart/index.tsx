@@ -1,8 +1,9 @@
 import { Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { lazy } from "react";
 
 // Components
-import { Cart } from "@/components";
+const Cart = lazy(() => import("@/components/Cart"));
 
 // Constants
 import { HEADER_LIST } from "@/constants";
