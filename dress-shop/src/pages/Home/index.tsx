@@ -14,8 +14,11 @@ const Home = () => {
       <Carousel />
       <Container pb="100px">
         <Flex flexDir="column" padding="0 20px">
+          {/* Suspense */}
           <Categories />
-          <Heading pb="20px">Product Overview</Heading>
+          <Heading pb={{ xs: "0", lg: "20px" }} color="text.default">
+            Product Overview
+          </Heading>
           <ProductListContainer />
         </Flex>
       </Container>

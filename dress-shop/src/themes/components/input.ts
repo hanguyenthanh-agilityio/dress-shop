@@ -48,7 +48,6 @@ export const Input = {
         fontWeight: "400",
         _hover: {
           borderColor: "inactive.primary",
-          bg: "inactive.secondary",
         },
       },
     },

@@ -41,7 +41,7 @@ export const Button = {
       bg: "background.light",
       borderRadius: "none",
       _hover: {
-        backgroundColor: "#e2e8f0",
+        // backgroundColor: "#e2e8f0",
       },
     },
 

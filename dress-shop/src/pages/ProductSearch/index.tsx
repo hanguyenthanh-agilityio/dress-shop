@@ -33,7 +33,12 @@ const ProductSearch = () => {
 
   return (
     <>
-      <Container minH="90vh" mb={{ xs: "50px", lg: "0px" }} p="0 15pt">
+      <Container
+        minH="90vh"
+        mb={{ xs: "50px", lg: "-48px" }}
+        p="0 15px"
+        mt={{ lg: "80px" }}
+      >
         <SortBar
           categories={MainCategories()}
           options={OPTION_SORT}

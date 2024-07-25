@@ -35,14 +35,16 @@ const ProductDetail = () => {
 
   return (
     <>
-      <Container minH="90vh" mb="80px" p={{ xs: "0 15pt", md: "0 20pt" }}>
+      <Container minH="90vh" mt="80px" p={{ xs: "0 15px", md: "0 20px" }}>
         {!product ? (
           <Heading>{ERROR_MESSAGE}</Heading>
         ) : (
           <ProductDetailItem product={product} isLoading={isLoading} />
         )}
 
-        <Heading pb="10px">Related Product</Heading>
+        <Heading py="10px" color="text.default">
+          Related Product
+        </Heading>
         <ProductList products={PRODUCTS} />
       </Container>
     </>

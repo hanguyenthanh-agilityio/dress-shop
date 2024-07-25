@@ -11,7 +11,9 @@ const CartHeader = ({ headerList }: CartHeaderProps) => (
   <Thead>
     <Tr>
       {headerList.map(({ title }, index) => (
-        <Th key={`title-${index}`}>{title}</Th>
+        <Th key={`title-${index}`} color="text.default">
+          {title}
+        </Th>
       ))}
     </Tr>
   </Thead>
