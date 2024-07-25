@@ -13,7 +13,7 @@ import { MAIN_ROUTES } from "./mainRouter";
 import { LoadingIndicator } from "@/components";
 
 // Layouts
-import MainLayout from "@/layouts/MainLayout";
+import { MainLayout } from "@/layouts";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

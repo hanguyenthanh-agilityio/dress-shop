@@ -25,6 +25,7 @@ export const useProducts = (params: Params) => {
 // Product detail
 export const useProductId = (productId: string | undefined) => {
   const { data, ...rest } = useQuery({
+    //error
     queryKey: QUERY_KEY.PRODUCT_DETAIL(productId),
     queryFn: () => getProductId(productId),
   });
