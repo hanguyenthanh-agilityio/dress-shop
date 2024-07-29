@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
-
+import { lazy, Suspense } from "react";
 import { Container, Heading } from "@chakra-ui/react";
 
 // Components
-import { ProductList, LoadingIndicator } from "@/components";
+import { LoadingIndicator } from "@/components";
+
+const ProductList = lazy(() => import("@/components/ProductList"));
 
 // Pages
 import { ProductDetailItem } from "@/pages";
@@ -15,7 +17,7 @@ import { PRODUCTS } from "@/mocks/common";
 import { ERROR_MESSAGE } from "@/constants";
 
 // Hooks
-import { useProductId } from "@/hooks/useProduct";
+import { useProductId } from "@/hooks";
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -45,7 +47,9 @@ const ProductDetail = () => {
         <Heading py="10px" color="text.default">
           Related Product
         </Heading>
-        <ProductList products={PRODUCTS} />
+        <Suspense fallback={<LoadingIndicator />}>
+          <ProductList products={PRODUCTS} />
+        </Suspense>
       </Container>
     </>
   );

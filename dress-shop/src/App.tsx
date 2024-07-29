@@ -10,7 +10,7 @@ import CHAKRA_THEME_DEFAULT from "./themes/chakra";
 import { router } from "./routes";
 
 // Stores
-import Context from "./stores/Context";
+import Context from "./stores/context";
 
 // Components
 import { ErrorBoundary, LoadingIndicator } from "./components";
