@@ -9,7 +9,7 @@ const Cart = lazy(() => import("@/components/Cart"));
 import { HEADER_LIST } from "@/constants";
 
 // Mocks
-import { UseCartContext } from "@/stores";
+import { UseCartContext } from "@/stores/context";
 
 // Hooks
 import { useBreakPoints } from "@/hooks";

@@ -10,7 +10,7 @@ import { useBreakPoints } from "@/hooks";
 import { HeaderList, Product } from "@/types";
 
 // Stores
-import { UseCartContext } from "@/stores";
+import { UseCartContext } from "@/stores/context";
 
 // Constants
 import { FALLBACK_SRC } from "@/constants";

@@ -15,7 +15,7 @@ import {
 import { IconHeart, Quantity } from "@/components";
 
 // Stores
-import { UseCartContext } from "@/stores";
+import { UseCartContext } from "@/stores/context";
 
 // Constants
 import { FALLBACK_SRC } from "@/constants";
