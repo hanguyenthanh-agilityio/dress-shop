@@ -8,7 +8,7 @@ import { Product } from "@/types";
 import { CartRow } from "@/components";
 
 // Stores
-import { UseCartContext } from "@/stores/context";
+import { UseCartContext } from "@/stores";
 
 interface CartBodyProps {
   products: Product[];
