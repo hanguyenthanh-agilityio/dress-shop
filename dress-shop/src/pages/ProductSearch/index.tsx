@@ -36,7 +36,8 @@ const ProductSearch = () => {
     <>
       <Container
         minH="90vh"
-        mb={{ xs: "50px", lg: "-48px" }}
+        mb={{ xs: "65px" }}
+        pb="20px"
         p="0 15px"
         mt={{ lg: "80px" }}
       >

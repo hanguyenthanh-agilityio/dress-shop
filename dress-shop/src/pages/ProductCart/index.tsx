@@ -70,7 +70,6 @@ const ProductCart = () => {
                 variant="check"
                 p={{ xs: "20px", lg: "25px" }}
                 size={{ xs: "small", lg: "default" }}
-                mb="20pt"
               >
                 Check out
               </Button>

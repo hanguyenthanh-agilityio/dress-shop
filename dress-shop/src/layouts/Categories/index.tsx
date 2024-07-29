@@ -18,6 +18,7 @@ const Categories = () => {
         textTransform="uppercase"
         fontWeight="bold"
         size={{ xs: "medium", md: "default" }}
+        color="text.default"
       >
         Categories
       </Heading>

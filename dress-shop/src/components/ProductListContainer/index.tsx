@@ -60,7 +60,7 @@ const ProductListContainer = () => {
         </React.Fragment>
       ))}
 
-      <Flex justifyContent="center" mt="50px" mb="66px">
+      <Flex justifyContent="center" mt="50px">
         <Button
           size={{ xs: "small", md: "default" }}
           mb="20px"
