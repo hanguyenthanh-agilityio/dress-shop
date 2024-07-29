@@ -26,10 +26,9 @@ const SortBar = memo<SortBarProps>(
     return (
       <Flex
         p="10px"
-        mb="20pt"
+        mb="20px"
         flexDir={{ xs: "column", md: "row" }}
         justifyContent={{ xs: "center", md: "space-between" }}
-        bg="background.sortBar"
       >
         <Flex justifyContent={{ xs: "center" }}>
           {categories.map(({ id, action, label, value }: Category) => (
@@ -40,11 +39,10 @@ const SortBar = memo<SortBarProps>(
               onClick={action}
               data-testid={id}
               p={{ xs: "8px 30px", md: "10px 50px" }}
-              bg={
-                filterCategory !== value ? "background.light" : "background.red"
-              }
-              color={filterCategory !== value ? "text.dark" : "text.default"}
+              bg={filterCategory !== value ? "#3a3b3c" : "background.red"}
+              color={filterCategory !== value ? "text.default" : "text.default"}
               width={{ xs: "100%" }}
+              border="none"
             >
               {label}
             </Button>
@@ -56,7 +54,12 @@ const SortBar = memo<SortBarProps>(
           justifyContent={{ xs: "center" }}
           margin={{ xs: "10px", lg: "0" }}
         >
-          <Text pr={{ xs: "5px", md: "10px" }} w={{ xs: "60px", md: "100px" }}>
+          <Text
+            pr={{ xs: "5px", md: "10px" }}
+            w="100px"
+            color="#fff"
+            textAlign="left"
+          >
             Sort by
           </Text>
           <Select options={options} onChange={onChangeSelect} value={order} />

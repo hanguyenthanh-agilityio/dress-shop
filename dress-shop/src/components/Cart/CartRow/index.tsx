@@ -30,10 +30,12 @@ const CartRow = memo<CartRowProps>(
               pr="10px"
               fallbackSrc={FALLBACK_SRC}
             />
-            <Text fontWeight="600">{name}</Text>
+            <Text fontWeight="600" color="text.default">
+              {name}
+            </Text>
           </Flex>
         </Td>
-        <Td>{price}</Td>
+        <Td color="text.default">{price}</Td>
         <Td>
           <Quantity />
         </Td>

@@ -46,7 +46,7 @@ const Footer = () => {
       {isLargeThanTablet ? (
         <Box bg="background.dark" color="text.default">
           <Container>
-            <Flex justifyContent="space-between" alignItems="center" py="15px">
+            <Flex justifyContent="space-between" alignItems="center" p="20px">
               <Text
                 color="white"
                 my="15px"
@@ -67,7 +67,7 @@ const Footer = () => {
       ) : (
         <Flex
           justifyContent="space-around"
-          bg="background.default"
+          bg="brand.900"
           borderTop="1px solid #ccc"
           overflow="hidden"
           pos="fixed"
@@ -83,10 +83,12 @@ const Footer = () => {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <IconContext.Provider value={{ size: "20px" }}>
+                  <IconContext.Provider
+                    value={{ size: "20px", color: "text.default" }}
+                  >
                     {item.icon}
                   </IconContext.Provider>
-                  <Text>{item.text}</Text>
+                  <Text color="text.default">{item.text}</Text>
                 </Flex>
               </Link>
             </Stack>
