@@ -1,6 +1,6 @@
 import { Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 
 // Components
 const Cart = lazy(() => import("@/components/Cart"));
@@ -13,6 +13,7 @@ import { UseCartContext } from "@/stores";
 
 // Hooks
 import { useBreakPoints } from "@/hooks";
+import { LoadingIndicator } from "@/components";
 
 const ProductCart = () => {
   const { isLargeThanTablet } = useBreakPoints();
@@ -41,7 +42,9 @@ const ProductCart = () => {
         </Heading>
         {totalPrice ? (
           <>
-            <Cart headerList={HEADER_LIST} products={cart} total={0} />
+            <Suspense fallback={<LoadingIndicator />}>
+              <Cart headerList={HEADER_LIST} products={cart} total={0} />
+            </Suspense>
             <Flex
               flexDir="column"
               alignItems="end"

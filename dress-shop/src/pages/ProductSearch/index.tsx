@@ -1,8 +1,9 @@
-import { ChangeEvent, lazy, useCallback } from "react";
+import { ChangeEvent, lazy, Suspense, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Container } from "@chakra-ui/react";
 
 // Components
+import { LoadingIndicator } from "@/components";
 const ProductListContainer = lazy(
   () => import("@/components/ProductListContainer"),
 );
@@ -39,14 +40,18 @@ const ProductSearch = () => {
         p="0 15px"
         mt={{ lg: "80px" }}
       >
-        <SortBar
-          categories={MainCategories()}
-          options={OPTION_SORT}
-          onChangeSelect={handleChangeSelect}
-          filterCategory={filterCategory}
-          order={order}
-        />
-        <ProductListContainer />
+        <Suspense fallback={<LoadingIndicator />}>
+          <SortBar
+            categories={MainCategories()}
+            options={OPTION_SORT}
+            onChangeSelect={handleChangeSelect}
+            filterCategory={filterCategory}
+            order={order}
+          />
+        </Suspense>
+        <Suspense fallback={<LoadingIndicator />}>
+          <ProductListContainer />
+        </Suspense>
       </Container>
     </>
   );
