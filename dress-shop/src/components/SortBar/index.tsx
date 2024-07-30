@@ -1,11 +1,12 @@
-import { ChangeEvent, memo } from "react";
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { ChangeEvent, lazy, memo, Suspense } from "react";
+import { Button, Flex, Text, useDisclosure } from "@chakra-ui/react";
 
 // Components
-import { Select } from "@/components";
+import { LoadingIndicator, Select } from "@/components";
+const ModalForm = lazy(() => import("@/components/ModalForm"));
 
 // Types
-import { SelectType, Category } from "@/types";
+import { SelectType, Category, Product } from "@/types";
 
 interface SortBarProps {
   categories: Category[];
@@ -13,6 +14,8 @@ interface SortBarProps {
   onChangeSelect: (e: ChangeEvent<HTMLSelectElement>) => void;
   filterCategory?: string;
   order?: string;
+  onConfirm: (data: Product) => void;
+  isLoading?: boolean;
 }
 
 const SortBar = memo<SortBarProps>(
@@ -22,7 +25,11 @@ const SortBar = memo<SortBarProps>(
     onChangeSelect,
     filterCategory,
     order,
+    onConfirm,
+    isLoading,
   }: SortBarProps) => {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
     return (
       <Flex
         p="10px"
@@ -30,7 +37,7 @@ const SortBar = memo<SortBarProps>(
         flexDir={{ xs: "column", md: "row" }}
         justifyContent={{ xs: "center", md: "space-between" }}
       >
-        <Flex justifyContent={{ xs: "center" }}>
+        <Flex justifyContent={{ xs: "center" }} alignItems="center">
           {categories.map(({ id, action, label, value }: Category) => (
             <Button
               key={id}
@@ -47,6 +54,20 @@ const SortBar = memo<SortBarProps>(
               {label}
             </Button>
           ))}
+          <Button ml="10px" color="text.default" px="15px" onClick={onOpen}>
+            Add new product
+          </Button>
+          <Suspense fallback={<LoadingIndicator />}>
+            {isOpen && (
+              <ModalForm
+                modalTitle="Product"
+                buttonLabel="Confirm"
+                onClose={onClose}
+                onConfirm={onConfirm}
+                isLoading={isLoading}
+              />
+            )}
+          </Suspense>
         </Flex>
         <Flex
           alignItems="center"

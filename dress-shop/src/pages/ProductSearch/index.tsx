@@ -1,6 +1,6 @@
 import { ChangeEvent, lazy, Suspense, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Container } from "@chakra-ui/react";
+import { Container, useDisclosure, useToast } from "@chakra-ui/react";
 
 // Components
 import { LoadingIndicator } from "@/components";
@@ -14,13 +14,18 @@ import { MainCategories } from "@/utils";
 
 // Constants
 import { OPTION_SORT } from "@/constants";
-
-// Containers
+import { useAddProduct } from "@/hooks";
+import { Product } from "@/types";
+import { AxiosError } from "axios";
 
 const ProductSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const filterCategory = searchParams.get("category") || "";
   const order = searchParams.get("order") || "";
+  const toast = useToast();
+  const { onClose } = useDisclosure();
+
+  const { mutate: addProduct, isLoading: isLoadingAdd } = useAddProduct();
 
   // Handle sort product
   const handleChangeSelect = useCallback(
@@ -31,6 +36,32 @@ const ProductSearch = () => {
     },
     [searchParams, setSearchParams],
   );
+
+  // Show message when create success and close modal
+  const handleConfirmSuccess = useCallback(() => {
+    onClose();
+    toast({
+      title: "Appointment created.",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+  }, []);
+
+  const handleError = useCallback((error: string) => {
+    toast({
+      title: error,
+      status: "error",
+      isClosable: true,
+    });
+  }, []);
+
+  const handleConfirm = useCallback((data: Product) => {
+    addProduct(data, {
+      onSuccess: handleConfirmSuccess,
+      onError: (error) => handleError((error as AxiosError).message),
+    });
+  }, []);
 
   return (
     <>
@@ -48,6 +79,8 @@ const ProductSearch = () => {
             onChangeSelect={handleChangeSelect}
             filterCategory={filterCategory}
             order={order}
+            onConfirm={handleConfirm}
+            isLoading={isLoadingAdd}
           />
         </Suspense>
         <Suspense fallback={<LoadingIndicator />}>

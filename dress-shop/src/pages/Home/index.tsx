@@ -7,7 +7,7 @@ const ProductListContainer = lazy(
 );
 
 import { LoadingIndicator } from "@/components";
-import FormModal from "@/components/ModalForm";
+// import FormModal from "@/components/ModalForm";
 
 // Layouts
 const Categories = lazy(() => import("@/layouts/Categories"));
@@ -16,12 +16,12 @@ const Carousel = lazy(() => import("@/layouts/Carousel"));
 const Home = () => {
   return (
     <>
-      <FormModal
+      {/* <FormModal
         modalTitle={""}
         buttonLabel={""}
         onClose={() => {}}
         onConfirm={() => {}}
-      />
+      /> */}
 
       <Suspense fallback={<LoadingIndicator />}>
         <Carousel />
