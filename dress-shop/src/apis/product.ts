@@ -17,6 +17,6 @@ export const getProductId = async (productId: string | undefined) =>
 // Add product
 export const addProduct = async (payload?: Product) =>
   await axiosClient.post<Product>(
-    "https://654bacf55b38a59f28ef80fd.mockapi.io/",
+    "https://654bacf55b38a59f28ef80fd.mockapi.io/products",
     payload,
   );

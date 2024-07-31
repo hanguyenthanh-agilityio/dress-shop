@@ -56,17 +56,36 @@ const FormModal = memo<FormModalProps>(
               label="Name"
               isInvalid={!!errors.name}
               inputName="name"
+              type="text"
+              register={register}
+            />
+            {/* Image */}
+            <FormInput
+              label="ImageURL"
+              isInvalid={!!errors.imageURL}
+              inputName="imageURL"
+              type="text"
+              register={register}
+            />
+            {/* Categories */}
+            <FormInput
+              label="Category"
+              inputName="category"
+              type="text"
+              isInvalid={!!errors.category}
               register={register}
             />
             {/* Description */}
             <FormInput
               label="Description"
               inputName="description"
+              type="text"
               isInvalid={!!errors.description}
               register={register}
             />
             {/* Price */}
             <FormInput
+              type="number"
               label="Price"
               inputName="price"
               isInvalid={!!errors.price}
