@@ -48,6 +48,7 @@ const ProductSearch = () => {
     });
   }, []);
 
+  // Show message when create fail
   const handleError = useCallback((error: string) => {
     toast({
       title: error,
@@ -56,6 +57,7 @@ const ProductSearch = () => {
     });
   }, []);
 
+  // Handle confirm add product
   const handleConfirm = useCallback((data: Product) => {
     addProduct(data, {
       onSuccess: handleConfirmSuccess,
