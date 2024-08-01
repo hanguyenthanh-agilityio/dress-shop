@@ -65,11 +65,11 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
     });
   }, []);
 
-  // Show message when update success
+  // Show message when update success and close modal
   const handleUpdateSuccess = useCallback(() => {
     onClose();
     toast({
-      title: "Appointment updated.",
+      title: "Product updated.",
       status: "success",
       duration: 3000,
       isClosable: true,

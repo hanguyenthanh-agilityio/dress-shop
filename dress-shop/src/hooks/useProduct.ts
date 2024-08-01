@@ -46,7 +46,7 @@ export const useAddProduct = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (payload: Product) => addProduct(payload),
+    mutationFn: async (payload: Product) => await addProduct(payload),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: QUERY_KEY.ADD_PRODUCT,

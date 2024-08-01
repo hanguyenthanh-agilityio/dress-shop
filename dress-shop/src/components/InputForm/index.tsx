@@ -15,14 +15,23 @@ interface FormInputProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register: UseFormRegister<any>;
   type: string;
+  defaultValue?: string;
 }
 
 const FormInput = memo<FormInputProps>(
-  ({ label, isInvalid, inputName, register, type }: FormInputProps) => {
+  ({
+    label,
+    isInvalid,
+    inputName,
+    register,
+    type,
+    defaultValue,
+  }: FormInputProps) => {
     return (
       <FormControl mb="15px" isInvalid={isInvalid}>
         <FormLabel>{label}</FormLabel>
         <Input
+          defaultValue={defaultValue}
           type={type}
           size="full"
           {...register(inputName, { required: true })}

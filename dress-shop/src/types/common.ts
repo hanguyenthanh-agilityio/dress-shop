@@ -13,7 +13,7 @@ export type Category = {
   img?: string;
   alt?: string;
   label: string;
-  action: () => void;
+  action: (value: string) => void;
   value: string;
 };
 
