@@ -16,6 +16,7 @@ interface SortBarProps {
   order?: string;
   onConfirm: (data: Product) => void;
   isLoading?: boolean;
+  defaultValue?: string;
 }
 
 const SortBar = memo<SortBarProps>(
@@ -27,6 +28,7 @@ const SortBar = memo<SortBarProps>(
     order,
     onConfirm,
     isLoading,
+    defaultValue,
   }: SortBarProps) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -43,7 +45,7 @@ const SortBar = memo<SortBarProps>(
               key={id}
               variant="primary"
               size={{ xs: "default", lg: "medium" }}
-              onClick={action}
+              onClick={() => action(value)}
               data-testid={id}
               p={{ xs: "8px 30px", md: "10px 50px" }}
               bg={filterCategory !== value ? "#3a3b3c" : "background.red"}
@@ -65,6 +67,7 @@ const SortBar = memo<SortBarProps>(
                 onClose={onClose}
                 onConfirm={onConfirm}
                 isLoading={isLoading}
+                defaultValue={defaultValue}
               />
             )}
           </Suspense>

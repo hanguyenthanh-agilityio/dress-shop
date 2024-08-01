@@ -24,7 +24,6 @@ const ProductListContainer = () => {
     ...(category && { category }),
     ...(order && { order, sortBy: "price" }),
   };
-
   const {
     data,
     error,
@@ -43,6 +42,7 @@ const ProductListContainer = () => {
       return undefined;
     },
   });
+  console.log("data", data);
 
   const handleLoadMore = useCallback(() => {
     fetchNextPage();

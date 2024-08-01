@@ -17,6 +17,7 @@ interface FormModalProps {
   productItem?: Product;
   onClose: () => void;
   onConfirm: (data: Product) => void;
+  defaultValue?: string;
 }
 
 const FormModal = memo<FormModalProps>(
@@ -27,6 +28,7 @@ const FormModal = memo<FormModalProps>(
     onConfirm,
     productItem,
     isLoading,
+    defaultValue,
   }: FormModalProps) => {
     const {
       register,
@@ -72,6 +74,7 @@ const FormModal = memo<FormModalProps>(
               label="Category"
               inputName="category"
               type="text"
+              defaultValue={defaultValue}
               isInvalid={!!errors.category}
               register={register}
             />

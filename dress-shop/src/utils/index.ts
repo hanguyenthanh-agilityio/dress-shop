@@ -1,24 +1,21 @@
 import { MEN_CATEGORY, ROUTES, WOMEN_CATEGORY } from "@/constants";
 import { useCallback } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const MainCategories = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  // Handle filter by men category
-  const handleClickMenCategories = useCallback(() => {
-    navigate(ROUTES.PRODUCT_SEARCH);
-    searchParams.set("category", "m");
-    setSearchParams(searchParams);
-  }, [navigate, searchParams, setSearchParams]);
-
-  // Handle filter by women category
-  const handleClickWomenCategories = useCallback(() => {
-    navigate(ROUTES.PRODUCT_SEARCH);
-    searchParams.set("category", "f");
-    setSearchParams(searchParams);
-  }, [navigate, searchParams, setSearchParams]);
+  // Handle filter by category
+  const handleClickCategories = useCallback(
+    (value: string) => {
+      navigate(`${ROUTES.PRODUCT_SEARCH}?category=${value}`, {
+        state: {
+          category: value,
+        },
+      });
+    },
+    [navigate],
+  );
 
   const categories = [
     {
@@ -26,7 +23,7 @@ export const MainCategories = () => {
       img: WOMEN_CATEGORY.img,
       alt: WOMEN_CATEGORY.alt,
       label: WOMEN_CATEGORY.label,
-      action: handleClickWomenCategories,
+      action: handleClickCategories,
       value: WOMEN_CATEGORY.value,
     },
     {
@@ -34,7 +31,7 @@ export const MainCategories = () => {
       img: MEN_CATEGORY.img,
       alt: MEN_CATEGORY.label,
       label: MEN_CATEGORY.label,
-      action: handleClickMenCategories,
+      action: handleClickCategories,
       value: MEN_CATEGORY.value,
     },
   ];
