@@ -18,7 +18,7 @@ const Carousel = () => {
   };
 
   return (
-    <Flex alignItems="center" justifyContent="center" mt="80px">
+    <Flex alignItems="center" justifyContent="center" mt={{ lg: "80px" }}>
       <Flex w="full" overflow="hidden" pos="relative">
         <Flex
           h={{ xs: "240px", md: "280px", lg: "550px" }}

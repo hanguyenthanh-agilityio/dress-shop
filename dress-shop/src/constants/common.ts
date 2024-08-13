@@ -27,3 +27,7 @@ export const LOADING_STATUS = {
   PENDING: "pending",
   ERROR: "error",
 };
+
+export const ERROR_MESSAGES = {
+  FIELD_REQUIRED: "This field is required.",
+};

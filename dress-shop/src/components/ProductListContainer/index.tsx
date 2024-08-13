@@ -24,7 +24,6 @@ const ProductListContainer = () => {
     ...(category && { category }),
     ...(order && { order, sortBy: "price" }),
   };
-
   const {
     data,
     error,
@@ -37,12 +36,13 @@ const ProductListContainer = () => {
     queryFn: ({ pageParam = 1 }) => getProducts({ ...params, page: pageParam }),
     initialPageParam: 1,
     getNextPageParam: (_lastPage, pages) => {
-      if (pages.length < 2) {
+      if (pages.length < 4) {
         return pages.length + 1;
       }
       return undefined;
     },
   });
+  console.log("data", data);
 
   const handleLoadMore = useCallback(() => {
     fetchNextPage();
@@ -60,7 +60,7 @@ const ProductListContainer = () => {
         </React.Fragment>
       ))}
 
-      <Flex justifyContent="center" mt="50px" mb="66px">
+      <Flex justifyContent="center" mt="50px">
         <Button
           size={{ xs: "small", md: "default" }}
           mb="20px"

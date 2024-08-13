@@ -18,6 +18,7 @@ const Categories = () => {
         textTransform="uppercase"
         fontWeight="bold"
         size={{ xs: "medium", md: "default" }}
+        color="text.default"
       >
         Categories
       </Heading>
@@ -28,33 +29,35 @@ const Categories = () => {
         pb="30px"
         gap="4"
       >
-        {MainCategories().map(({ id, img, label, alt, action }: Category) => (
-          <Flex
-            key={id}
-            position="relative"
-            onClick={action}
-            minW={{ xs: "294px", md: "273px" }}
-            minH={{ xs: "177px", md: "251px" }}
-          >
-            <Image
-              alt={alt}
-              src={img}
-              w="100%"
-              h="100%"
-              objectFit="cover"
-              border="1px solid #efefef"
-              fallbackSrc={FALLBACK_SRC}
-            />
-            <Heading
-              position="absolute"
-              m="30px 20px"
-              textTransform="uppercase"
-              size={{ xs: "medium", md: "default" }}
+        {MainCategories().map(
+          ({ id, img, label, alt, action, value }: Category) => (
+            <Flex
+              key={id}
+              position="relative"
+              onClick={() => action(value)}
+              minW={{ xs: "294px", md: "273px" }}
+              minH={{ xs: "177px", md: "251px" }}
             >
-              {label}
-            </Heading>
-          </Flex>
-        ))}
+              <Image
+                alt={alt}
+                src={img}
+                w="100%"
+                h="100%"
+                objectFit="cover"
+                border="1px solid #efefef"
+                fallbackSrc={FALLBACK_SRC}
+              />
+              <Heading
+                position="absolute"
+                m="30px 20px"
+                textTransform="uppercase"
+                size={{ xs: "medium", md: "default" }}
+              >
+                {label}
+              </Heading>
+            </Flex>
+          ),
+        )}
       </Flex>
     </>
   );

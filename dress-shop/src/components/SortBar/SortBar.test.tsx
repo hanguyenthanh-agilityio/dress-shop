@@ -16,7 +16,7 @@ const props = {
 };
 
 const sortBar = () => {
-  return render(<SortBar {...props} />);
+  return render(<SortBar onConfirm={() => {}} {...props} />);
 };
 
 describe("SortBar component", () => {
