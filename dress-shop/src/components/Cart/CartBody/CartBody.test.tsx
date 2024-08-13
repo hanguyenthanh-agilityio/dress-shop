@@ -8,13 +8,32 @@ import CardBody from ".";
 import { PRODUCT_CART } from "@/mocks/common";
 
 describe("CardBody component", () => {
-  it("Should render CardBody snapshot correctly", () => {
-    const cardBody = render(
+  const props = {
+    products: PRODUCT_CART,
+    total: 0,
+    onDelete: jest.fn(),
+  };
+
+  const cartBody = () => {
+    return render(
       <Table>
-        <CardBody products={PRODUCT_CART} total={0} />
+        <CardBody {...props} />
       </Table>,
     );
+  };
 
-    expect(cardBody).toMatchSnapshot();
+  it("Should render CardBody snapshot correctly", () => {
+    const component = cartBody();
+
+    expect(component).toMatchSnapshot();
   });
+
+  // it("Should render CardBody correctly with onDelete prop", () => {
+  //   const { getByTestId } = cartBody();
+
+  //   const deleteButton = getByTestId("delete-button");
+  //   fireEvent.click(deleteButton);
+
+  //   expect(deleteButton).toHaveBeenLastCalledWith(1);
+  // });
 });

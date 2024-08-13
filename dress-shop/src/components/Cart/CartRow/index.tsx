@@ -45,7 +45,12 @@ const CartRow = memo<CartRowProps>(
           </Text>
         </Td>
         <Td>
-          <Button color="text.primary" variant="close" onClick={onDelete}>
+          <Button
+            color="text.primary"
+            variant="close"
+            onClick={onDelete}
+            data-testid="delete-button"
+          >
             Delete
           </Button>
         </Td>
