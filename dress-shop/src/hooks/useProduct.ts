@@ -30,7 +30,7 @@ export const useProducts = (
 
 // Product detail
 export const useProductId = (productId: string | undefined) => {
-  const { data, ...rest } = useQuery({
+  const { data, error, ...rest } = useQuery({
     //error
     queryKey: QUERY_KEY.PRODUCT_DETAIL(productId),
     queryFn: () => getProductId(productId),
@@ -38,6 +38,7 @@ export const useProductId = (productId: string | undefined) => {
   return {
     ...rest,
     data: data?.data,
+    error: (error as AxiosError).message,
   };
 };
 
@@ -56,7 +57,7 @@ export const useAddProduct = () => {
 };
 
 // Update product
-export const useUpdateProductMutation = () => {
+export const useUpdateProduct = () => {
   const queryClient = useQueryClient();
 
   return useMutation({

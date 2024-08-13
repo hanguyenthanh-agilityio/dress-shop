@@ -24,7 +24,7 @@ import { FALLBACK_SRC } from "@/constants";
 
 // Types
 import { Product } from "@/types";
-import { useUpdateProductMutation } from "@/hooks";
+import { useUpdateProduct } from "@/hooks";
 import { AxiosError } from "axios";
 
 interface ProductDetailItemPros {
@@ -43,7 +43,7 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
   const toast = useToast();
 
   const { mutate: updateProduct, isLoading: isLoadingUpdate } =
-    useUpdateProductMutation();
+    useUpdateProduct();
 
   // Handle add product to cart
   const handleAddProduct = useCallback(() => {

@@ -30,7 +30,7 @@ module.exports = {
     "!src/stories/*.{js,ts,tsx,css}",
     "!src/pages/**/*.{js,ts,tsx}",
     "!src/layouts/**/*.{js,ts,tsx}",
-    "!src/store/**/*.{js,ts,tsx}",
+    "!src/stores/**/*.{js,ts,tsx}",
     "!src/mocks/**/*.{js,ts,tsx}",
     "!src/services/**/*.{js,ts,tsx}",
     "!src/types/**/*.{js,ts,tsx}",
