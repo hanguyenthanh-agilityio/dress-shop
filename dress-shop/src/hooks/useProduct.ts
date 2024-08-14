@@ -29,16 +29,19 @@ export const useProducts = (
 };
 
 // Product detail
-export const useProductId = (productId: string | undefined) => {
-  const { data, error, ...rest } = useQuery({
+export const useProductId = (
+  productId: string | undefined,
+  onError: (error: string) => void,
+) => {
+  const { data, ...rest } = useQuery({
     //error
     queryKey: QUERY_KEY.PRODUCT_DETAIL(productId),
     queryFn: () => getProductId(productId),
+    onError: (error) => onError((error as AxiosError).message),
   });
   return {
     ...rest,
     data: data?.data,
-    error: (error as AxiosError).message,
   };
 };
 

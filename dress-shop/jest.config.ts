@@ -26,6 +26,7 @@ module.exports = {
     "!**/*.stories.{js,ts,tsx}",
     "!src/themes/**/*.{js,ts,tsx}",
     "!src/components/**/__snapshots__/*.test.{js,ts,tsx}.snap",
+    "!src/components/*.{js,ts,tsx}",
     "!src/routes/*.{js,ts,tsx}",
     "!src/stories/*.{js,ts,tsx,css}",
     "!src/pages/**/*.{js,ts,tsx}",

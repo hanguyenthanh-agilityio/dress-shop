@@ -1,8 +1,13 @@
-import { CARD } from "@/mocks/common";
+import { CARD, PRODUCTS } from "@/mocks/common";
 import { axiosClient } from "@/services";
 import { renderHook, waitFor } from "@testing-library/react";
 import { act, ReactNode } from "react";
-import { useAddProduct, useUpdateProduct } from "./useProduct";
+import {
+  useAddProduct,
+  useProductId,
+  useProducts,
+  useUpdateProduct,
+} from "./useProduct";
 
 import { AxiosError } from "axios";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -11,56 +16,69 @@ interface Props {
   children?: ReactNode;
 }
 
-// const spyGet = jest.spyOn(axiosClient, "get");
+const spyGet = jest.spyOn(axiosClient, "get");
 const spyPost = jest.spyOn(axiosClient, "post");
 const spyPut = jest.spyOn(axiosClient, "put");
 
 // useProducts
-// describe("useAppointmentListQuery", () => {
-//   const queryClient = new QueryClient();
-//   const wrapper = ({ children }: Props) => (
-//     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-//   );
-//   // Render correct data
-//   it("Should render correct data response form api", async () => {
-//     spyGet.mockImplementationOnce((): Promise<unknown> => {
-//       return Promise.resolve({ data: PRODUCTS });
-//     });
+describe("useProducts", () => {
+  const props = { page: 1, limit: 8 };
+  const error = "Error";
 
-//     const { result } = renderHook(() => useProducts(), { wrapper });
+  const queryClient = new QueryClient();
+  const wrapper = ({ children }: Props) => (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
+  // Render correct data
+  it("Should render correct data response form api", async () => {
+    spyGet.mockImplementationOnce((): Promise<unknown> => {
+      return Promise.resolve({ data: PRODUCTS });
+    });
 
-//     await waitFor(() => {
-//       const { isError, isSuccess, data } = result.current;
+    const { result } = renderHook(() => useProducts(props, () => error), {
+      wrapper,
+    });
 
-//       expect(isSuccess).toBe(true);
-//       expect(isError).toBe(false);
-//       expect(data).toEqual(PRODUCTS);
-//     });
-//   });
+    await waitFor(() => {
+      const { isError, isSuccess, data } = result.current;
 
-//   it("Should return error if call API failure", async () => {
-//     const errorMsg = AxiosError;
+      expect(isSuccess).toBe(true);
+      expect(isError).toBe(false);
+      expect(data).toEqual(PRODUCTS);
+    });
+  });
+});
 
-//     // Mock API return
-//     spyGet.mockImplementationOnce(
-//       (): Promise<unknown> => Promise.reject(errorMsg),
-//     );
+// useProductId
+describe("useProductId", () => {
+  const error = () => error;
 
-//     const { result } = renderHook(() => useProducts(), { wrapper });
+  const queryClient = new QueryClient();
+  const wrapper = ({ children }: Props) => (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
+  // Render correct data
+  it("Should render correct data response form api", async () => {
+    spyGet.mockImplementationOnce((): Promise<unknown> => {
+      return Promise.resolve({ data: PRODUCTS });
+    });
 
-//     // Call API
-//     await waitFor(() => {
-//       const { isError, isSuccess, error } = result.current;
+    const { result } = renderHook(() => useProductId("1", error), {
+      wrapper,
+    });
 
-//       expect(isSuccess).toBe(false);
-//       expect(isError).toBe(true);
-//       expect(error).toEqual(errorMsg);
-//     });
-//   });
-// });
+    await waitFor(() => {
+      const { isError, isSuccess, data } = result.current;
+
+      expect(isSuccess).toBe(true);
+      expect(isError).toBe(false);
+      expect(data).toEqual(PRODUCTS);
+    });
+  });
+});
 
 // useAddProduct
-describe("useAddAppointmentMutation", () => {
+describe("useAddProduct", () => {
   const queryClient = new QueryClient();
   const wrapper = ({ children }: Props) => (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
