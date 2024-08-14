@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import { Container, Heading } from "@chakra-ui/react";
+import { lazy, Suspense, useCallback } from "react";
+import { Container, Heading, useToast } from "@chakra-ui/react";
 
 // Components
 import { LoadingIndicator } from "@/components";
@@ -21,7 +21,17 @@ import { useProductId } from "@/hooks";
 
 const ProductDetail = () => {
   const { productId } = useParams();
-  const { data: product, isLoading } = useProductId(productId);
+  const toast = useToast();
+
+  const handleError = useCallback((error: string) => {
+    toast({
+      title: error,
+      status: "error",
+      isClosable: true,
+    });
+  }, []);
+
+  const { data: product, isLoading } = useProductId(productId, handleError);
 
   if (isLoading)
     return (
