@@ -5,12 +5,6 @@ import { Container } from "@chakra-ui/react";
 // Components
 import SortBar from ".";
 
-// Constants
-import { OPTION_SORT } from "@/constants";
-
-// Mocks
-import { CATEGORIES_BUTTON } from "@/mocks/common";
-
 export default {
   title: "Components/SortBar",
   component: SortBar,
@@ -28,8 +22,5 @@ export default {
 type Story = StoryObj<typeof SortBar>;
 
 export const Default: Story = {
-  args: {
-    options: OPTION_SORT,
-    categories: CATEGORIES_BUTTON,
-  },
+  args: {},
 };
