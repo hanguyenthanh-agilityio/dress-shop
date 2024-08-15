@@ -8,13 +8,32 @@ import CardRow from ".";
 import { ITEM_CART } from "@/mocks/common";
 
 describe("CardRow component", () => {
-  it("Should render CardRow snapshot correctly", () => {
-    const cardRow = render(
+  const props = {
+    product: ITEM_CART,
+    total: 400,
+    onDelete: jest.fn(),
+  };
+
+  const cardRow = () => {
+    return render(
       <Table>
-        <CardRow product={ITEM_CART} total={400} />
+        <CardRow {...props} />
       </Table>,
     );
+  };
 
-    expect(cardRow).toMatchSnapshot();
+  it("Should render CardRow snapshot correctly", () => {
+    const component = cardRow();
+
+    expect(component).toMatchSnapshot();
   });
+
+  // it("Should render CardBody correctly with onDelete prop", () => {
+  //   const { getByText } = cardRow();
+
+  //   const deleteButton = getByText("Delete");
+  //   fireEvent.click(deleteButton);
+
+  //   expect(deleteButton).toHaveBeenCalledWith(1);
+  // });
 });

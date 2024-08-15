@@ -56,7 +56,13 @@ const SortBar = memo<SortBarProps>(
               {label}
             </Button>
           ))}
-          <Button ml="10px" color="text.default" px="15px" onClick={onOpen}>
+          <Button
+            ml="10px"
+            color="text.default"
+            px="15px"
+            onClick={onOpen}
+            data-testid="new-product"
+          >
             Add new product
           </Button>
           <Suspense fallback={<LoadingIndicator />}>
