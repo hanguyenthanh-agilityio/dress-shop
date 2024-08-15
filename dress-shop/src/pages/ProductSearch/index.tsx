@@ -1,17 +1,11 @@
-import { lazy, Suspense } from "react";
+// import { lazy, Suspense } from "react";
 import { Container } from "@chakra-ui/react";
 
 // Components
-import { LoadingIndicator, SortBar } from "@/components";
-const ProductListContainer = lazy(
-  () => import("@/components/ProductListContainer"),
-);
+import { SortBar } from "@/components";
+import ProductListByCategory from "@/components/ProductListByCategory";
 
 const ProductSearch = () => {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  console.log("urlParams", urlParams.get("order"));
-
   return (
     <>
       <Container
@@ -22,9 +16,7 @@ const ProductSearch = () => {
         mt={{ lg: "80px" }}
       >
         <SortBar />
-        <Suspense fallback={<LoadingIndicator />}>
-          <ProductListContainer />
-        </Suspense>
+        <ProductListByCategory />
       </Container>
     </>
   );

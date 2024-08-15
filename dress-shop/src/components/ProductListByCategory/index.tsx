@@ -10,18 +10,20 @@ import { Button, Flex, Text } from "@chakra-ui/react";
 import { LOADING_STATUS } from "@/constants";
 
 // Apis
-import { getProducts } from "@/apis";
+import { getProductsByCategory } from "@/apis";
 
-const ProductListContainer = () => {
+const ProductListByCategory = () => {
   const [searchParams] = useSearchParams();
 
   const search = searchParams.get("search") || "";
   const category = searchParams.get("category") || "";
+  const order = searchParams.get("order") || "";
 
   const params = {
     limit: 8,
     ...(search && { search }),
     ...(category && { category }),
+    ...(order && { order, sortBy: "price" }),
   };
   const {
     data,
@@ -31,8 +33,9 @@ const ProductListContainer = () => {
     isFetchingNextPage,
     status,
   } = useInfiniteQuery({
-    queryKey: ["products", search, category],
-    queryFn: ({ pageParam = 1 }) => getProducts({ ...params, page: pageParam }),
+    queryKey: ["products", search, category, order],
+    queryFn: ({ pageParam = 1 }) =>
+      getProductsByCategory(category, { ...params, page: pageParam }),
     initialPageParam: 1,
     getNextPageParam: (_lastPage, pages) => {
       if (pages.length < 4) {
@@ -84,4 +87,4 @@ const ProductListContainer = () => {
   );
 };
 
-export default ProductListContainer;
+export default ProductListByCategory;

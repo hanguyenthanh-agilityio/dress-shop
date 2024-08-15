@@ -1,12 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 
 // Apis
-import {
-  addProduct,
-  getProductId,
-  getProducts,
-  getProductsByCategory,
-} from "@/apis";
+import { addProduct, getProductId, getProducts } from "@/apis";
 
 // Constants
 import { QUERY_KEY } from "@/constants";
@@ -25,19 +20,6 @@ export const useProducts = (
     queryKey: QUERY_KEY.PRODUCT_LIST(params),
     queryFn: () => getProducts(params),
     onError: (error) => onError((error as AxiosError).message),
-  });
-
-  return {
-    ...rest,
-    data: data?.data || [],
-  };
-};
-
-// Products list by categories
-export const useProductByCategory = (category: string, params: Params) => {
-  const { data, ...rest } = useQuery({
-    queryKey: QUERY_KEY.PRODUCTS_BY_CATEGORY(category, params),
-    queryFn: () => getProductsByCategory(category, params),
   });
 
   return {
