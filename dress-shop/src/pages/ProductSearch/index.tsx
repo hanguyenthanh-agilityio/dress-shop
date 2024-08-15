@@ -34,7 +34,7 @@ const ProductSearch = () => {
   } = useInfiniteQuery({
     queryKey: ["getProductsByCategory", search, category, order],
     queryFn: ({ pageParam = 1 }) =>
-      getProductsByCategory(category, { ...params, page: pageParam }),
+      getProductsByCategory({ ...params, page: pageParam }),
     initialPageParam: 1,
     getNextPageParam: (_lastPage, pages) => {
       if (pages.length < 4) {
