@@ -13,14 +13,15 @@ import { Category, Product } from "@/types";
 import { MEN_CATEGORY, OPTION_SORT, ROUTES, WOMEN_CATEGORY } from "@/constants";
 import { useAddProduct } from "@/hooks";
 import { AxiosError } from "axios";
-import { useQueryClient } from "react-query";
+import { QueryClient } from "react-query";
+// import { useQueryClient } from "react-query";
 
 const SortBar = memo(() => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
 
-  const queryClient = useQueryClient();
+  const queryClient = new QueryClient();
 
   const { mutate: addProduct, isLoading: isLoadingAdd } = useAddProduct();
 
@@ -64,10 +65,14 @@ const SortBar = memo(() => {
     });
   }, []);
 
+  const search = searchParams.get("search") || "";
+  const category = searchParams.get("category") || "";
+  // const order = searchParams.get("order") || "";
+
+  console.log("search, category, order", search, category, order);
+
   // Show message when create success and close modal
   const handleConfirmSuccess = useCallback(() => {
-    console.log("confirm", onClose);
-
     onClose();
     toast({
       title: "Product created.",
@@ -75,8 +80,9 @@ const SortBar = memo(() => {
       duration: 3000,
       isClosable: true,
     });
-
-    queryClient.invalidateQueries({ queryKey: ["products"] });
+    queryClient.invalidateQueries({
+      queryKey: ["category", search, category, order],
+    });
   }, [onClose, toast]);
 
   // Handle confirm add product

@@ -20,7 +20,7 @@ const ProductListByCategory = () => {
   const order = searchParams.get("order") || "";
 
   const params = {
-    limit: 8,
+    limit: 20,
     ...(search && { search }),
     ...(category && { category }),
     ...(order && { order, sortBy: "price" }),
@@ -32,8 +32,9 @@ const ProductListByCategory = () => {
     fetchNextPage,
     isFetchingNextPage,
     status,
+    // refetch
   } = useInfiniteQuery({
-    queryKey: ["products", search, category, order],
+    queryKey: ["getProductsByCategory", search, category, order],
     queryFn: ({ pageParam = 1 }) =>
       getProductsByCategory(category, { ...params, page: pageParam }),
     initialPageParam: 1,
@@ -43,8 +44,10 @@ const ProductListByCategory = () => {
       }
       return undefined;
     },
+    // enabled: false,
   });
-  console.log("data", data);
+
+  console.log("ProductList", data);
 
   const handleLoadMore = useCallback(() => {
     fetchNextPage();

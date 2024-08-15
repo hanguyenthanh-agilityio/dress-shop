@@ -12,7 +12,7 @@ export const getProducts = (params: Params) =>
 
 // Get product list by category
 export const getProductsByCategory = (category: string, params: Params) =>
-  axiosClient.get<Product[]>(`products?${category}`, {
+  axiosClient.get<Product[]>(`products`, {
     params,
   });
 
