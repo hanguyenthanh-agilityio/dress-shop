@@ -1,5 +1,5 @@
 import { ChangeEvent, lazy, Suspense, useCallback } from "react";
-import { useSearchParams, useLocation } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { Container, useDisclosure, useToast } from "@chakra-ui/react";
 import { AxiosError } from "axios";
 
@@ -8,12 +8,6 @@ import { LoadingIndicator, SortBar } from "@/components";
 const ProductListContainer = lazy(
   () => import("@/components/ProductListContainer"),
 );
-
-// Utils
-import { MainCategories } from "@/utils";
-
-// Constants
-import { OPTION_SORT } from "@/constants";
 
 // Hooks
 import { useAddProduct } from "@/hooks";
@@ -25,14 +19,16 @@ const ProductSearch = () => {
   const toast = useToast();
   const { onClose } = useDisclosure();
 
-  const location = useLocation();
-
   const [searchParams, setSearchParams] = useSearchParams();
 
   const filterCategory = searchParams.get("category") || "";
   const order = searchParams.get("order") || "";
 
   const { mutate: addProduct, isLoading: isLoadingAdd } = useAddProduct();
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  console.log("urlParams", urlParams.get("order"));
 
   // Handle sort product
   const handleChangeSelect = useCallback(
@@ -86,14 +82,11 @@ const ProductSearch = () => {
         mt={{ lg: "80px" }}
       >
         <SortBar
-          categories={MainCategories()}
-          options={OPTION_SORT}
           onChangeSelect={handleChangeSelect}
           filterCategory={filterCategory}
           order={order}
           onConfirm={handleConfirm}
           isLoading={isLoadingAdd}
-          defaultValue={location.state?.category}
         />
         <Suspense fallback={<LoadingIndicator />}>
           <ProductListContainer />

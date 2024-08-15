@@ -1,36 +1,70 @@
-import { ChangeEvent, lazy, memo, Suspense } from "react";
+import { ChangeEvent, lazy, memo, Suspense, useCallback } from "react";
 import { Button, Flex, Text, useDisclosure } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 // Components
 import { LoadingIndicator, Select } from "@/components";
 const ModalForm = lazy(() => import("@/components/ModalForm"));
 
 // Types
-import { SelectType, Category, Product } from "@/types";
+import { Category, Product } from "@/types";
+
+// Constants
+import { MEN_CATEGORY, OPTION_SORT, ROUTES, WOMEN_CATEGORY } from "@/constants";
 
 interface SortBarProps {
-  categories: Category[];
-  options: SelectType[];
   onChangeSelect: (e: ChangeEvent<HTMLSelectElement>) => void;
   filterCategory?: string;
   order?: string;
   onConfirm: (data: Product) => void;
   isLoading?: boolean;
-  defaultValue?: string;
 }
 
 const SortBar = memo<SortBarProps>(
   ({
-    options,
-    categories,
     onChangeSelect,
     filterCategory,
     order,
     onConfirm,
     isLoading,
-    defaultValue,
   }: SortBarProps) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const navigate = useNavigate();
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+    // Handle filter by category
+    const handleClickCategories = useCallback(
+      (value: string) => {
+        navigate(`${ROUTES.PRODUCT_SEARCH}?category=${value}`),
+          {
+            state: {
+              category: value,
+            },
+          };
+      },
+      [navigate],
+    );
+
+    const categories = [
+      {
+        id: WOMEN_CATEGORY.id,
+        img: WOMEN_CATEGORY.img,
+        alt: WOMEN_CATEGORY.alt,
+        label: WOMEN_CATEGORY.label,
+        action: handleClickCategories,
+        value: WOMEN_CATEGORY.value,
+      },
+      {
+        id: MEN_CATEGORY.id,
+        img: MEN_CATEGORY.img,
+        alt: MEN_CATEGORY.label,
+        label: MEN_CATEGORY.label,
+        action: handleClickCategories,
+        value: MEN_CATEGORY.value,
+      },
+    ];
 
     return (
       <Flex
@@ -73,7 +107,7 @@ const SortBar = memo<SortBarProps>(
                 onClose={onClose}
                 onConfirm={onConfirm}
                 isLoading={isLoading}
-                defaultValue={defaultValue}
+                defaultValue={urlParams.get("category")!}
               />
             )}
           </Suspense>
@@ -92,7 +126,11 @@ const SortBar = memo<SortBarProps>(
           >
             Sort by
           </Text>
-          <Select options={options} onChange={onChangeSelect} value={order} />
+          <Select
+            options={OPTION_SORT}
+            onChange={onChangeSelect}
+            value={order}
+          />
         </Flex>
       </Flex>
     );
