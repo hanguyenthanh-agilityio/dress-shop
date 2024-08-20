@@ -41,7 +41,6 @@ const ProductListContainer = () => {
       return undefined;
     },
   });
-  console.log("data", data);
 
   const handleLoadMore = useCallback(() => {
     fetchNextPage();

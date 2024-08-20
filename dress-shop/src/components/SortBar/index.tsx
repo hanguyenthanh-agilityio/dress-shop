@@ -63,12 +63,6 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
     });
   }, []);
 
-  const search = searchParams.get("search") || "";
-  const category = searchParams.get("category") || "";
-  // const order = searchParams.get("order") || "";
-
-  console.log("search, category, order", search, category, order);
-
   // Show message when create success and close modal
   const handleConfirmSuccess = useCallback(() => {
     onClose();

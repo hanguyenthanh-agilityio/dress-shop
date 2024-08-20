@@ -1,14 +1,16 @@
-// import { lazy, Suspense } from "react";
-import { Button, Container, Flex, Text } from "@chakra-ui/react";
+import { useSearchParams } from "react-router-dom";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import React, { useCallback } from "react";
 
 // Components
 import { LoadingIndicator, ProductList, SortBar } from "@/components";
-import { useSearchParams } from "react-router-dom";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { Button, Container, Flex, Text } from "@chakra-ui/react";
+
+// APIs
 import { getProducts } from "@/apis";
-import { useCallback } from "react";
+
+// Constants
 import { LOADING_STATUS } from "@/constants";
-import React from "react";
 
 const ProductSearch = () => {
   const [searchParams] = useSearchParams();
@@ -42,8 +44,6 @@ const ProductSearch = () => {
       return undefined;
     },
   });
-
-  console.log("ProductList", data);
 
   const handleLoadMore = useCallback(() => {
     fetchNextPage();
