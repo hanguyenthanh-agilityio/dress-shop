@@ -30,7 +30,7 @@ const ProductSearch = () => {
     fetchNextPage,
     isFetchingNextPage,
     status,
-    // refetch,
+    refetch,
   } = useInfiniteQuery({
     queryKey: ["getProductsByCategory", search, category, order],
     queryFn: ({ pageParam = 1 }) =>
@@ -62,7 +62,7 @@ const ProductSearch = () => {
       p="0 15px"
       mt={{ lg: "80px" }}
     >
-      <SortBar />
+      <SortBar refetch={refetch} />
       {data?.pages.map((pageData, i) => (
         <React.Fragment key={i}>
           <ProductList products={pageData.data} />

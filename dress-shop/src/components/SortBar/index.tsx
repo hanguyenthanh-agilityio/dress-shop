@@ -13,15 +13,11 @@ import { Category, Product } from "@/types";
 import { MEN_CATEGORY, OPTION_SORT, ROUTES, WOMEN_CATEGORY } from "@/constants";
 import { useAddProduct } from "@/hooks";
 import { AxiosError } from "axios";
-import { QueryClient } from "react-query";
-// import { useQueryClient } from "react-query";
 
-const SortBar = memo(() => {
+const SortBar = memo(({ refetch }: { refetch: () => void }) => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
-
-  const queryClient = new QueryClient();
 
   const { mutate: addProduct, isLoading: isLoadingAdd } = useAddProduct();
 
@@ -80,9 +76,7 @@ const SortBar = memo(() => {
       duration: 3000,
       isClosable: true,
     });
-    queryClient.invalidateQueries({
-      queryKey: ["category", search, category, order],
-    });
+    refetch();
   }, [onClose, toast]);
 
   // Handle confirm add product
