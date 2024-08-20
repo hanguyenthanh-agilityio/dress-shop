@@ -5,7 +5,7 @@ import { Button, Container, Flex, Text } from "@chakra-ui/react";
 import { LoadingIndicator, ProductList, SortBar } from "@/components";
 import { useSearchParams } from "react-router-dom";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { getProductsByCategory } from "@/apis";
+import { getProducts } from "@/apis";
 import { useCallback } from "react";
 import { LOADING_STATUS } from "@/constants";
 import React from "react";
@@ -33,8 +33,7 @@ const ProductSearch = () => {
     refetch,
   } = useInfiniteQuery({
     queryKey: ["getProductsByCategory", search, category, order],
-    queryFn: ({ pageParam = 1 }) =>
-      getProductsByCategory({ ...params, page: pageParam }),
+    queryFn: ({ pageParam = 1 }) => getProducts({ ...params, page: pageParam }),
     initialPageParam: 1,
     getNextPageParam: (_lastPage, pages) => {
       if (pages.length < 4) {

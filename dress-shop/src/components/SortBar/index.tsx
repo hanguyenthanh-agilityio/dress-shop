@@ -1,6 +1,7 @@
 import { ChangeEvent, lazy, memo, Suspense, useCallback } from "react";
 import { Button, Flex, Text, useDisclosure, useToast } from "@chakra-ui/react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { AxiosError } from "axios";
 
 // Components
 import { LoadingIndicator, Select } from "@/components";
@@ -11,8 +12,9 @@ import { Category, Product } from "@/types";
 
 // Constants
 import { MEN_CATEGORY, OPTION_SORT, ROUTES, WOMEN_CATEGORY } from "@/constants";
+
+// Hooks
 import { useAddProduct } from "@/hooks";
-import { AxiosError } from "axios";
 
 const SortBar = memo(({ refetch }: { refetch: () => void }) => {
   const toast = useToast();

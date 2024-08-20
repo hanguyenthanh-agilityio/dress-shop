@@ -6,7 +6,7 @@ import SortBar from ".";
 // import { useDisclosure } from "@chakra-ui/react";
 
 const sortBar = () => {
-  return render(<SortBar />);
+  return render(<SortBar refetch={() => {}} />);
 };
 
 describe("SortBar component", () => {
