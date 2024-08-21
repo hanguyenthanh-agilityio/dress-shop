@@ -20,6 +20,7 @@ const ProductCart = () => {
 
   const {
     state: { cart },
+    updateCartQuantity,
   } = UseCartContext();
 
   const totalPrice = cart.reduce(
@@ -43,7 +44,28 @@ const ProductCart = () => {
         {totalPrice ? (
           <>
             <Suspense fallback={<LoadingIndicator />}>
-              <Cart headerList={HEADER_LIST} products={cart} total={0} />
+              {cart.map((item) => (
+                <Cart
+                  key={item.id}
+                  headerList={HEADER_LIST}
+                  products={cart}
+                  total={0}
+                  quantity={item.quantity}
+                  onClickDec={() =>
+                    updateCartQuantity({
+                      id: item.id,
+                      quantity: item.quantity - 1,
+                    })
+                  }
+                  onClickInc={() =>
+                    updateCartQuantity({
+                      id: item.id,
+                      quantity: item.quantity + 1,
+                    })
+                  }
+                  isDisable={false}
+                />
+              ))}
             </Suspense>
             <Flex
               flexDir="column"

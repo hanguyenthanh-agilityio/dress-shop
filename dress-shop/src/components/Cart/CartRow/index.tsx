@@ -5,7 +5,7 @@ import { memo } from "react";
 import { Product } from "@/types";
 
 // Components
-import { Quantity } from "@/components";
+// import { Quantity } from "@/components";
 
 // Constants
 import { FALLBACK_SRC } from "@/constants";
@@ -36,9 +36,7 @@ const CartRow = memo<CartRowProps>(
           </Flex>
         </Td>
         <Td color="text.default">{price}</Td>
-        <Td>
-          <Quantity />
-        </Td>
+        <Td>{/* <Quantity /> */}</Td>
         <Td>
           <Text size="large" color="text.primary">
             P{total}

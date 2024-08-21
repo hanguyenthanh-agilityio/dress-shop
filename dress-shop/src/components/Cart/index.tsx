@@ -20,11 +20,23 @@ interface CartProp {
   headerList: HeaderList[];
   products: Product[];
   total: number;
+  quantity: number;
+  onClickDec: () => void;
+  onClickInc: () => void;
+  isDisable: boolean;
   onClickDelete?: () => void;
 }
 
 const Cart = memo<CartProp>(
-  ({ headerList, products = [], total }: CartProp) => {
+  ({
+    headerList,
+    products = [],
+    total,
+    quantity,
+    onClickInc,
+    onClickDec,
+    isDisable,
+  }: CartProp) => {
     const { isLargeThanTablet } = useBreakPoints();
 
     const { handleDelete } = UseCartContext();
@@ -65,7 +77,13 @@ const Cart = memo<CartProp>(
                     >
                       P{price}
                     </Text>
-                    <Quantity />
+
+                    <Quantity
+                      quantity={quantity}
+                      onClickDec={onClickDec}
+                      onClickInc={onClickInc}
+                      isDisable={isDisable}
+                    />
                     <Text
                       pt="10px"
                       size={{ xs: "small", lg: "large" }}

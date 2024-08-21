@@ -1,10 +1,15 @@
-import { render } from '@testing-library/react';
-import Quantity from '.';
+import { render } from "@testing-library/react";
+import Quantity from ".";
 
-describe('Quantity component', () => {
-  it('Should render Quantity snapshot correctly', () => {
+describe("Quantity component", () => {
+  it("Should render Quantity snapshot correctly", () => {
     const quantity = render(
-        <Quantity />
+      <Quantity
+        quantity={1}
+        isDisable={false}
+        onClickDec={() => {}}
+        onClickInc={() => {}}
+      />,
     );
 
     expect(quantity).toMatchSnapshot();
