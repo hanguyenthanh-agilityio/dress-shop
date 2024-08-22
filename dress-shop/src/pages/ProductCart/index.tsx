@@ -20,9 +20,9 @@ const ProductCart = () => {
 
   const {
     state: { cart },
-    updateCartQuantity,
+    // getCartList,
   } = UseCartContext();
-
+  console.log("cart = CART RENDER = ", cart);
   const totalPrice = cart.reduce(
     (total, priceItem): number => total + priceItem.price,
     0,
@@ -51,18 +51,6 @@ const ProductCart = () => {
                   products={cart}
                   total={0}
                   quantity={item.quantity}
-                  onClickDec={() =>
-                    updateCartQuantity({
-                      id: item.id,
-                      quantity: item.quantity - 1,
-                    })
-                  }
-                  onClickInc={() =>
-                    updateCartQuantity({
-                      id: item.id,
-                      quantity: item.quantity + 1,
-                    })
-                  }
                   isDisable={false}
                 />
               ))}

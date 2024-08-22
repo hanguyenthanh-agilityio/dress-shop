@@ -25,46 +25,58 @@ export const initializer = (initialValue = initialState) => {
 
 export type CartItemPayload = {
   type: REDUCER_ACTION_TYPE;
-  payload: Product | { id: number; quantity: number };
+  payload: Product;
 };
 
 export enum REDUCER_ACTION_TYPE {
   ADD_TO_CART = "ADD_TO_CART",
   REMOVE = "REMOVE_CART_ITEM",
-  UPDATE_CART_QUANTITY = "UPDATE_CART_QUANTITY",
+  // UPDATE_CART_QUANTITY = "UPDATE_CART_QUANTITY",
+  GET_CART_LIST = "GET_CART_LIST",
 }
 
 export const cartReducer = (
   state: UseCartContextType,
   action: CartItemPayload,
 ) => {
-  let updatedCartItems;
-
+  console.log("state===> action.type", state, action.type);
   switch (action.type) {
     case REDUCER_ACTION_TYPE.ADD_TO_CART: {
-      const product = action.payload;
-      const existingItem = state.cart.find((item) => item.id === product.id);
+      let updatedCartItems = {};
+
+      // if (!state.cart.find((item) => item.id === action.payload.id)) {
+      //   state.cart.push({ ...action.payload, quantity: 1 });
+      // }
+
+      const existingItem = state.cart.find(
+        (item) => item.id === action.payload.id,
+      );
 
       if (existingItem) {
         updatedCartItems = state.cart.map((item) =>
-          item.id === product.id
+          item.id === action.payload.id
             ? { ...item, quantity: item.quantity + 1 }
             : item,
         );
       } else {
-        updatedCartItems = [...state.cart, { ...product, quantity: 1 }];
+        updatedCartItems = [...state.cart, { ...action.payload, quantity: 1 }];
       }
 
-      return { ...state, cartItems: updatedCartItems };
+      console.log("updatedCartItems = REDUCER =", updatedCartItems);
+
+      localStorage.setItem("localCart", JSON.stringify(updatedCartItems));
+      return {
+        ...state,
+        cart: updatedCartItems,
+      };
     }
 
-    case REDUCER_ACTION_TYPE.UPDATE_CART_QUANTITY: {
-      const { id, quantity } = action.payload;
-      updatedCartItems = state.cart.map((item) =>
-        item.id === id ? { ...item, quantity } : item,
+    case REDUCER_ACTION_TYPE.GET_CART_LIST: {
+      const productsCart = JSON.parse(
+        localStorage.getItem("localCart") || "{cart: []}",
       );
 
-      return { ...state, cartItems: updatedCartItems };
+      return { ...state, cart: productsCart };
     }
 
     case REDUCER_ACTION_TYPE.REMOVE:

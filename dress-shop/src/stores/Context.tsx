@@ -3,7 +3,7 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
+  // useEffect,
   useReducer,
 } from "react";
 import {
@@ -20,12 +20,12 @@ import { Product } from "@/types";
 const Cart = createContext<{
   state: UseCartContextType;
   handleAddToCart: (product: Product) => void;
-  updateCartQuantity: (id: number, quantity: number) => void;
+  getCartList: (product: Product) => void;
   handleDelete: (product: Product) => void;
 }>({
   state: initialState,
   handleAddToCart: () => null,
-  updateCartQuantity: () => null,
+  getCartList: () => null,
   handleDelete: () => null,
 });
 
@@ -34,21 +34,24 @@ type ChildrenType = { children?: ReactElement | ReactElement[] };
 const Context = ({ children }: ChildrenType) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
-  useEffect(() => {
-    localStorage.setItem("localCart", JSON.stringify(state));
-  }, [state]);
+  // useEffect(() => {
+  //   localStorage.setItem("localCart", JSON.stringify(state));
+  // }, [state]);
 
   const handleAddToCart = useCallback((product: Product) => {
+    // const quantity = product.quantity || 0;
+    // const productToCart = { ...product, quantity: quantity + 1 };
+    console.log("handleAddToCar - CALLED - ");
     dispatch({
       type: REDUCER_ACTION_TYPE.ADD_TO_CART,
       payload: product,
     });
   }, []);
 
-  const updateCartQuantity = useCallback((id: number, quantity: number) => {
+  const getCartList = useCallback((product: Product) => {
     dispatch({
-      type: REDUCER_ACTION_TYPE.UPDATE_CART_QUANTITY,
-      payload: { id, quantity },
+      type: REDUCER_ACTION_TYPE.GET_CART_LIST,
+      payload: product,
     });
   }, []);
 
@@ -66,7 +69,7 @@ const Context = ({ children }: ChildrenType) => {
       value={{
         state,
         handleAddToCart,
-        updateCartQuantity,
+        getCartList,
         handleDelete,
       }}
     >

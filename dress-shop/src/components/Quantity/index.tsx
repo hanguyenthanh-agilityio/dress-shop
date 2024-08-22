@@ -2,13 +2,13 @@ import { Button, HStack, Text } from "@chakra-ui/react";
 
 const Quantity = ({
   quantity,
-  onClickInc,
-  onClickDec,
+  // onClickInc,
+  // onClickDec,
   isDisable,
 }: {
   quantity: number;
-  onClickDec: () => void;
-  onClickInc: () => void;
+  // onClickDec?: () => void;
+  // onClickInc?: () => void;
   isDisable: boolean;
 }) => {
   return (
@@ -19,7 +19,7 @@ const Quantity = ({
         border="none"
         variant="quantity"
         size={{ xs: "primary", lg: "secondary" }}
-        onClick={onClickDec}
+        // onClick={onClickDec}
         isDisabled={isDisable}
       >
         -
@@ -33,7 +33,7 @@ const Quantity = ({
         border="none"
         variant="quantity"
         size={{ xs: "primary", lg: "secondary" }}
-        onClick={onClickInc}
+        // onClick={onClickInc}
       >
         +
       </Button>
