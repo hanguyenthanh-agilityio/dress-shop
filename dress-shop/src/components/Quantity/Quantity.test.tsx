@@ -3,14 +3,7 @@ import Quantity from ".";
 
 describe("Quantity component", () => {
   it("Should render Quantity snapshot correctly", () => {
-    const quantity = render(
-      <Quantity
-        quantity={1}
-        isDisable={false}
-        onClickDec={() => {}}
-        onClickInc={() => {}}
-      />,
-    );
+    const quantity = render(<Quantity quantity={1} isDisable={false} />);
 
     expect(quantity).toMatchSnapshot();
   });
