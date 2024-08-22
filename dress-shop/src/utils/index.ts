@@ -38,3 +38,10 @@ export const MainCategories = () => {
 
   return categories;
 };
+
+// Get URL Params
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+
+export const category = urlParams.get("category");
+export const order = urlParams.get("order");

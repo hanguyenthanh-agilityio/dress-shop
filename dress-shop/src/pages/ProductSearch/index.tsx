@@ -1,105 +1,95 @@
-import { ChangeEvent, lazy, Suspense, useCallback } from "react";
-import { useSearchParams, useLocation } from "react-router-dom";
-import { Container, useDisclosure, useToast } from "@chakra-ui/react";
-import { AxiosError } from "axios";
+import { useSearchParams } from "react-router-dom";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import React, { useCallback } from "react";
 
 // Components
-import { LoadingIndicator, SortBar } from "@/components";
-const ProductListContainer = lazy(
-  () => import("@/components/ProductListContainer"),
-);
+import { LoadingIndicator, ProductList, SortBar } from "@/components";
+import { Button, Container, Flex, Text } from "@chakra-ui/react";
 
-// Utils
-import { MainCategories } from "@/utils";
+// APIs
+import { getProducts } from "@/apis";
 
 // Constants
-import { OPTION_SORT } from "@/constants";
-
-// Hooks
-import { useAddProduct } from "@/hooks";
-
-// Types
-import { Product } from "@/types";
+import { LOADING_STATUS } from "@/constants";
 
 const ProductSearch = () => {
-  const toast = useToast();
-  const { onClose } = useDisclosure();
+  const [searchParams] = useSearchParams();
 
-  const location = useLocation();
-
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const filterCategory = searchParams.get("category") || "";
+  const search = searchParams.get("search") || "";
+  const category = searchParams.get("category") || "";
   const order = searchParams.get("order") || "";
 
-  const { mutate: addProduct, isLoading: isLoadingAdd } = useAddProduct();
-
-  // Handle sort product
-  const handleChangeSelect = useCallback(
-    (e: ChangeEvent<HTMLSelectElement>) => {
-      const value = e.target.value;
-      searchParams.set("order", value);
-      setSearchParams(searchParams);
+  const params = {
+    limit: 20,
+    ...(search && { search }),
+    ...(category && { category }),
+    ...(order && { order, sortBy: "price" }),
+  };
+  const {
+    data,
+    error,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+    status,
+    refetch,
+  } = useInfiniteQuery({
+    queryKey: ["getProductsByCategory", search, category, order],
+    queryFn: ({ pageParam = 1 }) => getProducts({ ...params, page: pageParam }),
+    initialPageParam: 1,
+    getNextPageParam: (_lastPage, pages) => {
+      if (pages.length < 4) {
+        return pages.length + 1;
+      }
+      return undefined;
     },
-    [searchParams, setSearchParams],
-  );
+  });
 
-  // Show error message when create fail
-  const handleError = useCallback((error: string) => {
-    toast({
-      title: error,
-      status: "error",
-      isClosable: true,
-    });
-  }, []);
+  const handleLoadMore = useCallback(() => {
+    fetchNextPage();
+  }, [fetchNextPage]);
 
-  // Show message when create success and close modal
-  const handleConfirmSuccess = useCallback(() => {
-    console.log("confirm", onClose);
+  return status === LOADING_STATUS.PENDING ? (
+    <LoadingIndicator />
+  ) : status === LOADING_STATUS.ERROR ? (
+    <Text>Error: {error?.message}</Text>
+  ) : (
+    <Container
+      minH="90vh"
+      mb={{ xs: "65px" }}
+      pb="20px"
+      p="0 15px"
+      mt={{ lg: "80px" }}
+    >
+      <SortBar refetch={refetch} />
+      {data?.pages.map((pageData, i) => (
+        <React.Fragment key={i}>
+          <ProductList products={pageData.data} />
+        </React.Fragment>
+      ))}
 
-    onClose();
-    toast({
-      title: "Product created.",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
-  }, [onClose, toast]);
-
-  // Handle confirm add product
-  const handleConfirm = useCallback(
-    (data: Product) => {
-      addProduct(data, {
-        onSuccess: handleConfirmSuccess,
-        onError: (error) => handleError((error as AxiosError).message),
-      });
-    },
-    [addProduct],
-  );
-  return (
-    <>
-      <Container
-        minH="90vh"
-        mb={{ xs: "65px" }}
-        pb="20px"
-        p="0 15px"
-        mt={{ lg: "80px" }}
-      >
-        <SortBar
-          categories={MainCategories()}
-          options={OPTION_SORT}
-          onChangeSelect={handleChangeSelect}
-          filterCategory={filterCategory}
-          order={order}
-          onConfirm={handleConfirm}
-          isLoading={isLoadingAdd}
-          defaultValue={location.state?.category}
-        />
-        <Suspense fallback={<LoadingIndicator />}>
-          <ProductListContainer />
-        </Suspense>
-      </Container>
-    </>
+      <Flex justifyContent="center" mt="50px">
+        <Button
+          size={{ xs: "small", md: "default" }}
+          mb="20px"
+          variant="secondary"
+          onClick={handleLoadMore}
+          isDisabled={!hasNextPage || isFetchingNextPage}
+          _hover={{
+            color: hasNextPage ? "text.default" : "text.primary",
+            bg: hasNextPage ? "text.primary" : "text.default",
+          }}
+        >
+          {isFetchingNextPage ? (
+            <LoadingIndicator />
+          ) : hasNextPage ? (
+            "Load More"
+          ) : (
+            "Nothing more to load"
+          )}
+        </Button>
+      </Flex>
+    </Container>
   );
 };
 
