@@ -112,6 +112,7 @@ export const ITEM_CART = {
     "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1581158167%2Fsbiuoziiqi5gkuvrsymv.jpg&w=1080&q=75",
   name: "Long Sleeves Polka Dots",
   price: 400,
+  quantity: 1,
 };
 
 export const PRODUCT_CART = [
@@ -122,7 +123,6 @@ export const PRODUCT_CART = [
     name: "Long Sleeves Polka Dots",
     price: 400,
     total: 400,
-    quantity: 1,
   },
 ];
 
