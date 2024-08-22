@@ -18,8 +18,6 @@ describe("Card component", () => {
           products={PRODUCT_CART}
           headerList={HEADER_LIST}
           total={0}
-          onClickDec={() => {}}
-          onClickInc={() => {}}
           isDisable={false}
           onClickDelete={() => {}}
           quantity={1}
