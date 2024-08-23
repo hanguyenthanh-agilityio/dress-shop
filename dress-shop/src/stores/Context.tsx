@@ -11,7 +11,6 @@ import {
   REDUCER_ACTION_TYPE,
   cartReducer,
   initialState,
-  // initializer,
 } from "./Reducer";
 
 // Types
@@ -20,7 +19,7 @@ import { Product } from "@/types";
 const Cart = createContext<{
   state: UseCartContextType;
   handleAddToCart: (product: Product) => void;
-  getCartList: (product: Product) => void;
+  getCartList: () => void;
   handleDelete: (product: Product) => void;
 }>({
   state: initialState,
@@ -39,19 +38,15 @@ const Context = ({ children }: ChildrenType) => {
   // }, [state]);
 
   const handleAddToCart = useCallback((product: Product) => {
-    // const quantity = product.quantity || 0;
-    // const productToCart = { ...product, quantity: quantity + 1 };
-    console.log("handleAddToCar - CALLED - ");
     dispatch({
       type: REDUCER_ACTION_TYPE.ADD_TO_CART,
       payload: product,
     });
   }, []);
 
-  const getCartList = useCallback((product: Product) => {
+  const getCartList = useCallback(() => {
     dispatch({
       type: REDUCER_ACTION_TYPE.GET_CART_LIST,
-      payload: product,
     });
   }, []);
 

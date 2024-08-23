@@ -5,7 +5,7 @@ import { memo } from "react";
 import { Product } from "@/types";
 
 // Components
-// import { Quantity } from "@/components";
+import { Quantity } from "@/components";
 
 // Constants
 import { FALLBACK_SRC } from "@/constants";
@@ -13,11 +13,12 @@ import { FALLBACK_SRC } from "@/constants";
 interface CartRowProps {
   product: Product;
   total: number;
+  quantity: number;
   onDelete?: () => void;
 }
 
 const CartRow = memo<CartRowProps>(
-  ({ product, total, onDelete }: CartRowProps) => {
+  ({ product, total, quantity, onDelete }: CartRowProps) => {
     const { imageURL, name, price } = product;
     return (
       <Tr>
@@ -36,7 +37,9 @@ const CartRow = memo<CartRowProps>(
           </Flex>
         </Td>
         <Td color="text.default">{price}</Td>
-        <Td>{/* <Quantity /> */}</Td>
+        <Td>
+          <Quantity quantity={quantity} />
+        </Td>
         <Td>
           <Text size="large" color="text.primary">
             P{total}
