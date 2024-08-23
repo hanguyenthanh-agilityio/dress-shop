@@ -9,9 +9,9 @@ import { PRODUCT_CART } from "@/mocks/common";
 
 describe("CardBody component", () => {
   const props = {
-    products: PRODUCT_CART,
+    product: PRODUCT_CART,
     total: 0,
-    onDelete: jest.fn(),
+    quantity: 1,
   };
 
   const cartBody = () => {

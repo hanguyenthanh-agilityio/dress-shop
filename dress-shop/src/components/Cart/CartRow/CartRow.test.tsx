@@ -11,6 +11,7 @@ describe("CardRow component", () => {
   const props = {
     product: ITEM_CART,
     total: 400,
+    quantity: 1,
     onDelete: jest.fn(),
   };
 

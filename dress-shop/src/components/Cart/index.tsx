@@ -18,7 +18,6 @@ import { memo } from "react";
 
 interface CartProp {
   headerList: HeaderList[];
-
   onClickDelete?: () => void;
 }
 
