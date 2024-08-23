@@ -28,7 +28,7 @@ type Story = StoryObj<typeof CartBody>;
 
 export const Default: Story = {
   args: {
-    products: PRODUCT_CART,
+    product: PRODUCT_CART,
     total: 400,
   },
 };
