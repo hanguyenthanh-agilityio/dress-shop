@@ -49,6 +49,9 @@ const Cart = memo<CartProp>(({ headerList }: CartProp) => {
       ) : (
         cart.map((item) => {
           const { id, imageURL, name, price, quantity } = item;
+          const handleDeleteItem = () => {
+            handleDelete(item);
+          };
           return (
             <Flex mt="20px" key={id}>
               <Image
@@ -87,9 +90,7 @@ const Cart = memo<CartProp>(({ headerList }: CartProp) => {
                   variant="close"
                   justifyContent="start"
                   size={{ xs: "tiny", lg: "default" }}
-                  onClick={() => {
-                    handleDelete(item);
-                  }}
+                  onClick={handleDeleteItem}
                 >
                   Delete
                 </Button>

@@ -16,6 +16,9 @@ import { MEN_CATEGORY, OPTION_SORT, ROUTES, WOMEN_CATEGORY } from "@/constants";
 // Hooks
 import { useAddProduct } from "@/hooks";
 
+// Utils
+import { category } from "@/utils";
+
 const SortBar = memo(({ refetch }: { refetch: () => void }) => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,9 +30,6 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
 
   const filterCategory = searchParams.get("category") || "";
   const order = searchParams.get("order") || "";
-
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
 
   // Handle filter by category
   const handleClickCategories = useCallback(
@@ -119,7 +119,7 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
             variant="primary"
             size={{ xs: "default", lg: "medium" }}
             onClick={() => action(value)}
-            data-testid={id}
+            data-testid="button-navigate"
             p={{ xs: "8px 30px", md: "10px 50px" }}
             bg={filterCategory !== value ? "#3a3b3c" : "background.red"}
             color={filterCategory !== value ? "text.default" : "text.default"}
@@ -146,7 +146,7 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
               onClose={onClose}
               onConfirm={handleConfirm}
               isLoading={isLoadingAdd}
-              defaultValue={urlParams.get("category")!}
+              defaultValue={category!}
             />
           )}
         </Suspense>

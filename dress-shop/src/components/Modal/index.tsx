@@ -17,9 +17,9 @@ interface ModalProps {
   buttonAction?: string;
   ButtonClose?: string;
   children?: React.ReactNode;
-  isOpen?: boolean;
+  isOpen: boolean;
   isLoading?: boolean;
-  onClose?: () => void;
+  onClose: () => void;
   onClick?: () => void;
 }
 
@@ -29,10 +29,10 @@ const Modal = memo<ModalProps>(
     ButtonClose,
     buttonAction,
     children,
-    isOpen = false,
+    isOpen,
     isLoading,
-    onClose = () => {},
-    onClick = () => {},
+    onClose,
+    onClick,
   }: ModalProps) => {
     return (
       <ModalChakra isOpen={isOpen} onClose={onClose}>

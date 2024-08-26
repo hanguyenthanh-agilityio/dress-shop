@@ -16,7 +16,7 @@ const Select = memo<SelectProps>(
   ({
     options,
     placeholder = "Select",
-    onBlur = () => {},
+    onBlur,
     onChange,
     value,
   }: SelectProps) => {
