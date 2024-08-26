@@ -13,11 +13,12 @@ import { FALLBACK_SRC } from "@/constants";
 interface CartRowProps {
   product: Product;
   total: number;
+  quantity: number;
   onDelete?: () => void;
 }
 
 const CartRow = memo<CartRowProps>(
-  ({ product, total, onDelete }: CartRowProps) => {
+  ({ product, total, quantity, onDelete }: CartRowProps) => {
     const { imageURL, name, price } = product;
     return (
       <Tr>
@@ -37,7 +38,7 @@ const CartRow = memo<CartRowProps>(
         </Td>
         <Td color="text.default">{price}</Td>
         <Td>
-          <Quantity />
+          <Quantity quantity={quantity} />
         </Td>
         <Td>
           <Text size="large" color="text.primary">

@@ -8,6 +8,7 @@ export const PRODUCTS: Product[] = [
     altText: "product",
     name: "Product",
     price: 800,
+    quantity: 1,
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const PRODUCTS: Product[] = [
     altText: "product",
     name: "Product",
     price: 800,
+    quantity: 1,
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ export const PRODUCTS: Product[] = [
     altText: "product",
     name: "Product",
     price: 800,
+    quantity: 1,
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ export const PRODUCTS: Product[] = [
     altText: "product",
     name: "Product",
     price: 800,
+    quantity: 1,
   },
   {
     id: 5,
@@ -40,6 +44,7 @@ export const PRODUCTS: Product[] = [
     altText: "product",
     name: "Product",
     price: 800,
+    quantity: 1,
   },
   {
     id: 6,
@@ -48,6 +53,7 @@ export const PRODUCTS: Product[] = [
     altText: "product",
     name: "Product",
     price: 800,
+    quantity: 1,
   },
   {
     id: 7,
@@ -56,6 +62,7 @@ export const PRODUCTS: Product[] = [
     altText: "product",
     name: "Product",
     price: 800,
+    quantity: 1,
   },
   {
     id: 8,
@@ -64,6 +71,7 @@ export const PRODUCTS: Product[] = [
     altText: "product",
     name: "Product",
     price: 800,
+    quantity: 1,
   },
 ];
 export const CARD = {
@@ -71,6 +79,7 @@ export const CARD = {
     "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1581158167%2Fsbiuoziiqi5gkuvrsymv.jpg&w=1080&q=75",
   name: "Long Sleeves Polka Dots",
   price: 800,
+  quantity: 1,
 };
 
 export const slides = [
@@ -103,18 +112,18 @@ export const ITEM_CART = {
     "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1581158167%2Fsbiuoziiqi5gkuvrsymv.jpg&w=1080&q=75",
   name: "Long Sleeves Polka Dots",
   price: 400,
+  quantity: 1,
 };
 
-export const PRODUCT_CART = [
-  {
-    id: 1,
-    imageURL:
-      "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1581158167%2Fsbiuoziiqi5gkuvrsymv.jpg&w=1080&q=75",
-    name: "Long Sleeves Polka Dots",
-    price: 400,
-    total: 400,
-  },
-];
+export const PRODUCT_CART = {
+  id: 1,
+  imageURL:
+    "https://dress-shop.vercel.app/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdjlbfjouc%2Fimage%2Fupload%2Fv1581158167%2Fsbiuoziiqi5gkuvrsymv.jpg&w=1080&q=75",
+  name: "Long Sleeves Polka Dots",
+  price: 400,
+  total: 400,
+  quantity: 1,
+};
 
 export const CATEGORIES_BUTTON = [
   { id: "men-categories", label: "Men", value: "m", action: () => {} },

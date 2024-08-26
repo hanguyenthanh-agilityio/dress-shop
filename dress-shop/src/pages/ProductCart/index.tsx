@@ -20,12 +20,33 @@ const ProductCart = () => {
 
   const {
     state: { cart },
+    // getCartList,
   } = UseCartContext();
-
   const totalPrice = cart.reduce(
-    (total, priceItem): number => total + priceItem.price,
+    (total, priceItem): number => total + priceItem.price * priceItem.quantity,
     0,
   );
+
+  // useEffect(() => {
+  //   // const items = JSON.parse(localStorage.getItem("localCart") || "{cart: []}");
+  //   // if (items) {
+  //   //   getCartList
+  //   const cardData = cart.length ? cart : getCartList();
+  // }, [cart]);
+
+  // const renderCard = useMemo(() => {
+  //   console.log("CART ==== render ===", cart);
+  //   return cart.map((item) => (
+  //     <Cart
+  //       key={item.id}
+  //       headerList={HEADER_LIST}
+  //       products={cart}
+  //       total={item.price * item.quantity}
+  //       quantity={item.quantity}
+  //       isDisable={false}
+  //     />
+  //   ));
+  // }, [cart]);
 
   return (
     <>
@@ -40,10 +61,10 @@ const ProductCart = () => {
         >
           Your Cart
         </Heading>
-        {totalPrice ? (
+        {cart.length ? (
           <>
             <Suspense fallback={<LoadingIndicator />}>
-              <Cart headerList={HEADER_LIST} products={cart} total={0} />
+              <Cart headerList={HEADER_LIST} />
             </Suspense>
             <Flex
               flexDir="column"

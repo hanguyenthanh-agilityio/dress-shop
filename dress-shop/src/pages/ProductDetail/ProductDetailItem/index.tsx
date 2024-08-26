@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 
 // Components
-import { IconHeart, LoadingIndicator, Quantity } from "@/components";
+import { IconHeart, LoadingIndicator } from "@/components";
 const ModalForm = lazy(() => import("@/components/ModalForm"));
 
 // Stores
@@ -120,7 +120,7 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
         <Text color="#666" size={{ xs: "tiny", lg: "medium" }}>
           {description}
         </Text>
-        <Quantity />
+        {/* <Quantity /> */}
         <Flex my="10px">
           <Button
             variant="add"
