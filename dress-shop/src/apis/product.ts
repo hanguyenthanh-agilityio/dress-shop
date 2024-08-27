@@ -10,6 +10,13 @@ export const getProducts = (params: Params) =>
     params,
   });
 
-// Get product list by id
+// Get product by id
 export const getProductId = async (productId: string | undefined) =>
   await axiosClient.get<Product>(`products/${productId}`);
+
+// Add product
+export const addProduct = async (payload?: Product) =>
+  await axiosClient.post<Product>(
+    "https://66ab592c636a4840d7ca46b4.mockapi.io/products",
+    payload,
+  );

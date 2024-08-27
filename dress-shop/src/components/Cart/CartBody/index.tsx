@@ -11,25 +11,26 @@ import { CartRow } from "@/components";
 import { UseCartContext } from "@/stores";
 
 interface CartBodyProps {
-  products: Product[];
+  product: Product;
   total: number;
+  quantity: number;
 }
 
-const CartBody = memo<CartBodyProps>(({ products, total }: CartBodyProps) => {
-  const { handleDelete } = UseCartContext();
+const CartBody = memo<CartBodyProps>(
+  ({ product, total, quantity }: CartBodyProps) => {
+    const { handleDelete } = UseCartContext();
 
-  return (
-    <Tbody>
-      {products.map((product) => (
+    return (
+      <Tbody>
         <CartRow
-          key={product.id}
           product={product}
           total={total}
           onDelete={() => handleDelete(product)}
+          quantity={quantity}
         />
-      ))}
-    </Tbody>
-  );
-});
+      </Tbody>
+    );
+  },
+);
 
 export default CartBody;

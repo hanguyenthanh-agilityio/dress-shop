@@ -17,14 +17,12 @@ const ProductListContainer = () => {
 
   const search = searchParams.get("search") || "";
   const category = searchParams.get("category") || "";
-  const order = searchParams.get("order") || "";
+
   const params = {
     limit: 8,
     ...(search && { search }),
     ...(category && { category }),
-    ...(order && { order, sortBy: "price" }),
   };
-
   const {
     data,
     error,
@@ -33,11 +31,11 @@ const ProductListContainer = () => {
     isFetchingNextPage,
     status,
   } = useInfiniteQuery({
-    queryKey: ["products", search, category, order],
+    queryKey: ["products", search, category],
     queryFn: ({ pageParam = 1 }) => getProducts({ ...params, page: pageParam }),
     initialPageParam: 1,
     getNextPageParam: (_lastPage, pages) => {
-      if (pages.length < 2) {
+      if (pages.length < 4) {
         return pages.length + 1;
       }
       return undefined;
@@ -60,7 +58,7 @@ const ProductListContainer = () => {
         </React.Fragment>
       ))}
 
-      <Flex justifyContent="center" mt="50px" mb="66px">
+      <Flex justifyContent="center" mt="50px">
         <Button
           size={{ xs: "small", md: "default" }}
           mb="20px"

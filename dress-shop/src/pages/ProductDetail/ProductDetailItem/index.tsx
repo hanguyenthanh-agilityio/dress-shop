@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { lazy, Suspense, useCallback } from "react";
 
 import {
   Box,
@@ -7,12 +7,13 @@ import {
   Heading,
   Image,
   Text,
+  useDisclosure,
   useToast,
-  // useToast,
 } from "@chakra-ui/react";
 
 // Components
-import { IconHeart, Quantity } from "@/components";
+import { IconHeart, LoadingIndicator } from "@/components";
+const ModalForm = lazy(() => import("@/components/ModalForm"));
 
 // Stores
 import { UseCartContext } from "@/stores";
@@ -22,6 +23,8 @@ import { FALLBACK_SRC } from "@/constants";
 
 // Types
 import { Product } from "@/types";
+import { useUpdateProduct } from "@/hooks";
+import { AxiosError } from "axios";
 
 interface ProductDetailItemPros {
   product: Product;
@@ -29,10 +32,19 @@ interface ProductDetailItemPros {
 }
 
 const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
+  // Destructuring prop
+  const { imageURL, name, price, description } = product;
+
   const { handleAddToCart } = UseCartContext();
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const toast = useToast();
 
+  const { mutate: updateProduct, isLoading: isLoadingUpdate } =
+    useUpdateProduct();
+
+  // Handle add product to cart
   const handleAddProduct = useCallback(() => {
     handleAddToCart(product);
     toast({
@@ -43,7 +55,35 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
     });
   }, [handleAddToCart, product, toast]);
 
-  const { imageURL, name, price, description } = product;
+  // Show error message when update fail
+  const handleError = useCallback((error: string) => {
+    toast({
+      title: error,
+      status: "error",
+      isClosable: true,
+    });
+  }, []);
+
+  // Show message when update success and close modal
+  const handleUpdateSuccess = useCallback(() => {
+    onClose();
+    toast({
+      title: "Product updated.",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+  }, []);
+
+  // handle Update Product
+  const handleUpdate = useCallback((data: Product) => {
+    if (product.id) {
+      updateProduct(data, {
+        onSuccess: handleUpdateSuccess,
+        onError: (error) => handleError((error as AxiosError).message),
+      });
+    }
+  }, []);
 
   return (
     <Flex flexDir={{ xs: "column", lg: "row" }}>
@@ -79,19 +119,34 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
         <Text color="#666" size={{ xs: "tiny", lg: "medium" }}>
           {description}
         </Text>
+        {/* <Quantity /> */}
         <Flex my="10px">
-          <Quantity />
           <Button
             variant="add"
             size={{ xs: "small", lg: "default" }}
             p={{ xs: "10px 30px", sm: "20px 40px", lg: "25px 60px" }}
-            ml={{ xs: "15px", lg: "40px" }}
+            mr="10px"
             border="none"
             isLoading={isLoading}
             onClick={handleAddProduct}
           >
             Add to Cart
           </Button>
+          <Button color="text.default" p="0 20px" onClick={onOpen}>
+            Edit product
+          </Button>
+          <Suspense fallback={<LoadingIndicator />}>
+            {isOpen && (
+              <ModalForm
+                modalTitle="Update product"
+                buttonLabel="confirm"
+                onClose={onClose}
+                productItem={product}
+                onConfirm={handleUpdate}
+                isLoading={isLoadingUpdate}
+              />
+            )}
+          </Suspense>
         </Flex>
       </Flex>
     </Flex>

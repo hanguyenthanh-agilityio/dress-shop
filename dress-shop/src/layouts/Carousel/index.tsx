@@ -18,7 +18,7 @@ const Carousel = () => {
   };
 
   return (
-    <Flex alignItems="center" justifyContent="center" mt="80px">
+    <Flex alignItems="center" justifyContent="center" mt={{ lg: "80px" }}>
       <Flex w="full" overflow="hidden" pos="relative">
         <Flex
           h={{ xs: "240px", md: "280px", lg: "550px" }}
@@ -41,22 +41,30 @@ const Carousel = () => {
         <HStack justify="center" pos="absolute" bottom="30px" w="full">
           {Array.from({
             length: slides.length,
-          }).map((_, slide) => (
-            <Box
-              key={`dots-${slide}`}
-              cursor="pointer"
-              boxSize="8px"
-              m="7px"
-              bg={currentSlide === slide ? "blackAlpha.800" : "blackAlpha.500"}
-              rounded="50%"
-              display="inline-block"
-              transition="background-color 0.6s ease"
-              _hover={{
-                bg: "blackAlpha.800",
-              }}
-              onClick={() => setSlide(slide)}
-            ></Box>
-          ))}
+          }).map((_, slide) => {
+            const handClick = () => {
+              setSlide(slide);
+            };
+
+            return (
+              <Box
+                key={`dots-${slide}`}
+                cursor="pointer"
+                boxSize="8px"
+                m="7px"
+                bg={
+                  currentSlide === slide ? "blackAlpha.800" : "blackAlpha.500"
+                }
+                rounded="50%"
+                display="inline-block"
+                transition="background-color 0.6s ease"
+                _hover={{
+                  bg: "blackAlpha.800",
+                }}
+                onClick={handClick}
+              ></Box>
+            );
+          })}
         </HStack>
       </Flex>
     </Flex>

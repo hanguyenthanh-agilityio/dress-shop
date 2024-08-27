@@ -1,10 +1,12 @@
 export type Product = {
-  id: number;
+  id?: number;
   imageURL: string;
   altText?: string;
   name: string;
   price: number;
   description?: string;
+  category?: string;
+  quantity: number;
 };
 
 export type Category = {
@@ -12,7 +14,7 @@ export type Category = {
   img?: string;
   alt?: string;
   label: string;
-  action: () => void;
+  action: (value: string) => void;
   value: string;
 };
 

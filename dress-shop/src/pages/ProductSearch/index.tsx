@@ -1,59 +1,95 @@
-import { ChangeEvent, lazy, Suspense, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Container } from "@chakra-ui/react";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import React, { useCallback } from "react";
 
 // Components
-import { LoadingIndicator } from "@/components";
-const ProductListContainer = lazy(
-  () => import("@/components/ProductListContainer"),
-);
-const SortBar = lazy(() => import("@/components/SortBar"));
+import { LoadingIndicator, ProductList, SortBar } from "@/components";
+import { Button, Container, Flex, Text } from "@chakra-ui/react";
 
-// Utils
-import { MainCategories } from "@/utils";
+// APIs
+import { getProducts } from "@/apis";
 
 // Constants
-import { OPTION_SORT } from "@/constants";
-
-// Containers
+import { LOADING_STATUS } from "@/constants";
 
 const ProductSearch = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const filterCategory = searchParams.get("category") || "";
+  const [searchParams] = useSearchParams();
+
+  const search = searchParams.get("search") || "";
+  const category = searchParams.get("category") || "";
   const order = searchParams.get("order") || "";
 
-  // Handle sort product
-  const handleChangeSelect = useCallback(
-    (e: ChangeEvent<HTMLSelectElement>) => {
-      const value = e.target.value;
-      searchParams.set("order", value);
-      setSearchParams(searchParams);
+  const params = {
+    limit: 20,
+    ...(search && { search }),
+    ...(category && { category }),
+    ...(order && { order, sortBy: "price" }),
+  };
+  const {
+    data,
+    error,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+    status,
+    refetch,
+  } = useInfiniteQuery({
+    queryKey: ["getProductsByCategory", search, category, order],
+    queryFn: ({ pageParam = 1 }) => getProducts({ ...params, page: pageParam }),
+    initialPageParam: 1,
+    getNextPageParam: (_lastPage, pages) => {
+      if (pages.length < 4) {
+        return pages.length + 1;
+      }
+      return undefined;
     },
-    [searchParams, setSearchParams],
-  );
+  });
 
-  return (
-    <>
-      <Container
-        minH="90vh"
-        mb={{ xs: "50px", lg: "-48px" }}
-        p="0 15px"
-        mt={{ lg: "80px" }}
-      >
-        <Suspense fallback={<LoadingIndicator />}>
-          <SortBar
-            categories={MainCategories()}
-            options={OPTION_SORT}
-            onChangeSelect={handleChangeSelect}
-            filterCategory={filterCategory}
-            order={order}
-          />
-        </Suspense>
-        <Suspense fallback={<LoadingIndicator />}>
-          <ProductListContainer />
-        </Suspense>
-      </Container>
-    </>
+  const handleLoadMore = useCallback(() => {
+    fetchNextPage();
+  }, [fetchNextPage]);
+
+  return status === LOADING_STATUS.PENDING ? (
+    <LoadingIndicator />
+  ) : status === LOADING_STATUS.ERROR ? (
+    <Text>Error: {error?.message}</Text>
+  ) : (
+    <Container
+      minH="90vh"
+      mb={{ xs: "65px" }}
+      pb="20px"
+      p="0 15px"
+      mt={{ lg: "80px" }}
+    >
+      <SortBar refetch={refetch} />
+      {data?.pages.map((pageData, i) => (
+        <React.Fragment key={i}>
+          <ProductList products={pageData.data} />
+        </React.Fragment>
+      ))}
+
+      <Flex justifyContent="center" mt="50px">
+        <Button
+          size={{ xs: "small", md: "default" }}
+          mb="20px"
+          variant="secondary"
+          onClick={handleLoadMore}
+          isDisabled={!hasNextPage || isFetchingNextPage}
+          _hover={{
+            color: hasNextPage ? "text.default" : "text.primary",
+            bg: hasNextPage ? "text.primary" : "text.default",
+          }}
+        >
+          {isFetchingNextPage ? (
+            <LoadingIndicator />
+          ) : hasNextPage ? (
+            "Load More"
+          ) : (
+            "Nothing more to load"
+          )}
+        </Button>
+      </Flex>
+    </Container>
   );
 };
 

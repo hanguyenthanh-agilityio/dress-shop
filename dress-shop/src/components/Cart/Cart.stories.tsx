@@ -5,9 +5,6 @@ import { Container, Table } from "@chakra-ui/react";
 // Components
 import Cart from ".";
 
-// Mocks
-import { PRODUCT_CART } from "@/mocks/common";
-
 // Constants
 import { HEADER_LIST } from "@/constants";
 
@@ -32,6 +29,5 @@ type Story = StoryObj<typeof Cart>;
 export const Default: Story = {
   args: {
     headerList: HEADER_LIST,
-    products: PRODUCT_CART,
   },
 };

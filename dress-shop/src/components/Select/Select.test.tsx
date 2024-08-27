@@ -14,6 +14,21 @@ describe("Select component", () => {
     expect(selectOption).toMatchSnapshot();
   });
 
+  it("Should render correct length", () => {
+    const mock = jest.fn();
+    const { getAllByRole } = render(
+      <Select
+        placeholder="Low to height"
+        options={OPTION_SORT}
+        onChange={mock}
+      />,
+    );
+
+    const menuOption = getAllByRole("option");
+
+    expect(menuOption).toHaveLength(OPTION_SORT.length + 1);
+  });
+
   it("Should render Select correctly with onChange props", async () => {
     const mock = jest.fn();
     const { getByTestId } = render(

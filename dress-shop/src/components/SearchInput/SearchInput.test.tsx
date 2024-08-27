@@ -4,7 +4,7 @@ import SearchInput from ".";
 
 describe("SearchInput component", () => {
   const props = {
-    placeholder: "Search",
+    placeholder: "Search Product...",
     onChange: jest.fn(),
     onKeyDown: jest.fn(),
   };

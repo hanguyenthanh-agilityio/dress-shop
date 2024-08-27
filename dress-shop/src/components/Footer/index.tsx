@@ -83,9 +83,7 @@ const Footer = () => {
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <IconContext.Provider
-                    value={{ size: "20px", color: "text.default" }}
-                  >
+                  <IconContext.Provider value={{ size: "20px", color: "#fff" }}>
                     {item.icon}
                   </IconContext.Provider>
                   <Text color="text.default">{item.text}</Text>
