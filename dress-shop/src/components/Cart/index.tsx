@@ -18,7 +18,6 @@ import { memo } from "react";
 
 interface CartProp {
   headerList: HeaderList[];
-  onClickDelete?: () => void;
 }
 
 const Cart = memo<CartProp>(({ headerList }: CartProp) => {
@@ -91,6 +90,7 @@ const Cart = memo<CartProp>(({ headerList }: CartProp) => {
                   justifyContent="start"
                   size={{ xs: "tiny", lg: "default" }}
                   onClick={handleDeleteItem}
+                  data-testid="delete-button"
                 >
                   Delete
                 </Button>

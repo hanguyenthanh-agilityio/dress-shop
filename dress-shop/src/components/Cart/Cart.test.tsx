@@ -11,7 +11,7 @@ describe("Card component", () => {
   it("Should render Card snapshot correctly", () => {
     const card = render(
       <Table>
-        <Card headerList={HEADER_LIST} onClickDelete={() => {}} />
+        <Card headerList={HEADER_LIST} />
       </Table>,
     );
 
