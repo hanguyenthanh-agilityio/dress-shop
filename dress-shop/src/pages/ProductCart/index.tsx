@@ -1,8 +1,9 @@
 import { Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useMemo } from "react";
 
 // Components
+import { LoadingIndicator } from "@/components";
 const Cart = lazy(() => import("@/components/Cart"));
 
 // Constants
@@ -13,7 +14,6 @@ import { UseCartContext } from "@/stores";
 
 // Hooks
 import { useBreakPoints } from "@/hooks";
-import { LoadingIndicator } from "@/components";
 
 const ProductCart = () => {
   const { isLargeThanTablet } = useBreakPoints();
@@ -22,15 +22,17 @@ const ProductCart = () => {
     state: { cart },
     // getCartList,
   } = UseCartContext();
-  const totalPrice = cart.reduce(
-    (total, priceItem): number => total + priceItem.price * priceItem.quantity,
-    0,
+  const totalPrice = useMemo(
+    () =>
+      cart.reduce(
+        (total, priceItem): number =>
+          total + priceItem.price * priceItem.quantity,
+        0,
+      ),
+    [cart],
   );
 
   // useEffect(() => {
-  //   // const items = JSON.parse(localStorage.getItem("localCart") || "{cart: []}");
-  //   // if (items) {
-  //   //   getCartList
   //   const cardData = cart.length ? cart : getCartList();
   // }, [cart]);
 

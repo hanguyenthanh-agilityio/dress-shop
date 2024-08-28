@@ -1,4 +1,5 @@
 import { lazy, Suspense, useCallback } from "react";
+import { AxiosError } from "axios";
 
 import {
   Box,
@@ -23,8 +24,9 @@ import { FALLBACK_SRC } from "@/constants";
 
 // Types
 import { Product } from "@/types";
+
+// Hooks
 import { useUpdateProduct } from "@/hooks";
-import { AxiosError } from "axios";
 
 interface ProductDetailItemPros {
   product: Product;
@@ -132,7 +134,14 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
           >
             Add to Cart
           </Button>
-          <Button color="text.default" p="0 20px" onClick={onOpen}>
+          <Button
+            variant="add"
+            bg="none"
+            color="text.default"
+            p="0 20px"
+            size={{ xs: "small", lg: "default" }}
+            onClick={onOpen}
+          >
             Edit product
           </Button>
           <Suspense fallback={<LoadingIndicator />}>

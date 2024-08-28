@@ -47,7 +47,7 @@ export const Button = {
 
     primary: {
       bg: "background.light",
-      m: "10px",
+      mr: "10px",
       p: "10px 50px",
     },
 
