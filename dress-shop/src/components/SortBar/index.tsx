@@ -1,11 +1,11 @@
-import { ChangeEvent, memo, Suspense, useCallback } from "react";
+import { ChangeEvent, lazy, memo, Suspense, useCallback } from "react";
 import { Button, Flex, Text, useDisclosure, useToast } from "@chakra-ui/react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { AxiosError } from "axios";
 
 // Components
 import { LoadingIndicator, Select } from "@/components";
-// const ModalForm = lazy(() => import("@/components/ModalForm"));
+const ModalForm = lazy(() => import("@/components/ModalForm"));
 
 // Types
 import { Category, Product } from "@/types";
@@ -18,7 +18,6 @@ import { useAddProduct } from "@/hooks";
 
 // Utils
 import { category } from "@/utils";
-import ModalForm from "../ModalForm";
 
 const SortBar = memo(({ refetch }: { refetch: () => void }) => {
   const toast = useToast();
