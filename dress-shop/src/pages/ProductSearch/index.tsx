@@ -38,7 +38,7 @@ const ProductSearch = () => {
     queryFn: ({ pageParam = 1 }) => getProducts({ ...params, page: pageParam }),
     initialPageParam: 1,
     getNextPageParam: (_lastPage, pages) => {
-      if (pages.length < 4) {
+      if (pages.length < 2) {
         return pages.length + 1;
       }
       return undefined;
@@ -58,7 +58,7 @@ const ProductSearch = () => {
       minH="90vh"
       mb={{ xs: "65px" }}
       pb="20px"
-      p="0 15px"
+      p={{ xs: "0 15px", md: "0 20px" }}
       mt={{ lg: "80px" }}
     >
       <SortBar refetch={refetch} />
@@ -68,10 +68,10 @@ const ProductSearch = () => {
         </React.Fragment>
       ))}
 
-      <Flex justifyContent="center" mt="50px">
+      <Flex justifyContent="center">
         <Button
           size={{ xs: "small", md: "default" }}
-          mb="20px"
+          my="20px"
           variant="secondary"
           onClick={handleLoadMore}
           isDisabled={!hasNextPage || isFetchingNextPage}

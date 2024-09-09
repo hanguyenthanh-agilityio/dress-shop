@@ -35,7 +35,7 @@ const ProductListContainer = () => {
     queryFn: ({ pageParam = 1 }) => getProducts({ ...params, page: pageParam }),
     initialPageParam: 1,
     getNextPageParam: (_lastPage, pages) => {
-      if (pages.length < 4) {
+      if (pages.length < 2) {
         return pages.length + 1;
       }
       return undefined;
