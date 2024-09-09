@@ -17,9 +17,9 @@ interface ModalProps {
   buttonAction?: string;
   ButtonClose?: string;
   children?: React.ReactNode;
-  isOpen?: boolean;
+  isOpen: boolean;
   isLoading?: boolean;
-  onClose?: () => void;
+  onClose: () => void;
   onClick?: () => void;
 }
 
@@ -29,15 +29,15 @@ const Modal = memo<ModalProps>(
     ButtonClose,
     buttonAction,
     children,
-    isOpen = false,
+    isOpen,
     isLoading,
-    onClose = () => {},
-    onClick = () => {},
+    onClose,
+    onClick,
   }: ModalProps) => {
     return (
       <ModalChakra isOpen={isOpen} onClose={onClose}>
         <ModalOverlay data-testid="modal-overlay" />
-        <ModalContent data-testid="modal-content">
+        <ModalContent data-testid="modal-content" mx="10px">
           {/* Header */}
           <ModalHeader textAlign="center" data-testid="title">
             {modalTitle}
@@ -48,7 +48,9 @@ const Modal = memo<ModalProps>(
           {/* Footer */}
           <ModalFooter padding="20px 0" display="flex" justifyContent="center">
             <Button
-              mr="20px"
+              variant="add"
+              px="15px"
+              mr="15px"
               type="submit"
               data-testid="confirm-button"
               isLoading={isLoading}
@@ -58,6 +60,9 @@ const Modal = memo<ModalProps>(
             </Button>
             <Button
               variant="close"
+              border="1px solid"
+              borderRadius="50px"
+              px="15px"
               onClick={onClose}
               data-testid="close-button"
             >

@@ -16,7 +16,7 @@ const Select = memo<SelectProps>(
   ({
     options,
     placeholder = "Select",
-    onBlur = () => {},
+    onBlur,
     onChange,
     value,
   }: SelectProps) => {
@@ -24,7 +24,6 @@ const Select = memo<SelectProps>(
       <SelectChakra
         maxW={{ xs: "180px", lg: "210px" }}
         bg="#fff"
-        // color="text.default"
         placeholder={placeholder}
         name="select-base"
         cursor="pointer"

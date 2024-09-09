@@ -14,6 +14,4 @@ describe("Card component", () => {
 
     expect(card).toMatchSnapshot();
   });
-
-  // Add case have default value for AltText
 });

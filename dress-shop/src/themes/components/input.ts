@@ -3,7 +3,7 @@ export const Input = {
     field: {
       borderRadius: "80px",
       h: "50px",
-      pl: "32px",
+      px: "20px",
       color: "#1b262c",
       background: "#f1f3f5",
       _placeholder: {

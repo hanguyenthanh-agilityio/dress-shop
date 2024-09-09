@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import SearchProduct from ".";
 
@@ -14,9 +14,9 @@ describe("SearchProduct component", () => {
 
   const search = () => {
     return render(
-      <BrowserRouter>
+      <Router>
         <SearchProduct />
-      </BrowserRouter>,
+      </Router>,
     );
   };
 

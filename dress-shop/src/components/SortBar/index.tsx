@@ -16,6 +16,9 @@ import { MEN_CATEGORY, OPTION_SORT, ROUTES, WOMEN_CATEGORY } from "@/constants";
 // Hooks
 import { useAddProduct } from "@/hooks";
 
+// Utils
+import { category } from "@/utils";
+
 const SortBar = memo(({ refetch }: { refetch: () => void }) => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,9 +30,6 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
 
   const filterCategory = searchParams.get("category") || "";
   const order = searchParams.get("order") || "";
-
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
 
   // Handle filter by category
   const handleClickCategories = useCallback(
@@ -107,20 +107,24 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
 
   return (
     <Flex
-      p="10px"
+      py="15px"
       mb="20px"
       flexDir={{ xs: "column", md: "row" }}
       justifyContent={{ xs: "center", md: "space-between" }}
     >
-      <Flex justifyContent={{ xs: "center" }} alignItems="center">
+      <Flex
+        justifyContent={{ xs: "center" }}
+        alignItems="center"
+        mb={{ xs: "5px", md: "0" }}
+      >
         {categories.map(({ id, action, label, value }: Category) => (
           <Button
             key={id}
             variant="primary"
             size={{ xs: "default", lg: "medium" }}
             onClick={() => action(value)}
-            data-testid={id}
-            p={{ xs: "8px 30px", md: "10px 50px" }}
+            data-testid="button-navigate"
+            p={{ xs: "8px 15px", md: "10px 50px" }}
             bg={filterCategory !== value ? "#3a3b3c" : "background.red"}
             color={filterCategory !== value ? "text.default" : "text.default"}
             width={{ xs: "100%" }}
@@ -130,13 +134,13 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
           </Button>
         ))}
         <Button
-          ml="10px"
+          size={{ xs: "small", md: "default" }}
           color="text.default"
-          px="15px"
+          px={{ xs: "10px", md: "15px" }}
           onClick={onOpen}
           data-testid="new-product"
         >
-          Add new product
+          Add product
         </Button>
         <Suspense fallback={<LoadingIndicator />}>
           {isOpen && (
@@ -146,7 +150,7 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
               onClose={onClose}
               onConfirm={handleConfirm}
               isLoading={isLoadingAdd}
-              defaultValue={urlParams.get("category")!}
+              defaultValue={category!}
             />
           )}
         </Suspense>
@@ -156,12 +160,14 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
         textAlign="center"
         justifyContent={{ xs: "center" }}
         margin={{ xs: "10px", lg: "0" }}
+        mr="0"
       >
         <Text
           pr={{ xs: "5px", md: "10px" }}
-          w="100px"
-          color="#fff"
+          w={{ xs: "80px", md: "100px" }}
+          color="text.default"
           textAlign="left"
+          size={{ xs: "tiny", md: "default" }}
         >
           Sort by
         </Text>

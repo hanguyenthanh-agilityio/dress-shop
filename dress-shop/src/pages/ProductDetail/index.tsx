@@ -8,7 +8,9 @@ import { LoadingIndicator } from "@/components";
 const ProductList = lazy(() => import("@/components/ProductList"));
 
 // Pages
-import { ProductDetailItem } from "@/pages";
+const ProductDetailItem = lazy(
+  () => import("@/pages/ProductDetail/ProductDetailItem"),
+);
 
 // Mocks
 import { PRODUCTS } from "@/mocks/common";
@@ -47,11 +49,17 @@ const ProductDetail = () => {
 
   return (
     <>
-      <Container minH="90vh" mt="80px" p={{ xs: "0 15px", md: "0 20px" }}>
+      <Container
+        minH="90vh"
+        mt={{ lg: "80px" }}
+        p={{ xs: "0 15px", md: "0 20px" }}
+      >
         {!product ? (
           <Heading>{ERROR_MESSAGE}</Heading>
         ) : (
-          <ProductDetailItem product={product} isLoading={isLoading} />
+          <Suspense fallback={<LoadingIndicator />}>
+            <ProductDetailItem product={product} isLoading={isLoading} />
+          </Suspense>
         )}
 
         <Heading py="10px" color="text.default">
