@@ -148,7 +148,7 @@ const ProductDetailItem = ({ product, isLoading }: ProductDetailItemPros) => {
             {isOpen && (
               <ModalForm
                 modalTitle="Update product"
-                buttonLabel="confirm"
+                buttonLabel="Confirm"
                 onClose={onClose}
                 productItem={product}
                 onConfirm={handleUpdate}

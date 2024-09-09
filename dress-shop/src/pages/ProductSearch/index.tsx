@@ -71,7 +71,7 @@ const ProductSearch = () => {
       <Flex justifyContent="center">
         <Button
           size={{ xs: "small", md: "default" }}
-          mb="20px"
+          my="20px"
           variant="secondary"
           onClick={handleLoadMore}
           isDisabled={!hasNextPage || isFetchingNextPage}
