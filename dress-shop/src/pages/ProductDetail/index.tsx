@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { lazy, Suspense, useCallback } from "react";
-import { Container, Heading, useToast } from "@chakra-ui/react";
+import { Container, Flex, Heading, useToast } from "@chakra-ui/react";
 
 // Components
 import { LoadingIndicator } from "@/components";
@@ -8,16 +8,15 @@ import { LoadingIndicator } from "@/components";
 const ProductList = lazy(() => import("@/components/ProductList"));
 
 // Pages
-import { ProductDetailItem } from "@/pages";
-
-// Mocks
-import { PRODUCTS } from "@/mocks/common";
+const ProductDetailItem = lazy(
+  () => import("@/pages/ProductDetail/ProductDetailItem"),
+);
 
 // Constants
 import { ERROR_MESSAGE } from "@/constants";
 
 // Hooks
-import { useProductId } from "@/hooks";
+import { useProductId, useProducts } from "@/hooks";
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -31,7 +30,13 @@ const ProductDetail = () => {
     });
   }, []);
 
+  const { data: products } = useProducts({ limit: 8 }, handleError);
+
   const { data: product, isLoading } = useProductId(productId, handleError);
+
+  const relatedProduct = products.filter(
+    (item) => item.category === product?.category && item.id !== product?.id,
+  );
 
   if (isLoading)
     return (
@@ -47,19 +52,26 @@ const ProductDetail = () => {
 
   return (
     <>
-      <Container minH="90vh" mt="80px" p={{ xs: "0 15px", md: "0 20px" }}>
+      <Container
+        minH="90vh"
+        mt={{ lg: "80px" }}
+        p={{ xs: "0 15px", md: "0 20px" }}
+      >
         {!product ? (
           <Heading>{ERROR_MESSAGE}</Heading>
         ) : (
-          <ProductDetailItem product={product} isLoading={isLoading} />
+          <Suspense fallback={<LoadingIndicator />}>
+            <ProductDetailItem product={product} isLoading={isLoading} />
+          </Suspense>
         )}
-
-        <Heading py="10px" color="text.default">
-          Related Product
-        </Heading>
-        <Suspense fallback={<LoadingIndicator />}>
-          <ProductList products={PRODUCTS} />
-        </Suspense>
+        <Flex mb="20px" flexDir="column">
+          <Heading py="15px" color="text.default">
+            Related Product
+          </Heading>
+          <Suspense fallback={<LoadingIndicator />}>
+            <ProductList products={relatedProduct} />
+          </Suspense>
+        </Flex>
       </Container>
     </>
   );

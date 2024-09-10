@@ -29,7 +29,7 @@ const Card = memo<CardProps>(({ src, name, price }: CardProps) => {
           xs: "140px",
           sm: "195px",
           md: "240px",
-          lg: "331px",
+          lg: "231px",
           xl: "288px",
         }}
         position="relative"

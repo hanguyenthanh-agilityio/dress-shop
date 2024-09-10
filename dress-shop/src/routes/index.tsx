@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -9,9 +8,6 @@ import {
 import { ROUTES } from "@/constants";
 import { MAIN_ROUTES } from "./mainRouter";
 
-// Components
-import { LoadingIndicator } from "@/components";
-
 // Layouts
 import { MainLayout } from "@/layouts";
 
@@ -21,16 +17,7 @@ export const router = createBrowserRouter(
       <Route path={ROUTES.HOME} element={<MainLayout />}>
         {MAIN_ROUTES.map(({ path, Component }) => {
           return (
-            <Route
-              key={path}
-              path={path}
-              id={path}
-              element={
-                <Suspense fallback={<LoadingIndicator />}>
-                  <Component />
-                </Suspense>
-              }
-            />
+            <Route key={path} path={path} id={path} element={<Component />} />
           );
         })}
       </Route>

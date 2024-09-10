@@ -1,7 +1,7 @@
 import { CARD, PRODUCTS } from "@/mocks/common";
 import { axiosClient } from "@/services";
-import { renderHook, waitFor } from "@testing-library/react";
-import { act, ReactNode } from "react";
+import { act, renderHook, waitFor } from "@testing-library/react";
+import { ReactNode } from "react";
 import {
   useAddProduct,
   useProductId,

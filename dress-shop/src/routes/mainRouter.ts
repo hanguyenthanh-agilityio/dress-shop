@@ -1,11 +1,7 @@
 import { ROUTES } from "@/constants";
-import { lazy } from "react";
 
 // Pages
-const Home = lazy(() => import("@/pages/Home"));
-const ProductDetail = lazy(() => import("@/pages/ProductDetail"));
-const ProductCart = lazy(() => import("@/pages/ProductCart"));
-const ProductSearch = lazy(() => import("@/pages/ProductSearch"));
+import { Home, ProductCart, ProductDetail, ProductSearch } from "@/pages";
 
 export const MAIN_ROUTES = [
   {
