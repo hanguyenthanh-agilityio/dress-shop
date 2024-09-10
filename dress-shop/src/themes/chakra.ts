@@ -1,7 +1,7 @@
 import { extendTheme } from "@chakra-ui/react";
 import colors from "./color";
 import metrics from "./metrics";
-import "@fontsource/poppins";
+// import "@fontsource/poppins";
 
 // Components
 import * as components from "./components";

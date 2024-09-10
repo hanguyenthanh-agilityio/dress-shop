@@ -13,7 +13,17 @@ describe("ProductDetailItem page", () => {
   it("Should render ProductDetailItem snapshot correctly", () => {
     const page = render(
       <QueryClientProvider client={queryClient}>
-        <ProductDetailItem product={CARD} isLoading={true} />
+        <ProductDetailItem
+          product={CARD}
+          isLoading={true}
+          isOpen={false}
+          onOpen={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+          onClose={function (): void {
+            throw new Error("Function not implemented.");
+          }}
+        />
       </QueryClientProvider>,
     );
 
