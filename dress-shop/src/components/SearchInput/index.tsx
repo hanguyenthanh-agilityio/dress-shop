@@ -19,6 +19,7 @@ const SearchInput = memo<SearchInputProps>(
     return (
       <InputGroup maxW={{ xs: "100%", lg: "300px" }}>
         <Input
+          id="myInput"
           size={{ xs: "secondary", lg: "default" }}
           fontSize={{ xs: "12px", md: "17px" }}
           pl="10px"

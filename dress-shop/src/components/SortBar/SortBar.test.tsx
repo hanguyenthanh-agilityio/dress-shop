@@ -55,4 +55,15 @@ describe("SortBar component", () => {
     expect(mockNavigate).toBeCalled();
     mockNavigate.mockRestore();
   });
+
+  // it("", () => {
+  //   const mockCallback = jest.fn();
+  //   const { getByTestId } = sortBar();
+
+  //   const divElement = getByTestId("select-base");
+
+  //   const selectNode = divElement.childNodes[0].childNodes[0];
+  //   fireEvent.change(selectNode, { target: { value: "3" } });
+  //   expect(mockCallback.mock.calls).toHaveLength(1);
+  // });
 });

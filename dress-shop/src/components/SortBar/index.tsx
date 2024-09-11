@@ -175,6 +175,7 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
           options={OPTION_SORT}
           onChange={handleChangeSelect}
           value={order}
+          data-testid="select-option"
         />
       </Flex>
     </Flex>
