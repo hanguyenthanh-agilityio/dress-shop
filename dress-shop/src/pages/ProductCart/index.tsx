@@ -71,7 +71,7 @@ const ProductCart = () => {
             <Flex
               flexDir="column"
               alignItems="end"
-              mb={isLargeThanTablet ? "0" : "70px"}
+              mb={isLargeThanTablet ? "0px" : "70px"}
             >
               <Flex my="30px" alignItems="center">
                 <Text

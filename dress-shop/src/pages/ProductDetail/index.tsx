@@ -68,7 +68,7 @@ const ProductDetail = () => {
         {!product ? (
           <Heading>{ERROR_MESSAGE}</Heading>
         ) : (
-          <Suspense fallback={<LoadingIndicator />}>
+          <Suspense fallback={<LoadingIndicator data-testid="spinner" />}>
             <ProductDetailItem
               product={product}
               isLoading={isLoading}
