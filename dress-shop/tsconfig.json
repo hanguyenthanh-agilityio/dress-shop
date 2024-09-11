@@ -6,7 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": false,
-    "types": ["@testing-library/jest-dom", "vitest/globals", "node", "jest"],
+    "types": ["@testing-library/jest-dom"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -27,6 +27,7 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
 
+    "types": ["vitest/globals", "node", "jest"]
   },
   "include": ["src", "./setupTests.ts"],
   "exclude": ["node_modules", "src/themes"],
