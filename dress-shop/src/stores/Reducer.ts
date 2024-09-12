@@ -43,6 +43,7 @@ export const cartReducer = (
       }
 
       localStorage.setItem("localCart", JSON.stringify(updatedCartItems));
+
       return {
         ...state,
         cart: updatedCartItems,
@@ -57,9 +58,16 @@ export const cartReducer = (
     }
 
     case REDUCER_ACTION_TYPE.REMOVE:
+      const productId = action.payload?.id;
+      const updatedCartItems = state.cart.filter(
+        (item) => item.id !== productId,
+      );
+
+      localStorage.setItem("localCart", JSON.stringify(updatedCartItems));
+
       return {
         ...state,
-        cart: state.cart.filter((item) => item.id !== action.payload?.id),
+        cart: updatedCartItems,
       };
     default:
       return state;
