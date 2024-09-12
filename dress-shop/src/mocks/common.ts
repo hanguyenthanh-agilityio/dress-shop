@@ -124,6 +124,7 @@ export const ITEM_CART = {
   name: "Long Sleeves Polka Dots",
   price: 400,
   quantity: 1,
+  altText: "product1",
 };
 
 export const PRODUCT_CART = {
