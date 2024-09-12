@@ -9,19 +9,6 @@ export const initialState: UseCartContextType = {
   cart: [],
 };
 
-export const initializer = (initialValue = initialState) => {
-  let currentValue;
-  try {
-    currentValue =
-      JSON.parse(localStorage.getItem("localCart") || "{cart: []}") ||
-      initialValue;
-  } catch (error) {
-    currentValue = initialValue;
-  }
-
-  return currentValue;
-};
-
 export type CartItemPayload = {
   type: REDUCER_ACTION_TYPE;
   payload?: Product;
@@ -56,6 +43,7 @@ export const cartReducer = (
       }
 
       localStorage.setItem("localCart", JSON.stringify(updatedCartItems));
+
       return {
         ...state,
         cart: updatedCartItems,
@@ -63,19 +51,23 @@ export const cartReducer = (
     }
 
     case REDUCER_ACTION_TYPE.GET_CART_LIST: {
-      const productsCart = JSON.parse(
-        localStorage.getItem("localCart") || "[]",
-      );
+      const storeCart = localStorage.getItem("localCart");
+      const productsCart = storeCart ? JSON.parse(storeCart) : [];
 
-      const cardClone = Object.assign([], productsCart);
-
-      return { ...state, cart: cardClone };
+      return { ...state, cart: productsCart };
     }
 
     case REDUCER_ACTION_TYPE.REMOVE:
+      const productId = action.payload?.id;
+      const updatedCartItems = state.cart.filter(
+        (item) => item.id !== productId,
+      );
+
+      localStorage.setItem("localCart", JSON.stringify(updatedCartItems));
+
       return {
         ...state,
-        cart: state.cart.filter((item) => item.id !== action.payload?.id),
+        cart: updatedCartItems,
       };
     default:
       return state;

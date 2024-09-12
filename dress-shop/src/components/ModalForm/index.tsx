@@ -44,7 +44,7 @@ const FormModal = memo<FormModalProps>(
       <Modal
         modalTitle={modalTitle}
         buttonAction={buttonLabel}
-        ButtonClose="Cancel"
+        buttonClose="Cancel"
         isLoading={isLoading}
         isOpen={true}
         onClick={handleSubmit(onSubmit)}
@@ -59,6 +59,7 @@ const FormModal = memo<FormModalProps>(
               isInvalid={!!errors.name}
               inputName="name"
               type="text"
+              placeholder="Product Name"
               register={register}
             />
             {/* Image */}
@@ -67,6 +68,7 @@ const FormModal = memo<FormModalProps>(
               isInvalid={!!errors.imageURL}
               inputName="imageURL"
               type="text"
+              placeholder="Product ImageURL"
               register={register}
             />
             {/* Categories */}
@@ -74,6 +76,7 @@ const FormModal = memo<FormModalProps>(
               label="Category"
               inputName="category"
               type="text"
+              placeholder="Product Category"
               defaultValue={defaultValue}
               isInvalid={!!errors.category}
               register={register}
@@ -83,6 +86,7 @@ const FormModal = memo<FormModalProps>(
               label="Description"
               inputName="description"
               type="text"
+              placeholder="Product Description"
               isInvalid={!!errors.description}
               register={register}
             />
@@ -91,6 +95,7 @@ const FormModal = memo<FormModalProps>(
               type="number"
               label="Price"
               inputName="price"
+              placeholder="Product Price"
               isInvalid={!!errors.price}
               register={register}
             />

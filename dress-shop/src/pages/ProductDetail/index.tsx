@@ -1,6 +1,12 @@
 import { useParams } from "react-router-dom";
 import { lazy, Suspense, useCallback } from "react";
-import { Container, Flex, Heading, useToast } from "@chakra-ui/react";
+import {
+  Container,
+  Flex,
+  Heading,
+  useDisclosure,
+  useToast,
+} from "@chakra-ui/react";
 
 // Components
 import { LoadingIndicator } from "@/components";
@@ -21,6 +27,8 @@ import { useProductId, useProducts } from "@/hooks";
 const ProductDetail = () => {
   const { productId } = useParams();
   const toast = useToast();
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleError = useCallback((error: string) => {
     toast({
@@ -60,8 +68,14 @@ const ProductDetail = () => {
         {!product ? (
           <Heading>{ERROR_MESSAGE}</Heading>
         ) : (
-          <Suspense fallback={<LoadingIndicator />}>
-            <ProductDetailItem product={product} isLoading={isLoading} />
+          <Suspense fallback={<LoadingIndicator data-testid="spinner" />}>
+            <ProductDetailItem
+              product={product}
+              isLoading={isLoading}
+              isOpen={isOpen}
+              onOpen={onOpen}
+              onClose={onClose}
+            />
           </Suspense>
         )}
         <Flex mb="20px" flexDir="column">
@@ -69,7 +83,9 @@ const ProductDetail = () => {
             Related Product
           </Heading>
           <Suspense fallback={<LoadingIndicator />}>
-            <ProductList products={relatedProduct} />
+            <Flex flexDir="column" data-testid="product-list">
+              <ProductList products={relatedProduct} />
+            </Flex>
           </Suspense>
         </Flex>
       </Container>

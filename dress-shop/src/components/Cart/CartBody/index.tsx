@@ -19,13 +19,14 @@ interface CartBodyProps {
 const CartBody = memo<CartBodyProps>(
   ({ product, total, quantity }: CartBodyProps) => {
     const { handleDelete } = UseCartContext();
+    const handleDeleteCart = () => handleDelete(product);
 
     return (
       <Tbody>
         <CartRow
           product={product}
           total={total}
-          onDelete={() => handleDelete(product)}
+          onDelete={handleDeleteCart}
           quantity={quantity}
         />
       </Tbody>

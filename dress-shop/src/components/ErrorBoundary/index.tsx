@@ -25,7 +25,12 @@ class ErrorBoundary extends Component<Props, State> {
   render() {
     if (this.state.error) {
       return (
-        <Text size="extraLarge" variant="bold" data-testid="error-boundary">
+        <Text
+          size="extraLarge"
+          variant="bold"
+          data-testid="error-boundary"
+          color="#fff"
+        >
           Something went wrong.
         </Text>
       );
