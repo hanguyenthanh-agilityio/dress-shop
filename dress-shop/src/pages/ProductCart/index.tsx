@@ -22,6 +22,7 @@ const ProductCart = () => {
     state: { cart },
     // getCartList,
   } = UseCartContext();
+
   const totalPrice = useMemo(
     () =>
       cart.reduce(
@@ -34,21 +35,7 @@ const ProductCart = () => {
 
   // useEffect(() => {
   //   const cardData = cart.length ? cart : getCartList();
-  // }, [cart]);
-
-  // const renderCard = useMemo(() => {
-  //   console.log("CART ==== render ===", cart);
-  //   return cart.map((item) => (
-  //     <Cart
-  //       key={item.id}
-  //       headerList={HEADER_LIST}
-  //       products={cart}
-  //       total={item.price * item.quantity}
-  //       quantity={item.quantity}
-  //       isDisable={false}
-  //     />
-  //   ));
-  // }, [cart]);
+  // }, [cart, getCartList]);
 
   return (
     <>
