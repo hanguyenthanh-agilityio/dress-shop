@@ -83,7 +83,7 @@ const ProductDetail = () => {
             Related Product
           </Heading>
           <Suspense fallback={<LoadingIndicator />}>
-            <Flex data-testid="product-list">
+            <Flex flexDir="column" data-testid="product-list">
               <ProductList products={relatedProduct} />
             </Flex>
           </Suspense>

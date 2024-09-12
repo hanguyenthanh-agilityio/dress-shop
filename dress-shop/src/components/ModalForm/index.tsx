@@ -44,7 +44,7 @@ const FormModal = memo<FormModalProps>(
       <Modal
         modalTitle={modalTitle}
         buttonAction={buttonLabel}
-        ButtonClose="Cancel"
+        buttonClose="Cancel"
         isLoading={isLoading}
         isOpen={true}
         onClick={handleSubmit(onSubmit)}

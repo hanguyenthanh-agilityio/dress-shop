@@ -12,7 +12,8 @@ type Story = StoryObj<typeof Modal>;
 export const Default: Story = {
   args: {
     modalTitle: "Update Product",
-    ButtonClose: "Confirm",
+    buttonAction: "confirm",
+    buttonClose: "Cancer",
     isOpen: true,
   },
 };
