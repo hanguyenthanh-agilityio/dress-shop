@@ -1,7 +1,7 @@
 import { Button, Flex, Image, Table, Text } from "@chakra-ui/react";
 
 // Components
-import { CartHeader, CartBody, Quantity } from "@/components";
+import { CartHeader, CartBody } from "@/components";
 
 // Hooks
 import { useBreakPoints } from "@/hooks";
@@ -81,7 +81,9 @@ const Cart = memo<CartProp>(({ headerList }: CartProp) => {
                   P{price}
                 </Text>
 
-                <Quantity quantity={quantity} />
+                <Text color="text.default" mx="20px">
+                  {quantity}
+                </Text>
                 <Text
                   pt="10px"
                   size={{ xs: "small", lg: "large" }}
