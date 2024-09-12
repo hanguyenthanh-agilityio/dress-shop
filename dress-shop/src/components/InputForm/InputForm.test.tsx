@@ -18,6 +18,7 @@ const MockForm = ({ isInvalid = false }) => {
       <FormInput
         label="Name"
         inputName="name"
+        placeholder="Product Name"
         register={register}
         isInvalid={isInvalid}
         type="text"
@@ -62,7 +63,7 @@ describe("MyFormField Component", () => {
     expect(queryByText(ERROR_MESSAGES.FIELD_REQUIRED)).toBeNull();
   });
 
-  // test("calls register function with correct arguments", () => {
+  // it("calls register function with correct arguments", () => {
   //   render(
   //     <ChakraProvider>
   //       <MockForm />

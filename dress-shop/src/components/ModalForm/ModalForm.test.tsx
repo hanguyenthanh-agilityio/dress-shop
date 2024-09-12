@@ -5,11 +5,14 @@ import { fireEvent, render } from "@testing-library/react";
 import FormModal from ".";
 
 describe("FormModal render", () => {
+  const mockOnConfirm = jest.fn();
+  const mockOnClose = jest.fn();
+
   const props = {
     modalTitle: "Product",
     buttonLabel: "Confirm",
-    onClose: jest.fn(),
-    onConfirm: jest.fn(),
+    onClose: mockOnClose,
+    onConfirm: mockOnConfirm,
   };
   const confirm = () => {
     return render(<FormModal {...props} />);
@@ -38,4 +41,21 @@ describe("FormModal render", () => {
 
     expect(props.onConfirm).not.toHaveBeenCalledTimes(1);
   });
+
+  // it("Submits form data correctly", async () => {
+  //   const { getByPlaceholderText, getByText } = confirm();
+  //   fireEvent.change(getByPlaceholderText("Product Name"), {
+  //     target: { value: "Product 1" },
+  //   });
+  //   fireEvent.change(getByPlaceholderText("Product Price"), {
+  //     target: { value: "100" },
+  //   });
+
+  //   fireEvent.click(getByText("Confirm"));
+
+  //   expect(mockOnConfirm).toHaveBeenCalledWith({
+  //     name: "Product 1",
+  //     price: 100,
+  //   });
+  // });
 });

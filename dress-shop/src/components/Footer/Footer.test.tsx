@@ -25,7 +25,7 @@ describe("Footer component", () => {
 });
 
 // describe("ThemedBox Component", () => {
-//   test("renders the Box with correct styles and content", () => {
+//   it("renders the Box with correct styles and content", () => {
 //     const { getByTestId } = theme();
 
 //     const boxElement = getByTestId("theme-box");

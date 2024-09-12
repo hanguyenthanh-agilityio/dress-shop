@@ -21,7 +21,7 @@ describe("TotalPriceComponent", () => {
     jest.clearAllMocks();
   });
 
-  test("calculates total price correctly for a single item", () => {
+  it("calculates total price correctly for a single item", () => {
     mockedUseCartContext.mockReturnValue({
       state: {
         cart: [
@@ -46,7 +46,7 @@ describe("TotalPriceComponent", () => {
     expect(getByText("P100")).toBeInTheDocument();
   });
 
-  test("calculates total price correctly for multiple items", () => {
+  it("calculates total price correctly for multiple items", () => {
     mockedUseCartContext.mockReturnValue({
       state: {
         cart: [
@@ -79,7 +79,7 @@ describe("TotalPriceComponent", () => {
 });
 
 // describe("EmptyCartMessage Component", () => {
-//   test("renders the Heading with correct text and Link", () => {
+//   it("renders the Heading with correct text and Link", () => {
 //     const { getByText, getByRole } = render(
 //       <Router>
 //         <ProductCart />

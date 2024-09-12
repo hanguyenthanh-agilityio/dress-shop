@@ -44,7 +44,7 @@ describe("ProductDetail page", () => {
 });
 
 describe("Related Product render", () => {
-  test("Renders loading state and then related products", () => {
+  it("Renders loading state and then related products", () => {
     // Mock implementations
     (useProducts as jest.Mock).mockReturnValue({ data: PRODUCTS });
     (useProductId as jest.Mock).mockReturnValue({

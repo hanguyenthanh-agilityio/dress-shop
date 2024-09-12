@@ -16,6 +16,7 @@ interface FormInputProps {
   register: UseFormRegister<any>;
   type: string;
   defaultValue?: string;
+  placeholder: string;
 }
 
 const FormInput = memo<FormInputProps>(
@@ -26,11 +27,13 @@ const FormInput = memo<FormInputProps>(
     register,
     type,
     defaultValue,
+    placeholder,
   }: FormInputProps) => {
     return (
       <FormControl mb="15px" isInvalid={isInvalid}>
         <FormLabel>{label}</FormLabel>
         <Input
+          placeholder={placeholder}
           defaultValue={defaultValue}
           type={type}
           size="full"

@@ -42,7 +42,7 @@ describe("CardBody component", () => {
     expect(component).toMatchSnapshot();
   });
 
-  test("renders CartRow with correct props and calls handleDelete on delete", () => {
+  it("Renders CartRow with correct props and calls handleDelete on delete", () => {
     const { getByText, getByTestId } = cartBody();
 
     // Check if CartRow is rendered with correct props

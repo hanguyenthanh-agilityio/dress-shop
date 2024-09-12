@@ -11,7 +11,7 @@ describe("Carousel component", () => {
 });
 
 describe("SlideComponent", () => {
-  test("updates currentSlide when a dot is clicked", () => {
+  it("updates currentSlide when a dot is clicked", () => {
     const slides = [0, 1, 2];
     const { getByTestId } = render(<Carousel />);
 
