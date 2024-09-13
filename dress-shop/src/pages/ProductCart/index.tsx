@@ -20,7 +20,6 @@ const ProductCart = () => {
 
   const {
     state: { cart },
-    // getCartList,
   } = UseCartContext();
 
   const totalPrice = useMemo(
@@ -32,10 +31,6 @@ const ProductCart = () => {
       ),
     [cart],
   );
-
-  // useEffect(() => {
-  //   const cardData = cart.length ? cart : getCartList();
-  // }, [cart, getCartList]);
 
   return (
     <>

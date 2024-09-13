@@ -36,7 +36,7 @@ const SearchProduct = () => {
         });
       }
     },
-    [navigate, searchParams, searchValue, setSearchParams], // Check again
+    [searchParams, searchValue, setSearchParams],
   );
   return (
     <SearchInput
