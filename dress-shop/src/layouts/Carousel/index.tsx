@@ -49,6 +49,7 @@ const Carousel = () => {
             return (
               <Box
                 key={`dots-${slide}`}
+                data-testid={`dot-${slide}`}
                 cursor="pointer"
                 boxSize="8px"
                 m="7px"

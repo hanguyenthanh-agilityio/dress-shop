@@ -1,20 +1,20 @@
 import { Button, Flex, Image, Table, Text } from "@chakra-ui/react";
 
 // Components
-import { CartHeader, CartBody, Quantity } from "@/components";
+import { CartHeader, CartBody } from "@/components";
 
 // Hooks
 import { useBreakPoints } from "@/hooks";
 
 // Types
-import { HeaderList } from "@/types";
+import { HeaderList, Product } from "@/types";
 
 // Stores
 import { UseCartContext } from "@/stores";
 
 // Constants
 import { FALLBACK_SRC } from "@/constants";
-import { memo } from "react";
+import { memo, useCallback } from "react";
 
 interface CartProp {
   headerList: HeaderList[];
@@ -27,6 +27,13 @@ const Cart = memo<CartProp>(({ headerList }: CartProp) => {
     state: { cart },
     handleDelete,
   } = UseCartContext();
+
+  const handleDeleteItem = useCallback(
+    (item: Product) => {
+      handleDelete(item);
+    },
+    [handleDelete],
+  );
 
   return (
     <>
@@ -48,9 +55,7 @@ const Cart = memo<CartProp>(({ headerList }: CartProp) => {
       ) : (
         cart.map((item) => {
           const { id, imageURL, name, price, quantity } = item;
-          const handleDeleteItem = () => {
-            handleDelete(item);
-          };
+
           return (
             <Flex mt="20px" key={id}>
               <Image
@@ -76,7 +81,9 @@ const Cart = memo<CartProp>(({ headerList }: CartProp) => {
                   P{price}
                 </Text>
 
-                <Quantity quantity={quantity} />
+                <Text color="text.default" mx="20px">
+                  {quantity}
+                </Text>
                 <Text
                   pt="10px"
                   size={{ xs: "small", lg: "large" }}
@@ -89,7 +96,7 @@ const Cart = memo<CartProp>(({ headerList }: CartProp) => {
                   variant="close"
                   justifyContent="start"
                   size={{ xs: "tiny", lg: "default" }}
-                  onClick={handleDeleteItem}
+                  onClick={() => handleDeleteItem(item)}
                   data-testid="delete-button"
                 >
                   Delete

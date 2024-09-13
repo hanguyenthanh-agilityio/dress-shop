@@ -3,6 +3,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   // useEffect,
   useReducer,
 } from "react";
@@ -33,9 +34,9 @@ type ChildrenType = { children?: ReactElement | ReactElement[] };
 const Context = ({ children }: ChildrenType) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
-  // useEffect(() => {
-  //   localStorage.setItem("localCart", JSON.stringify(state));
-  // }, [state]);
+  useEffect(() => {
+    dispatch({ type: REDUCER_ACTION_TYPE.GET_CART_LIST });
+  }, []);
 
   const handleAddToCart = useCallback((product: Product) => {
     dispatch({

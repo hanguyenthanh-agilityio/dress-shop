@@ -44,7 +44,7 @@ const Footer = () => {
   return (
     <>
       {isLargeThanTablet ? (
-        <Box bg="background.dark" color="text.default">
+        <Box bg="background.dark" color="text.default" data-testid="theme-box">
           <Container>
             <Flex justifyContent="space-between" alignItems="center" p="20px">
               <Text

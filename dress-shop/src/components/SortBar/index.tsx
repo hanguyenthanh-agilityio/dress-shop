@@ -1,6 +1,6 @@
 import { ChangeEvent, lazy, memo, Suspense, useCallback } from "react";
 import { Button, Flex, Text, useDisclosure, useToast } from "@chakra-ui/react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { AxiosError } from "axios";
 
 // Components
@@ -11,18 +11,18 @@ const ModalForm = lazy(() => import("@/components/ModalForm"));
 import { Category, Product } from "@/types";
 
 // Constants
-import { MEN_CATEGORY, OPTION_SORT, ROUTES, WOMEN_CATEGORY } from "@/constants";
+import { OPTION_SORT } from "@/constants";
 
 // Hooks
 import { useAddProduct } from "@/hooks";
 
 // Utils
-import { category } from "@/utils";
+import { category, useCategoryUtils } from "@/utils";
 
 const SortBar = memo(({ refetch }: { refetch: () => void }) => {
   const toast = useToast();
+
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const navigate = useNavigate();
 
   const { mutate: addProduct, isLoading: isLoadingAdd } = useAddProduct();
 
@@ -31,18 +31,7 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
   const filterCategory = searchParams.get("category") || "";
   const order = searchParams.get("order") || "";
 
-  // Handle filter by category
-  const handleClickCategories = useCallback(
-    (value: string) => {
-      navigate(`${ROUTES.PRODUCT_SEARCH}?category=${value}`),
-        {
-          state: {
-            category: value,
-          },
-        };
-    },
-    [navigate],
-  );
+  const { categories } = useCategoryUtils();
 
   // Handle sort product
   const handleChangeSelect = useCallback(
@@ -85,25 +74,6 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
     },
     [addProduct],
   );
-
-  const categories = [
-    {
-      id: WOMEN_CATEGORY.id,
-      img: WOMEN_CATEGORY.img,
-      alt: WOMEN_CATEGORY.alt,
-      label: WOMEN_CATEGORY.label,
-      action: handleClickCategories,
-      value: WOMEN_CATEGORY.value,
-    },
-    {
-      id: MEN_CATEGORY.id,
-      img: MEN_CATEGORY.img,
-      alt: MEN_CATEGORY.label,
-      label: MEN_CATEGORY.label,
-      action: handleClickCategories,
-      value: MEN_CATEGORY.value,
-    },
-  ];
 
   return (
     <Flex
@@ -175,6 +145,7 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
           options={OPTION_SORT}
           onChange={handleChangeSelect}
           value={order}
+          data-testid="select-option"
         />
       </Flex>
     </Flex>

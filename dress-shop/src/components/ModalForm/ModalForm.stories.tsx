@@ -13,6 +13,6 @@ export const Default: Story = {
   args: {
     modalTitle: "Update Product",
     buttonLabel: "Confirm",
-    isLoading: true,
+    isLoading: false,
   },
 };

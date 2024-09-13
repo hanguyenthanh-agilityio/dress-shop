@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
@@ -22,5 +22,16 @@ describe("SearchProduct component", () => {
 
   it("Should render SearchProduct snapshot correctly", () => {
     expect(search()).toMatchSnapshot();
+  });
+
+  it("calls onChange when input value changes", () => {
+    const { getByRole } = search();
+    const input = getByRole("textbox");
+
+    fireEvent.change(input, { target: { value: "new value" } });
+
+    expect((document.getElementById("myInput") as HTMLInputElement).value).toBe(
+      "new value",
+    );
   });
 });

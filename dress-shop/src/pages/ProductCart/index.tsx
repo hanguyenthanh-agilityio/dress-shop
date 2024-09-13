@@ -20,8 +20,8 @@ const ProductCart = () => {
 
   const {
     state: { cart },
-    // getCartList,
   } = UseCartContext();
+
   const totalPrice = useMemo(
     () =>
       cart.reduce(
@@ -31,24 +31,6 @@ const ProductCart = () => {
       ),
     [cart],
   );
-
-  // useEffect(() => {
-  //   const cardData = cart.length ? cart : getCartList();
-  // }, [cart]);
-
-  // const renderCard = useMemo(() => {
-  //   console.log("CART ==== render ===", cart);
-  //   return cart.map((item) => (
-  //     <Cart
-  //       key={item.id}
-  //       headerList={HEADER_LIST}
-  //       products={cart}
-  //       total={item.price * item.quantity}
-  //       quantity={item.quantity}
-  //       isDisable={false}
-  //     />
-  //   ));
-  // }, [cart]);
 
   return (
     <>
@@ -71,7 +53,7 @@ const ProductCart = () => {
             <Flex
               flexDir="column"
               alignItems="end"
-              mb={isLargeThanTablet ? "0" : "70px"}
+              mb={isLargeThanTablet ? "0px" : "70px"}
             >
               <Flex my="30px" alignItems="center">
                 <Text

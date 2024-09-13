@@ -2,7 +2,7 @@ import { MEN_CATEGORY, ROUTES, WOMEN_CATEGORY } from "@/constants";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const MainCategories = () => {
+export const useCategoryUtils = () => {
   const navigate = useNavigate();
 
   // Handle filter by category
@@ -36,7 +36,10 @@ export const MainCategories = () => {
     },
   ];
 
-  return categories;
+  return {
+    handleClickCategories,
+    categories,
+  };
 };
 
 // Get URL Params
