@@ -17,7 +17,7 @@ import { OPTION_SORT } from "@/constants";
 import { useAddProduct } from "@/hooks";
 
 // Utils
-import { category, useCategoryUtils } from "@/utils";
+import { useCategoryUtils } from "@/utils";
 
 const SortBar = memo(({ refetch }: { refetch: () => void }) => {
   const toast = useToast();
@@ -120,7 +120,7 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
               onClose={onClose}
               onConfirm={handleConfirm}
               isLoading={isLoadingAdd}
-              defaultValue={category!}
+              defaultValue={filterCategory}
             />
           )}
         </Suspense>

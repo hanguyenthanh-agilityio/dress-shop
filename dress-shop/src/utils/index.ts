@@ -46,5 +46,5 @@ export const useCategoryUtils = () => {
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
-export const category = urlParams.get("category");
-export const order = urlParams.get("order");
+export const category = urlParams.get("category") || "";
+export const order = urlParams.get("order") || "";
