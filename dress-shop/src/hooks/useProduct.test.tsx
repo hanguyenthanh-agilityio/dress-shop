@@ -51,7 +51,7 @@ describe("useProducts", () => {
 
 // useProductId
 describe("useProductId", () => {
-  const error = () => error;
+  // const error = () => error;
 
   const queryClient = new QueryClient();
   const wrapper = ({ children }: Props) => (
@@ -63,7 +63,7 @@ describe("useProductId", () => {
       return Promise.resolve({ data: PRODUCTS });
     });
 
-    const { result } = renderHook(() => useProductId("1", error), {
+    const { result } = renderHook(() => useProductId("1"), {
       wrapper,
     });
 
