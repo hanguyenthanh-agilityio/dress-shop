@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { lazy, Suspense, useCallback } from "react";
+import { lazy, Suspense, useCallback, useMemo } from "react";
 import {
   Container,
   Flex,
@@ -10,7 +10,6 @@ import {
 
 // Components
 import { LoadingIndicator } from "@/components";
-
 const ProductList = lazy(() => import("@/components/ProductList"));
 
 // Pages
@@ -30,21 +29,37 @@ const ProductDetail = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const handleError = useCallback((error: string) => {
-    toast({
-      title: error,
-      status: "error",
-      isClosable: true,
-    });
-  }, []);
+  const memoizedProductId = useMemo(() => productId, [productId]);
+
+  const handleError = useCallback(
+    (error: string) => {
+      toast({
+        title: error,
+        status: "error",
+        isClosable: true,
+      });
+    },
+    [toast],
+  );
 
   const { data: products } = useProducts({ limit: 8 }, handleError);
 
-  const { data: product, isLoading } = useProductId(productId, handleError);
-
-  const relatedProduct = products.filter(
-    (item) => item.category === product?.category && item.id !== product?.id,
+  const { data: product, isLoading } = useProductId(
+    memoizedProductId,
+    handleError,
   );
+
+  const relatedProduct = useMemo(
+    () =>
+      products.filter(
+        (item) =>
+          item.category === product?.category && item.id !== product?.id,
+      ),
+    [products, product],
+  );
+
+  const memoizedOnOpen = useCallback(onOpen, [onOpen]);
+  const memoizedOnClose = useCallback(onClose, [onClose]);
 
   if (isLoading)
     return (
@@ -71,10 +86,10 @@ const ProductDetail = () => {
           <Suspense fallback={<LoadingIndicator data-testid="spinner" />}>
             <ProductDetailItem
               product={product}
-              isLoading={isLoading}
+              // isLoading={false}
               isOpen={isOpen}
-              onOpen={onOpen}
-              onClose={onClose}
+              onOpen={memoizedOnOpen}
+              onClose={memoizedOnClose}
             />
           </Suspense>
         )}

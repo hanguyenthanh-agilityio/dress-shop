@@ -83,6 +83,7 @@ export const PRODUCT = {
   name: "Product",
   price: 800,
   quantity: 1,
+  description: "product",
 };
 
 export const CARD = {

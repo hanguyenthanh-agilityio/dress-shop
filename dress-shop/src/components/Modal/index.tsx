@@ -52,6 +52,7 @@ const Modal = memo<ModalProps>(
               px="15px"
               mr="15px"
               type="submit"
+              _hover={{ bg: "button.reversal" }}
               data-testid="confirm-button"
               isLoading={isLoading}
               onClick={onClick}

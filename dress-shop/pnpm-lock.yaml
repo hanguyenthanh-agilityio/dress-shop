@@ -68,7 +68,7 @@ importers:
         version: 7.24.7(@babel/core@7.24.7)
       '@chakra-ui/storybook-addon':
         specifier: ^5.0.1
-        version: 5.1.0(@chakra-ui/react@2.8.2(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(framer-motion@10.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@storybook/components@7.5.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@storybook/manager-api@7.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@storybook/preview-api@7.6.20)(@storybook/types@7.6.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 5.1.0(@chakra-ui/react@2.8.2(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(framer-motion@10.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@storybook/components@7.5.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@storybook/manager-api@8.3.0(storybook@7.5.2))(@storybook/preview-api@7.6.20)(@storybook/types@7.6.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@commitlint/cli':
         specifier: ^19.3.0
         version: 19.3.0(@types/node@20.14.9)(typescript@5.5.2)
@@ -2649,6 +2649,11 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@storybook/manager-api@8.3.0':
+    resolution: {integrity: sha512-5WBLEFHpe4H+9vZZLjNh7msIkyl9MPt4/C2nI+MXKZyU55xBBgiAy4fcD9aj02PcbhyR4JhLqbqmdeBe5Xafeg==}
+    peerDependencies:
+      storybook: ^8.3.0
 
   '@storybook/manager@7.5.2':
     resolution: {integrity: sha512-5l1z9SpCFQBcHjC5mbfWQ8mPTYFxD8GQ9mNZ6PPrj47yu9TyCRYSQj7A8ZXJiIY1ZEg4a2BCW7fPUYG+lX6Drw==}
@@ -8449,11 +8454,11 @@ snapshots:
       '@chakra-ui/system': 2.6.2(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
       react: 18.3.1
 
-  '@chakra-ui/storybook-addon@5.1.0(@chakra-ui/react@2.8.2(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(framer-motion@10.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@storybook/components@7.5.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@storybook/manager-api@7.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@storybook/preview-api@7.6.20)(@storybook/types@7.6.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@chakra-ui/storybook-addon@5.1.0(@chakra-ui/react@2.8.2(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(framer-motion@10.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@storybook/components@7.5.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@storybook/manager-api@8.3.0(storybook@7.5.2))(@storybook/preview-api@7.6.20)(@storybook/types@7.6.20)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@chakra-ui/react': 2.8.2(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(framer-motion@10.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@storybook/components': 7.5.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@storybook/manager-api': 7.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@storybook/manager-api': 8.3.0(storybook@7.5.2)
       '@storybook/preview-api': 7.6.20
       '@storybook/types': 7.6.20
     optionalDependencies:
@@ -10577,6 +10582,10 @@ snapshots:
       store2: 2.14.3
       telejson: 7.2.0
       ts-dedent: 2.2.0
+
+  '@storybook/manager-api@8.3.0(storybook@7.5.2)':
+    dependencies:
+      storybook: 7.5.2
 
   '@storybook/manager@7.5.2': {}
 

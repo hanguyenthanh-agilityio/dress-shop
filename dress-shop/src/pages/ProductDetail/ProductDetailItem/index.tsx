@@ -27,16 +27,16 @@ import { Product } from "@/types";
 // Hooks
 import { useUpdateProduct } from "@/hooks";
 
-interface ProductDetailItemPros {
+interface ProductDetailItemProps {
   product: Product;
-  isLoading: boolean;
+  isLoading?: boolean;
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
 }
 
-const ProductDetailItem = memo<ProductDetailItemPros>(
-  ({ product, isLoading, isOpen, onOpen, onClose }: ProductDetailItemPros) => {
+const ProductDetailItem = memo<ProductDetailItemProps>(
+  ({ product, isLoading, isOpen, onOpen, onClose }: ProductDetailItemProps) => {
     // Destructuring prop
     const { imageURL, name, price, description } = product;
 
@@ -61,13 +61,16 @@ const ProductDetailItem = memo<ProductDetailItemPros>(
     }, [handleAddToCart, product, toast]);
 
     // Show error message when update fail
-    const handleError = useCallback((error: string) => {
-      toast({
-        title: error,
-        status: "error",
-        isClosable: true,
-      });
-    }, []);
+    const handleError = useCallback(
+      (error: string) => {
+        toast({
+          title: error,
+          status: "error",
+          isClosable: true,
+        });
+      },
+      [toast],
+    );
 
     // Show message when update success and close modal
     const handleUpdateSuccess = useCallback(() => {
@@ -78,17 +81,20 @@ const ProductDetailItem = memo<ProductDetailItemPros>(
         duration: 3000,
         isClosable: true,
       });
-    }, []);
+    }, [onClose, toast]);
 
     // handle Update Product
-    const handleUpdate = useCallback((data: Product) => {
-      if (product.id) {
-        updateProduct(data, {
-          onSuccess: handleUpdateSuccess,
-          onError: (error) => handleError((error as AxiosError).message),
-        });
-      }
-    }, []);
+    const handleUpdate = useCallback(
+      (data: Product) => {
+        if (product.id) {
+          updateProduct(data, {
+            onSuccess: handleUpdateSuccess,
+            onError: (error) => handleError((error as AxiosError).message),
+          });
+        }
+      },
+      [handleError, handleUpdateSuccess, product.id, updateProduct],
+    );
 
     return (
       <Flex flexDir={{ xs: "column", lg: "row" }}>
