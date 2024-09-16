@@ -46,9 +46,8 @@ const ProductDetail = () => {
 
   const { data: product, isLoading } = useProductId(
     memoizedProductId,
-    // handleError,
+    handleError,
   );
-  console.log("product", product);
 
   const relatedProduct = useMemo(
     () =>

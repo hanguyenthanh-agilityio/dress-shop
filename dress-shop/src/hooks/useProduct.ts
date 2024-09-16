@@ -20,6 +20,7 @@ export const useProducts = (
     queryKey: QUERY_KEY.PRODUCT_LIST(params),
     queryFn: () => getProducts(params),
     onError: (error) => onError((error as AxiosError).message),
+    refetchOnWindowFocus: false,
   });
 
   return {
@@ -31,17 +32,16 @@ export const useProducts = (
 // Product detail
 export const useProductId = (
   productId: string | undefined,
-  // onError: (error: string) => void,
+  onError: (error: string) => void,
 ) => {
   const { data, ...rest } = useQuery(
     [QUERY_KEY.PRODUCT_DETAIL, productId],
     () => getProductId(productId),
     {
-      enabled: !!productId,
-      // onError: (error: AxiosError) => onError(error.message),
+      onError: (error: AxiosError) => onError(error.message),
+      refetchOnWindowFocus: false,
     },
   );
-
   return {
     ...rest,
     data: data?.data,
