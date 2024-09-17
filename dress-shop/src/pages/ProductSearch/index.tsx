@@ -20,7 +20,7 @@ const ProductSearch = () => {
   const order = searchParams.get("order") || "";
 
   const params = {
-    limit: 20,
+    limit: 12,
     ...(search && { search }),
     ...(category && { category }),
     ...(order && { order, sortBy: "price" }),

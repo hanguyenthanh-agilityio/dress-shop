@@ -17,7 +17,7 @@ const ProductList = memo<ProductListProps>(({ products }: ProductListProps) => {
     <SimpleGrid
       minChildWidth={{ xs: "150px", sm: "175px", md: "200px", lg: "250px" }}
       spacing="20px"
-      mt={{ xs: "20px", lg: "0px" }}
+      mt={{ xs: "20px", lg: "10px" }}
     >
       {products.map(({ id, imageURL, altText, name, price }: Product) => (
         <Link key={id} to={`/products/${id}`}>

@@ -86,7 +86,7 @@ const ProductDetail = () => {
           <Suspense fallback={<LoadingIndicator data-testid="spinner" />}>
             <ProductDetailItem
               product={product}
-              // isLoading={false}
+              isLoading={isLoading}
               isOpen={isOpen}
               onOpen={memoizedOnOpen}
               onClose={memoizedOnClose}
