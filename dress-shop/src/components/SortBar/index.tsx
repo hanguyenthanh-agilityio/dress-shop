@@ -120,7 +120,7 @@ const SortBar = memo(({ refetch }: { refetch: () => void }) => {
               onClose={onClose}
               onConfirm={handleConfirm}
               isLoading={isLoadingAdd}
-              defaultValue={filterCategory}
+              defaultValue={filterCategory.toUpperCase()}
             />
           )}
         </Suspense>

@@ -34,6 +34,8 @@ const Carousel = () => {
                 backgroundSize="cover"
                 objectFit="cover"
                 fallbackSrc={FALLBACK_SRC}
+                width="100%"
+                height={{ xs: "240px", md: "280px", lg: "550px" }}
               />
             </Box>
           ))}

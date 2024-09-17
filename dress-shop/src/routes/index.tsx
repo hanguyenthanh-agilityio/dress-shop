@@ -17,8 +17,6 @@ export const router = createBrowserRouter(
     <Route>
       <Route path={ROUTES.HOME} element={<MainLayout />}>
         {MAIN_ROUTES.map(({ path, Component }) => {
-          console.log("Path ===", path);
-
           return (
             <Route key={path} path={path} id={path} element={<Component />} />
           );

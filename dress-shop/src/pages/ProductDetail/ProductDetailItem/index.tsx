@@ -42,8 +42,6 @@ const ProductDetailItem = memo<ProductDetailItemProps>(
 
     const { handleAddToCart } = UseCartContext();
 
-    // const { isOpen, onOpen, onClose } = useDisclosure();
-
     const toast = useToast();
 
     const { mutate: updateProduct, isLoading: isLoadingUpdate } =
